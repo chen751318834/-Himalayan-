@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14E17e" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="101" id="KGk-i7-Jjw" customClass="RCDiscover2IMGViewCell">
+            <rect key="frame" x="0.0" y="1" width="320" height="101"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PMv-qa-ARa">
+                        <rect key="frame" x="8" y="8" width="304" height="84"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="finditem_hotpeople" translatesAutoresizingMaskIntoConstraints="NO" id="Ghs-Ce-0o5">
+                                <rect key="frame" x="0.0" y="0.0" width="147" height="84"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="finditem_hotsound" translatesAutoresizingMaskIntoConstraints="NO" id="W3l-6f-ha1">
+                                <rect key="frame" x="157" y="0.0" width="147" height="84"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="W3l-6f-ha1" firstAttribute="top" secondItem="PMv-qa-ARa" secondAttribute="top" id="9i8-oV-Uzr"/>
+                            <constraint firstAttribute="trailing" secondItem="W3l-6f-ha1" secondAttribute="trailing" id="9uZ-L4-PhF"/>
+                            <constraint firstItem="Ghs-Ce-0o5" firstAttribute="top" secondItem="PMv-qa-ARa" secondAttribute="top" id="ci3-Yv-vQm"/>
+                            <constraint firstItem="Ghs-Ce-0o5" firstAttribute="leading" secondItem="PMv-qa-ARa" secondAttribute="leading" id="ky5-gj-OZf"/>
+                            <constraint firstAttribute="bottom" secondItem="W3l-6f-ha1" secondAttribute="bottom" id="l3a-wb-TdO"/>
+                            <constraint firstItem="W3l-6f-ha1" firstAttribute="leading" secondItem="Ghs-Ce-0o5" secondAttribute="trailing" constant="10" id="rDA-Sv-ulM"/>
+                            <constraint firstItem="W3l-6f-ha1" firstAttribute="width" secondItem="Ghs-Ce-0o5" secondAttribute="width" id="tYH-EM-qnh"/>
+                            <constraint firstAttribute="bottom" secondItem="Ghs-Ce-0o5" secondAttribute="bottom" id="zn1-3P-YYh"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
+                <constraints>
+                    <constraint firstItem="PMv-qa-ARa" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="1za-YB-cPF"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="PMv-qa-ARa" secondAttribute="trailing" id="5xf-pN-KjS"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="PMv-qa-ARa" secondAttribute="bottom" id="8uu-wt-pt2"/>
+                    <constraint firstItem="PMv-qa-ARa" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="oeh-6a-2ke"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
+            <connections>
+                <outlet property="icon1View" destination="Ghs-Ce-0o5" id="PR6-xC-cVy"/>
+                <outlet property="icon2View" destination="W3l-6f-ha1" id="oLl-Xb-2fZ"/>
+            </connections>
+            <point key="canvasLocation" x="615" y="345.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="finditem_hotpeople" width="150" height="70"/>
+        <image name="finditem_hotsound" width="150" height="70"/>
+    </resources>
+</document>
