@@ -18,8 +18,11 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self.backgroundColor = [UIColor colorWithWhite:0.902 alpha:1.000];
+
+        self.backgroundColor = [UIColor redColor];
+
         UIImageView * imageview =[[UIImageView alloc]init];
+        imageview.userInteractionEnabled = YES;
         [self addSubview:imageview];
         self.imageview = imageview;
 

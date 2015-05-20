@@ -170,8 +170,9 @@ static const NSUInteger sectionCount = 100;
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
     if (collectionView == self.scrollCollectionView) {
         return sectionCount;
+    }else{
+        return [self.viewModel numberOfSectionsInCollectionView];
     }
-    return [self.viewModel numberOfSectionsInCollectionView];
 
 }
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
@@ -195,6 +196,7 @@ static const NSUInteger sectionCount = 100;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    if (collectionView == self.categoryCollectionView) {
         if (indexPath.item == [self.viewModel numberOfItemInSectionInCategoryCollectionView:indexPath.section] - 1) {
             CGRect newFrame = self.headerView.frame;
             newFrame.size.height = 324;
@@ -209,10 +211,12 @@ static const NSUInteger sectionCount = 100;
             RCCateroryListViewController * categoryListVC = [[RCCateroryListViewController alloc]init];
             categoryListVC.category = catrgory;
             [self.navigationController pushViewController:categoryListVC animated:YES];
-
+            
         }
+        
 
-}
+    }
+    }
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
     [self removeTimer];

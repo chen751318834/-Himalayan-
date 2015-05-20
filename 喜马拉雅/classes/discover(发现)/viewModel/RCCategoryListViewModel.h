@@ -12,12 +12,15 @@
 #import "RCList.h"
 @interface RCCategoryListViewModel : NSObject
 @property(nonatomic,strong) RCCatrgory  *category;
+
 /**
  *  collectionView
  *
  */
 - (NSInteger)numberOfSectionsInCollectionView;
 - (NSInteger)numberOfItemInSectionInCollectionView:(NSInteger)section;
+- (NSInteger)numberOfItemInSectionInIMgCollectionView:(NSInteger)section;
+
 - (RCCategoryList *)categoryListAtIndexPathInCollectionView: (NSIndexPath *)indexPath;
 - (RCList *)categoryFocusImageAtIndexPathInCollectionView: (NSIndexPath *)indexPath;
 

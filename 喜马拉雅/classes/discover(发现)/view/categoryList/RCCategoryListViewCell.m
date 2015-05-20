@@ -18,8 +18,9 @@
 - (void)setList:(RCCategoryList *)list{
 
     _list = list;
+        self.titleLabel.text = list.tname;
     [self.iconVIew sd_setImageWithURL:[NSURL URLWithString:list.cover_path] placeholderImage:[UIImage imageNamed:@"find_usercover"]];
-    self.titleLabel.text = list.tname;
+
 }
 
 

@@ -11,20 +11,23 @@
 #import "RCCategoryList.h"
 #import "RCDiscoverDataTool.h"
 #import "RCCategoryListViewModel.h"
-#import "RCFocusImageViewCell.h"
+#import "RCCollectionHeaderReusableView.h"
 #import "RCCategoryListResult.h"
 #import "RCCategryListParam.h"
 #import "RCCategoryListViewCell.h"
+#import "RCCategoryFocusImageViewCell.h"
 @interface RCCateroryListViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 @property(nonatomic,weak) UICollectionView   *collectionView;
 @property(nonatomic,strong) RCCategoryListViewModel  *viewModel;
+@property(nonatomic,weak) UIPageControl   *pageControl;
 @property(nonatomic,weak) UICollectionView   *scrollCollectionView;
-
+@property(strong,nonatomic) NSTimer * timer;
 @end
-
 @implementation RCCateroryListViewController
-static NSString * const imgID = @"imgCell";
+static NSString * const imgID = @"categoryFocusImageCell";
 static NSString * const reuseIdentifier = @"categaoryListCell";
+static const NSUInteger sectionCount = 100;
+
 #pragma mark - 懒加载
 -  (RCCategoryListViewModel *)viewModel{
     if (!_viewModel) {
@@ -35,30 +38,51 @@ static NSString * const reuseIdentifier = @"categaoryListCell";
     return _viewModel;
 }
 #pragma mark - 初始化
+//- (void)viewWillAppear:(BOOL)animated{
+//
+//    [super viewWillAppear:animated];
+//    [self setUpConllectionLayoutWithCollectionWidth:self.view.width orientation:self.preferredInterfaceOrientationForPresentation];
+//
+//}
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.collectionView.backgroundColor = [UIColor whiteColor];
+        [self setUpCollectionView];
     self.title = self.category.itemTitle;
-    [self setUpCollectionView];
+    [KVNProgress showWithParameters:@{KVNProgressViewParameterStatus:@"正在加载..."}];
     [self.viewModel fetchCategoryListWithSuccess:^{
         [self.collectionView reloadData];
+        [KVNProgress dismiss];
     } failure:^{
-  
+        [KVNProgress dismiss];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5.0f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [KVNProgress showError];
+        });
     }];
-
+    [KVNProgress showWithParameters:@{KVNProgressViewParameterStatus:@"正在加载..."}];
     [self.viewModel fetchCategoryFocusImageWithSuccess:^{
-        [self.collectionView reloadData];
+        [self.scrollCollectionView reloadData];
+        [KVNProgress dismiss];
+        [self addTimer];
 
     } failure:^{
-
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5.0f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [KVNProgress showError];
+        });
     }];
+
+
 }
 
 - (void)setUpCollectionView{
     UICollectionViewFlowLayout * layout = [[UICollectionViewFlowLayout alloc]init];
+//    if ([self.viewModel numberOfItemInSectionInIMgCollectionView:0] != 0) {
+        [layout setHeaderReferenceSize:CGSizeMake(self.view.bounds.size.width, 160)];
+//    }
     CGFloat margin = 10;
     NSUInteger counlmCount = 3;
     CGFloat itemWidth = (self.view.frame.size.width - (margin *(counlmCount +1)))/counlmCount;
-    layout.itemSize = CGSizeMake(itemWidth, itemWidth);
+    layout.itemSize = CGSizeMake(itemWidth, 115);
     layout.minimumInteritemSpacing = margin;
     layout.minimumLineSpacing = margin;
     layout.sectionInset = UIEdgeInsetsMake( margin*0.5, margin, margin*0.5, margin);
@@ -69,53 +93,101 @@ static NSString * const reuseIdentifier = @"categaoryListCell";
     [self.view addSubview:collectionView];
     [collectionView autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
     self.collectionView  =  collectionView;
-
+    [self.collectionView registerNib:[UINib nibWithNibName:@"RCCollectionHeaderReusableView" bundle:nil]  forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderView"];
     [self.collectionView registerNib:[UINib nibWithNibName:@"RCCategoryListViewCell" bundle:nil] forCellWithReuseIdentifier:reuseIdentifier];
-
-    [self.collectionView registerNib:[UINib nibWithNibName:@"RCFocusImageViewCell" bundle:nil] forCellWithReuseIdentifier:imgID];
-//
-//    UICollectionViewFlowLayout * scrollLayout = [[UICollectionViewFlowLayout alloc]init];
-//    scrollLayout.itemSize = CGSizeMake(self.view.bounds.size.width, 200);
-//    scrollLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-//    scrollLayout.minimumLineSpacing = 0;
-//    scrollLayout.minimumInteritemSpacing = 0;
-//    UICollectionView * scrollCollectionView =  [self setUpConllectionViewWithLayout:scrollLayout];
-//    self.scrollCollectionView = scrollCollectionView;
-//    scrollCollectionView.backgroundColor = [UIColor redColor];
-//    [self.scrollCollectionView registerClass:[RCFocusImageViewCell class] forCellWithReuseIdentifier:imgID];
-//    scrollCollectionView.pagingEnabled = YES;
-//    scrollCollectionView.showsHorizontalScrollIndicator = NO;
-//    [collectionView addSubview:scrollCollectionView];
-//    [scrollCollectionView autoSetDimension:ALDimensionHeight toSize:200];
-//    [scrollCollectionView autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsMake(0, 0, 0, 0) excludingEdge:ALEdgeTop];
-//    
-
-
-
 }
 #pragma mark <UICollectionViewDataSource>
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
 
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
+    if (collectionView == self.scrollCollectionView) {
+        return sectionCount;
+    }
     return [self.viewModel numberOfSectionsInCollectionView];
-}
+
+ }
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    if (collectionView == self.scrollCollectionView) {
+        self.pageControl.numberOfPages = [self.viewModel numberOfItemInSectionInIMgCollectionView:section];
+        return [self.viewModel  numberOfItemInSectionInIMgCollectionView:section];
+    }
     return [self.viewModel numberOfItemInSectionInCollectionView:section];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-//    if (indexPath.section == 0) {
-//        RCFocusImageViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:imgID forIndexPath:indexPath];
-//        cell.list = [self.viewModel categoryFocusImageAtIndexPathInCollectionView:indexPath];
-//        return cell;
-//    }
+    if (collectionView == self.scrollCollectionView) {
+        RCCategoryFocusImageViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:imgID forIndexPath:indexPath];
+        cell.list = [self.viewModel categoryFocusImageAtIndexPathInCollectionView:indexPath];
+        return cell;
+    }
     RCCategoryListViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     cell.list = [self.viewModel categoryListAtIndexPathInCollectionView:indexPath];
     return cell;
 
 }
+#pragma mark -  添加header
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{
 
+
+    UICollectionViewFlowLayout * scrollLayout = [[UICollectionViewFlowLayout alloc]init];
+    scrollLayout.itemSize = CGSizeMake(self.view.bounds.size.width, 160);
+    scrollLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+    scrollLayout.minimumLineSpacing = 0;
+    scrollLayout.minimumInteritemSpacing = 0;
+
+    UICollectionView * scrollCollectionView =  [self setUpConllectionViewWithLayout:scrollLayout];
+    scrollCollectionView.pagingEnabled = YES;
+    scrollCollectionView.showsHorizontalScrollIndicator = NO;
+
+        RCCollectionHeaderReusableView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderView" forIndexPath:indexPath];
+    [headerView addSubview:scrollCollectionView];
+    [scrollCollectionView autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
+    self.scrollCollectionView = scrollCollectionView;
+
+    [scrollCollectionView registerClass:[RCCategoryFocusImageViewCell class] forCellWithReuseIdentifier:imgID];
+
+    UIPageControl * pageControl = [[UIPageControl alloc]init];
+    pageControl.userInteractionEnabled = NO;
+    [headerView addSubview:pageControl];
+    [pageControl autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsMake(0, 0, 0, 0) excludingEdge:ALEdgeTop];
+    [pageControl autoSetDimension:ALDimensionHeight toSize:20];
+
+    self.pageControl = pageControl;
+
+        return headerView;
+  
+}
 #pragma mark <UICollectionViewDelegate>
 
+
+#pragma mark - 处理屏幕旋转
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration{
+//    [self setUpConllectionLayoutWithCollectionWidth:self.view.height orientation:toInterfaceOrientation];
+}
+/**
+ *  设置容器之间的间距
+ *
+ *  @param collectionWidth 整个容器的宽带
+ *  @param orientation     屏幕方向
+ */
+- (void)setUpConllectionLayoutWithCollectionWidth:(CGFloat)collectionWidth orientation:(UIInterfaceOrientation)orientation{
+
+    int colums = UIInterfaceOrientationIsPortrait(orientation) ?3:5;
+    UICollectionViewFlowLayout * layout =(UICollectionViewFlowLayout *)self.collectionView.collectionViewLayout;
+    int LineSpacing =10;
+    layout.minimumLineSpacing =LineSpacing;
+    int InteritemSpacing = (collectionWidth - colums * layout.itemSize.width)/(colums +1);
+    layout.minimumInteritemSpacing = InteritemSpacing;
+
+    layout.sectionInset =UIEdgeInsetsMake(20,InteritemSpacing, 20, InteritemSpacing);
+//    CGFloat margin = 10;
+//    NSUInteger counlmCount = 3;
+//    CGFloat itemWidth = (self.view.frame.size.width - (margin *(counlmCount +1)))/counlmCount;
+//    layout.itemSize = CGSizeMake(itemWidth, 115);
+//    layout.minimumInteritemSpacing = margin;
+//    layout.minimumLineSpacing = margin;
+//    layout.sectionInset = UIEdgeInsetsMake( margin*0.5, margin, margin*0.5, margin);
+
+}
 
 #pragma mark - private
 - (UICollectionView *)setUpConllectionViewWithLayout:(UICollectionViewFlowLayout *)layout{
@@ -124,5 +196,79 @@ static NSString * const reuseIdentifier = @"categaoryListCell";
     collectionView.delegate = self;
     collectionView.dataSource = self;
     return collectionView;
+}
+
+#pragma mark - 定时器
+/**
+ *  添加定时器
+ */
+- (void)addTimer{
+    NSTimer * timer = [NSTimer scheduledTimerWithTimeInterval:3.0f target:self selector:@selector(nextPage) userInfo:nil repeats:YES];
+    [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
+    self.timer = timer;
+
+}
+/**
+ *  移除定时器
+ */
+- (void)removeTimer{
+    [self.timer invalidate];
+    self.timer = nil;
+}
+- (NSIndexPath *)resetedIndexPath{
+    if ( [self.viewModel numberOfItemInSectionInIMgCollectionView:0]  >=2) {
+
+
+        //    RCLog(@"resetedIndexPath-----%ld",(long)self.pageControl.numberOfPages);
+        NSIndexPath * currentIndexPath = [[self.scrollCollectionView indexPathsForVisibleItems] firstObject];
+
+        //滚动到最中间
+        NSIndexPath * currentReSetIndexPath = [NSIndexPath indexPathForItem:currentIndexPath.item inSection:sectionCount*0.5];
+
+        [self.scrollCollectionView scrollToItemAtIndexPath:currentReSetIndexPath atScrollPosition:UICollectionViewScrollPositionLeft animated:NO];
+        return currentReSetIndexPath;
+    }
+    return nil;
+}
+- (void)nextPage{
+
+    //获取当前滚动位置
+    NSIndexPath * currentIndexPath = [self resetedIndexPath];
+    NSInteger nextItem = currentIndexPath.item +1;
+    NSInteger nextSection = currentIndexPath.section;
+
+    //滚动到下一页
+    if (nextItem == [self.viewModel numberOfItemInSectionInIMgCollectionView:0] ) {
+        nextItem = 0;
+        nextSection ++;
+    }
+    if ([self.viewModel numberOfItemInSectionInIMgCollectionView:0]   != 0) {
+        NSIndexPath * nextIndexPath = [NSIndexPath indexPathForItem:nextItem inSection:nextSection];
+        [self.scrollCollectionView scrollToItemAtIndexPath:nextIndexPath atScrollPosition:UICollectionViewScrollPositionLeft animated:YES];
+    }
+    
+}
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
+    [self removeTimer];
+
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
+
+    [self addTimer];
+
+}
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+
+    [self resetedIndexPath];
+
+}
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    if (scrollView == self.scrollCollectionView) {
+        int currentPage = (int)(scrollView.contentOffset.x /scrollView.bounds.size.width+0.5)%[self.viewModel numberOfItemInSectionInIMgCollectionView:0];
+        self.pageControl.currentPage = currentPage;
+    }
+    //
 }
 @end

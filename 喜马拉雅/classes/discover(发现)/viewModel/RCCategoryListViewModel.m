@@ -18,6 +18,7 @@
 @interface RCCategoryListViewModel ()
 @property(nonatomic,strong) NSMutableArray  *categoryLists;
 @property(nonatomic,strong) NSMutableArray  *categoryFocusImages;
+
 @end
 @implementation RCCategoryListViewModel
 -  (NSMutableArray *)categoryFocusImages{
@@ -59,7 +60,8 @@
     param.device = @"android";
     [RCDiscoverDataTool categoryFocusImageWithParam:param
       success:^(RCCategoryFocusImageResult *result) {
-          [self.categoryFocusImages addObject:result.list];
+          [self.categoryFocusImages addObjectsFromArray:result.list];
+          RCLog(@"%@",self.categoryFocusImages);
           success();
     } failure:^(NSError *error) {
         RCLog(@"%@",error);
@@ -71,13 +73,13 @@
 }
 
 - (NSInteger)numberOfItemInSectionInCollectionView:(NSInteger)section{
-//    if (section == 0) {
-//        return self.categoryFocusImages.count;
-//
-//    }
+
     return self.categoryLists.count;
 }
+- (NSInteger)numberOfItemInSectionInIMgCollectionView:(NSInteger)section{
 
+    return self.categoryFocusImages.count;
+}
 - (RCCategoryList *)categoryListAtIndexPathInCollectionView: (NSIndexPath *)indexPath{
     return self.categoryLists[indexPath.item];
 }
