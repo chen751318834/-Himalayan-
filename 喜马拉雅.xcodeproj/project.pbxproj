@@ -119,6 +119,8 @@
 		4BF7882F1B0DD4B50002704A /* RCHotAudioVIewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF7882E1B0DD4B50002704A /* RCHotAudioVIewModel.m */; };
 		4BF788331B0DD6250002704A /* RCHotAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF788321B0DD6250002704A /* RCHotAudio.m */; };
 		4BF788361B0DD6A90002704A /* RCOnneHotAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF788351B0DD6A90002704A /* RCOnneHotAudio.m */; };
+		4BF7883A1B0DEE310002704A /* RCHotAudioViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF788381B0DEE310002704A /* RCHotAudioViewCell.m */; };
+		4BF7883B1B0DEE310002704A /* RCHotAudioViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BF788391B0DEE310002704A /* RCHotAudioViewCell.xib */; };
 		6123F0DE997B4F49BDD11F01 /* libPods-喜马拉雅.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE502E6A73C69FAB4A1ACDFF /* libPods-喜马拉雅.a */; };
 /* End PBXBuildFile section */
 
@@ -351,6 +353,9 @@
 		4BF788321B0DD6250002704A /* RCHotAudio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCHotAudio.m; sourceTree = "<group>"; };
 		4BF788341B0DD6A90002704A /* RCOnneHotAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCOnneHotAudio.h; sourceTree = "<group>"; };
 		4BF788351B0DD6A90002704A /* RCOnneHotAudio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCOnneHotAudio.m; sourceTree = "<group>"; };
+		4BF788371B0DEE310002704A /* RCHotAudioViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCHotAudioViewCell.h; sourceTree = "<group>"; };
+		4BF788381B0DEE310002704A /* RCHotAudioViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCHotAudioViewCell.m; sourceTree = "<group>"; };
+		4BF788391B0DEE310002704A /* RCHotAudioViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RCHotAudioViewCell.xib; sourceTree = "<group>"; };
 		A87DFC431E05D82BB5657FCF /* Pods-喜马拉雅.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-喜马拉雅.release.xcconfig"; path = "Pods/Target Support Files/Pods-喜马拉雅/Pods-喜马拉雅.release.xcconfig"; sourceTree = "<group>"; };
 		CE502E6A73C69FAB4A1ACDFF /* libPods-喜马拉雅.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-喜马拉雅.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE5D8EB88CC2CE53CB7B2C23 /* Pods-喜马拉雅.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-喜马拉雅.debug.xcconfig"; path = "Pods/Target Support Files/Pods-喜马拉雅/Pods-喜马拉雅.debug.xcconfig"; sourceTree = "<group>"; };
@@ -942,10 +947,13 @@
 		4BF788201B0DD2100002704A /* hotAudio(热门声音) */ = {
 			isa = PBXGroup;
 			children = (
-				4BF788241B0DD22B0002704A /* RCTitleButton.h */,
-				4BF788251B0DD22B0002704A /* RCTitleButton.m */,
 				4BF788271B0DD2560002704A /* RCHotAudioViewController.h */,
 				4BF788281B0DD2560002704A /* RCHotAudioViewController.m */,
+				4BF788371B0DEE310002704A /* RCHotAudioViewCell.h */,
+				4BF788381B0DEE310002704A /* RCHotAudioViewCell.m */,
+				4BF788391B0DEE310002704A /* RCHotAudioViewCell.xib */,
+				4BF788241B0DD22B0002704A /* RCTitleButton.h */,
+				4BF788251B0DD22B0002704A /* RCTitleButton.m */,
 			);
 			path = "hotAudio(热门声音)";
 			sourceTree = "<group>";
@@ -1065,6 +1073,7 @@
 				4B1D81471B0C935D00B7C9DC /* Info.plist in Resources */,
 				4B1D81C51B0C967300B7C9DC /* RCDiscover2IMGViewCell.xib in Resources */,
 				4B1D828F1B0C9C9200B7C9DC /* KVNProgressView.xib in Resources */,
+				4BF7883B1B0DEE310002704A /* RCHotAudioViewCell.xib in Resources */,
 				4B1D81C21B0C967300B7C9DC /* RCCategoryListViewCell.xib in Resources */,
 				4B1D81C81B0C967300B7C9DC /* RCDiscoverItemViewCell.xib in Resources */,
 				4BF7881F1B0DCFBC0002704A /* RCSectionheaderView.xib in Resources */,
@@ -1175,6 +1184,7 @@
 				4B1D81811B0C952000B7C9DC /* RCMeViewController.m in Sources */,
 				4B1D81DE1B0C96F200B7C9DC /* RCPlayListViewCell.m in Sources */,
 				4B1D823F1B0C978000B7C9DC /* MJConst.m in Sources */,
+				4BF7883A1B0DEE310002704A /* RCHotAudioViewCell.m in Sources */,
 				4B1D81A91B0C95F600B7C9DC /* RCCustomizatinTableViewController.m in Sources */,
 				4B1D82911B0C9C9200B7C9DC /* UIImage+KVNImageEffects.m in Sources */,
 				4BF7880E1B0DBD970002704A /* UIScrollView+MJExtension.m in Sources */,

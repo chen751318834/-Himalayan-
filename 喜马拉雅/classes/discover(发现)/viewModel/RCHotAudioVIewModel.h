@@ -9,11 +9,16 @@
 #import "RCBaseViewModel.h"
 #import "RCHotAudio.h"
 @interface RCHotAudioVIewModel : RCBaseViewModel
-- (RCHotAudio *)rowAtIndexPathInTableView: (NSIndexPath *)indexPath;
 
 /**
  *  网络请求
  */
 - ( void)fetchNewHotAudioDataWithSuccess:(void (^)(void ))success failure:(void (^)(void ))failure;
 - ( void)fetchMoreHotAudioDataWithSuccess:(void (^)(void ))success failure:(void (^)(void ))failure;
+
+- ( void)fetchNewWeekHotAudioDataWithSuccess:(void (^)(void ))success failure:(void (^)(void ))failure;
+- ( void)fetchMoreWeekHotAudioDataWithSuccess:(void (^)(void ))success failure:(void (^)(void ))failure;
+
+- ( void)fetchNewLikeAudioDataWithSuccess:(void (^)(void ))success failure:(void (^)(void ))failure;
+- ( void)fetchMoreLikeAudioDataWithSuccess:(void (^)(void ))success failure:(void (^)(void ))failure;
 @end
