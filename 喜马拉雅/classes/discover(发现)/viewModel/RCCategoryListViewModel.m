@@ -61,12 +61,14 @@
     [RCDiscoverDataTool categoryFocusImageWithParam:param
       success:^(RCCategoryFocusImageResult *result) {
           [self.categoryFocusImages addObjectsFromArray:result.list];
-          RCLog(@"%@",self.categoryFocusImages);
           success();
     } failure:^(NSError *error) {
         RCLog(@"%@",error);
         failure();
     }];
+}
+- (NSUInteger)categoryFocusImageCount{
+    return self.categoryFocusImages.count;
 }
 - (NSInteger)numberOfSectionsInCollectionView{
     return 1;

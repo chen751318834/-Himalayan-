@@ -21,5 +21,6 @@
 #import "UIView+Extension.h"
 #import "UIView+AutoLayout.h"
 #import "UIImage+RC.h"
+#import "MJExtension.h"
 #import "KVNProgress.h"
 #endif

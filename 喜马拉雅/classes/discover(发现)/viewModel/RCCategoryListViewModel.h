@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "RCCategoryList.h"
+#import <UIKit/UIKit.h>
 #import "RCCatrgory.h"
 #import "RCList.h"
 @interface RCCategoryListViewModel : NSObject
@@ -23,7 +24,7 @@
 
 - (RCCategoryList *)categoryListAtIndexPathInCollectionView: (NSIndexPath *)indexPath;
 - (RCList *)categoryFocusImageAtIndexPathInCollectionView: (NSIndexPath *)indexPath;
-
+- (NSUInteger)categoryFocusImageCount;
 /**
  *  网络请求
  */

@@ -44,14 +44,15 @@ static const NSUInteger sectionCount = 100;
 //    [self setUpConllectionLayoutWithCollectionWidth:self.view.width orientation:self.preferredInterfaceOrientationForPresentation];
 //
 //}
-- (void)viewDidLoad {
-    [super viewDidLoad];
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    __weak typeof(self) weekSelf = self;
+
     self.collectionView.backgroundColor = [UIColor whiteColor];
-        [self setUpCollectionView];
     self.title = self.category.itemTitle;
     [KVNProgress showWithParameters:@{KVNProgressViewParameterStatus:@"正在加载..."}];
     [self.viewModel fetchCategoryListWithSuccess:^{
-        [self.collectionView reloadData];
+        [weekSelf.collectionView reloadData];
         [KVNProgress dismiss];
     } failure:^{
         [KVNProgress dismiss];
@@ -61,22 +62,28 @@ static const NSUInteger sectionCount = 100;
     }];
     [KVNProgress showWithParameters:@{KVNProgressViewParameterStatus:@"正在加载..."}];
     [self.viewModel fetchCategoryFocusImageWithSuccess:^{
-        [self.scrollCollectionView reloadData];
+        [weekSelf.scrollCollectionView reloadData];
         [KVNProgress dismiss];
-        [self addTimer];
+        [weekSelf addTimer];
 
     } failure:^{
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5.0f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [KVNProgress showError];
         });
     }];
+    
 
+}
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [self setUpCollectionView];
 
 }
 
 - (void)setUpCollectionView{
     UICollectionViewFlowLayout * layout = [[UICollectionViewFlowLayout alloc]init];
     [layout setHeaderReferenceSize:CGSizeMake(self.view.bounds.size.width, 160)];
+
     CGFloat margin = 10;
     NSUInteger counlmCount = 3;
     CGFloat itemWidth = (self.view.frame.size.width - (margin *(counlmCount +1)))/counlmCount;
@@ -103,9 +110,11 @@ static const NSUInteger sectionCount = 100;
     return [self.viewModel numberOfSectionsInCollectionView];
 
  }
+
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
 
     if (collectionView == self.scrollCollectionView) {
+
                 self.pageControl.numberOfPages = [self.viewModel numberOfItemInSectionInIMgCollectionView:section];
 
         return [self.viewModel  numberOfItemInSectionInIMgCollectionView:section];
@@ -137,6 +146,8 @@ static const NSUInteger sectionCount = 100;
         return headerView;
   
 }
+
+
 #pragma mark <UICollectionViewDelegate>
 
 

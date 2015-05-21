@@ -15,7 +15,7 @@ static const NSUInteger RCMargin = 5;
 - (instancetype)initWithFrame:(CGRect)frame{
     if ([super initWithFrame:frame]) {
         [self setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        self.titleLabel.font = [UIFont boldSystemFontOfSize:17];
+        self.titleLabel.font = [UIFont boldSystemFontOfSize:15];
         [self setImage:[UIImage imageNamed:@"findsection_more_n"] forState:UIControlStateNormal];
         self.imageView.contentMode = UIViewContentModeRight;
         self.titleLabel.contentMode = UIViewContentModeLeft;

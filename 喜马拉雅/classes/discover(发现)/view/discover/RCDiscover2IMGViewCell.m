@@ -7,8 +7,9 @@
 //
 
 #import "RCDiscover2IMGViewCell.h"
-
-
+#import "RCHotAnthorViewController.h"
+#import "RCTabBarViewController.h"
+#import "RCNavigationController.h"
 @interface RCDiscover2IMGViewCell ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *icon1View;
@@ -34,6 +35,9 @@
 }
 - (void)icon1ViewDidClicked{
 
+    RCTabBarViewController * tabBarVC =(RCTabBarViewController *)   [UIApplication sharedApplication].keyWindow.rootViewController;
+    RCNavigationController * navVC = ( RCNavigationController *)tabBarVC.selectedViewController;
+    [navVC pushViewController:[[RCHotAnthorViewController alloc]init] animated:YES];
     NSLog(@"icon1ViewDidClicked");
 
 }
