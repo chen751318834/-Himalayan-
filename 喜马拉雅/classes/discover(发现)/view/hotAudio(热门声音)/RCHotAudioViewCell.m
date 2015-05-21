@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *saveCountLabel;
 @property (weak, nonatomic) IBOutlet UIButton *sayCountLabel;
 @property (weak, nonatomic) IBOutlet UIButton *titleLeghtLabel;
+@property (weak, nonatomic) IBOutlet UILabel *soureLabel;
 
 @end
 @implementation RCHotAudioViewCell
@@ -44,13 +45,41 @@
      "userSource": 2,
      "createdAt": 1366090550000
      */
+    if ([audio.userSource  isEqual: @1]) {
+           self.soureLabel.text = @"原创";
+    }else{
+        self.soureLabel.text = @"采集";
+
+    }
 
     self.titleLabel.text = audio.title;
     self.subTitleLabel.text = [NSString stringWithFormat:@"by %@",audio.nickname];
-    [self.playCountLabel setTitle:[NSString stringWithFormat:@"%@",audio.playsCounts] forState:UIControlStateNormal];
-    [self.saveCountLabel setTitle:[NSString stringWithFormat:@"%@",audio.sharesCounts] forState:UIControlStateNormal];
-    [self.sayCountLabel setTitle:[NSString stringWithFormat:@"%@",audio.commentsCounts] forState:UIControlStateNormal];
-    [self.titleLeghtLabel setTitle:[NSString stringWithFormat:@"%@",audio.duration] forState:UIControlStateNormal];
+    [self.titleLeghtLabel setTitle:[NSString stringWithFormat:@"%.2ld:%.2ld", [audio.duration integerValue]/60,[audio.duration integerValue]%60] forState:UIControlStateNormal];
+    [self setUpWithButton:self.playCountLabel count:[audio.playsCounts intValue] title:nil];
+    [self setUpWithButton:self.saveCountLabel count:[audio.sharesCounts intValue] title:nil];
+    [self setUpWithButton:self.sayCountLabel count:[audio.commentsCounts intValue] title:nil];
+
+}
+- (void)setUpWithButton:(UIButton *)button count:(int)count title:(NSString *)title {
+    if (count ==0) {
+        [button setTitle:title forState:UIControlStateNormal];
+    }else{
+
+        //小于1000
+        if (count <10000) {  //小于1000
+            title = [NSString stringWithFormat:@"%d",count];
+        }else if(count >10000){    //大于一万
+            title = [NSString stringWithFormat:@"%.1f万",count/10000.0];
+            title = [title stringByReplacingOccurrencesOfString:@".0" withString:@""];
+        }
+
+        //大于14000  -> 1.4万
+
+        //大于10445  -> 1万
+        [button setTitle:title forState:UIControlStateNormal];
+
+
+    }
 
 }
 - (IBAction)download:(id)sender {

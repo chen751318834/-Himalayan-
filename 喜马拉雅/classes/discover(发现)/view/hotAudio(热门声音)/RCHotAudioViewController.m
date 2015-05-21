@@ -141,8 +141,12 @@
     segmentControl.tintColor = [UIColor colorWithRed:0.983 green:0.000 blue:0.257 alpha:1.000];
     @weakify(self);
     [[segmentControl rac_signalForControlEvents:UIControlEventValueChanged] subscribeNext:^(id x) {
-        [self.tableView.gifHeader beginRefreshing];
         @strongify(self);
+        [tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:section] atScrollPosition:UITableViewScrollPositionTop animated:YES];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self.tableView.gifHeader beginRefreshing];
+
+        });
         self.courrentIndex = segmentControl.selectedSegmentIndex;
     }];
     self.segmentControl = segmentControl;
