@@ -15,16 +15,11 @@ static const NSUInteger RCMargin = 5;
 - (instancetype)initWithFrame:(CGRect)frame{
     if ([super initWithFrame:frame]) {
         [self setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        self.titleLabel.font = [UIFont boldSystemFontOfSize:15];
-        [self setImage:[UIImage imageNamed:@"findsection_more_n"] forState:UIControlStateNormal];
-        self.imageView.contentMode = UIViewContentModeRight;
-        self.titleLabel.contentMode = UIViewContentModeLeft;
-        self.imageEdgeInsets = UIEdgeInsetsMake(0, 50, 0, 0);
-        self.titleEdgeInsets = UIEdgeInsetsMake(0, -100, 0, 0);
-
-
+        self.titleLabel.font = [UIFont boldSystemFontOfSize:17];
+        [self setImage:[UIImage imageNamed:@"navigationbar_arrow_down"] forState:UIControlStateNormal];
+        [self setImage:[UIImage imageNamed:@"navigationbar_arrow_up"] forState:UIControlStateSelected];
     }
-
+    
     return self;
     
     
@@ -36,8 +31,8 @@ static const NSUInteger RCMargin = 5;
 }
 - (void)layoutSubviews{
     [super layoutSubviews];
-    self.titleLabel.x = self.imageView.x-150;
-    self.imageView.x = CGRectGetMaxX(self.titleLabel.frame) + RCMargin+240;
+    self.titleLabel.x = self.imageView.x;
+    self.imageView.x = CGRectGetMaxX(self.titleLabel.frame) + RCMargin;
 }
 - (void)setTitle:(NSString *)title forState:(UIControlState)state
 {
@@ -54,5 +49,9 @@ static const NSUInteger RCMargin = 5;
     // 只要修改了图片，就让按钮重新计算自己的尺寸
     [self sizeToFit];
 }
+- (void)setArrowUp:(BOOL)arrowUp{
+    _arrowUp = arrowUp;
+    self.selected = arrowUp;
 
+}
 @end

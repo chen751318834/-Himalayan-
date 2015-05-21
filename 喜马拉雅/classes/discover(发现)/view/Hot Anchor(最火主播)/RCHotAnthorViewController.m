@@ -26,7 +26,7 @@
     [super viewDidLoad];
     self.title = @"最火主播";
     self.tableView.separatorStyle = UITableViewCellSelectionStyleNone;
-    self.contents = self.viewModel.anchors;
+    self.contents = self.viewModel.models;
 }
 - (void)loadNewData{
 
@@ -57,7 +57,7 @@
 
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 225;
+    return 240;
 }
 
 #pragma mark - UITableViewDelegate

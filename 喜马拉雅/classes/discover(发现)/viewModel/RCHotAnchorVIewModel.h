@@ -8,13 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import "RCAnchorList.h"
-@interface RCHotAnchorVIewModel : NSObject
+#import "RCBaseViewModel.h"
+@interface RCHotAnchorVIewModel : RCBaseViewModel
 /**
  *  tableview
  */
 - (RCAnchorList *)rowAtIndexPathInTableView: (NSIndexPath *)indexPath;
-@property(nonatomic,strong) NSMutableArray  *anchors;
-
 
 /**
  *  网络请求

@@ -10,6 +10,7 @@
 #import "RCHotAnthorViewController.h"
 #import "RCTabBarViewController.h"
 #import "RCNavigationController.h"
+#import "RCHotAudioViewController.h"
 @interface RCDiscover2IMGViewCell ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *icon1View;
@@ -38,11 +39,12 @@
     RCTabBarViewController * tabBarVC =(RCTabBarViewController *)   [UIApplication sharedApplication].keyWindow.rootViewController;
     RCNavigationController * navVC = ( RCNavigationController *)tabBarVC.selectedViewController;
     [navVC pushViewController:[[RCHotAnthorViewController alloc]init] animated:YES];
-    NSLog(@"icon1ViewDidClicked");
 
 }
 - (void)icon2ViewDidClicked{
 
-    NSLog(@"icon2ViewDidClicked");
+    RCTabBarViewController * tabBarVC =(RCTabBarViewController *)   [UIApplication sharedApplication].keyWindow.rootViewController;
+    RCNavigationController * navVC = ( RCNavigationController *)tabBarVC.selectedViewController;
+    [navVC pushViewController:[[RCHotAudioViewController alloc]init] animated:YES];
 }
 @end

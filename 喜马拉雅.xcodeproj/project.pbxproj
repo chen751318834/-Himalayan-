@@ -90,7 +90,6 @@
 		4B1D82A91B0C9E7800B7C9DC /* RCTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B1D82A81B0C9E7800B7C9DC /* RCTabBarViewController.m */; };
 		4B1D82AC1B0C9F7B00B7C9DC /* UIBarButtonItem+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B1D82AB1B0C9F7B00B7C9DC /* UIBarButtonItem+MJ.m */; };
 		4B1D82B71B0CC3BB00B7C9DC /* RCCollectionHeaderReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B1D82B61B0CC3BB00B7C9DC /* RCCollectionHeaderReusableView.m */; };
-		4BF787AA1B0DA3E20002704A /* RCTitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF787A91B0DA3E20002704A /* RCTitleButton.m */; };
 		4BF787AE1B0DB7700002704A /* RCHotAnchorVIewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF787AD1B0DB7700002704A /* RCHotAnchorVIewModel.m */; };
 		4BF787C51B0DB8F20002704A /* RCAnchorList.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF787C41B0DB8F20002704A /* RCAnchorList.m */; };
 		4BF787C81B0DB9770002704A /* RCOneAnchorList.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF787C71B0DB9770002704A /* RCOneAnchorList.m */; };
@@ -111,6 +110,15 @@
 		4BF788101B0DBD970002704A /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF788041B0DBD970002704A /* UIView+MJExtension.m */; };
 		4BF788141B0DBF8E0002704A /* RCAnthorViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF788121B0DBF8E0002704A /* RCAnthorViewCell.m */; };
 		4BF788151B0DBF8E0002704A /* RCAnthorViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BF788131B0DBF8E0002704A /* RCAnthorViewCell.xib */; };
+		4BF788181B0DCE000002704A /* RCAnthorImgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF788171B0DCE000002704A /* RCAnthorImgeView.m */; };
+		4BF7881B1B0DCFA70002704A /* RCSectionheaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF7881A1B0DCFA70002704A /* RCSectionheaderView.m */; };
+		4BF7881F1B0DCFBC0002704A /* RCSectionheaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BF7881E1B0DCFBC0002704A /* RCSectionheaderView.xib */; };
+		4BF788261B0DD22B0002704A /* RCTitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF788251B0DD22B0002704A /* RCTitleButton.m */; };
+		4BF788291B0DD2560002704A /* RCHotAudioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF788281B0DD2560002704A /* RCHotAudioViewController.m */; };
+		4BF7882C1B0DD2C60002704A /* RCBaseViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF7882B1B0DD2C60002704A /* RCBaseViewModel.m */; };
+		4BF7882F1B0DD4B50002704A /* RCHotAudioVIewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF7882E1B0DD4B50002704A /* RCHotAudioVIewModel.m */; };
+		4BF788331B0DD6250002704A /* RCHotAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF788321B0DD6250002704A /* RCHotAudio.m */; };
+		4BF788361B0DD6A90002704A /* RCOnneHotAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF788351B0DD6A90002704A /* RCOnneHotAudio.m */; };
 		6123F0DE997B4F49BDD11F01 /* libPods-喜马拉雅.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE502E6A73C69FAB4A1ACDFF /* libPods-喜马拉雅.a */; };
 /* End PBXBuildFile section */
 
@@ -287,8 +295,6 @@
 		4B1D82AB1B0C9F7B00B7C9DC /* UIBarButtonItem+MJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+MJ.m"; sourceTree = "<group>"; };
 		4B1D82B51B0CC3BB00B7C9DC /* RCCollectionHeaderReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCCollectionHeaderReusableView.h; sourceTree = "<group>"; };
 		4B1D82B61B0CC3BB00B7C9DC /* RCCollectionHeaderReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCCollectionHeaderReusableView.m; sourceTree = "<group>"; };
-		4BF787A81B0DA3E20002704A /* RCTitleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCTitleButton.h; sourceTree = "<group>"; };
-		4BF787A91B0DA3E20002704A /* RCTitleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCTitleButton.m; sourceTree = "<group>"; };
 		4BF787AC1B0DB7700002704A /* RCHotAnchorVIewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCHotAnchorVIewModel.h; sourceTree = "<group>"; };
 		4BF787AD1B0DB7700002704A /* RCHotAnchorVIewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCHotAnchorVIewModel.m; sourceTree = "<group>"; };
 		4BF787C31B0DB8F20002704A /* RCAnchorList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCAnchorList.h; sourceTree = "<group>"; };
@@ -328,6 +334,23 @@
 		4BF788111B0DBF8E0002704A /* RCAnthorViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCAnthorViewCell.h; sourceTree = "<group>"; };
 		4BF788121B0DBF8E0002704A /* RCAnthorViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCAnthorViewCell.m; sourceTree = "<group>"; };
 		4BF788131B0DBF8E0002704A /* RCAnthorViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RCAnthorViewCell.xib; sourceTree = "<group>"; };
+		4BF788161B0DCE000002704A /* RCAnthorImgeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCAnthorImgeView.h; sourceTree = "<group>"; };
+		4BF788171B0DCE000002704A /* RCAnthorImgeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCAnthorImgeView.m; sourceTree = "<group>"; };
+		4BF788191B0DCFA70002704A /* RCSectionheaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCSectionheaderView.h; sourceTree = "<group>"; };
+		4BF7881A1B0DCFA70002704A /* RCSectionheaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCSectionheaderView.m; sourceTree = "<group>"; };
+		4BF7881E1B0DCFBC0002704A /* RCSectionheaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RCSectionheaderView.xib; sourceTree = "<group>"; };
+		4BF788241B0DD22B0002704A /* RCTitleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCTitleButton.h; sourceTree = "<group>"; };
+		4BF788251B0DD22B0002704A /* RCTitleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCTitleButton.m; sourceTree = "<group>"; };
+		4BF788271B0DD2560002704A /* RCHotAudioViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCHotAudioViewController.h; sourceTree = "<group>"; };
+		4BF788281B0DD2560002704A /* RCHotAudioViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCHotAudioViewController.m; sourceTree = "<group>"; };
+		4BF7882A1B0DD2C60002704A /* RCBaseViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCBaseViewModel.h; sourceTree = "<group>"; };
+		4BF7882B1B0DD2C60002704A /* RCBaseViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCBaseViewModel.m; sourceTree = "<group>"; };
+		4BF7882D1B0DD4B50002704A /* RCHotAudioVIewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCHotAudioVIewModel.h; sourceTree = "<group>"; };
+		4BF7882E1B0DD4B50002704A /* RCHotAudioVIewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCHotAudioVIewModel.m; sourceTree = "<group>"; };
+		4BF788311B0DD6250002704A /* RCHotAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCHotAudio.h; sourceTree = "<group>"; };
+		4BF788321B0DD6250002704A /* RCHotAudio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCHotAudio.m; sourceTree = "<group>"; };
+		4BF788341B0DD6A90002704A /* RCOnneHotAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCOnneHotAudio.h; sourceTree = "<group>"; };
+		4BF788351B0DD6A90002704A /* RCOnneHotAudio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCOnneHotAudio.m; sourceTree = "<group>"; };
 		A87DFC431E05D82BB5657FCF /* Pods-喜马拉雅.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-喜马拉雅.release.xcconfig"; path = "Pods/Target Support Files/Pods-喜马拉雅/Pods-喜马拉雅.release.xcconfig"; sourceTree = "<group>"; };
 		CE502E6A73C69FAB4A1ACDFF /* libPods-喜马拉雅.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-喜马拉雅.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE5D8EB88CC2CE53CB7B2C23 /* Pods-喜马拉雅.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-喜马拉雅.debug.xcconfig"; path = "Pods/Target Support Files/Pods-喜马拉雅/Pods-喜马拉雅.debug.xcconfig"; sourceTree = "<group>"; };
@@ -433,6 +456,7 @@
 		4B1D812B1B0C935D00B7C9DC /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4BF788301B0DD6170002704A /* hotAudio(热门声音) */,
 				4BF787C21B0DB8DF0002704A /* Hot Anchor(最火主播) */,
 				4B1D81851B0C957F00B7C9DC /* categoryList */,
 				4B1D81861B0C957F00B7C9DC /* discover */,
@@ -443,6 +467,7 @@
 		4B1D812C1B0C935D00B7C9DC /* view */ = {
 			isa = PBXGroup;
 			children = (
+				4BF788201B0DD2100002704A /* hotAudio(热门声音) */,
 				4BF787C91B0DBA420002704A /* Hot Anchor(最火主播) */,
 				4B1D81B01B0C967300B7C9DC /* categoryList */,
 				4B1D81B61B0C967300B7C9DC /* discover */,
@@ -453,12 +478,16 @@
 		4B1D812D1B0C935D00B7C9DC /* viewModel */ = {
 			isa = PBXGroup;
 			children = (
+				4BF7882D1B0DD4B50002704A /* RCHotAudioVIewModel.h */,
+				4BF7882E1B0DD4B50002704A /* RCHotAudioVIewModel.m */,
 				4BF787AC1B0DB7700002704A /* RCHotAnchorVIewModel.h */,
 				4BF787AD1B0DB7700002704A /* RCHotAnchorVIewModel.m */,
 				4B1D816C1B0C94D100B7C9DC /* RCCategoryListViewModel.h */,
 				4B1D816D1B0C94D100B7C9DC /* RCCategoryListViewModel.m */,
 				4B1D81551B0C945100B7C9DC /* RCDisCoverViewModel.h */,
 				4B1D81561B0C945100B7C9DC /* RCDisCoverViewModel.m */,
+				4BF7882A1B0DD2C60002704A /* RCBaseViewModel.h */,
+				4BF7882B1B0DD2C60002704A /* RCBaseViewModel.m */,
 			);
 			path = viewModel;
 			sourceTree = "<group>";
@@ -722,8 +751,6 @@
 			children = (
 				4BF787CA1B0DBA600002704A /* RCCategoryFocusImageViewCell.h */,
 				4BF787CB1B0DBA600002704A /* RCCategoryFocusImageViewCell.m */,
-				4BF787A81B0DA3E20002704A /* RCTitleButton.h */,
-				4BF787A91B0DA3E20002704A /* RCTitleButton.m */,
 				4B1D81E21B0C970B00B7C9DC /* RCRecommendAlbumViewCell.h */,
 				4B1D81E31B0C970B00B7C9DC /* RCRecommendAlbumViewCell.m */,
 				4B1D81E41B0C970B00B7C9DC /* RCRecommendAlbumViewCell.xib */,
@@ -741,6 +768,9 @@
 				4B1D81BE1B0C967300B7C9DC /* RCDiscoverItemViewCell.xib */,
 				4B1D81BF1B0C967300B7C9DC /* RCDiscoverViewController.h */,
 				4B1D81C01B0C967300B7C9DC /* RCDiscoverViewController.m */,
+				4BF788191B0DCFA70002704A /* RCSectionheaderView.h */,
+				4BF7881A1B0DCFA70002704A /* RCSectionheaderView.m */,
+				4BF7881E1B0DCFBC0002704A /* RCSectionheaderView.xib */,
 			);
 			path = discover;
 			sourceTree = "<group>";
@@ -872,6 +902,8 @@
 				4BF788111B0DBF8E0002704A /* RCAnthorViewCell.h */,
 				4BF788121B0DBF8E0002704A /* RCAnthorViewCell.m */,
 				4BF788131B0DBF8E0002704A /* RCAnthorViewCell.xib */,
+				4BF788161B0DCE000002704A /* RCAnthorImgeView.h */,
+				4BF788171B0DCE000002704A /* RCAnthorImgeView.m */,
 			);
 			path = "Hot Anchor(最火主播)";
 			sourceTree = "<group>";
@@ -905,6 +937,28 @@
 				4BF788041B0DBD970002704A /* UIView+MJExtension.m */,
 			);
 			path = MJRefresh;
+			sourceTree = "<group>";
+		};
+		4BF788201B0DD2100002704A /* hotAudio(热门声音) */ = {
+			isa = PBXGroup;
+			children = (
+				4BF788241B0DD22B0002704A /* RCTitleButton.h */,
+				4BF788251B0DD22B0002704A /* RCTitleButton.m */,
+				4BF788271B0DD2560002704A /* RCHotAudioViewController.h */,
+				4BF788281B0DD2560002704A /* RCHotAudioViewController.m */,
+			);
+			path = "hotAudio(热门声音)";
+			sourceTree = "<group>";
+		};
+		4BF788301B0DD6170002704A /* hotAudio(热门声音) */ = {
+			isa = PBXGroup;
+			children = (
+				4BF788311B0DD6250002704A /* RCHotAudio.h */,
+				4BF788321B0DD6250002704A /* RCHotAudio.m */,
+				4BF788341B0DD6A90002704A /* RCOnneHotAudio.h */,
+				4BF788351B0DD6A90002704A /* RCOnneHotAudio.m */,
+			);
+			path = "hotAudio(热门声音)";
 			sourceTree = "<group>";
 		};
 		9AC50D7E1B3571C4F9B64EAB /* Pods */ = {
@@ -1013,6 +1067,7 @@
 				4B1D828F1B0C9C9200B7C9DC /* KVNProgressView.xib in Resources */,
 				4B1D81C21B0C967300B7C9DC /* RCCategoryListViewCell.xib in Resources */,
 				4B1D81C81B0C967300B7C9DC /* RCDiscoverItemViewCell.xib in Resources */,
+				4BF7881F1B0DCFBC0002704A /* RCSectionheaderView.xib in Resources */,
 				4B1D82851B0C998200B7C9DC /* Category.plist in Resources */,
 				4BF788151B0DBF8E0002704A /* RCAnthorViewCell.xib in Resources */,
 				4B1D81111B0C91C000B7C9DC /* Images.xcassets in Resources */,
@@ -1069,7 +1124,6 @@
 			files = (
 				4BF788141B0DBF8E0002704A /* RCAnthorViewCell.m in Sources */,
 				4B1D827E1B0C982900B7C9DC /* UIImage+GIF.m in Sources */,
-				4BF787AA1B0DA3E20002704A /* RCTitleButton.m in Sources */,
 				4B1D82A01B0C9E3300B7C9DC /* RCTabBar.m in Sources */,
 				4BF788101B0DBD970002704A /* UIView+MJExtension.m in Sources */,
 				4B1D81931B0C958D00B7C9DC /* RCCategoryFocusImageResult.m in Sources */,
@@ -1125,6 +1179,7 @@
 				4B1D82911B0C9C9200B7C9DC /* UIImage+KVNImageEffects.m in Sources */,
 				4BF7880E1B0DBD970002704A /* UIScrollView+MJExtension.m in Sources */,
 				4B1D822A1B0C977400B7C9DC /* AFURLRequestSerialization.m in Sources */,
+				4BF788361B0DD6A90002704A /* RCOnneHotAudio.m in Sources */,
 				4B1D82271B0C977400B7C9DC /* AFNetworkReachabilityManager.m in Sources */,
 				4B1D82811B0C982900B7C9DC /* UIImageView+WebCache.m in Sources */,
 				4B1D81911B0C958D00B7C9DC /* RCCategoryFocusImageList.m in Sources */,
@@ -1138,11 +1193,16 @@
 				4B1D82441B0C978000B7C9DC /* NSObject+MJKeyValue.m in Sources */,
 				4B1D82821B0C982900B7C9DC /* UIView+WebCacheOperation.m in Sources */,
 				4BF7880B1B0DBD970002704A /* MJRefreshHeader.m in Sources */,
+				4BF788291B0DD2560002704A /* RCHotAudioViewController.m in Sources */,
 				4B1D81481B0C935D00B7C9DC /* main.m in Sources */,
 				4BF787C81B0DB9770002704A /* RCOneAnchorList.m in Sources */,
+				4BF788181B0DCE000002704A /* RCAnthorImgeView.m in Sources */,
 				4B1D82AC1B0C9F7B00B7C9DC /* UIBarButtonItem+MJ.m in Sources */,
+				4BF7882F1B0DD4B50002704A /* RCHotAudioVIewModel.m in Sources */,
 				4B1D81C41B0C967300B7C9DC /* RCDiscover2IMGViewCell.m in Sources */,
 				4B1D82241B0C977400B7C9DC /* AFHTTPRequestOperation.m in Sources */,
+				4BF7881B1B0DCFA70002704A /* RCSectionheaderView.m in Sources */,
+				4BF788331B0DD6250002704A /* RCHotAudio.m in Sources */,
 				4B1D82261B0C977400B7C9DC /* AFHTTPSessionManager.m in Sources */,
 				4BF787CF1B0DBAA80002704A /* RCHotAnthorViewController.m in Sources */,
 				4B1D81F41B0C973800B7C9DC /* UIView+AutoLayout.m in Sources */,
@@ -1150,6 +1210,7 @@
 				4B1D81921B0C958D00B7C9DC /* RCCategoryFocusImageParam.m in Sources */,
 				4BF788071B0DBD970002704A /* MJRefreshConst.m in Sources */,
 				4B1D81461B0C935D00B7C9DC /* AppDelegate.m in Sources */,
+				4BF7882C1B0DD2C60002704A /* RCBaseViewModel.m in Sources */,
 				4B1D82781B0C982900B7C9DC /* SDWebImageDecoder.m in Sources */,
 				4B1D81941B0C958D00B7C9DC /* RCCategoryList.m in Sources */,
 				4BF787CC1B0DBA600002704A /* RCCategoryFocusImageViewCell.m in Sources */,
@@ -1158,6 +1219,7 @@
 				4B1D827B1B0C982900B7C9DC /* SDWebImageManager.m in Sources */,
 				4B1D82281B0C977400B7C9DC /* AFSecurityPolicy.m in Sources */,
 				4B1D82251B0C977400B7C9DC /* AFHTTPRequestOperationManager.m in Sources */,
+				4BF788261B0DD22B0002704A /* RCTitleButton.m in Sources */,
 				4B1D82291B0C977400B7C9DC /* AFURLConnectionOperation.m in Sources */,
 				4B1D819D1B0C95B300B7C9DC /* RCCategryListParam.m in Sources */,
 			);

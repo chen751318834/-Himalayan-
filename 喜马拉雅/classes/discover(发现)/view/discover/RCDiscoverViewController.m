@@ -15,8 +15,8 @@
 #import "UIImageView+WebCache.h"
 #import "RCFocusImageViewCell.h"
 #import "RCCateroryListViewController.h"
-#import "RCTitleButton.h"
 #import "RCDiscoverItemViewCell.h"
+#import "RCSectionheaderView.h"
 #import "RCCatrgory.h"
 #import "RCCategoryListViewModel.h"
 #import "RCDisCoverViewModel.h"
@@ -345,14 +345,11 @@ static const NSUInteger sectionCount = 100;
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     if (section == 5) {
-        RCTitleButton * button = [[RCTitleButton alloc]init];
-        [button setTitle:@"推荐专辑" forState:UIControlStateNormal];
-        button.frame = CGRectMake(0, 0, self.view.bounds.size.width, 30);
-        [[button rac_signalForControlEvents:UIControlEventTouchUpInside ] subscribeNext:^(id x) {
-
+        RCSectionheaderView * headerView = [RCSectionheaderView headerView];
+        [[headerView.titleButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
 
         }];
-        return button;
+        return headerView;
     }
     return nil;
     

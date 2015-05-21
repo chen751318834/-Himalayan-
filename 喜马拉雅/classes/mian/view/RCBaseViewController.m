@@ -7,7 +7,6 @@
 //
 
 #import "RCBaseViewController.h"
-#import "MJRefresh.h"
 @interface RCBaseViewController ()
 
 @end
@@ -24,9 +23,6 @@
     [super viewDidLoad];
     [self setUpRefreshView];
     self.tableView.tableFooterView = [[UIView alloc]init];
-
-
-
 }
 
 #pragma mark 集成刷新控件
@@ -80,4 +76,7 @@
     self.tableView.footer.hidden = self.contents.count == 0;
     return self.contents.count;
 }
+- (void)loadNewData{}
+
+- (void)loadMoreData{}
 @end
