@@ -39,4 +39,6 @@
 @property(nonatomic,strong) NSNumber  *favoritesCounts;
 @property(nonatomic,strong) NSNumber  *userSource;
 @property(nonatomic,strong) NSNumber  *createdAt;
+@property(nonatomic,assign,getter=isDownloading) BOOL downloading;
+
 @end

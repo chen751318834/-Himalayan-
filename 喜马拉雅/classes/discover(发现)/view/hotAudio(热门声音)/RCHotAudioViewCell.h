@@ -11,4 +11,6 @@
 @interface RCHotAudioViewCell : UITableViewCell
 + (instancetype)cellWithTableView:(UITableView *)tableView;
 @property(nonatomic,strong) RCOnneHotAudio  *audio;
+@property (weak, nonatomic) IBOutlet UIButton *downloadButton;
+
 @end

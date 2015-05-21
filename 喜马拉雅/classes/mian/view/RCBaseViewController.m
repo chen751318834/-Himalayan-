@@ -70,6 +70,9 @@
     self.tableView.gifFooter.hidden = YES;
 
 }
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
 #pragma mark - 表格的数据源方法
 //
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{

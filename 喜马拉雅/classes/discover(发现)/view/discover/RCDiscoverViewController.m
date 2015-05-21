@@ -99,6 +99,13 @@ static const NSUInteger sectionCount = 100;
     RCSearchBar * searchBar = [RCSearchBar searchBar];
     searchBar.frame = CGRectMake(0, 5, self.view.bounds.size.width, 29);
     self.navigationItem.titleView = searchBar;
+    [[searchBar rac_signalForControlEvents:UIControlEventEditingDidBegin] subscribeNext:^(RCSearchBar * searchBar) {
+        [searchBar setBackground:[UIImage imageNamed:@"netsound_search"]];
+    }];
+    [[searchBar rac_signalForControlEvents:UIControlEventEditingDidEnd] subscribeNext:^(RCSearchBar * searchBar) {
+        [searchBar setBackground:[UIImage imageNamed:@"find_searchbar"]];
+
+    }];
     self.searchBar = searchBar;
 }
 

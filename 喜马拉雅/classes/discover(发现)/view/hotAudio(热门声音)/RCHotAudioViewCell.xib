@@ -42,7 +42,7 @@
                                 <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="时间" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lHX-Oa-MMp">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lHX-Oa-MMp">
                                 <rect key="frame" x="270" y="3" width="42" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="42" id="aXR-5G-E1F"/>
@@ -111,9 +111,6 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="selected" image="cell_downloaded"/>
-                                <connections>
-                                    <action selector="download:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="PQb-yA-Vgd"/>
-                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cell_sound_play_n" translatesAutoresizingMaskIntoConstraints="NO" id="BWP-la-MWY">
                                 <rect key="frame" x="28" y="28" width="20" height="20"/>
@@ -175,6 +172,7 @@
             <color key="backgroundColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
             <connections>
                 <outlet property="createTImeLabel" destination="lHX-Oa-MMp" id="AY9-Y1-K3A"/>
+                <outlet property="downloadButton" destination="Ge0-08-zSc" id="Bhl-CG-Vnx"/>
                 <outlet property="iconView" destination="MaE-YF-TeL" id="zDS-Xm-yno"/>
                 <outlet property="playCountLabel" destination="Yp0-vt-Bqe" id="KAY-hM-KOz"/>
                 <outlet property="saveCountLabel" destination="THf-ov-o7k" id="2vh-Sq-1Y3"/>

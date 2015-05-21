@@ -9,6 +9,7 @@
 #import "RCHotAudioViewController.h"
 #import <ReactiveCocoa/metamacros.h>
 #import "RCHotAudioVIewModel.h"
+#import "Toast+UIView.h"
 #import "RCHotAudioViewCell.h"
 #import "RCConst.h"
 @interface RCHotAudioViewController ()
@@ -32,7 +33,6 @@
     self.title = @"热门声音";
     self.tableView.separatorStyle = UITableViewCellSelectionStyleNone;
     [self setUpSectionHeaderView];
-
 
     self.contents = self.viewModel.models;
 }
@@ -125,7 +125,15 @@
 #pragma mark - UITableViewDelegate
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     RCHotAudioViewCell * cell = [RCHotAudioViewCell cellWithTableView:tableView];
-    cell.audio = self.contents[indexPath.row];
+    RCOnneHotAudio * audio = self.contents[indexPath.row];
+    cell.audio = audio;
+    @weakify(self);
+    [[cell.downloadButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(UIButton * button) {
+        @strongify(self);
+        audio.downloading = YES;
+        [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        [[UIApplication sharedApplication].keyWindow makeToast:@"加入下载队列成功" duration:1 position:@"bottom"];
+    }];
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -138,7 +146,7 @@
     UISegmentedControl * segmentControl =[[UISegmentedControl alloc]initWithItems:@[@"最火",@"本周最热",@"最多赞"]];
     segmentControl.selectedSegmentIndex = self.courrentIndex;
     segmentControl.backgroundColor = [UIColor whiteColor];
-    segmentControl.tintColor = [UIColor colorWithRed:0.983 green:0.000 blue:0.257 alpha:1.000];
+    segmentControl.tintColor = [UIColor colorWithRed:1.000 green:0.270 blue:0.000 alpha:1.000];
     @weakify(self);
     [[segmentControl rac_signalForControlEvents:UIControlEventValueChanged] subscribeNext:^(id x) {
         @strongify(self);
@@ -157,7 +165,7 @@
 
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+    [super tableView:tableView didSelectRowAtIndexPath:indexPath];
     
 }
 #pragma mark - 事件处理

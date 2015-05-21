@@ -9,7 +9,6 @@
 #import "RCBaseViewModel.h"
 #import "RCHotAudio.h"
 @interface RCHotAudioVIewModel : RCBaseViewModel
-
 /**
  *  网络请求
  */

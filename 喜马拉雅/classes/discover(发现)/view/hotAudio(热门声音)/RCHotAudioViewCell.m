@@ -32,19 +32,6 @@
     [self.iconView sd_setImageWithURL:[NSURL URLWithString:audio.coverSmall] placeholderImage:[UIImage imageNamed:@"findsection_sound_bg"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         self.iconView.image = [UIImage circleImage:image borderWidth:0 borderColor:nil];
     }];
-    /**
-     *   "id": 283384,
-     "uid": 1372242,
-     "title": "催眠音乐 仙境催眠曲",
-     "nickname": "催眠音乐",
-     "duration": 302.21,
-     "playsCounts": 5006299,
-     "commentsCounts": 5616,
-     "sharesCounts": 2143,
-     "favoritesCounts": 28533,
-     "userSource": 2,
-     "createdAt": 1366090550000
-     */
     if ([audio.userSource  isEqual: @1]) {
            self.soureLabel.text = @"原创";
     }else{
@@ -58,7 +45,7 @@
     [self setUpWithButton:self.playCountLabel count:[audio.playsCounts intValue] title:nil];
     [self setUpWithButton:self.saveCountLabel count:[audio.sharesCounts intValue] title:nil];
     [self setUpWithButton:self.sayCountLabel count:[audio.commentsCounts intValue] title:nil];
-
+    self.downloadButton.selected = audio.isDownloading;
 }
 - (void)setUpWithButton:(UIButton *)button count:(int)count title:(NSString *)title {
     if (count ==0) {
@@ -81,8 +68,6 @@
 
     }
 
-}
-- (IBAction)download:(id)sender {
 }
 
 @end

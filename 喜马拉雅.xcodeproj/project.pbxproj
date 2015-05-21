@@ -121,6 +121,7 @@
 		4BF788361B0DD6A90002704A /* RCOnneHotAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF788351B0DD6A90002704A /* RCOnneHotAudio.m */; };
 		4BF7883A1B0DEE310002704A /* RCHotAudioViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF788381B0DEE310002704A /* RCHotAudioViewCell.m */; };
 		4BF7883B1B0DEE310002704A /* RCHotAudioViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BF788391B0DEE310002704A /* RCHotAudioViewCell.xib */; };
+		4BF7883F1B0E14AF0002704A /* Toast+UIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF7883E1B0E14AF0002704A /* Toast+UIView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		6123F0DE997B4F49BDD11F01 /* libPods-喜马拉雅.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE502E6A73C69FAB4A1ACDFF /* libPods-喜马拉雅.a */; };
 /* End PBXBuildFile section */
 
@@ -356,6 +357,8 @@
 		4BF788371B0DEE310002704A /* RCHotAudioViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCHotAudioViewCell.h; sourceTree = "<group>"; };
 		4BF788381B0DEE310002704A /* RCHotAudioViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCHotAudioViewCell.m; sourceTree = "<group>"; };
 		4BF788391B0DEE310002704A /* RCHotAudioViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RCHotAudioViewCell.xib; sourceTree = "<group>"; };
+		4BF7883D1B0E14AF0002704A /* Toast+UIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Toast+UIView.h"; sourceTree = "<group>"; };
+		4BF7883E1B0E14AF0002704A /* Toast+UIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Toast+UIView.m"; sourceTree = "<group>"; };
 		A87DFC431E05D82BB5657FCF /* Pods-喜马拉雅.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-喜马拉雅.release.xcconfig"; path = "Pods/Target Support Files/Pods-喜马拉雅/Pods-喜马拉雅.release.xcconfig"; sourceTree = "<group>"; };
 		CE502E6A73C69FAB4A1ACDFF /* libPods-喜马拉雅.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-喜马拉雅.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE5D8EB88CC2CE53CB7B2C23 /* Pods-喜马拉雅.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-喜马拉雅.debug.xcconfig"; path = "Pods/Target Support Files/Pods-喜马拉雅/Pods-喜马拉雅.debug.xcconfig"; sourceTree = "<group>"; };
@@ -681,6 +684,7 @@
 		4B1D81441B0C935D00B7C9DC /* lib */ = {
 			isa = PBXGroup;
 			children = (
+				4BF7883C1B0E14AF0002704A /* Toast */,
 				4BF787EC1B0DBD970002704A /* MJRefresh */,
 				4B1D82861B0C9C9200B7C9DC /* KVNProgress */,
 				4B1D82571B0C982900B7C9DC /* SDWebImage */,
@@ -969,6 +973,15 @@
 			path = "hotAudio(热门声音)";
 			sourceTree = "<group>";
 		};
+		4BF7883C1B0E14AF0002704A /* Toast */ = {
+			isa = PBXGroup;
+			children = (
+				4BF7883D1B0E14AF0002704A /* Toast+UIView.h */,
+				4BF7883E1B0E14AF0002704A /* Toast+UIView.m */,
+			);
+			path = Toast;
+			sourceTree = "<group>";
+		};
 		9AC50D7E1B3571C4F9B64EAB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1137,6 +1150,7 @@
 				4BF788101B0DBD970002704A /* UIView+MJExtension.m in Sources */,
 				4B1D81931B0C958D00B7C9DC /* RCCategoryFocusImageResult.m in Sources */,
 				4B1D82761B0C982900B7C9DC /* SDImageCache.m in Sources */,
+				4BF7883F1B0E14AF0002704A /* Toast+UIView.m in Sources */,
 				4B1D82791B0C982900B7C9DC /* SDWebImageDownloader.m in Sources */,
 				4B1D816E1B0C94D100B7C9DC /* RCCategoryListViewModel.m in Sources */,
 				4B1D827F1B0C982900B7C9DC /* UIImage+MultiFormat.m in Sources */,
