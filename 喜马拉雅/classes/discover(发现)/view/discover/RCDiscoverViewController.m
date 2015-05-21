@@ -15,6 +15,7 @@
 #import "UIImageView+WebCache.h"
 #import "RCFocusImageViewCell.h"
 #import "RCCateroryListViewController.h"
+#import "RCTitleButton.h"
 #import "RCDiscoverItemViewCell.h"
 #import "RCCatrgory.h"
 #import "RCCategoryListViewModel.h"
@@ -96,8 +97,7 @@ static const NSUInteger sectionCount = 100;
 }
 - (void)setUpSearchBar{
     RCSearchBar * searchBar = [RCSearchBar searchBar];
-    searchBar.frame = CGRectMake(0, 5, self.view.bounds.size.width, 35);
-    searchBar.placeholder = @"搜索声音，人 ， 专辑";
+    searchBar.frame = CGRectMake(0, 5, self.view.bounds.size.width, 29);
     self.navigationItem.titleView = searchBar;
     self.searchBar = searchBar;
 }
@@ -237,9 +237,25 @@ static const NSUInteger sectionCount = 100;
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
     if (scrollView == self.scrollCollectionView) {
         int currentPage = (int)(scrollView.contentOffset.x /scrollView.bounds.size.width+0.5)%[self.viewModel numberOfItemInSectionInImgCollectionView:0];
-        self.pageControl.currentPage = currentPage;
+        __weak typeof(self) weakSelf  = self;
+        [UIView animateWithDuration:0.5 animations:^{
+            weakSelf.pageControl.currentPage = currentPage;
+
+        }];
     }
-    //
+    /**
+     *  去除SectionheaderView的站粘性
+     */
+    if (scrollView == self.tableView)
+    {
+        CGFloat sectionHeaderHeight = 30; //sectionHeaderHeight
+        if (scrollView.contentOffset.y<=sectionHeaderHeight&&scrollView.contentOffset.y>=0) {
+            scrollView.contentInset = UIEdgeInsetsMake(-scrollView.contentOffset.y+70, 0, 0, 0);
+        } else if (scrollView.contentOffset.y>=sectionHeaderHeight) {
+            scrollView.contentInset = UIEdgeInsetsMake(-sectionHeaderHeight-20, 0, 0, 0);
+        }
+
+    }
 }
 #pragma mark - UITableViewDelegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -300,7 +316,9 @@ static const NSUInteger sectionCount = 100;
         return cell;
     }else if (indexPath.section == 5){
         RCRecommendAlbumViewCell * cell = [tableView dequeueReusableCellWithIdentifier:TableviewCellID];
+
         cell.list = self.viewModel.recommendAlbums[indexPath.row];
+
         return cell;
     
     }else if (indexPath.section == 6){
@@ -326,9 +344,25 @@ static const NSUInteger sectionCount = 100;
     return cell;    }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    if (section == 5) {
+        RCTitleButton * button = [[RCTitleButton alloc]init];
+        [button setTitle:@"推荐专辑" forState:UIControlStateNormal];
+        button.frame = CGRectMake(0, 0, self.view.bounds.size.width, 30);
+        [[button rac_signalForControlEvents:UIControlEventTouchUpInside ] subscribeNext:^(id x) {
 
+
+        }];
+        return button;
+    }
     return nil;
+    
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
 
+    if (section== 5) {
+        return 30;
+    }
+    return 0;
 }
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{

@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface RCCollectionHeaderReusableView : UICollectionReusableView
-@property(nonatomic,weak) UICollectionView   *scrollConllectionVIew;
+@property(nonatomic,weak) UIPageControl   *pageControl;
+@property(nonatomic,weak) UICollectionView   *scrollCollectionView;
+
 
 @end

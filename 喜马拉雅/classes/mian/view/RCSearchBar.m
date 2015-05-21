@@ -22,20 +22,20 @@
 
 - (instancetype)initWithFrame:(CGRect)frame{
     if ([super initWithFrame:frame]) {
-        //设置左边的view
-        UIImageView *leftSearchView =  [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"search_btn_nl"]];
+//        //设置左边的view
+        UIImageView *leftSearchView =  [[UIImageView alloc]initWithImage:[UIImage imageNamed:nil]];
         leftSearchView.contentMode =UIViewContentModeCenter;
         self.leftViewMode =UITextFieldViewModeAlways;
         self.leftView =leftSearchView;
         //背景
-        self.background =[UIImage resizableImage:@"search_header_bg"];
+        self.background =[UIImage imageNamed:@"find_searchbar"];
         self.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
 
         //设置占位文字的颜色和字体大小
         NSDictionary *dict =[NSDictionary dictionary];
         
         dict =@{NSForegroundColorAttributeName : [UIColor grayColor],NSFontAttributeName:[UIFont systemFontOfSize:13],};
-        self.attributedPlaceholder =[[NSAttributedString alloc]initWithString:@"" attributes:dict];
+        self.attributedPlaceholder =[[NSAttributedString alloc]initWithString:@"  " attributes:dict];
 
         
         //清除按钮

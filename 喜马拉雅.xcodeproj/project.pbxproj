@@ -91,6 +91,7 @@
 		4B1D82AC1B0C9F7B00B7C9DC /* UIBarButtonItem+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B1D82AB1B0C9F7B00B7C9DC /* UIBarButtonItem+MJ.m */; };
 		4B1D82B71B0CC3BB00B7C9DC /* RCCollectionHeaderReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B1D82B61B0CC3BB00B7C9DC /* RCCollectionHeaderReusableView.m */; };
 		4B1D82BA1B0CCC6B00B7C9DC /* RCCategoryFocusImageViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B1D82B91B0CCC6B00B7C9DC /* RCCategoryFocusImageViewCell.m */; };
+		4BF787AA1B0DA3E20002704A /* RCTitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF787A91B0DA3E20002704A /* RCTitleButton.m */; };
 		6123F0DE997B4F49BDD11F01 /* libPods-喜马拉雅.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE502E6A73C69FAB4A1ACDFF /* libPods-喜马拉雅.a */; };
 /* End PBXBuildFile section */
 
@@ -269,6 +270,8 @@
 		4B1D82B61B0CC3BB00B7C9DC /* RCCollectionHeaderReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCCollectionHeaderReusableView.m; sourceTree = "<group>"; };
 		4B1D82B81B0CCC6B00B7C9DC /* RCCategoryFocusImageViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCCategoryFocusImageViewCell.h; path = ../RCCategoryFocusImageViewCell.h; sourceTree = "<group>"; };
 		4B1D82B91B0CCC6B00B7C9DC /* RCCategoryFocusImageViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCCategoryFocusImageViewCell.m; path = ../RCCategoryFocusImageViewCell.m; sourceTree = "<group>"; };
+		4BF787A81B0DA3E20002704A /* RCTitleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCTitleButton.h; sourceTree = "<group>"; };
+		4BF787A91B0DA3E20002704A /* RCTitleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCTitleButton.m; sourceTree = "<group>"; };
 		A87DFC431E05D82BB5657FCF /* Pods-喜马拉雅.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-喜马拉雅.release.xcconfig"; path = "Pods/Target Support Files/Pods-喜马拉雅/Pods-喜马拉雅.release.xcconfig"; sourceTree = "<group>"; };
 		CE502E6A73C69FAB4A1ACDFF /* libPods-喜马拉雅.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-喜马拉雅.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE5D8EB88CC2CE53CB7B2C23 /* Pods-喜马拉雅.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-喜马拉雅.debug.xcconfig"; path = "Pods/Target Support Files/Pods-喜马拉雅/Pods-喜马拉雅.debug.xcconfig"; sourceTree = "<group>"; };
@@ -656,6 +659,8 @@
 		4B1D81B61B0C967300B7C9DC /* discover */ = {
 			isa = PBXGroup;
 			children = (
+				4BF787A81B0DA3E20002704A /* RCTitleButton.h */,
+				4BF787A91B0DA3E20002704A /* RCTitleButton.m */,
 				4B1D81E21B0C970B00B7C9DC /* RCRecommendAlbumViewCell.h */,
 				4B1D81E31B0C970B00B7C9DC /* RCRecommendAlbumViewCell.m */,
 				4B1D81E41B0C970B00B7C9DC /* RCRecommendAlbumViewCell.xib */,
@@ -943,6 +948,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B1D827E1B0C982900B7C9DC /* UIImage+GIF.m in Sources */,
+				4BF787AA1B0DA3E20002704A /* RCTitleButton.m in Sources */,
 				4B1D82A01B0C9E3300B7C9DC /* RCTabBar.m in Sources */,
 				4B1D81931B0C958D00B7C9DC /* RCCategoryFocusImageResult.m in Sources */,
 				4B1D82761B0C982900B7C9DC /* SDImageCache.m in Sources */,

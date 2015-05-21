@@ -76,9 +76,7 @@ static const NSUInteger sectionCount = 100;
 
 - (void)setUpCollectionView{
     UICollectionViewFlowLayout * layout = [[UICollectionViewFlowLayout alloc]init];
-//    if ([self.viewModel numberOfItemInSectionInIMgCollectionView:0] != 0) {
-        [layout setHeaderReferenceSize:CGSizeMake(self.view.bounds.size.width, 160)];
-//    }
+    [layout setHeaderReferenceSize:CGSizeMake(self.view.bounds.size.width, 160)];
     CGFloat margin = 10;
     NSUInteger counlmCount = 3;
     CGFloat itemWidth = (self.view.frame.size.width - (margin *(counlmCount +1)))/counlmCount;
@@ -93,11 +91,11 @@ static const NSUInteger sectionCount = 100;
     [self.view addSubview:collectionView];
     [collectionView autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
     self.collectionView  =  collectionView;
-    [self.collectionView registerNib:[UINib nibWithNibName:@"RCCollectionHeaderReusableView" bundle:nil]  forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderView"];
+    [self.collectionView registerClass:[RCCollectionHeaderReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderView"];
     [self.collectionView registerNib:[UINib nibWithNibName:@"RCCategoryListViewCell" bundle:nil] forCellWithReuseIdentifier:reuseIdentifier];
+
 }
 #pragma mark <UICollectionViewDataSource>
-
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
     if (collectionView == self.scrollCollectionView) {
         return sectionCount;
@@ -106,8 +104,10 @@ static const NSUInteger sectionCount = 100;
 
  }
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+
     if (collectionView == self.scrollCollectionView) {
-        self.pageControl.numberOfPages = [self.viewModel numberOfItemInSectionInIMgCollectionView:section];
+                self.pageControl.numberOfPages = [self.viewModel numberOfItemInSectionInIMgCollectionView:section];
+
         return [self.viewModel  numberOfItemInSectionInIMgCollectionView:section];
     }
     return [self.viewModel numberOfItemInSectionInCollectionView:section];
@@ -128,30 +128,11 @@ static const NSUInteger sectionCount = 100;
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{
 
 
-    UICollectionViewFlowLayout * scrollLayout = [[UICollectionViewFlowLayout alloc]init];
-    scrollLayout.itemSize = CGSizeMake(self.view.bounds.size.width, 160);
-    scrollLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-    scrollLayout.minimumLineSpacing = 0;
-    scrollLayout.minimumInteritemSpacing = 0;
-
-    UICollectionView * scrollCollectionView =  [self setUpConllectionViewWithLayout:scrollLayout];
-    scrollCollectionView.pagingEnabled = YES;
-    scrollCollectionView.showsHorizontalScrollIndicator = NO;
-
-        RCCollectionHeaderReusableView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderView" forIndexPath:indexPath];
-    [headerView addSubview:scrollCollectionView];
-    [scrollCollectionView autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
-    self.scrollCollectionView = scrollCollectionView;
-
-    [scrollCollectionView registerClass:[RCCategoryFocusImageViewCell class] forCellWithReuseIdentifier:imgID];
-
-    UIPageControl * pageControl = [[UIPageControl alloc]init];
-    pageControl.userInteractionEnabled = NO;
-    [headerView addSubview:pageControl];
-    [pageControl autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsMake(0, 0, 0, 0) excludingEdge:ALEdgeTop];
-    [pageControl autoSetDimension:ALDimensionHeight toSize:20];
-
-    self.pageControl = pageControl;
+    RCCollectionHeaderReusableView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderView" forIndexPath:indexPath];
+    self.scrollCollectionView = headerView.scrollCollectionView;
+    self.scrollCollectionView.delegate = self;
+    self.scrollCollectionView.dataSource = self;
+    self.pageControl = headerView.pageControl;
 
         return headerView;
   
@@ -267,7 +248,11 @@ static const NSUInteger sectionCount = 100;
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
     if (scrollView == self.scrollCollectionView) {
         int currentPage = (int)(scrollView.contentOffset.x /scrollView.bounds.size.width+0.5)%[self.viewModel numberOfItemInSectionInIMgCollectionView:0];
-        self.pageControl.currentPage = currentPage;
+        __weak typeof(self) weakSelf  = self;
+        [UIView animateWithDuration:0.5 animations:^{
+            weakSelf.pageControl.currentPage = currentPage;
+
+        }];
     }
     //
 }
