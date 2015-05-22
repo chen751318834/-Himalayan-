@@ -1,23 +1,22 @@
 //
-//  RCOnneHotAudio.m
+//  RCRecommendedPost.m
 //  喜马拉雅
 //
-//  Created by Raychen on 15/5/21.
+//  Created by Raychen on 15/5/22.
 //  Copyright (c) 2015年 raychen. All rights reserved.
 //
 
-#import "RCOnneHotAudio.h"
+#import "RCRecommendedPost.h"
 #import "MJExtension.h"
 #import "NSDate+RC.h"
-@implementation RCOnneHotAudio
+@implementation RCRecommendedPost
 + (NSDictionary *)replacedKeyFromPropertyName{
-
     return @{@"ID":@"id"};
 }
 - (NSString *)created_at{
     // _created_at == Fri May 09 16:30:34 +0800 2014
 
-    NSDate * date = [NSDate dateWithNumber:_createdAt];
+    NSDate * date = [NSDate dateWithNumber:_createdTime];
     NSDateFormatter *fmt                       = [[NSDateFormatter alloc] init];
     //#warning 真机调试下, 必须加上这段
     fmt.locale                                 = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];

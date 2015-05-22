@@ -23,4 +23,5 @@
 #import "UIImage+RC.h"
 #import "MJExtension.h"
 #import "KVNProgress.h"
+#import "Toast+UIView.h"
 #endif

@@ -12,10 +12,12 @@
 #import "RCPlayListViewCell.h"
 #import "RCDiscover2IMGViewCell.h"
 #import "RCSubjectViewController.h"
+#import "RCCircleViewController.h"
 #import "RCConst.h"
 #import "UIImageView+WebCache.h"
 #import "RCFocusImageViewCell.h"
 #import "RCCateroryListViewController.h"
+#import "RCHotActivityViewController.h"
 #import "RCDiscoverItemViewCell.h"
 #import "RCSectionheaderView.h"
 #import "RCCatrgory.h"
@@ -377,10 +379,14 @@ static const NSUInteger sectionCount = 100;
 }
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    RCLog(@"didSelectRowAtIndexPath");
-    if (indexPath.section == 2) {
+        if (indexPath.section == 2) {
         [self.navigationController pushViewController:[[RCSubjectViewController alloc]init] animated:YES];
+    }else if (indexPath.section == 3){
+        [self.navigationController pushViewController:[[RCHotActivityViewController alloc]init] animated:YES];
+
+    }else if (indexPath.section == 4){
+        [self.navigationController pushViewController:[[RCCircleViewController alloc]init] animated:YES];
+
     }
 }
 

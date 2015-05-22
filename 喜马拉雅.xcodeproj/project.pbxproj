@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4B16391E1B0F0DEF002C4A24 /* RCRecommendPoster.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B16391D1B0F0DEF002C4A24 /* RCRecommendPoster.m */; };
 		4B1D81111B0C91C000B7C9DC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B1D81101B0C91C000B7C9DC /* Images.xcassets */; };
 		4B1D81201B0C91C000B7C9DC /* ____Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B1D811F1B0C91C000B7C9DC /* ____Tests.m */; };
 		4B1D81461B0C935D00B7C9DC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B1D81411B0C935D00B7C9DC /* AppDelegate.m */; };
@@ -99,6 +100,22 @@
 		4B912DFE1B0EC430007B64DD /* RCSubjectSectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B912DFD1B0EC430007B64DD /* RCSubjectSectionHeaderView.m */; };
 		4B912E021B0EC443007B64DD /* RCSubjectSectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B912E011B0EC443007B64DD /* RCSubjectSectionHeaderView.xib */; };
 		4B912E051B0ED039007B64DD /* NSDate+RC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B912E041B0ED039007B64DD /* NSDate+RC.m */; };
+		4B912E0D1B0EE8DB007B64DD /* RCHotActivityViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B912E0C1B0EE8DB007B64DD /* RCHotActivityViewModel.m */; };
+		4B912E101B0EE95A007B64DD /* RCHotActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B912E0F1B0EE95A007B64DD /* RCHotActivity.m */; };
+		4B912E131B0EEA7B007B64DD /* RCHotActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B912E121B0EEA7B007B64DD /* RCHotActivityViewController.m */; };
+		4B912E171B0EEB73007B64DD /* RCHotActivityViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B912E151B0EEB73007B64DD /* RCHotActivityViewCell.m */; };
+		4B912E181B0EEB73007B64DD /* RCHotActivityViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B912E161B0EEB73007B64DD /* RCHotActivityViewCell.xib */; };
+		4B912E1D1B0EF898007B64DD /* RCCircleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B912E1C1B0EF898007B64DD /* RCCircleViewController.m */; };
+		4B912E201B0EF8B6007B64DD /* RCCircleViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B912E1F1B0EF8B6007B64DD /* RCCircleViewModel.m */; };
+		4B912E371B0EFA4F007B64DD /* RCRecommendedZones.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B912E2F1B0EFA4F007B64DD /* RCRecommendedZones.m */; };
+		4B912E381B0EFA4F007B64DD /* RCRecommendMyZone.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B912E311B0EFA4F007B64DD /* RCRecommendMyZone.m */; };
+		4B912E391B0EFA4F007B64DD /* RCRecommendOwnerZone.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B912E331B0EFA4F007B64DD /* RCRecommendOwnerZone.m */; };
+		4B912E3A1B0EFA4F007B64DD /* RCRecommendedPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B912E361B0EFA4F007B64DD /* RCRecommendedPost.m */; };
+		4B912E431B0EFBFE007B64DD /* RCRecommendZoneViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B912E411B0EFBFE007B64DD /* RCRecommendZoneViewCell.m */; };
+		4B912E441B0EFBFE007B64DD /* RCRecommendZoneViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B912E421B0EFBFE007B64DD /* RCRecommendZoneViewCell.xib */; };
+		4B912E481B0EFC10007B64DD /* RCRecommendPostViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B912E461B0EFC10007B64DD /* RCRecommendPostViewCell.m */; };
+		4B912E491B0EFC10007B64DD /* RCRecommendPostViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B912E471B0EFC10007B64DD /* RCRecommendPostViewCell.xib */; };
+		4BC2CFE11B0F1B9A00E086F3 /* UITableView+FDTemplateLayoutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC2CFE01B0F1B9A00E086F3 /* UITableView+FDTemplateLayoutCell.m */; };
 		4BF787AE1B0DB7700002704A /* RCHotAnchorVIewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF787AD1B0DB7700002704A /* RCHotAnchorVIewModel.m */; };
 		4BF787C51B0DB8F20002704A /* RCAnchorList.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF787C41B0DB8F20002704A /* RCAnchorList.m */; };
 		4BF787C81B0DB9770002704A /* RCOneAnchorList.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF787C71B0DB9770002704A /* RCOneAnchorList.m */; };
@@ -145,6 +162,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4B16391C1B0F0DEF002C4A24 /* RCRecommendPoster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCRecommendPoster.h; sourceTree = "<group>"; };
+		4B16391D1B0F0DEF002C4A24 /* RCRecommendPoster.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCRecommendPoster.m; sourceTree = "<group>"; };
 		4B1D81001B0C91C000B7C9DC /* 喜马拉雅.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "喜马拉雅.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B1D81101B0C91C000B7C9DC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4B1D81191B0C91C000B7C9DC /* 喜马拉雅Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "喜马拉雅Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -323,6 +342,35 @@
 		4B912E011B0EC443007B64DD /* RCSubjectSectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RCSubjectSectionHeaderView.xib; sourceTree = "<group>"; };
 		4B912E031B0ED039007B64DD /* NSDate+RC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+RC.h"; sourceTree = "<group>"; };
 		4B912E041B0ED039007B64DD /* NSDate+RC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+RC.m"; sourceTree = "<group>"; };
+		4B912E0B1B0EE8DB007B64DD /* RCHotActivityViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCHotActivityViewModel.h; sourceTree = "<group>"; };
+		4B912E0C1B0EE8DB007B64DD /* RCHotActivityViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCHotActivityViewModel.m; sourceTree = "<group>"; };
+		4B912E0E1B0EE95A007B64DD /* RCHotActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCHotActivity.h; sourceTree = "<group>"; };
+		4B912E0F1B0EE95A007B64DD /* RCHotActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCHotActivity.m; sourceTree = "<group>"; };
+		4B912E111B0EEA7B007B64DD /* RCHotActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCHotActivityViewController.h; sourceTree = "<group>"; };
+		4B912E121B0EEA7B007B64DD /* RCHotActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCHotActivityViewController.m; sourceTree = "<group>"; };
+		4B912E141B0EEB73007B64DD /* RCHotActivityViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCHotActivityViewCell.h; sourceTree = "<group>"; };
+		4B912E151B0EEB73007B64DD /* RCHotActivityViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCHotActivityViewCell.m; sourceTree = "<group>"; };
+		4B912E161B0EEB73007B64DD /* RCHotActivityViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RCHotActivityViewCell.xib; sourceTree = "<group>"; };
+		4B912E1B1B0EF898007B64DD /* RCCircleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCCircleViewController.h; sourceTree = "<group>"; };
+		4B912E1C1B0EF898007B64DD /* RCCircleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCCircleViewController.m; sourceTree = "<group>"; };
+		4B912E1E1B0EF8B6007B64DD /* RCCircleViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCCircleViewModel.h; sourceTree = "<group>"; };
+		4B912E1F1B0EF8B6007B64DD /* RCCircleViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCCircleViewModel.m; sourceTree = "<group>"; };
+		4B912E2E1B0EFA4F007B64DD /* RCRecommendedZones.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCRecommendedZones.h; sourceTree = "<group>"; };
+		4B912E2F1B0EFA4F007B64DD /* RCRecommendedZones.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCRecommendedZones.m; sourceTree = "<group>"; };
+		4B912E301B0EFA4F007B64DD /* RCRecommendMyZone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCRecommendMyZone.h; sourceTree = "<group>"; };
+		4B912E311B0EFA4F007B64DD /* RCRecommendMyZone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCRecommendMyZone.m; sourceTree = "<group>"; };
+		4B912E321B0EFA4F007B64DD /* RCRecommendOwnerZone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCRecommendOwnerZone.h; sourceTree = "<group>"; };
+		4B912E331B0EFA4F007B64DD /* RCRecommendOwnerZone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCRecommendOwnerZone.m; sourceTree = "<group>"; };
+		4B912E351B0EFA4F007B64DD /* RCRecommendedPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCRecommendedPost.h; sourceTree = "<group>"; };
+		4B912E361B0EFA4F007B64DD /* RCRecommendedPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCRecommendedPost.m; sourceTree = "<group>"; };
+		4B912E401B0EFBFE007B64DD /* RCRecommendZoneViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCRecommendZoneViewCell.h; sourceTree = "<group>"; };
+		4B912E411B0EFBFE007B64DD /* RCRecommendZoneViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCRecommendZoneViewCell.m; sourceTree = "<group>"; };
+		4B912E421B0EFBFE007B64DD /* RCRecommendZoneViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RCRecommendZoneViewCell.xib; sourceTree = "<group>"; };
+		4B912E451B0EFC10007B64DD /* RCRecommendPostViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCRecommendPostViewCell.h; sourceTree = "<group>"; };
+		4B912E461B0EFC10007B64DD /* RCRecommendPostViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCRecommendPostViewCell.m; sourceTree = "<group>"; };
+		4B912E471B0EFC10007B64DD /* RCRecommendPostViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RCRecommendPostViewCell.xib; sourceTree = "<group>"; };
+		4BC2CFDF1B0F1B9A00E086F3 /* UITableView+FDTemplateLayoutCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+FDTemplateLayoutCell.h"; sourceTree = "<group>"; };
+		4BC2CFE01B0F1B9A00E086F3 /* UITableView+FDTemplateLayoutCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+FDTemplateLayoutCell.m"; sourceTree = "<group>"; };
 		4BF787AC1B0DB7700002704A /* RCHotAnchorVIewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCHotAnchorVIewModel.h; sourceTree = "<group>"; };
 		4BF787AD1B0DB7700002704A /* RCHotAnchorVIewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCHotAnchorVIewModel.m; sourceTree = "<group>"; };
 		4BF787C31B0DB8F20002704A /* RCAnchorList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCAnchorList.h; sourceTree = "<group>"; };
@@ -489,6 +537,8 @@
 		4B1D812B1B0C935D00B7C9DC /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4B912E191B0EF87E007B64DD /* circle(圈子) */,
+				4B912E091B0EE8B2007B64DD /* hotActivity(热门活动) */,
 				4B912DEA1B0EBE9A007B64DD /* subject(专题) */,
 				4BF788301B0DD6170002704A /* hotAudio(热门声音) */,
 				4BF787C21B0DB8DF0002704A /* Hot Anchor(最火主播) */,
@@ -501,6 +551,8 @@
 		4B1D812C1B0C935D00B7C9DC /* view */ = {
 			isa = PBXGroup;
 			children = (
+				4B912E1A1B0EF885007B64DD /* circle(圈子) */,
+				4B912E0A1B0EE8BC007B64DD /* hotActivity(热门活动) */,
 				4B912DE91B0EBE89007B64DD /* subject(专题) */,
 				4BF788201B0DD2100002704A /* hotAudio(热门声音) */,
 				4BF787C91B0DBA420002704A /* Hot Anchor(最火主播) */,
@@ -513,6 +565,10 @@
 		4B1D812D1B0C935D00B7C9DC /* viewModel */ = {
 			isa = PBXGroup;
 			children = (
+				4B912E1E1B0EF8B6007B64DD /* RCCircleViewModel.h */,
+				4B912E1F1B0EF8B6007B64DD /* RCCircleViewModel.m */,
+				4B912E0B1B0EE8DB007B64DD /* RCHotActivityViewModel.h */,
+				4B912E0C1B0EE8DB007B64DD /* RCHotActivityViewModel.m */,
 				4B912DF11B0EBFAD007B64DD /* RCSubjectViewModel.h */,
 				4B912DF21B0EBFAD007B64DD /* RCSubjectViewModel.m */,
 				4BF7882D1B0DD4B50002704A /* RCHotAudioVIewModel.h */,
@@ -715,6 +771,7 @@
 		4B1D81441B0C935D00B7C9DC /* lib */ = {
 			isa = PBXGroup;
 			children = (
+				4BC2CFDE1B0F1B9A00E086F3 /* FDTemplateLayoutCell */,
 				4BF7883C1B0E14AF0002704A /* Toast */,
 				4BF787EC1B0DBD970002704A /* MJRefresh */,
 				4B1D82861B0C9C9200B7C9DC /* KVNProgress */,
@@ -949,6 +1006,84 @@
 			path = "subject(专题)";
 			sourceTree = "<group>";
 		};
+		4B912E091B0EE8B2007B64DD /* hotActivity(热门活动) */ = {
+			isa = PBXGroup;
+			children = (
+				4B912E0E1B0EE95A007B64DD /* RCHotActivity.h */,
+				4B912E0F1B0EE95A007B64DD /* RCHotActivity.m */,
+			);
+			path = "hotActivity(热门活动)";
+			sourceTree = "<group>";
+		};
+		4B912E0A1B0EE8BC007B64DD /* hotActivity(热门活动) */ = {
+			isa = PBXGroup;
+			children = (
+				4B912E111B0EEA7B007B64DD /* RCHotActivityViewController.h */,
+				4B912E121B0EEA7B007B64DD /* RCHotActivityViewController.m */,
+				4B912E141B0EEB73007B64DD /* RCHotActivityViewCell.h */,
+				4B912E151B0EEB73007B64DD /* RCHotActivityViewCell.m */,
+				4B912E161B0EEB73007B64DD /* RCHotActivityViewCell.xib */,
+			);
+			path = "hotActivity(热门活动)";
+			sourceTree = "<group>";
+		};
+		4B912E191B0EF87E007B64DD /* circle(圈子) */ = {
+			isa = PBXGroup;
+			children = (
+				4B912E2D1B0EFA4F007B64DD /* 圈子 */,
+				4B912E341B0EFA4F007B64DD /* 帖子 */,
+			);
+			path = "circle(圈子)";
+			sourceTree = "<group>";
+		};
+		4B912E1A1B0EF885007B64DD /* circle(圈子) */ = {
+			isa = PBXGroup;
+			children = (
+				4B912E1B1B0EF898007B64DD /* RCCircleViewController.h */,
+				4B912E1C1B0EF898007B64DD /* RCCircleViewController.m */,
+				4B912E401B0EFBFE007B64DD /* RCRecommendZoneViewCell.h */,
+				4B912E411B0EFBFE007B64DD /* RCRecommendZoneViewCell.m */,
+				4B912E421B0EFBFE007B64DD /* RCRecommendZoneViewCell.xib */,
+				4B912E451B0EFC10007B64DD /* RCRecommendPostViewCell.h */,
+				4B912E461B0EFC10007B64DD /* RCRecommendPostViewCell.m */,
+				4B912E471B0EFC10007B64DD /* RCRecommendPostViewCell.xib */,
+			);
+			path = "circle(圈子)";
+			sourceTree = "<group>";
+		};
+		4B912E2D1B0EFA4F007B64DD /* 圈子 */ = {
+			isa = PBXGroup;
+			children = (
+				4B912E2E1B0EFA4F007B64DD /* RCRecommendedZones.h */,
+				4B912E2F1B0EFA4F007B64DD /* RCRecommendedZones.m */,
+				4B912E301B0EFA4F007B64DD /* RCRecommendMyZone.h */,
+				4B912E311B0EFA4F007B64DD /* RCRecommendMyZone.m */,
+				4B912E321B0EFA4F007B64DD /* RCRecommendOwnerZone.h */,
+				4B912E331B0EFA4F007B64DD /* RCRecommendOwnerZone.m */,
+			);
+			path = "圈子";
+			sourceTree = "<group>";
+		};
+		4B912E341B0EFA4F007B64DD /* 帖子 */ = {
+			isa = PBXGroup;
+			children = (
+				4B912E351B0EFA4F007B64DD /* RCRecommendedPost.h */,
+				4B912E361B0EFA4F007B64DD /* RCRecommendedPost.m */,
+				4B16391C1B0F0DEF002C4A24 /* RCRecommendPoster.h */,
+				4B16391D1B0F0DEF002C4A24 /* RCRecommendPoster.m */,
+			);
+			path = "帖子";
+			sourceTree = "<group>";
+		};
+		4BC2CFDE1B0F1B9A00E086F3 /* FDTemplateLayoutCell */ = {
+			isa = PBXGroup;
+			children = (
+				4BC2CFDF1B0F1B9A00E086F3 /* UITableView+FDTemplateLayoutCell.h */,
+				4BC2CFE01B0F1B9A00E086F3 /* UITableView+FDTemplateLayoutCell.m */,
+			);
+			path = FDTemplateLayoutCell;
+			sourceTree = "<group>";
+		};
 		4BF787C21B0DB8DF0002704A /* Hot Anchor(最火主播) */ = {
 			isa = PBXGroup;
 			children = (
@@ -1141,11 +1276,14 @@
 			files = (
 				4B1D81E61B0C970B00B7C9DC /* RCRecommendAlbumViewCell.xib in Resources */,
 				4B1D81471B0C935D00B7C9DC /* Info.plist in Resources */,
+				4B912E441B0EFBFE007B64DD /* RCRecommendZoneViewCell.xib in Resources */,
 				4B1D81C51B0C967300B7C9DC /* RCDiscover2IMGViewCell.xib in Resources */,
 				4B1D828F1B0C9C9200B7C9DC /* KVNProgressView.xib in Resources */,
 				4B912DFB1B0EC1A3007B64DD /* RCSubjectViewCell.xib in Resources */,
 				4BF7883B1B0DEE310002704A /* RCHotAudioViewCell.xib in Resources */,
 				4B1D81C21B0C967300B7C9DC /* RCCategoryListViewCell.xib in Resources */,
+				4B912E181B0EEB73007B64DD /* RCHotActivityViewCell.xib in Resources */,
+				4B912E491B0EFC10007B64DD /* RCRecommendPostViewCell.xib in Resources */,
 				4B1D81C81B0C967300B7C9DC /* RCDiscoverItemViewCell.xib in Resources */,
 				4BF7881F1B0DCFBC0002704A /* RCSectionheaderView.xib in Resources */,
 				4B912E021B0EC443007B64DD /* RCSubjectSectionHeaderView.xib in Resources */,
@@ -1205,6 +1343,7 @@
 			files = (
 				4BF788141B0DBF8E0002704A /* RCAnthorViewCell.m in Sources */,
 				4B1D827E1B0C982900B7C9DC /* UIImage+GIF.m in Sources */,
+				4B912E481B0EFC10007B64DD /* RCRecommendPostViewCell.m in Sources */,
 				4B1D82A01B0C9E3300B7C9DC /* RCTabBar.m in Sources */,
 				4BF788101B0DBD970002704A /* UIView+MJExtension.m in Sources */,
 				4B1D81931B0C958D00B7C9DC /* RCCategoryFocusImageResult.m in Sources */,
@@ -1214,6 +1353,7 @@
 				4B1D816E1B0C94D100B7C9DC /* RCCategoryListViewModel.m in Sources */,
 				4B1D827F1B0C982900B7C9DC /* UIImage+MultiFormat.m in Sources */,
 				4BF788061B0DBD970002704A /* MJRefreshComponent.m in Sources */,
+				4BC2CFE11B0F1B9A00E086F3 /* UITableView+FDTemplateLayoutCell.m in Sources */,
 				4B1D81571B0C945100B7C9DC /* RCDisCoverViewModel.m in Sources */,
 				4B1D81CC1B0C96A200B7C9DC /* RCFocusImage.m in Sources */,
 				4B1D822B1B0C977400B7C9DC /* AFURLResponseSerialization.m in Sources */,
@@ -1223,6 +1363,8 @@
 				4B1D82461B0C978000B7C9DC /* NSString+MJExtension.m in Sources */,
 				4B1D828E1B0C9C9200B7C9DC /* KVNProgress.m in Sources */,
 				4B1D81EF1B0C972F00B7C9DC /* UIImage+RC.m in Sources */,
+				4B912E131B0EEA7B007B64DD /* RCHotActivityViewController.m in Sources */,
+				4B912E1D1B0EF898007B64DD /* RCCircleViewController.m in Sources */,
 				4B1D81D61B0C96C400B7C9DC /* RCLatestActivity.m in Sources */,
 				4BF787AE1B0DB7700002704A /* RCHotAnchorVIewModel.m in Sources */,
 				4B1D82B71B0CC3BB00B7C9DC /* RCCollectionHeaderReusableView.m in Sources */,
@@ -1246,10 +1388,13 @@
 				4B1D822C1B0C977400B7C9DC /* AFURLSessionManager.m in Sources */,
 				4B1D827D1B0C982900B7C9DC /* UIButton+WebCache.m in Sources */,
 				4B1D81DB1B0C96E400B7C9DC /* RCNetWorkingTool.m in Sources */,
+				4B912E391B0EFA4F007B64DD /* RCRecommendOwnerZone.m in Sources */,
 				4B1D81F51B0C973800B7C9DC /* UIView+Extension.m in Sources */,
 				4B912DF01B0EBF02007B64DD /* RCSubjectList.m in Sources */,
 				4B1D81E11B0C970000B7C9DC /* RCRecommendAlbums.m in Sources */,
 				4B1D81611B0C949300B7C9DC /* RCDiscoverDataTool.m in Sources */,
+				4B912E431B0EFBFE007B64DD /* RCRecommendZoneViewCell.m in Sources */,
+				4B912E201B0EF8B6007B64DD /* RCCircleViewModel.m in Sources */,
 				4B1D82431B0C978000B7C9DC /* NSObject+MJCoding.m in Sources */,
 				4BF788081B0DBD970002704A /* MJRefreshFooter.m in Sources */,
 				4B1D81951B0C958D00B7C9DC /* RCCategoryListResult.m in Sources */,
@@ -1268,12 +1413,15 @@
 				4B912DF61B0EC090007B64DD /* RCSubjectViewController.m in Sources */,
 				4B1D822A1B0C977400B7C9DC /* AFURLRequestSerialization.m in Sources */,
 				4BF788361B0DD6A90002704A /* RCOnneHotAudio.m in Sources */,
+				4B912E371B0EFA4F007B64DD /* RCRecommendedZones.m in Sources */,
 				4B1D82271B0C977400B7C9DC /* AFNetworkReachabilityManager.m in Sources */,
+				4B16391E1B0F0DEF002C4A24 /* RCRecommendPoster.m in Sources */,
 				4B1D82811B0C982900B7C9DC /* UIImageView+WebCache.m in Sources */,
 				4B1D81911B0C958D00B7C9DC /* RCCategoryFocusImageList.m in Sources */,
 				4B1D82451B0C978000B7C9DC /* NSObject+MJProperty.m in Sources */,
 				4BF7880F1B0DBD970002704A /* UIScrollView+MJRefresh.m in Sources */,
 				4B1D81C31B0C967300B7C9DC /* RCCateroryListViewController.m in Sources */,
+				4B912E3A1B0EFA4F007B64DD /* RCRecommendedPost.m in Sources */,
 				4B1D81841B0C953800B7C9DC /* RCDownloadViewController.m in Sources */,
 				4B1D81C91B0C967300B7C9DC /* RCDiscoverViewController.m in Sources */,
 				4BF7880D1B0DBD970002704A /* MJRefreshLegendHeader.m in Sources */,
@@ -1288,6 +1436,7 @@
 				4BF787C81B0DB9770002704A /* RCOneAnchorList.m in Sources */,
 				4BF788181B0DCE000002704A /* RCAnthorImgeView.m in Sources */,
 				4B1D82AC1B0C9F7B00B7C9DC /* UIBarButtonItem+MJ.m in Sources */,
+				4B912E381B0EFA4F007B64DD /* RCRecommendMyZone.m in Sources */,
 				4BF7882F1B0DD4B50002704A /* RCHotAudioVIewModel.m in Sources */,
 				4B1D81C41B0C967300B7C9DC /* RCDiscover2IMGViewCell.m in Sources */,
 				4B1D82241B0C977400B7C9DC /* AFHTTPRequestOperation.m in Sources */,
@@ -1305,10 +1454,13 @@
 				4B1D81941B0C958D00B7C9DC /* RCCategoryList.m in Sources */,
 				4BF787CC1B0DBA600002704A /* RCCategoryFocusImageViewCell.m in Sources */,
 				4B1D829D1B0C9E2700B7C9DC /* RCSearchBar.m in Sources */,
+				4B912E171B0EEB73007B64DD /* RCHotActivityViewCell.m in Sources */,
 				4B1D81C11B0C967300B7C9DC /* RCCategoryListViewCell.m in Sources */,
 				4B1D827B1B0C982900B7C9DC /* SDWebImageManager.m in Sources */,
 				4B1D82281B0C977400B7C9DC /* AFSecurityPolicy.m in Sources */,
 				4B1D82251B0C977400B7C9DC /* AFHTTPRequestOperationManager.m in Sources */,
+				4B912E0D1B0EE8DB007B64DD /* RCHotActivityViewModel.m in Sources */,
+				4B912E101B0EE95A007B64DD /* RCHotActivity.m in Sources */,
 				4BF788261B0DD22B0002704A /* RCTitleButton.m in Sources */,
 				4B1D82291B0C977400B7C9DC /* AFURLConnectionOperation.m in Sources */,
 				4B1D819D1B0C95B300B7C9DC /* RCCategryListParam.m in Sources */,

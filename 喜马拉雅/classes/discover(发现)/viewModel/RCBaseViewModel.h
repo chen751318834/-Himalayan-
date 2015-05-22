@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "MJExtension.h"
+#import "RCNetWorkingTool.h"
 @interface RCBaseViewModel : NSObject
 @property(nonatomic,strong) NSMutableArray  *models;
 @property(nonatomic,assign) NSUInteger currrentPage;
