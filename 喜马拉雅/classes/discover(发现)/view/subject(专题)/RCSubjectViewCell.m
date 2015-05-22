@@ -7,7 +7,6 @@
 //
 
 #import "RCSubjectViewCell.h"
-
 #import "UIImageView+WebCache.h"
 @interface RCSubjectViewCell ()
 @property (weak, nonatomic) IBOutlet UIImageView *iconView;

@@ -25,7 +25,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="标题" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t23-JO-yE6">
-                                <rect key="frame" x="76" y="8" width="186" height="36"/>
+                                <rect key="frame" x="76" y="8" width="198" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="NVJ-m7-50E"/>
                                 </constraints>
@@ -42,21 +42,11 @@
                                 <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lHX-Oa-MMp">
-                                <rect key="frame" x="270" y="3" width="42" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="42" id="aXR-5G-E1F"/>
-                                    <constraint firstAttribute="height" constant="21" id="kCq-4R-VZz"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="采集" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pNE-lc-mbY">
-                                <rect key="frame" x="270" y="15" width="42" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="采集" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pNE-lc-mbY">
+                                <rect key="frame" x="292" y="15" width="20" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="2EU-wx-ThP"/>
-                                    <constraint firstAttribute="width" constant="42" id="GZZ-Q7-3f7"/>
+                                    <constraint firstAttribute="width" constant="20" id="GZZ-Q7-3f7"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -132,6 +122,16 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12/2111" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lHX-Oa-MMp">
+                                <rect key="frame" x="273" y="3" width="39" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="39" id="aXR-5G-E1F"/>
+                                    <constraint firstAttribute="height" constant="21" id="kCq-4R-VZz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -153,7 +153,7 @@
                             <constraint firstItem="Bnp-Ci-BQB" firstAttribute="top" secondItem="n24-L8-cvI" secondAttribute="top" id="a70-Hf-Qoc"/>
                             <constraint firstItem="Bnp-Ci-BQB" firstAttribute="top" secondItem="THf-ov-o7k" secondAttribute="top" id="aei-th-cgh"/>
                             <constraint firstItem="MaE-YF-TeL" firstAttribute="leading" secondItem="MUz-DM-8lk" secondAttribute="leading" constant="8" id="cc3-xT-zxO"/>
-                            <constraint firstItem="pNE-lc-mbY" firstAttribute="leading" secondItem="t23-JO-yE6" secondAttribute="trailing" constant="8" id="cmO-FL-hx4"/>
+                            <constraint firstItem="pNE-lc-mbY" firstAttribute="leading" secondItem="t23-JO-yE6" secondAttribute="trailing" constant="18" id="cmO-FL-hx4"/>
                             <constraint firstAttribute="trailing" secondItem="lHX-Oa-MMp" secondAttribute="trailing" constant="8" id="efQ-gZ-ijp"/>
                             <constraint firstItem="MaE-YF-TeL" firstAttribute="top" secondItem="MUz-DM-8lk" secondAttribute="top" constant="8" id="j4I-4A-Hfa"/>
                             <constraint firstAttribute="trailing" secondItem="Ge0-08-zSc" secondAttribute="trailing" constant="8" id="nla-pi-dWR"/>

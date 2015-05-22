@@ -9,6 +9,7 @@
 #import "RCSubjectViewController.h"
 #import "RCSubjectViewModel.h"
 #import "RCSubjectSectionHeaderView.h"
+#import "NSDate+RC.h"
 #import "RCSubjectViewCell.h"
 @interface RCSubjectViewController ()
 @property(nonatomic,strong) RCSubjectViewModel  *viewModel;
@@ -62,7 +63,8 @@
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     RCSubjectSectionHeaderView * headerView = [RCSubjectSectionHeaderView headerView];
     RCSubjectList * list = self.contents[section];
-    [headerView.titleButton setTitle:[NSString stringWithFormat:@"%@",list.releasedAt ]forState:UIControlStateNormal];
+    NSDate * date = [[NSDate alloc]init];
+    [headerView.titleButton setTitle:[NSString stringWithFormat:@"%@",[date dateStrWithNumber:list.releasedAt] ]forState:UIControlStateNormal];
 
     return headerView;
 }

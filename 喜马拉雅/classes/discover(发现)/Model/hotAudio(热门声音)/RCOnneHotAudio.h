@@ -40,5 +40,6 @@
 @property(nonatomic,strong) NSNumber  *userSource;
 @property(nonatomic,strong) NSNumber  *createdAt;
 @property(nonatomic,assign,getter=isDownloading) BOOL downloading;
+@property(nonatomic,copy) NSString  *created_at;
 
 @end

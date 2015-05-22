@@ -98,6 +98,7 @@
 		4B912DFB1B0EC1A3007B64DD /* RCSubjectViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B912DF91B0EC1A3007B64DD /* RCSubjectViewCell.xib */; };
 		4B912DFE1B0EC430007B64DD /* RCSubjectSectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B912DFD1B0EC430007B64DD /* RCSubjectSectionHeaderView.m */; };
 		4B912E021B0EC443007B64DD /* RCSubjectSectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B912E011B0EC443007B64DD /* RCSubjectSectionHeaderView.xib */; };
+		4B912E051B0ED039007B64DD /* NSDate+RC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B912E041B0ED039007B64DD /* NSDate+RC.m */; };
 		4BF787AE1B0DB7700002704A /* RCHotAnchorVIewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF787AD1B0DB7700002704A /* RCHotAnchorVIewModel.m */; };
 		4BF787C51B0DB8F20002704A /* RCAnchorList.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF787C41B0DB8F20002704A /* RCAnchorList.m */; };
 		4BF787C81B0DB9770002704A /* RCOneAnchorList.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF787C71B0DB9770002704A /* RCOneAnchorList.m */; };
@@ -320,6 +321,8 @@
 		4B912DFC1B0EC430007B64DD /* RCSubjectSectionHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCSubjectSectionHeaderView.h; sourceTree = "<group>"; };
 		4B912DFD1B0EC430007B64DD /* RCSubjectSectionHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCSubjectSectionHeaderView.m; sourceTree = "<group>"; };
 		4B912E011B0EC443007B64DD /* RCSubjectSectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RCSubjectSectionHeaderView.xib; sourceTree = "<group>"; };
+		4B912E031B0ED039007B64DD /* NSDate+RC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+RC.h"; sourceTree = "<group>"; };
+		4B912E041B0ED039007B64DD /* NSDate+RC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+RC.m"; sourceTree = "<group>"; };
 		4BF787AC1B0DB7700002704A /* RCHotAnchorVIewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCHotAnchorVIewModel.h; sourceTree = "<group>"; };
 		4BF787AD1B0DB7700002704A /* RCHotAnchorVIewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCHotAnchorVIewModel.m; sourceTree = "<group>"; };
 		4BF787C31B0DB8F20002704A /* RCAnchorList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCAnchorList.h; sourceTree = "<group>"; };
@@ -697,6 +700,8 @@
 		4B1D81421B0C935D00B7C9DC /* category */ = {
 			isa = PBXGroup;
 			children = (
+				4B912E031B0ED039007B64DD /* NSDate+RC.h */,
+				4B912E041B0ED039007B64DD /* NSDate+RC.m */,
 				4B1D82AA1B0C9F7B00B7C9DC /* UIBarButtonItem+MJ.h */,
 				4B1D82AB1B0C9F7B00B7C9DC /* UIBarButtonItem+MJ.m */,
 				4B1D81F01B0C973800B7C9DC /* UIView+AutoLayout.h */,
@@ -1276,6 +1281,7 @@
 				4B1D82441B0C978000B7C9DC /* NSObject+MJKeyValue.m in Sources */,
 				4B1D82821B0C982900B7C9DC /* UIView+WebCacheOperation.m in Sources */,
 				4BF7880B1B0DBD970002704A /* MJRefreshHeader.m in Sources */,
+				4B912E051B0ED039007B64DD /* NSDate+RC.m in Sources */,
 				4BF788291B0DD2560002704A /* RCHotAudioViewController.m in Sources */,
 				4B1D81481B0C935D00B7C9DC /* main.m in Sources */,
 				4B912DF31B0EBFAD007B64DD /* RCSubjectViewModel.m in Sources */,

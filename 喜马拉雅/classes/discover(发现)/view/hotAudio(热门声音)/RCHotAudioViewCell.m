@@ -7,6 +7,7 @@
 //
 
 #import "RCHotAudioViewCell.h"
+#import "NSDate+RC.h"
 #import "UIImageView+WebCache.h"
 #import "UIImage+RC.h"
 @interface  RCHotAudioViewCell ()
@@ -46,6 +47,7 @@
     [self setUpWithButton:self.saveCountLabel count:[audio.sharesCounts intValue] title:nil];
     [self setUpWithButton:self.sayCountLabel count:[audio.commentsCounts intValue] title:nil];
     self.downloadButton.selected = audio.isDownloading;
+    self.createTImeLabel.text = audio.created_at;
 }
 - (void)setUpWithButton:(UIButton *)button count:(int)count title:(NSString *)title {
     if (count ==0) {
