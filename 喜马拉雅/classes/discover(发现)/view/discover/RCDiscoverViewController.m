@@ -11,6 +11,7 @@
 #import "RCRecommendAlbumViewCell.h"
 #import "RCPlayListViewCell.h"
 #import "RCDiscover2IMGViewCell.h"
+#import "RCSubjectViewController.h"
 #import "RCConst.h"
 #import "UIImageView+WebCache.h"
 #import "RCFocusImageViewCell.h"
@@ -59,6 +60,12 @@ static const NSUInteger sectionCount = 100;
     return _categoryViewModel;
 }
 #pragma mark - 初始化
+- (void)viewWillAppear:(BOOL)animated{
+
+    [super viewWillAppear:animated];
+
+
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
 //    self.tableView.allowsSelection = NO;
@@ -372,6 +379,9 @@ static const NSUInteger sectionCount = 100;
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     RCLog(@"didSelectRowAtIndexPath");
+    if (indexPath.section == 2) {
+        [self.navigationController pushViewController:[[RCSubjectViewController alloc]init] animated:YES];
+    }
 }
 
 #pragma mark - private

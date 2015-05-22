@@ -58,7 +58,7 @@
             failure();
         }
     }];
-    
+
 
 
 }
@@ -93,7 +93,6 @@
 
 }
 - ( void)fetchMoreLikeAudioDataWithSuccess:(void (^)(void ))success failure:(void (^)(void ))failure{
-
     self.currrentPage ++;
     [RCNetWorkingTool get:[NSString stringWithFormat:@"http://mobile.ximalaya.com/m/explore_track_list?category_name=all&condition=favorite&device=android&page=%ld&per_page=15&tag_name=",self.currrentPage] params:nil success:^(id json) {
         NSArray * newAudios = [RCOnneHotAudio objectArrayWithKeyValuesArray:json[@"list"]];
@@ -108,11 +107,7 @@
     }];
 }
 
-
-
-
 - (RCHotAudio *)rowAtIndexPathInTableView:(NSIndexPath *)indexPath{
-
     return self.models[indexPath.row];
 }
 @end
