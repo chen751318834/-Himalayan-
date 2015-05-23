@@ -7,7 +7,7 @@
 //
 
 #import "RCRecommendZoneViewCell.h"
-
+#import "UITableView+FDTemplateLayoutCell.h"
 #import "UIImageView+WebCache.h"
 @interface RCRecommendZoneViewCell ()
 @property (weak, nonatomic) IBOutlet UIImageView *iconView;
@@ -17,7 +17,10 @@
 
 @end
 @implementation RCRecommendZoneViewCell
-
+- (void)awakeFromNib{
+    [super awakeFromNib];
+    self.fd_isTemplateLayoutCell = YES;
+}
 - (void)setZone:(RCRecommendedZones *)zone{
     _zone = zone;
     [self.iconView sd_setImageWithURL:[NSURL URLWithString:zone.imageUrl] placeholderImage:[UIImage imageNamed:@"find_albumcell_cover_bg"]];

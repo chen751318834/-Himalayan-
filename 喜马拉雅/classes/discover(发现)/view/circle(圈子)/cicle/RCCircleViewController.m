@@ -109,11 +109,14 @@ static NSString * const postID = @"postCell";
         cicleDeailVC.zoneID = zone.ID;
         cicleDeailVC.timeline = zone.timeline;
         [self.navigationController pushViewController:cicleDeailVC animated:YES];
+    }else{
+        RCPostDeailViewController * postDeailVC = [[RCPostDeailViewController alloc]init];
+        RCRecommendedPost * post = [self.viewModel postAtIndexPath:indexPath];
+        postDeailVC.post  = post;
+        [self.navigationController pushViewController:postDeailVC animated:YES];
+
     }
-    RCPostDeailViewController * postDeailVC = [[RCPostDeailViewController alloc]init];
-    RCRecommendedPost * post = [self.viewModel postAtIndexPath:indexPath];
-    postDeailVC.post  = post;
-    [self.navigationController pushViewController:postDeailVC animated:YES];
+
 }
 
 @end

@@ -103,10 +103,19 @@ static NSString * const ID = @"postCell";
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [super tableView:tableView didSelectRowAtIndexPath:indexPath];
-    RCRecommendedPost * post = [self.viewModel postAtIndexPath:indexPath];
-    RCPostDeailViewController * postDeailVC = [[RCPostDeailViewController alloc]init];
-    postDeailVC.post = post;
-    [self.navigationController pushViewController:postDeailVC animated:YES];
+    if (indexPath.section == 0) {
+        RCRecommendedPost * post = [self.viewModel topZonePostAtIndexPath:indexPath];
+        [super tableView:tableView didSelectRowAtIndexPath:indexPath];
+        RCPostDeailViewController * postDeailVC = [[RCPostDeailViewController alloc]init];
+        postDeailVC.post = post;
+        [self.navigationController pushViewController:postDeailVC animated:YES];
+    }else{
+        RCRecommendedPost * post = [self.viewModel zonePostAtIndexPath:indexPath];
+        RCPostDeailViewController * postDeailVC = [[RCPostDeailViewController alloc]init];
+        postDeailVC.post = post;
+        [self.navigationController pushViewController:postDeailVC animated:YES];
+    }
+
 
 }
 @end

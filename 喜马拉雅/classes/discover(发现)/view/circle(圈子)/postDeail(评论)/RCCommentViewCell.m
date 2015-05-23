@@ -19,4 +19,6 @@
 - (void)setParentComment:(RCOneParentComment *)parentComment{
     _parentComment = parentComment;
 }
+
+
 @end

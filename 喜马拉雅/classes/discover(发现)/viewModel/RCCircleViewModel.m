@@ -17,8 +17,24 @@
 @property(nonatomic,strong) NSMutableArray  *topPosts;
 @property(nonatomic,strong) NSMutableArray  *comments;
 @property(nonatomic,strong) NSMutableArray  *parentComments;
+@property(nonatomic,strong) NSMutableArray  *onwerDatas;
+
 @end
 @implementation RCCircleViewModel
+-  (NSMutableArray *)onwerDatas{
+    if (!_onwerDatas) {
+        self.onwerDatas = [NSMutableArray array];
+    }
+    return _onwerDatas;
+}
+- (NSMutableArray *)posts{
+    if (!_posts) {
+        self.posts= [NSMutableArray array];
+
+    }
+    return _posts;
+}
+
 -  (NSMutableArray *)comments{
     if (!_comments) {
         self.comments= [NSMutableArray array];
@@ -54,13 +70,7 @@
     }
     return _zones;
 }
--  (NSMutableArray *)posts{
-    if (!_posts) {
-        self.posts= [NSMutableArray array];
 
-    }
-    return _posts;
-}
 
 #pragma mark - 圈子
 - ( void)fetchRecommendZoneDataWithSuccess:(void (^)(void ))success failure:(void (^)(void ))failure{
@@ -100,6 +110,7 @@
     return self.zones[indexPath.row];
 }
 - (RCRecommendedPost *)postAtIndexPath: (NSIndexPath *)indexPath{
+    if (self.posts.count ==0) return  nil;
     return self.posts[indexPath.row];
 
 
@@ -197,11 +208,34 @@
 }
 
 #pragma mark - 评论详情
+- ( void)fetchBulidingOnwerDataWithSuccess:(void (^)(void ))success failure:(void (^)(void ))failure {
+    NSString * urlStr = [NSString stringWithFormat:@"http://xzone.ximalaya.com/x-zone-post/v1/posts/%@?device=android&zoneId=%@",self.post.ID,self.post.zoneId];
+    NSLog(@"%@",urlStr);
+    [RCNetWorkingTool get:urlStr params:nil success:^(id json) {
+        RCRecommendedPost * newComment = [RCRecommendedPost objectWithKeyValues:json[@"result"]];
+        [self.onwerDatas removeAllObjects];
+        [self.onwerDatas addObject:newComment];
+
+        if (success) {
+            success();
+        }
+    } failure:^(NSError *error) {
+        if (failure) {
+            failure();
+        }
+    }];
+
+
+
+}
+
 - ( void)fetchNewCommentsWithSuccess:(void (^)(void ))success failure:(void (^)(void ))failure {
     NSString * urlStr = [NSString stringWithFormat:@"http://xzone.ximalaya.com/x-zone-post/v1/comments?order=0&timelineType=0&direction=0&device=android&timeline=0&maxSizeOfComments=30&zoneId=%@&postId=%@",self.post.zoneId,self.post.ID];
     NSLog(@"%@",urlStr);
     [RCNetWorkingTool get:urlStr params:nil success:^(id json) {
         RCComment * newComment = [RCComment objectWithKeyValues:json[@"result"]];
+        [self.comments removeAllObjects];
+        [self.parentComments removeAllObjects];
         [self.comments addObjectsFromArray:newComment.comments];
         if (newComment.parentComments.count != 0) {
             [self.comments addObjectsFromArray:newComment.parentComments];
@@ -223,7 +257,6 @@
             [self.comments addObjectsFromArray:newComment.comments];
             if (newComment.parentComments.count != 0) {
                 [self.comments addObjectsFromArray:newComment.parentComments];
-                
             }
             if (success) {
                 success();
@@ -245,8 +278,12 @@
     return self.parentComments[indexPath.row];
 }
 - (NSInteger)numberOfRowOfCommentInSection: (NSInteger)section{
-
+    if (section == 0) {
+        return self.onwerDatas.count;
+    }
     return self.comments.count;
 }
-
+- (RCRecommendedPost *)onwerDataAtIndexPath: (NSIndexPath *)indexPath{
+    return self.onwerDatas[indexPath.row];
+}
 @end
