@@ -10,6 +10,7 @@
 #import "RCCircleViewModel.h"
 #import "RCRecommendPostViewCell.h"
 #import "RCRecommendZoneViewCell.h"
+#import "RCCircleDeailViewController.h"
 #import "UITableView+FDTemplateLayoutCell.h"
 static NSString * const zoneID = @"zoneCell";
 static NSString * const postID = @"postCell";
@@ -27,35 +28,34 @@ static NSString * const postID = @"postCell";
     return _viewModel;
 }
 
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.title = @"圈子";
+    [self.tableView registerNib:[UINib nibWithNibName:@"RCRecommendZoneViewCell" bundle:nil] forCellReuseIdentifier:zoneID];
+    [self.tableView registerNib:[UINib nibWithNibName:@"RCRecommendPostViewCell" bundle:nil] forCellReuseIdentifier:postID];
+    self.tableView.gifFooter.hidden = YES;
+
+}
 - (void)loadNewData{
 
     [self.viewModel fetchRecommendZoneDataWithSuccess:^{
         [self.tableView reloadData];
         [self.tableView.gifHeader endRefreshing];
-        
+        [self.viewModel fetchRecommendPostDataWithSuccess:^{
+            [self.tableView reloadData];
+
+            [self.tableView.gifHeader endRefreshing];
+
+        } failure:^{
+            [self.tableView.gifHeader endRefreshing];
+            
+        }];
     } failure:^{
         [self.tableView.gifHeader endRefreshing];
 
     }];
 
-    [self.viewModel fetchRecommendPostDataWithSuccess:^{
-        [self.tableView reloadData];
-
-        [self.tableView.gifHeader endRefreshing];
-
-    } failure:^{
-        [self.tableView.gifHeader endRefreshing];
-
-    }];
-}
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    self.tableView.fd_debugLogEnabled = YES;
-    self.title = @"圈子";
-    [self.tableView registerNib:[UINib nibWithNibName:@"RCRecommendZoneViewCell" bundle:nil] forCellReuseIdentifier:zoneID];
-    [self.tableView registerNib:[UINib nibWithNibName:@"RCRecommendPostViewCell" bundle:nil] forCellReuseIdentifier:postID];
-    self.tableView.gifFooter.hidden = YES;
-    self.tableView.rowHeight = UITableViewAutomaticDimension;
 
 }
 #pragma mark - UITableViewDelegate
@@ -93,14 +93,20 @@ static NSString * const postID = @"postCell";
         return 96;
     }
     return [tableView fd_heightForCellWithIdentifier:postID cacheByIndexPath:indexPath configuration:^(RCRecommendPostViewCell * cell) {
-          cell.post = [self.viewModel postAtIndexPath:indexPath];
-    }];
+            cell.post = [self.viewModel postAtIndexPath:indexPath];
+        }];
+
+
 }
 
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    RCRecommendedZones * zone = [self.viewModel zoneAtIndexPath:indexPath];
     [super tableView:tableView didSelectRowAtIndexPath:indexPath];
-    
+    RCCircleDeailViewController * cicleDeailVC = [[RCCircleDeailViewController alloc]init];
+    cicleDeailVC.zoneID = zone.ID;
+    cicleDeailVC.timeline = zone.timeline;
+    [self.navigationController pushViewController:cicleDeailVC animated:YES];
 }
 
 @end

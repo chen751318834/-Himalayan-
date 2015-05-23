@@ -13,8 +13,16 @@
 @interface RCCircleViewModel ()
 @property(nonatomic,strong) NSMutableArray  *zones;
 @property(nonatomic,strong) NSMutableArray  *posts;
+@property(nonatomic,strong) NSMutableArray  *zonePosts;
 @end
 @implementation RCCircleViewModel
+-  (NSMutableArray *)zonePosts{
+    if (!_zonePosts) {
+        self.zonePosts= [NSMutableArray array];
+
+    }
+    return _zonePosts;
+}
 -  (NSMutableArray *)zones{
     if (!_zones) {
         self.zones= [NSMutableArray array];
@@ -29,6 +37,8 @@
     }
     return _posts;
 }
+
+#pragma mark - 圈子
 - ( void)fetchRecommendZoneDataWithSuccess:(void (^)(void ))success failure:(void (^)(void ))failure{
 
     [RCNetWorkingTool get:[NSString stringWithFormat:@"http://xzone.ximalaya.com/x-zone-post/v1/recommendedZones?device=android"] params:nil success:^(id json) {
@@ -84,5 +94,65 @@
         return @"推荐圈子";
     }
     return @"热门帖子";
+}
+
+#pragma mark - 圈子详情
+- (NSInteger)numberOfRowOfZonePostInSection: (NSInteger)section{
+    return self.zonePosts.count;
+}
+- (RCZonePost *)zonePostAtIndexPath: (NSIndexPath *)indexPath{
+    return self.zonePosts[indexPath.row];
+
+}
+- ( void)fetchZonesAndPostDeailHeaderDataWithSuccess:(void (^)(void))success failure:(void (^)(void))failure {
+    [RCNetWorkingTool get:[NSString stringWithFormat:@"http://xzone.ximalaya.com/x-zone-post/v1/zones/%@?device=android",self.zoneID] params:nil success:^(id json) {
+        [self.posts removeAllObjects];
+        RCZonePostHeadData * headData = [RCZonePostHeadData objectWithKeyValues:json[@"result"]];
+        self.headData = headData;
+        if (success) {
+            success();
+        }
+    } failure:^(NSError *error) {
+        NSLog(@"%@",error);
+        if (failure) {
+            failure();
+        }
+    }];
+}
+- ( void)fetchNewZonesAndPostDeailDataWithSuccess:(void (^)(void))success failure:(void (^)(void))failure {
+    [RCNetWorkingTool get:[NSString stringWithFormat:@"http://xzone.ximalaya.com/x-zone-post/v1/posts?timelineType=0&device=android&timeline=%@&zoneId=%@&maxSizeOfPosts=30",self.timeline,self.zoneID] params:nil success:^(id json) {
+        [self.posts removeAllObjects];
+        NSArray * newZonePosts = [RCZonePost objectArrayWithKeyValuesArray:json[@"result"]];
+        [self.zonePosts addObjectsFromArray:newZonePosts];
+        if (success) {
+            success();
+        }
+    } failure:^(NSError *error) {
+        NSLog(@"%@",error);
+        if (failure) {
+            failure();
+        }
+    }];
+
+}
+- ( void)fetchMoreZonesAndPostDeailDataWithSuccess:(void (^)(void))success failure:(void (^)(void))failure completion:(void (^)(void))completion{
+
+    RCZonePost * lastZonePost = [self.zonePosts lastObject];
+    if (lastZonePost) {
+        [RCNetWorkingTool get:[NSString stringWithFormat:@"http://xzone.ximalaya.com/x-zone-post/v1/posts?timelineType=0&device=android&timeline=%@&zoneId=%@&maxSizeOfPosts=30",lastZonePost.timeline,self.zoneID] params:nil success:^(id json) {
+            NSArray * newZonePosts = [RCZonePost objectArrayWithKeyValuesArray:json[@"result"][@"activityData"]];
+
+            [self.zonePosts addObjectsFromArray:newZonePosts];
+            if (success) {
+                success();
+            }
+        } failure:^(NSError *error) {
+            if (failure) {
+                failure();
+            }
+        }];
+    }
+
+
 }
 @end
