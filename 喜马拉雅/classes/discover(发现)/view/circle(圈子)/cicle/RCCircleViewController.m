@@ -9,6 +9,7 @@
 #import "RCCircleViewController.h"
 #import "RCCircleViewModel.h"
 #import "RCRecommendPostViewCell.h"
+#import "RCPostDeailViewController.h"
 #import "RCRecommendZoneViewCell.h"
 #import "RCCircleDeailViewController.h"
 #import "UITableView+FDTemplateLayoutCell.h"
@@ -101,12 +102,18 @@ static NSString * const postID = @"postCell";
 
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    RCRecommendedZones * zone = [self.viewModel zoneAtIndexPath:indexPath];
     [super tableView:tableView didSelectRowAtIndexPath:indexPath];
-    RCCircleDeailViewController * cicleDeailVC = [[RCCircleDeailViewController alloc]init];
-    cicleDeailVC.zoneID = zone.ID;
-    cicleDeailVC.timeline = zone.timeline;
-    [self.navigationController pushViewController:cicleDeailVC animated:YES];
+    if (indexPath.section == 0) {
+        RCRecommendedZones * zone = [self.viewModel zoneAtIndexPath:indexPath];
+        RCCircleDeailViewController * cicleDeailVC = [[RCCircleDeailViewController alloc]init];
+        cicleDeailVC.zoneID = zone.ID;
+        cicleDeailVC.timeline = zone.timeline;
+        [self.navigationController pushViewController:cicleDeailVC animated:YES];
+    }
+    RCPostDeailViewController * postDeailVC = [[RCPostDeailViewController alloc]init];
+    RCRecommendedPost * post = [self.viewModel postAtIndexPath:indexPath];
+    postDeailVC.post  = post;
+    [self.navigationController pushViewController:postDeailVC animated:YES];
 }
 
 @end

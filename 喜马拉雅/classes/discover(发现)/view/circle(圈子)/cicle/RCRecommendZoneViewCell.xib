@@ -43,6 +43,13 @@
                         <color key="textColor" red="1" green="0.46942787122779339" blue="0.1371251993849637" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ok5-8p-0QD">
+                        <rect key="frame" x="8" y="18" width="60" height="60"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="60" id="6Bf-o8-Q1O"/>
+                            <constraint firstAttribute="width" constant="60" id="mFf-El-Mc6"/>
+                        </constraints>
+                    </imageView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bEq-BH-hNd">
                         <rect key="frame" x="258" y="35" width="54" height="25"/>
                         <constraints>
@@ -53,13 +60,6 @@
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                     </button>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ok5-8p-0QD">
-                        <rect key="frame" x="8" y="18" width="60" height="60"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="60" id="6Bf-o8-Q1O"/>
-                            <constraint firstAttribute="width" constant="60" id="mFf-El-Mc6"/>
-                        </constraints>
-                    </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="bEq-BH-hNd" firstAttribute="top" secondItem="9Vv-cP-kTT" secondAttribute="bottom" constant="2" id="2He-PK-I7R"/>

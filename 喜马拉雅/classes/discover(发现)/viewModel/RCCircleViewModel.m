@@ -14,8 +14,32 @@
 @property(nonatomic,strong) NSMutableArray  *zones;
 @property(nonatomic,strong) NSMutableArray  *posts;
 @property(nonatomic,strong) NSMutableArray  *zonePosts;
+@property(nonatomic,strong) NSMutableArray  *topPosts;
+@property(nonatomic,strong) NSMutableArray  *comments;
+@property(nonatomic,strong) NSMutableArray  *parentComments;
 @end
 @implementation RCCircleViewModel
+-  (NSMutableArray *)comments{
+    if (!_comments) {
+        self.comments= [NSMutableArray array];
+
+    }
+    return _comments;
+}
+-  (NSMutableArray *)parentComments{
+    if (!_parentComments) {
+        self.parentComments= [NSMutableArray array];
+
+    }
+    return _parentComments;
+}
+-  (NSMutableArray *)topPosts{
+    if (!_topPosts) {
+        self.topPosts= [NSMutableArray array];
+
+    }
+    return _topPosts;
+}
 -  (NSMutableArray *)zonePosts{
     if (!_zonePosts) {
         self.zonePosts= [NSMutableArray array];
@@ -55,6 +79,7 @@
         }
     }];
 }
+
 - ( void)fetchRecommendPostDataWithSuccess:(void (^)(void ))success failure:(void (^)(void ))failure{
     [RCNetWorkingTool get:[NSString stringWithFormat:@"http://xzone.ximalaya.com/x-zone-post/v1/recommendedPosts?device=android"] params:nil success:^(id json) {
         [self.posts removeAllObjects];
@@ -97,13 +122,7 @@
 }
 
 #pragma mark - 圈子详情
-- (NSInteger)numberOfRowOfZonePostInSection: (NSInteger)section{
-    return self.zonePosts.count;
-}
-- (RCZonePost *)zonePostAtIndexPath: (NSIndexPath *)indexPath{
-    return self.zonePosts[indexPath.row];
 
-}
 - ( void)fetchZonesAndPostDeailHeaderDataWithSuccess:(void (^)(void))success failure:(void (^)(void))failure {
     [RCNetWorkingTool get:[NSString stringWithFormat:@"http://xzone.ximalaya.com/x-zone-post/v1/zones/%@?device=android",self.zoneID] params:nil success:^(id json) {
         [self.posts removeAllObjects];
@@ -118,12 +137,20 @@
             failure();
         }
     }];
+
 }
 - ( void)fetchNewZonesAndPostDeailDataWithSuccess:(void (^)(void))success failure:(void (^)(void))failure {
     [RCNetWorkingTool get:[NSString stringWithFormat:@"http://xzone.ximalaya.com/x-zone-post/v1/posts?timelineType=0&device=android&timeline=%@&zoneId=%@&maxSizeOfPosts=30",self.timeline,self.zoneID] params:nil success:^(id json) {
-        [self.posts removeAllObjects];
         NSArray * newZonePosts = [RCZonePost objectArrayWithKeyValuesArray:json[@"result"]];
-        [self.zonePosts addObjectsFromArray:newZonePosts];
+        [self.zonePosts removeAllObjects];
+        [self.topPosts removeAllObjects];
+        [newZonePosts enumerateObjectsUsingBlock:^(RCZonePost * obj, NSUInteger idx, BOOL *stop) {
+            if (obj.isTop) {
+                [self.topPosts addObject:obj];
+            }else{
+                [self.zonePosts addObject:obj];
+            }
+        }];
         if (success) {
             success();
         }
@@ -140,8 +167,7 @@
     RCZonePost * lastZonePost = [self.zonePosts lastObject];
     if (lastZonePost) {
         [RCNetWorkingTool get:[NSString stringWithFormat:@"http://xzone.ximalaya.com/x-zone-post/v1/posts?timelineType=0&device=android&timeline=%@&zoneId=%@&maxSizeOfPosts=30",lastZonePost.timeline,self.zoneID] params:nil success:^(id json) {
-            NSArray * newZonePosts = [RCZonePost objectArrayWithKeyValuesArray:json[@"result"][@"activityData"]];
-
+            NSArray * newZonePosts = [RCZonePost objectArrayWithKeyValuesArray:json[@"result"]];
             [self.zonePosts addObjectsFromArray:newZonePosts];
             if (success) {
                 success();
@@ -155,4 +181,72 @@
 
 
 }
+- (NSInteger)numberOfRowOfZonePostInSection: (NSInteger)section{
+    if (section == 0) {
+        return self.topPosts.count;
+    }
+    return self.zonePosts.count;
+}
+- (RCRecommendedPost *)zonePostAtIndexPath: (NSIndexPath *)indexPath{
+    return self.zonePosts[indexPath.row];
+
+}
+- (RCRecommendedPost *)topZonePostAtIndexPath: (NSIndexPath *)indexPath{
+    return self.topPosts[indexPath.row];
+    
+}
+
+#pragma mark - 评论详情
+- ( void)fetchNewCommentsWithSuccess:(void (^)(void ))success failure:(void (^)(void ))failure {
+    NSString * urlStr = [NSString stringWithFormat:@"http://xzone.ximalaya.com/x-zone-post/v1/comments?order=0&timelineType=0&direction=0&device=android&timeline=0&maxSizeOfComments=30&zoneId=%@&postId=%@",self.post.zoneId,self.post.ID];
+    NSLog(@"%@",urlStr);
+    [RCNetWorkingTool get:urlStr params:nil success:^(id json) {
+        RCComment * newComment = [RCComment objectWithKeyValues:json[@"result"]];
+        [self.comments addObjectsFromArray:newComment.comments];
+        if (newComment.parentComments.count != 0) {
+            [self.comments addObjectsFromArray:newComment.parentComments];
+        }
+        if (success) {
+            success();
+        }
+    } failure:^(NSError *error) {
+        if (failure) {
+            failure();
+        }
+    }];
+}
+- ( void)fetchMoreCommentsWithSuccess:(void (^)(void ))success failure:(void (^)(void ))failure completion:(void (^)(void))completion{
+    RCRecommendedPost * lastZonePost = [self.zonePosts lastObject];
+    if (lastZonePost) {
+        [RCNetWorkingTool get:[NSString stringWithFormat:@"http://xzone.ximalaya.com/x-zone-post/v1/comments?order=0&timelineType=0&direction=0&device=android&timeline=%@&maxSizeOfComments=30&zoneId=%@&postId=%@",lastZonePost.timeline,self.post.zoneId,self.post.ID] params:nil success:^(id json) {
+            RCComment * newComment = [RCComment objectWithKeyValues:json[@"result"]];
+            [self.comments addObjectsFromArray:newComment.comments];
+            if (newComment.parentComments.count != 0) {
+                [self.comments addObjectsFromArray:newComment.parentComments];
+                
+            }
+            if (success) {
+                success();
+            }
+        } failure:^(NSError *error) {
+            if (failure) {
+                failure();
+            }
+        }];
+    }
+
+}
+
+- (RCOneComment *)commentAtIndexPath: (NSIndexPath *)indexPath{
+
+    return self.comments[indexPath.row];
+}
+- (RCOneParentComment *)parentCommentAtIndexPath: (NSIndexPath *)indexPath{
+    return self.parentComments[indexPath.row];
+}
+- (NSInteger)numberOfRowOfCommentInSection: (NSInteger)section{
+
+    return self.comments.count;
+}
+
 @end

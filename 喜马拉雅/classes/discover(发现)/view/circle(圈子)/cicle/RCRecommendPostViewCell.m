@@ -31,7 +31,19 @@
 }
 - (void)setPost:(RCRecommendedPost *)post{
     _post = post;
-    UIImage * placeHolderImage = [UIImage imageNamed:@"find_albumcell_cover_bg"];
+
+    self.timeLabel.text = post.created_at;
+    self.titleLabel.text = post.title;
+    RCRecommendPoster * poster = post.poster;
+    self.userNameLabel.text = poster.nickname;
+    self.contentLabel.text = post.content;
+
+    [self.iconView sd_setImageWithURL:[NSURL URLWithString:poster.smallLogo] placeholderImage:[UIImage imageNamed:@"findsection_sound_bg"]completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        self.iconView.image = [UIImage circleImage:image borderWidth:0 borderColor:nil];
+    }];
+
+    [self.numOfCommentsButton setTitle:[NSString stringWithFormat:@"%@",post.numOfComments] forState:UIControlStateNormal];
+    UIImage * placeHolderImage = [UIImage imageNamed:@"find_usercover"];
     if (post.images.count == 0) {
         self.iamge1View.hidden = YES;
         self.iamge2View.hidden = YES;
@@ -68,21 +80,6 @@
         NSString * imageUrl3 = post.images[2][0][@"imageUrl"];
         [self.iamge3View sd_setImageWithURL:[NSURL URLWithString:imageUrl3] placeholderImage:imageUrl1.length >0  ? placeHolderImage:nil];
     }
-    self.timeLabel.text = post.created_at;
-    self.titleLabel.text = post.title;
-        self.contentLabel.text = post.content;
-
-
-    RCRecommendPoster * poster = post.poster;
-    self.userNameLabel.text = poster.nickname;
-    [self.iconView sd_setImageWithURL:[NSURL URLWithString:poster.smallLogo] placeholderImage:[UIImage imageNamed:@"find_albumcell_cover_bg"]completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-        self.iconView.image = [UIImage circleImage:image borderWidth:0 borderColor:nil];
-    }];
-
-
-
-    [self.numOfCommentsButton setTitle:[NSString stringWithFormat:@"%@",post.numOfComments] forState:UIControlStateNormal];
-
 
 }
 @end

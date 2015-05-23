@@ -10,5 +10,5 @@
 #import "RCZonePostHeadData.h"
 @interface RCCicleDeailHeaderView : UIView
 + (instancetype)headerView;
-@property(nonatomic,strong) RCZonePostHeadData  *data;
+@property(nonatomic,strong) RCZonePostHeadData  *zone;
 @end
