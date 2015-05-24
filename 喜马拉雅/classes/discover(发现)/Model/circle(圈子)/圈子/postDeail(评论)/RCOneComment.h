@@ -41,4 +41,6 @@
 
 @property(nonatomic,strong) RCRecommendPoster  *poster;
 @property(nonatomic,strong) RCOneParentComment  *parentComment;
+@property(nonatomic,assign) BOOL isBulidingOnwer;
+
 @end

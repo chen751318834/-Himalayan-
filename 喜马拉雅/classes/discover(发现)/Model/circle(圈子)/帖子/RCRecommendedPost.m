@@ -36,7 +36,7 @@
         fmt.dateFormat                             = @"MM-dd mm:ss";
         return [fmt stringFromDate:date];
     } else { // 非今年
-        fmt.dateFormat                             = @"MM-YYYY";
+        fmt.dateFormat                             = @"YYYY-MM-dd mm:ss";
         return [fmt stringFromDate:date];
     }
     

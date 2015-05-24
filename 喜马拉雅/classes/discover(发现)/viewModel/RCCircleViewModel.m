@@ -23,13 +23,13 @@
 @implementation RCCircleViewModel
 -  (NSMutableArray *)onwerDatas{
     if (!_onwerDatas) {
-        self.onwerDatas = [NSMutableArray array];
+    self.onwerDatas                  = [NSMutableArray array];
     }
     return _onwerDatas;
 }
 - (NSMutableArray *)posts{
     if (!_posts) {
-        self.posts= [NSMutableArray array];
+    self.posts                       = [NSMutableArray array];
 
     }
     return _posts;
@@ -37,35 +37,35 @@
 
 -  (NSMutableArray *)comments{
     if (!_comments) {
-        self.comments= [NSMutableArray array];
+    self.comments                    = [NSMutableArray array];
 
     }
     return _comments;
 }
 -  (NSMutableArray *)parentComments{
     if (!_parentComments) {
-        self.parentComments= [NSMutableArray array];
+    self.parentComments              = [NSMutableArray array];
 
     }
     return _parentComments;
 }
 -  (NSMutableArray *)topPosts{
     if (!_topPosts) {
-        self.topPosts= [NSMutableArray array];
+    self.topPosts                    = [NSMutableArray array];
 
     }
     return _topPosts;
 }
 -  (NSMutableArray *)zonePosts{
     if (!_zonePosts) {
-        self.zonePosts= [NSMutableArray array];
+    self.zonePosts                   = [NSMutableArray array];
 
     }
     return _zonePosts;
 }
 -  (NSMutableArray *)zones{
     if (!_zones) {
-        self.zones= [NSMutableArray array];
+    self.zones                       = [NSMutableArray array];
 
     }
     return _zones;
@@ -77,7 +77,7 @@
 
     [RCNetWorkingTool get:[NSString stringWithFormat:@"http://xzone.ximalaya.com/x-zone-post/v1/recommendedZones?device=android"] params:nil success:^(id json) {
         [self.zones removeAllObjects];
-        NSArray * newAudios = [RCRecommendedZones objectArrayWithKeyValuesArray:json[@"result"]];
+    NSArray * newAudios              = [RCRecommendedZones objectArrayWithKeyValuesArray:json[@"result"]];
         [self.zones addObjectsFromArray:newAudios];
         if (success) {
             success();
@@ -93,7 +93,7 @@
 - ( void)fetchRecommendPostDataWithSuccess:(void (^)(void ))success failure:(void (^)(void ))failure{
     [RCNetWorkingTool get:[NSString stringWithFormat:@"http://xzone.ximalaya.com/x-zone-post/v1/recommendedPosts?device=android"] params:nil success:^(id json) {
         [self.posts removeAllObjects];
-        NSArray * newAudios = [RCRecommendedPost objectArrayWithKeyValuesArray:json[@"result"]];
+    NSArray * newAudios              = [RCRecommendedPost objectArrayWithKeyValuesArray:json[@"result"]];
         [self.posts addObjectsFromArray:newAudios];
         if (success) {
             success();
@@ -137,8 +137,8 @@
 - ( void)fetchZonesAndPostDeailHeaderDataWithSuccess:(void (^)(void))success failure:(void (^)(void))failure {
     [RCNetWorkingTool get:[NSString stringWithFormat:@"http://xzone.ximalaya.com/x-zone-post/v1/zones/%@?device=android",self.zoneID] params:nil success:^(id json) {
         [self.posts removeAllObjects];
-        RCZonePostHeadData * headData = [RCZonePostHeadData objectWithKeyValues:json[@"result"]];
-        self.headData = headData;
+    RCZonePostHeadData * headData    = [RCZonePostHeadData objectWithKeyValues:json[@"result"]];
+    self.headData                    = headData;
         if (success) {
             success();
         }
@@ -152,7 +152,7 @@
 }
 - ( void)fetchNewZonesAndPostDeailDataWithSuccess:(void (^)(void))success failure:(void (^)(void))failure {
     [RCNetWorkingTool get:[NSString stringWithFormat:@"http://xzone.ximalaya.com/x-zone-post/v1/posts?timelineType=0&device=android&timeline=%@&zoneId=%@&maxSizeOfPosts=30",self.timeline,self.zoneID] params:nil success:^(id json) {
-        NSArray * newZonePosts = [RCZonePost objectArrayWithKeyValuesArray:json[@"result"]];
+    NSArray * newZonePosts           = [RCZonePost objectArrayWithKeyValuesArray:json[@"result"]];
         [self.zonePosts removeAllObjects];
         [self.topPosts removeAllObjects];
         [newZonePosts enumerateObjectsUsingBlock:^(RCZonePost * obj, NSUInteger idx, BOOL *stop) {
@@ -175,10 +175,10 @@
 }
 - ( void)fetchMoreZonesAndPostDeailDataWithSuccess:(void (^)(void))success failure:(void (^)(void))failure completion:(void (^)(void))completion{
 
-    RCZonePost * lastZonePost = [self.zonePosts lastObject];
+    RCZonePost * lastZonePost        = [self.zonePosts lastObject];
     if (lastZonePost) {
         [RCNetWorkingTool get:[NSString stringWithFormat:@"http://xzone.ximalaya.com/x-zone-post/v1/posts?timelineType=0&device=android&timeline=%@&zoneId=%@&maxSizeOfPosts=30",lastZonePost.timeline,self.zoneID] params:nil success:^(id json) {
-            NSArray * newZonePosts = [RCZonePost objectArrayWithKeyValuesArray:json[@"result"]];
+    NSArray * newZonePosts           = [RCZonePost objectArrayWithKeyValuesArray:json[@"result"]];
             [self.zonePosts addObjectsFromArray:newZonePosts];
             if (success) {
                 success();
@@ -204,15 +204,15 @@
 }
 - (RCRecommendedPost *)topZonePostAtIndexPath: (NSIndexPath *)indexPath{
     return self.topPosts[indexPath.row];
-    
+
 }
 
 #pragma mark - 评论详情
 - ( void)fetchBulidingOnwerDataWithSuccess:(void (^)(void ))success failure:(void (^)(void ))failure {
-    NSString * urlStr = [NSString stringWithFormat:@"http://xzone.ximalaya.com/x-zone-post/v1/posts/%@?device=android&zoneId=%@",self.post.ID,self.post.zoneId];
+    NSString * urlStr                = [NSString stringWithFormat:@"http://xzone.ximalaya.com/x-zone-post/v1/posts/%@?device=android&zoneId=%@",self.post.ID,self.post.zoneId];
     NSLog(@"%@",urlStr);
     [RCNetWorkingTool get:urlStr params:nil success:^(id json) {
-        RCRecommendedPost * newComment = [RCRecommendedPost objectWithKeyValues:json[@"result"]];
+    RCRecommendedPost * newComment   = [RCRecommendedPost objectWithKeyValues:json[@"result"]];
         [self.onwerDatas removeAllObjects];
         [self.onwerDatas addObject:newComment];
 
@@ -230,21 +230,28 @@
 }
 
 - ( void)fetchNewCommentsWithSuccess:(void (^)(void ))success failure:(void (^)(void ))failure {
-    NSString * urlStr = [NSString stringWithFormat:@"http://xzone.ximalaya.com/x-zone-post/v1/comments?order=0&timelineType=0&direction=0&device=android&timeline=0&maxSizeOfComments=30&zoneId=%@&postId=%@",self.post.zoneId,self.post.ID];
+    NSString * urlStr                = [NSString stringWithFormat:@"http://xzone.ximalaya.com/x-zone-post/v1/comments?order=0&timelineType=0&direction=0&device=android&timeline=0&maxSizeOfComments=30&zoneId=%@&postId=%@",self.post.zoneId,self.post.ID];
     NSLog(@"%@",urlStr);
     [RCNetWorkingTool get:urlStr params:nil success:^(id json) {
-        RCComment * newComment = [RCComment objectWithKeyValues:json[@"result"]];
+    RCComment * newComment           = [RCComment objectWithKeyValues:json[@"result"]];
         [self.comments removeAllObjects];
         [self.parentComments removeAllObjects];
         [self.comments addObjectsFromArray:newComment.comments];
         if (newComment.parentComments.count != 0) {
             [self.parentComments addObjectsFromArray:newComment.parentComments];
         }
+    RCRecommendedPost * onwerData    = self.onwerDatas[0];
         [self.comments enumerateObjectsUsingBlock:^(RCOneComment * comment, NSUInteger idx, BOOL *stop) {
+            if ([onwerData.poster.nickname isEqualToString:comment.poster.nickname]) {
+    comment.isBulidingOnwer          = YES;
+            }else{
 
+    comment.isBulidingOnwer          = NO;
+
+            }
             [self.parentComments enumerateObjectsUsingBlock:^(RCOneParentComment * parentComment, NSUInteger idx, BOOL *stop) {
                 if (comment.parentCommentId == parentComment.ID) {
-                    comment.parentComment = parentComment;
+    comment.parentComment            = parentComment;
                  }
 
             }];
@@ -259,21 +266,27 @@
     }];
 }
 - ( void)fetchMoreCommentsWithSuccess:(void (^)(void ))success failure:(void (^)(void ))failure completion:(void (^)(void))completion{
-    RCRecommendedPost * lastZonePost = [self.zonePosts lastObject];
+    RCRecommendedPost * lastZonePost = [self.comments lastObject];
     if (lastZonePost) {
         [RCNetWorkingTool get:[NSString stringWithFormat:@"http://xzone.ximalaya.com/x-zone-post/v1/comments?order=0&timelineType=0&direction=0&device=android&timeline=%@&maxSizeOfComments=30&zoneId=%@&postId=%@",lastZonePost.timeline,self.post.zoneId,self.post.ID] params:nil success:^(id json) {
-            RCComment * newComment = [RCComment objectWithKeyValues:json[@"result"]];
+    RCComment * newComment           = [RCComment objectWithKeyValues:json[@"result"]];
             [self.comments addObjectsFromArray:newComment.comments];
             if (newComment.parentComments.count != 0) {
                 [self.parentComments addObjectsFromArray:newComment.parentComments];
             }
+    RCRecommendedPost * onwerData    = self.onwerDatas[0];
             [self.comments enumerateObjectsUsingBlock:^(RCOneComment * comment, NSUInteger idx, BOOL *stop) {
+         if ([onwerData.poster.nickname isEqualToString:comment.poster.nickname]) {
+    comment.isBulidingOnwer          = YES;
+            }else{
 
+    comment.isBulidingOnwer          = NO;
+
+            }
                 [self.parentComments enumerateObjectsUsingBlock:^(RCOneParentComment * parentComment, NSUInteger idx, BOOL *stop) {
                     if (comment.parentCommentId == parentComment.ID) {
-                        comment.parentComment = parentComment;
+    comment.parentComment            = parentComment;
                     }
-                    
                 }];
             }];
             if (success) {

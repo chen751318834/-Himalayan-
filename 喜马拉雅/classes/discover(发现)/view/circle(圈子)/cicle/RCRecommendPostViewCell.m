@@ -24,6 +24,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *messageCountLabel;
 @property (weak, nonatomic) IBOutlet UIButton *numOfCommentsButton;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *imagevIewH;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *toolbarTopCon;
 
 @end
 @implementation RCRecommendPostViewCell
@@ -49,36 +50,39 @@
         self.iamge2View.hidden = YES;
         self.iamge3View.hidden = YES;
         self.imagevIewH.constant = 0;
-
+        self.toolbarTopCon.constant = -16;
     } else if (post.images.count ==1) {
         self.iamge1View.hidden = NO;
         self.iamge2View.hidden = YES;
         self.iamge3View.hidden = YES;
+        self.toolbarTopCon.constant = 0;
         self.imagevIewH.constant = 100;
 
         NSString * imageUrl1 = post.images[0][0][@"imageUrl"];
-        [self.iamge1View sd_setImageWithURL:[NSURL URLWithString:imageUrl1] placeholderImage:imageUrl1.length >0  ? placeHolderImage:nil];
+        [self.iamge1View sd_setImageWithURL:[NSURL URLWithString:imageUrl1] placeholderImage:placeHolderImage];
 
     }else if (post.images.count == 2) {
         self.iamge1View.hidden = NO;
         self.iamge2View.hidden = NO;
         self.iamge3View.hidden = YES;
+        self.toolbarTopCon.constant = 0;
         self.imagevIewH.constant = 100;
         NSString * imageUrl1 = post.images[0][0][@"imageUrl"];
-        [self.iamge1View sd_setImageWithURL:[NSURL URLWithString:imageUrl1] placeholderImage:imageUrl1.length >0  ? placeHolderImage:nil];
+        [self.iamge1View sd_setImageWithURL:[NSURL URLWithString:imageUrl1] placeholderImage:placeHolderImage];
         NSString * imageUrl2 = post.images[1][0][@"imageUrl"];
-        [self.iamge2View sd_setImageWithURL:[NSURL URLWithString:imageUrl2] placeholderImage:imageUrl1.length >0  ? placeHolderImage:nil];
+        [self.iamge2View sd_setImageWithURL:[NSURL URLWithString:imageUrl2] placeholderImage:placeHolderImage];
     } else if (post.images.count == 3) {
         self.iamge1View.hidden = NO;
         self.iamge2View.hidden = NO;
         self.iamge3View.hidden = NO;
         self.imagevIewH.constant = 100;
+        self.toolbarTopCon.constant = 0;
         NSString * imageUrl1 = post.images[0][0][@"imageUrl"];
-        [self.iamge1View sd_setImageWithURL:[NSURL URLWithString:imageUrl1] placeholderImage:imageUrl1.length >0  ? placeHolderImage:nil];
+        [self.iamge1View sd_setImageWithURL:[NSURL URLWithString:imageUrl1] placeholderImage:placeHolderImage];
         NSString * imageUrl2 = post.images[1][0][@"imageUrl"];
-        [self.iamge2View sd_setImageWithURL:[NSURL URLWithString:imageUrl2] placeholderImage:imageUrl1.length >0  ? placeHolderImage:nil];
+        [self.iamge2View sd_setImageWithURL:[NSURL URLWithString:imageUrl2] placeholderImage:placeHolderImage];
         NSString * imageUrl3 = post.images[2][0][@"imageUrl"];
-        [self.iamge3View sd_setImageWithURL:[NSURL URLWithString:imageUrl3] placeholderImage:imageUrl1.length >0  ? placeHolderImage:nil];
+        [self.iamge3View sd_setImageWithURL:[NSURL URLWithString:imageUrl3] placeholderImage:placeHolderImage];
     }
 
 }

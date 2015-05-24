@@ -23,7 +23,7 @@
 }
 - (void)setZone:(RCRecommendedZones *)zone{
     _zone = zone;
-    [self.iconView sd_setImageWithURL:[NSURL URLWithString:zone.imageUrl] placeholderImage:[UIImage imageNamed:@"find_albumcell_cover_bg"]];
+    [self.iconView sd_setImageWithURL:[NSURL URLWithString:zone.imageUrl] placeholderImage:[UIImage imageNamed:@"findsection_sound_bg"]];
     self.titleLabel.text =zone.displayName;
     self.zoneCountLabel.text = [NSString stringWithFormat:@"成员%@  帖子%@",[self textWithCount:zone.numOfMembers],[self textWithCount:zone.numOfPosts]];
     self.subTitlelabel.text =zone.desc;

@@ -24,6 +24,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *imageView1H;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *imageView2H;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *imageView3H;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *toolbarTopCon;
 
 @end
 @implementation RCBuildingOnwerViewCell
@@ -51,14 +52,16 @@
         self.imageView1H.constant = 0;
         self.imageView2H.constant = 0;
         self.imageView3H.constant = 0;
-
+        self.toolbarTopCon.constant = -25;
     } else if (post.images.count ==1) {
         self.iamge1View.hidden = NO;
         self.iamge2View.hidden = YES;
         self.iamge3View.hidden = YES;
+        self.toolbarTopCon.constant = 5;
+
         CGFloat width1 = [post.images[0][0][@"width"] floatValue];
         CGFloat height1 =[ post.images[0][0][@"height"] floatValue];
-        self.imageView1H.constant = (self.bounds.size.width- 64) * height1/width1;
+        self.imageView1H.constant = (self.bounds.size.width- 50) * height1/width1;
         self.imageView2H.constant = 0;
         self.imageView3H.constant = 0;
 
@@ -69,12 +72,14 @@
         self.iamge1View.hidden = NO;
         self.iamge2View.hidden = NO;
         self.iamge3View.hidden = YES;
+        self.toolbarTopCon.constant = 5;
+
         CGFloat width1 = [post.images[0][0][@"width"] floatValue];
         CGFloat height1 =[ post.images[0][0][@"height"] floatValue];
-        self.imageView1H.constant = (self.bounds.size.width- 64) * height1/width1;
+        self.imageView1H.constant = (self.bounds.size.width- 50) * height1/width1;
         CGFloat width2 = [post.images[1][0][@"width"] floatValue];
         CGFloat height2 =[ post.images[1][0][@"height"] floatValue];
-        self.imageView2H.constant = (self.bounds.size.width- 64) * height2/width2;
+        self.imageView2H.constant = (self.bounds.size.width- 50) * height2/width2;
         NSString * imageUrl1 = post.images[0][0][@"imageUrl"];
         self.imageView3H.constant = 0;
 
@@ -85,15 +90,16 @@
         self.iamge1View.hidden = NO;
         self.iamge2View.hidden = NO;
         self.iamge3View.hidden = NO;
+        self.toolbarTopCon.constant = 5;
         CGFloat width1 = [post.images[0][0][@"width"] floatValue];
         CGFloat height1 =[ post.images[0][0][@"height"] floatValue];
         CGFloat width2 = [post.images[1][0][@"width"] floatValue];
         CGFloat height2 =[ post.images[1][0][@"height"] floatValue];
         CGFloat width3 = [post.images[2][0][@"width"] floatValue];
         CGFloat height3 =[ post.images[2][0][@"height"] floatValue];
-        self.imageView1H.constant = (self.bounds.size.width- 64) * height1/width1;
-        self.imageView2H.constant = (self.bounds.size.width- 64) * height2/width2;
-        self.imageView3H.constant = (self.bounds.size.width- 64) * height3/width3;
+        self.imageView1H.constant = (self.bounds.size.width- 50) * height1/width1;
+        self.imageView2H.constant = (self.bounds.size.width- 50) * height2/width2;
+        self.imageView3H.constant = (self.bounds.size.width- 50) * height3/width3;
 
         NSString * imageUrl1 = post.images[0][0][@"imageUrl"];
         [self.iamge1View sd_setImageWithURL:[NSURL URLWithString:imageUrl1] placeholderImage:imageUrl1.length >0  ? placeHolderImage:nil];

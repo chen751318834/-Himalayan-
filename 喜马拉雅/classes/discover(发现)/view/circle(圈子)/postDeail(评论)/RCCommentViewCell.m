@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *contentLabel;
 @property (weak, nonatomic) IBOutlet UILabel *buildingFollorlabel;
 
+@property (weak, nonatomic) IBOutlet UIImageView *bulidingOnwerView;
 
 @property (weak, nonatomic) IBOutlet UIImageView *reweetedIconView;
 @property (weak, nonatomic) IBOutlet UILabel *reweetedUserNameLabel;
@@ -36,7 +37,7 @@
     _oneComment = oneComment;
     RCRecommendPoster * poster = oneComment.poster;
 
-     [self.iconView sd_setImageWithURL:[NSURL URLWithString:poster.smallLogo] placeholderImage:[UIImage imageNamed:@"find_usercover"]completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+     [self.iconView sd_setImageWithURL:[NSURL URLWithString:poster.smallLogo] placeholderImage:[UIImage imageNamed:@"findsection_sound_bg"]completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
          self.iconView.image = [UIImage circleImage:image borderWidth:0 borderColor:nil];
      }];
     self.userNameLabel.text = poster.nickname;
@@ -50,21 +51,22 @@
         self.reweetedBuildingFollorlabel.text = oneComment.parentComment.numOfFloor?[NSString stringWithFormat:@"%@楼",oneComment.parentComment.numOfFloor ]:@"";
 
         self.reweetedContentLabel.text = oneComment.parentComment.content;
-        [self.reweetedIconView sd_setImageWithURL:[NSURL URLWithString:oneComment.parentComment.poster.smallLogo] placeholderImage:[UIImage imageNamed:@"find_usercover"]completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        [self.reweetedIconView sd_setImageWithURL:[NSURL URLWithString:oneComment.parentComment.poster.smallLogo] placeholderImage:[UIImage imageNamed:@"findsection_sound_bg"]completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
             self.reweetedIconView.image = [UIImage circleImage:image borderWidth:0 borderColor:nil];
         }];
         if (oneComment.parentComment != nil) {
             self.reweetedContentView.backgroundColor = [UIColor colorWithWhite:0.500 alpha:0.250];
             self.topCon.constant = 0;
-
+            self.bulidingOnwerView.hidden = NO;
     }else{
         self.reweetedContentView.backgroundColor = [UIColor whiteColor];
-        self.topCon.constant = -30;
+        self.topCon.constant = -47;
+        self.bulidingOnwerView.hidden = YES;
 
 
     }
 
-
+    self.bulidingOnwerView.hidden = !oneComment.isBulidingOnwer;
 
 }
 
