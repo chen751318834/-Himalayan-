@@ -37,7 +37,7 @@ static NSString * const onwerID = @"buildingOnwerViewCell";
     [self.tableView registerNib:[UINib nibWithNibName:@"RCCommentViewCell" bundle:nil] forCellReuseIdentifier:commentID];
     [self.tableView registerNib:[UINib nibWithNibName:@"RCBuildingOnwerViewCell" bundle:nil] forCellReuseIdentifier:onwerID];
 
-
+    self.tableView.gifFooter.hidden = YES;
 }
 - (void)loadNewData{
 
@@ -47,6 +47,8 @@ static NSString * const onwerID = @"buildingOnwerViewCell";
         [self.viewModel fetchNewCommentsWithSuccess:^{
             [self.tableView reloadData];
             [self.tableView.gifHeader endRefreshing];
+            self.tableView.gifFooter.hidden = NO;
+
         } failure:^{
             [self.tableView.gifHeader endRefreshing];
             
@@ -74,10 +76,7 @@ static NSString * const onwerID = @"buildingOnwerViewCell";
     }
     RCCommentViewCell * cell = [tableView dequeueReusableCellWithIdentifier:commentID forIndexPath:indexPath];
     cell.oneComment = [self.viewModel commentAtIndexPath:indexPath];
-//    if ( [self.viewModel parentCommentAtIndexPath:indexPath] != 0) {
-//        cell.parentComment = [self.viewModel parentCommentAtIndexPath:indexPath];
-//
-//    }
+
     return cell;
 
 }

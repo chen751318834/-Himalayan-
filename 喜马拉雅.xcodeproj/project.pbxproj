@@ -129,6 +129,7 @@
 		4B9211241B105EFC0004DB2A /* RCOneParentComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B9211231B105EFC0004DB2A /* RCOneParentComment.m */; };
 		4B9211281B106A6A0004DB2A /* RCCommentViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B9211261B106A6A0004DB2A /* RCCommentViewCell.m */; };
 		4B9211291B106A6A0004DB2A /* RCCommentViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B9211271B106A6A0004DB2A /* RCCommentViewCell.xib */; };
+		4B93F57E1B11A71C00BFBF6A /* UIView+FDCollapsibleConstraints.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B93F57D1B11A71C00BFBF6A /* UIView+FDCollapsibleConstraints.m */; };
 		4BF787AE1B0DB7700002704A /* RCHotAnchorVIewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF787AD1B0DB7700002704A /* RCHotAnchorVIewModel.m */; };
 		4BF787C51B0DB8F20002704A /* RCAnchorList.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF787C41B0DB8F20002704A /* RCAnchorList.m */; };
 		4BF787C81B0DB9770002704A /* RCOneAnchorList.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF787C71B0DB9770002704A /* RCOneAnchorList.m */; };
@@ -407,6 +408,8 @@
 		4B9211251B106A6A0004DB2A /* RCCommentViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCCommentViewCell.h; sourceTree = "<group>"; };
 		4B9211261B106A6A0004DB2A /* RCCommentViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCCommentViewCell.m; sourceTree = "<group>"; };
 		4B9211271B106A6A0004DB2A /* RCCommentViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RCCommentViewCell.xib; sourceTree = "<group>"; };
+		4B93F57C1B11A71C00BFBF6A /* UIView+FDCollapsibleConstraints.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+FDCollapsibleConstraints.h"; sourceTree = "<group>"; };
+		4B93F57D1B11A71C00BFBF6A /* UIView+FDCollapsibleConstraints.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+FDCollapsibleConstraints.m"; sourceTree = "<group>"; };
 		4BF787AC1B0DB7700002704A /* RCHotAnchorVIewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCHotAnchorVIewModel.h; sourceTree = "<group>"; };
 		4BF787AD1B0DB7700002704A /* RCHotAnchorVIewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCHotAnchorVIewModel.m; sourceTree = "<group>"; };
 		4BF787C31B0DB8F20002704A /* RCAnchorList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCAnchorList.h; sourceTree = "<group>"; };
@@ -807,6 +810,7 @@
 		4B1D81441B0C935D00B7C9DC /* lib */ = {
 			isa = PBXGroup;
 			children = (
+				4B93F57B1B11A71C00BFBF6A /* FDCollapsibleConstraints */,
 				4B60C4C11B1080A700EA7B7F /* FDTemplateLayoutCell */,
 				4BF7883C1B0E14AF0002704A /* Toast */,
 				4BF787EC1B0DBD970002704A /* MJRefresh */,
@@ -1191,6 +1195,15 @@
 			path = "postDeail(评论)";
 			sourceTree = "<group>";
 		};
+		4B93F57B1B11A71C00BFBF6A /* FDCollapsibleConstraints */ = {
+			isa = PBXGroup;
+			children = (
+				4B93F57C1B11A71C00BFBF6A /* UIView+FDCollapsibleConstraints.h */,
+				4B93F57D1B11A71C00BFBF6A /* UIView+FDCollapsibleConstraints.m */,
+			);
+			path = FDCollapsibleConstraints;
+			sourceTree = "<group>";
+		};
 		4BF787C21B0DB8DF0002704A /* Hot Anchor(最火主播) */ = {
 			isa = PBXGroup;
 			children = (
@@ -1473,6 +1486,7 @@
 				4B1D828E1B0C9C9200B7C9DC /* KVNProgress.m in Sources */,
 				4B1D81EF1B0C972F00B7C9DC /* UIImage+RC.m in Sources */,
 				4B912E131B0EEA7B007B64DD /* RCHotActivityViewController.m in Sources */,
+				4B93F57E1B11A71C00BFBF6A /* UIView+FDCollapsibleConstraints.m in Sources */,
 				4B92111B1B105E970004DB2A /* RCComment.m in Sources */,
 				4B1D81D61B0C96C400B7C9DC /* RCLatestActivity.m in Sources */,
 				4B9210FA1B10241F0004DB2A /* RCRecommendZoneViewCell.m in Sources */,

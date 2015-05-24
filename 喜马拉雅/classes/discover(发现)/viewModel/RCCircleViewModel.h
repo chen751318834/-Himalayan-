@@ -59,7 +59,6 @@
 - ( void)fetchNewCommentsWithSuccess:(void (^)(void ))success failure:(void (^)(void ))failure ;
 - ( void)fetchMoreCommentsWithSuccess:(void (^)(void ))success failure:(void (^)(void ))failure completion:(void (^)(void))completion;
 - (RCOneComment *)commentAtIndexPath: (NSIndexPath *)indexPath;
-- (RCOneParentComment *)parentCommentAtIndexPath: (NSIndexPath *)indexPath;
 - (RCRecommendedPost *)onwerDataAtIndexPath: (NSIndexPath *)indexPath;
 
 - (NSInteger)numberOfRowOfCommentInSection: (NSInteger)section;

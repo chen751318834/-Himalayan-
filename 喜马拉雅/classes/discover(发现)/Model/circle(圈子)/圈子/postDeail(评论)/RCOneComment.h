@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "RCRecommendPoster.h"
+#import "RCOneParentComment.h"
 @interface RCOneComment : NSObject
 /**
  *          "id": 1400,
@@ -20,15 +21,24 @@
  "timeline": 25974959768952,
  "images": [ ],
  "poster": {}
+ "parentCommentId": 1400,
+ "groupId": 1400,
  */
 @property(nonatomic,strong) NSNumber  *ID;
 @property(nonatomic,strong) NSNumber  *createdTime;
+@property(nonatomic,copy) NSString  *created_at;
+
 @property(nonatomic,strong) NSNumber  *updatedTime;
 @property(nonatomic,strong) NSNumber  *numOfFloor;
 @property(nonatomic,strong) NSNumber  *postId;
 @property(nonatomic,strong) NSNumber  *timeline;
+@property(nonatomic,strong) NSNumber  *parentCommentId;
+@property(nonatomic,strong) NSNumber  *groupId;
 @property(nonatomic,copy) NSString  *content;
 @property(nonatomic,strong) NSArray  *images;
 @property(nonatomic,assign) BOOL canBeDeleted;
+@property (nonatomic, assign) BOOL hasAudioClip;
+
 @property(nonatomic,strong) RCRecommendPoster  *poster;
+@property(nonatomic,strong) RCOneParentComment  *parentComment;
 @end

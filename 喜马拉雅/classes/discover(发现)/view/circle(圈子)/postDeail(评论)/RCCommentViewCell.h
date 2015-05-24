@@ -11,5 +11,4 @@
 #import "RCOneParentComment.h"
 @interface RCCommentViewCell : UITableViewCell
 @property(nonatomic,strong) RCOneComment  *oneComment;
-@property(nonatomic,strong) RCOneParentComment  *parentComment;
 @end

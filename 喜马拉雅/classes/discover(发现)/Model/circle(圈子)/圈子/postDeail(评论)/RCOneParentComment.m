@@ -7,7 +7,11 @@
 //
 
 #import "RCOneParentComment.h"
+#import "MJExtension.h"
 
 @implementation RCOneParentComment
++ (NSDictionary *)replacedKeyFromPropertyName{
 
+    return @{@"ID":@"id"};
+}
 @end

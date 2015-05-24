@@ -58,7 +58,7 @@
         self.iamge3View.hidden = YES;
         CGFloat width1 = [post.images[0][0][@"width"] floatValue];
         CGFloat height1 =[ post.images[0][0][@"height"] floatValue];
-        self.imageView1H.constant = (self.bounds.size.width- 48) * height1/width1;
+        self.imageView1H.constant = (self.bounds.size.width- 64) * height1/width1;
         self.imageView2H.constant = 0;
         self.imageView3H.constant = 0;
 
@@ -71,10 +71,10 @@
         self.iamge3View.hidden = YES;
         CGFloat width1 = [post.images[0][0][@"width"] floatValue];
         CGFloat height1 =[ post.images[0][0][@"height"] floatValue];
-        self.imageView1H.constant = (self.bounds.size.width- 48) * height1/width1;
+        self.imageView1H.constant = (self.bounds.size.width- 64) * height1/width1;
         CGFloat width2 = [post.images[1][0][@"width"] floatValue];
         CGFloat height2 =[ post.images[1][0][@"height"] floatValue];
-        self.imageView2H.constant = (self.bounds.size.width- 48) * height2/width2;
+        self.imageView2H.constant = (self.bounds.size.width- 64) * height2/width2;
         NSString * imageUrl1 = post.images[0][0][@"imageUrl"];
         self.imageView3H.constant = 0;
 
@@ -91,9 +91,9 @@
         CGFloat height2 =[ post.images[1][0][@"height"] floatValue];
         CGFloat width3 = [post.images[2][0][@"width"] floatValue];
         CGFloat height3 =[ post.images[2][0][@"height"] floatValue];
-        self.imageView1H.constant = (self.bounds.size.width- 48) * height1/width1;
-        self.imageView2H.constant = (self.bounds.size.width- 48) * height2/width2;
-        self.imageView3H.constant = (self.bounds.size.width- 48) * height3/width3;
+        self.imageView1H.constant = (self.bounds.size.width- 64) * height1/width1;
+        self.imageView2H.constant = (self.bounds.size.width- 64) * height2/width2;
+        self.imageView3H.constant = (self.bounds.size.width- 64) * height3/width3;
 
         NSString * imageUrl1 = post.images[0][0][@"imageUrl"];
         [self.iamge1View sd_setImageWithURL:[NSURL URLWithString:imageUrl1] placeholderImage:imageUrl1.length >0  ? placeHolderImage:nil];

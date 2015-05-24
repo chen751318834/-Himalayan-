@@ -33,10 +33,10 @@
         fmt.dateFormat                             = @"昨天";
         return [fmt stringFromDate:date];
     } else if (date.isThisYear) { // 今年(至少是前天)
-        fmt.dateFormat                             = @"MM/dd";
+        fmt.dateFormat                             = @"MM-dd mm:ss";
         return [fmt stringFromDate:date];
     } else { // 非今年
-        fmt.dateFormat                             = @"MM/YYYY";
+        fmt.dateFormat                             = @"MM-YYYY";
         return [fmt stringFromDate:date];
     }
     

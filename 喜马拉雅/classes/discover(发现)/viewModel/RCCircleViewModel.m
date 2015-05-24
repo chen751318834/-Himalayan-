@@ -238,8 +238,17 @@
         [self.parentComments removeAllObjects];
         [self.comments addObjectsFromArray:newComment.comments];
         if (newComment.parentComments.count != 0) {
-            [self.comments addObjectsFromArray:newComment.parentComments];
+            [self.parentComments addObjectsFromArray:newComment.parentComments];
         }
+        [self.comments enumerateObjectsUsingBlock:^(RCOneComment * comment, NSUInteger idx, BOOL *stop) {
+
+            [self.parentComments enumerateObjectsUsingBlock:^(RCOneParentComment * parentComment, NSUInteger idx, BOOL *stop) {
+                if (comment.parentCommentId == parentComment.ID) {
+                    comment.parentComment = parentComment;
+                 }
+
+            }];
+        }];
         if (success) {
             success();
         }
@@ -256,8 +265,17 @@
             RCComment * newComment = [RCComment objectWithKeyValues:json[@"result"]];
             [self.comments addObjectsFromArray:newComment.comments];
             if (newComment.parentComments.count != 0) {
-                [self.comments addObjectsFromArray:newComment.parentComments];
+                [self.parentComments addObjectsFromArray:newComment.parentComments];
             }
+            [self.comments enumerateObjectsUsingBlock:^(RCOneComment * comment, NSUInteger idx, BOOL *stop) {
+
+                [self.parentComments enumerateObjectsUsingBlock:^(RCOneParentComment * parentComment, NSUInteger idx, BOOL *stop) {
+                    if (comment.parentCommentId == parentComment.ID) {
+                        comment.parentComment = parentComment;
+                    }
+                    
+                }];
+            }];
             if (success) {
                 success();
             }
@@ -266,6 +284,10 @@
                 failure();
             }
         }];
+    }else{
+        if (failure) {
+            failure();
+        }
     }
 
 }
@@ -274,9 +296,7 @@
 
     return self.comments[indexPath.row];
 }
-- (RCOneParentComment *)parentCommentAtIndexPath: (NSIndexPath *)indexPath{
-    return self.parentComments[indexPath.row];
-}
+
 - (NSInteger)numberOfRowOfCommentInSection: (NSInteger)section{
     if (section == 0) {
         return self.onwerDatas.count;
