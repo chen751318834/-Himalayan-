@@ -27,7 +27,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *reweetedContentLabel;
 @property (weak, nonatomic) IBOutlet UILabel *reweetedBuildingFollorlabel;
 @property (weak, nonatomic) IBOutlet UIView *reweetedContentView;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *reweetedIconViewH;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topCon;
 
 @end
 @implementation RCCommentViewCell
@@ -43,16 +43,27 @@
     self.timelabel.text = oneComment.created_at;
     self.buildingFollorlabel.text = [NSString stringWithFormat:@"%@楼",oneComment.numOfFloor ];
     self.contentLabel.text = oneComment.content;
-        self.reweetedIconViewH.constant = 20;
+
+
         self.reweetedUserNameLabel.text = oneComment.parentComment.poster.nickname;
         self.reweetedTimelabel.text = oneComment.parentComment.created_at;
         self.reweetedBuildingFollorlabel.text = oneComment.parentComment.numOfFloor?[NSString stringWithFormat:@"%@楼",oneComment.parentComment.numOfFloor ]:@"";
 
         self.reweetedContentLabel.text = oneComment.parentComment.content;
-    [self.reweetedIconView sd_setImageWithURL:[NSURL URLWithString:oneComment.parentComment.poster.smallLogo] placeholderImage:[UIImage imageNamed:@"find_usercover"]completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-        self.reweetedIconView.image = [UIImage circleImage:image borderWidth:0 borderColor:nil];
-    }];
-    self.reweetedContentView.fd_collapsed = !oneComment.hasAudioClip;
+        [self.reweetedIconView sd_setImageWithURL:[NSURL URLWithString:oneComment.parentComment.poster.smallLogo] placeholderImage:[UIImage imageNamed:@"find_usercover"]completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+            self.reweetedIconView.image = [UIImage circleImage:image borderWidth:0 borderColor:nil];
+        }];
+        if (oneComment.parentComment != nil) {
+            self.reweetedContentView.backgroundColor = [UIColor colorWithWhite:0.500 alpha:0.250];
+            self.topCon.constant = 0;
+
+    }else{
+        self.reweetedContentView.backgroundColor = [UIColor whiteColor];
+        self.topCon.constant = -30;
+
+
+    }
+
 
 
 }
