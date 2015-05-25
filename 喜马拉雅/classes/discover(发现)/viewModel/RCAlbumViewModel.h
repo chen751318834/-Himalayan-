@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "RCBaseViewModel.h"
+#import "RCOneAlbum.h"
+#import "RCTrackList.h"
 @interface RCAlbumViewModel : RCBaseViewModel
 /**
  *  网络请求
@@ -20,4 +22,18 @@
 
 - ( void)fetchNewClassicsDataWithSuccess:(void (^)(void ))success failure:(void (^)(void ))failure;
 - ( void)fetchMoreClassicsDataWithSuccess:(void (^)(void ))success failure:(void (^)(void ))failure completion:(void (^)(void))completion;
+
+
+
+
+/**
+ *  专辑详情
+ */
+- ( void)fetchNewAlbumDeailDataWithSuccess:(void (^)(void ))success failure:(void (^)(void ))failure;
+- ( void)fetchMoreAlbumDeailDataWithSuccess:(void (^)(void ))success failure:(void (^)(void ))failure completion:(void (^)(void))completion;
+
+- (NSInteger)numberOfRowOfAlbumDeailDataInSection: (NSInteger)section;
+- (RCTrackList *)trackListAtIndexPath: (NSIndexPath *)indexPath;
+@property(nonatomic,strong) NSNumber  *ID;
+@property(nonatomic,strong) RCOneAlbum  *album;
 @end

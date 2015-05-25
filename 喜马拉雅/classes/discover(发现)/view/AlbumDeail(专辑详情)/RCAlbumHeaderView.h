@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "RCOneAlbum.h"
 @interface RCAlbumHeaderView : UICollectionReusableView
 + (instancetype)headerView;
+@property(nonatomic,strong) RCOneAlbum  *album;
 @end

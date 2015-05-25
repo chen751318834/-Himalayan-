@@ -35,10 +35,7 @@
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ygQ-v3-XiP">
-                    <rect key="frame" x="139" y="65" width="173" height="21"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="21" id="j2H-3z-9m2"/>
-                    </constraints>
+                    <rect key="frame" x="139" y="67" width="173" height="18"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
@@ -105,7 +102,7 @@
                             </variation>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" white="0.5" alpha="0.93000000000000005" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.77000000000000002" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="236-fh-6Od"/>
                         <constraint firstItem="z4e-T8-0lm" firstAttribute="leading" secondItem="qMl-Fu-8fm" secondAttribute="leading" constant="8" id="4bN-oR-gfn"/>
@@ -159,7 +156,7 @@
                                 <constraint firstAttribute="width" constant="30" id="SsN-zP-0uK"/>
                             </constraints>
                         </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="btn_back_n" translatesAutoresizingMaskIntoConstraints="NO" id="0Qc-xa-27h">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0Qc-xa-27h">
                             <rect key="frame" x="282" y="0.0" width="30" height="40"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="30" id="3gX-z2-f5F"/>
@@ -170,8 +167,8 @@
                             <constraints>
                                 <constraint firstAttribute="height" constant="21" id="NKg-G0-eow"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
@@ -205,20 +202,20 @@
                 <constraint firstItem="WeP-fM-w4m" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" constant="8" id="MPe-FE-BJW"/>
                 <constraint firstItem="Wlc-Yu-xXR" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" id="PDM-Xi-bOO"/>
                 <constraint firstItem="YX3-NF-SAF" firstAttribute="top" secondItem="LQR-Ae-1Nb" secondAttribute="top" id="R95-T1-a5r"/>
-                <constraint firstItem="ygQ-v3-XiP" firstAttribute="leading" secondItem="8CA-nJ-MYx" secondAttribute="trailing" constant="7" id="T2W-7U-OIX"/>
                 <constraint firstAttribute="bottom" secondItem="qMl-Fu-8fm" secondAttribute="bottom" id="Tld-A9-QIy"/>
                 <constraint firstItem="JKf-qb-HHT" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" id="VPI-mt-0PI"/>
                 <constraint firstItem="qMl-Fu-8fm" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" id="aUo-25-HJH"/>
+                <constraint firstAttribute="trailing" secondItem="ygQ-v3-XiP" secondAttribute="trailing" constant="8" id="cKw-Uk-b4T"/>
                 <constraint firstItem="cwu-O9-pxO" firstAttribute="leading" secondItem="cKp-2m-AKP" secondAttribute="trailing" constant="8" id="ccN-16-Xgx"/>
+                <constraint firstItem="ygQ-v3-XiP" firstAttribute="centerY" secondItem="8CA-nJ-MYx" secondAttribute="centerY" constant="-4.5" id="ek1-aK-FEb"/>
                 <constraint firstItem="8CA-nJ-MYx" firstAttribute="leading" secondItem="WeP-fM-w4m" secondAttribute="trailing" constant="8" id="fnr-5f-Dro"/>
                 <constraint firstItem="JKf-qb-HHT" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" id="gYl-8g-vA5"/>
                 <constraint firstItem="cKp-2m-AKP" firstAttribute="leading" secondItem="YX3-NF-SAF" secondAttribute="leading" id="m1N-HB-a11"/>
                 <constraint firstAttribute="trailing" secondItem="Wlc-Yu-xXR" secondAttribute="trailing" id="mH7-2W-zXF"/>
                 <constraint firstAttribute="trailing" secondItem="qMl-Fu-8fm" secondAttribute="trailing" id="ooX-5f-3cP"/>
-                <constraint firstAttribute="trailing" secondItem="ygQ-v3-XiP" secondAttribute="trailing" constant="8" id="qoi-Na-JFH"/>
                 <constraint firstAttribute="bottom" secondItem="Wlc-Yu-xXR" secondAttribute="bottom" id="rtH-nU-Hm5"/>
-                <constraint firstItem="ygQ-v3-XiP" firstAttribute="top" secondItem="8CA-nJ-MYx" secondAttribute="top" id="wL5-Xo-UeV"/>
                 <constraint firstItem="cKp-2m-AKP" firstAttribute="leading" secondItem="WeP-fM-w4m" secondAttribute="trailing" constant="8" id="xhs-m1-3Hi"/>
+                <constraint firstItem="ygQ-v3-XiP" firstAttribute="leading" secondItem="8CA-nJ-MYx" secondAttribute="trailing" constant="7" id="yfB-5Q-7xj"/>
             </constraints>
             <variation key="default">
                 <mask key="constraints">
@@ -227,6 +224,10 @@
                 </mask>
             </variation>
             <connections>
+                <outlet property="iconView" destination="WeP-fM-w4m" id="mq1-wM-v6p"/>
+                <outlet property="nickNameLabel" destination="ygQ-v3-XiP" id="dXJ-hE-mWv"/>
+                <outlet property="smallIconView" destination="8CA-nJ-MYx" id="Ax7-Lp-KOq"/>
+                <outlet property="subTitleLabel" destination="cKp-2m-AKP" id="bhU-hQ-VUZ"/>
                 <outlet property="tilteLabel" destination="J6H-pS-B08" id="5yX-7N-6eq"/>
             </connections>
             <point key="canvasLocation" x="825" y="212.5"/>

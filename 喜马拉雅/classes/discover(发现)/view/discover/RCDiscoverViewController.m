@@ -406,8 +406,10 @@ static const NSUInteger sectionCount = 100;
         [self.navigationController pushViewController:[[RCCircleViewController alloc]init] animated:YES];
 
     }else if (indexPath.section == 5){
+        RCList * list = self.viewModel.recommendAlbums[indexPath.row];
 
         RCAlbumDeailViewController * albumDeailVC = [[RCAlbumDeailViewController alloc]init];
+        albumDeailVC.ID = list.ID;
         [self.navigationController pushViewController:albumDeailVC animated:YES];
     }
 }

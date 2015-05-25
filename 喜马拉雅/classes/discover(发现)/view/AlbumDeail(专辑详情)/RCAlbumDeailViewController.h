@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface RCAlbumDeailViewController : UICollectionViewController
-
+@property(nonatomic,strong) NSNumber  *ID;
 @end

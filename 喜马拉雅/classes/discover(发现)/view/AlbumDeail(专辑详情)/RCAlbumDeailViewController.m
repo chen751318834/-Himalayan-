@@ -9,14 +9,25 @@
 #import "RCAlbumDeailViewController.h"
 #import "CSCell.h"
 #import "CSStickyHeaderFlowLayout.h"
+#import "RCAlbumViewModel.h"
+#import "RCAlbumHeaderView.h"
 @interface RCAlbumDeailViewController ()
 
 @property (nonatomic, strong) NSArray *sections;
+@property(nonatomic,strong) RCAlbumViewModel  *viewModel;
 
 @end
 
 @implementation RCAlbumDeailViewController
+-  (RCAlbumViewModel *)viewModel{
+    if (!_viewModel) {
+        self.viewModel = [[RCAlbumViewModel alloc]init];
+        self.viewModel.ID = self.ID;
 
+
+    }
+    return _viewModel;
+}
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     self.navigationController.navigationBar.hidden = NO;
@@ -30,6 +41,12 @@
 }
 - (void)viewDidLoad
 {
+
+    [self.viewModel fetchNewAlbumDeailDataWithSuccess:^{
+        [self.collectionView reloadData];
+    } failure:^{
+
+    }];
     [super viewDidLoad];
     UIImageView *statusBarView=[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 20)];
     statusBarView.image = [UIImage imageNamed:@"albumStatusbg"];
@@ -79,7 +96,7 @@
     CSStickyHeaderFlowLayout *layout = [[CSStickyHeaderFlowLayout alloc]init];
 
     if ([layout isKindOfClass:[CSStickyHeaderFlowLayout class]]) {
-        layout.parallaxHeaderReferenceSize = CGSizeMake([UIScreen mainScreen].bounds.size.width, 426);
+        layout.parallaxHeaderReferenceSize = CGSizeMake([UIScreen mainScreen].bounds.size.width, 230);
         layout.parallaxHeaderMinimumReferenceSize = CGSizeMake([UIScreen mainScreen].bounds.size.width, 92);
         layout.parallaxHeaderAlwaysOnTop = YES;
         layout.itemSize = CGSizeMake([UIScreen mainScreen].bounds.size.width, 30);
@@ -113,10 +130,10 @@
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
  if ([kind isEqualToString:CSStickyHeaderParallaxHeader]) {
-        UICollectionReusableView *cell = [collectionView
+        RCAlbumHeaderView *headerView = [collectionView
         dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"header"forIndexPath:indexPath];
-
-        return cell;
+     headerView.album = self.viewModel.album;
+        return headerView;
     }
     return nil;
 }

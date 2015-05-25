@@ -8,7 +8,21 @@
 
 #import "RCAlbumViewModel.h"
 #import "RCAlbum.h"
+#import "RCAlbumTrack.h"
+#import "RCTrack.h"
+
+
+@interface RCAlbumViewModel ()
+@property(nonatomic,strong) NSMutableArray  *trarkLists;
+@end
 @implementation RCAlbumViewModel
+-  (NSMutableArray *)trarkLists{
+    if (!_trarkLists) {
+        self.trarkLists = [NSMutableArray array];
+
+    }
+    return _trarkLists;
+}
 - ( void)fetchNewHotAlbumDataWithSuccess:(void (^)(void ))success failure:(void (^)(void ))failure{
 
     [RCNetWorkingTool get:[NSString stringWithFormat:@"http://mobile.ximalaya.com/m/explore_album_list?category_name=all&condition=hot&device=android&page=1&per_page=20&status=0&tag_name="] params:nil success:^(id json) {
@@ -127,5 +141,54 @@
             failure();
         }
     }];
+}
+
+- ( void)fetchNewAlbumDeailDataWithSuccess:(void (^)(void ))success failure:(void (^)(void ))failure{
+
+    [RCNetWorkingTool get:[NSString stringWithFormat:@"http://mobile.ximalaya.com/mobile/others/ca/album/track/%@/true/1/15",self.ID] params:nil success:^(id json) {
+        [self.models removeAllObjects];
+        RCAlbumTrack  * albumTrack  = [RCAlbumTrack objectWithKeyValues:json];
+        [self.models addObjectsFromArray:albumTrack.tracks.list];
+        self.album = albumTrack.album;
+        if (success) {
+            success();
+        }
+    } failure:^(NSError *error) {
+        if (failure) {
+            failure();
+        }
+    }];
+
+}
+- ( void)fetchMoreAlbumDeailDataWithSuccess:(void (^)(void ))success failure:(void (^)(void ))failure completion:(void (^)(void))completion{
+    self.currrentPage ++;
+    [RCNetWorkingTool get:[NSString stringWithFormat:@"http://mobile.ximalaya.com/mobile/others/ca/album/track/%@/true/%ld/15",self.ID,self.currrentPage] params:nil success:^(id json) {
+        RCAlbumTrack  * albumTrack  = [RCAlbumTrack objectWithKeyValues:json];
+        NSNumber *  maxPageID = (NSNumber *)json[@"tracks"][@"maxPageId"];
+        if (self.currrentPage  > [maxPageID integerValue]) {
+            if (completion) {
+                completion();
+            }
+            return ;
+        }
+        [self.models addObjectsFromArray:albumTrack.tracks.list];
+        if (success) {
+            success();
+        }
+    } failure:^(NSError *error) {
+        if (failure) {
+            failure();
+        }
+    }];
+
+
+}
+- (NSInteger)numberOfRowOfAlbumDeailDataInSection: (NSInteger)section{
+    return 0;
+
+}
+- (RCTrackList *)trackListAtIndexPath: (NSIndexPath *)indexPath{
+
+    return nil;
 }
 @end

@@ -164,7 +164,9 @@
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [super tableView:tableView didSelectRowAtIndexPath:indexPath];
+    RCAlbum * album = self.contents[indexPath.row];
     RCAlbumDeailViewController * albumDeailVC = [[RCAlbumDeailViewController alloc]init];
+    albumDeailVC.ID = album.ID;
     [self.navigationController pushViewController:albumDeailVC animated:YES];
     
 }
