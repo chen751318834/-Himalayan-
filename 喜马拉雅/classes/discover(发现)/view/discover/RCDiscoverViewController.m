@@ -18,6 +18,7 @@
 #import "RCFocusImageViewCell.h"
 #import "RCCateroryListViewController.h"
 #import "RCHotActivityViewController.h"
+#import "RCAlbumDeailViewController.h"
 #import "RCDiscoverItemViewCell.h"
 #import "RCSectionheaderView.h"
 #import "RCAlbumViewController.h"
@@ -404,6 +405,10 @@ static const NSUInteger sectionCount = 100;
     }else if (indexPath.section == 4){
         [self.navigationController pushViewController:[[RCCircleViewController alloc]init] animated:YES];
 
+    }else if (indexPath.section == 5){
+
+        RCAlbumDeailViewController * albumDeailVC = [[RCAlbumDeailViewController alloc]init];
+        [self.navigationController pushViewController:albumDeailVC animated:YES];
     }
 }
 

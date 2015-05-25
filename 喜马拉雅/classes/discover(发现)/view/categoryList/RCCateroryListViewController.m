@@ -83,7 +83,6 @@ static const NSUInteger sectionCount = 100;
 - (void)setUpCollectionView{
     UICollectionViewFlowLayout * layout = [[UICollectionViewFlowLayout alloc]init];
     [layout setHeaderReferenceSize:CGSizeMake(self.view.bounds.size.width, 160)];
-
     CGFloat margin = 10;
     NSUInteger counlmCount = 3;
     CGFloat itemWidth = (self.view.frame.size.width - (margin *(counlmCount +1)))/counlmCount;

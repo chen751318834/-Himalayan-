@@ -9,6 +9,7 @@
 #import "RCAlbumViewController.h"
 #import "RCAlbumViewCell.h"
 #import "Toast+UIView.h"
+#import "RCAlbumDeailViewController.h"
 #import "RCAlbumViewModel.h"
 @interface RCAlbumViewController ()
 @property(nonatomic,weak) UISegmentedControl   *segmentControl;
@@ -162,7 +163,9 @@
 }
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+    [super tableView:tableView didSelectRowAtIndexPath:indexPath];
+    RCAlbumDeailViewController * albumDeailVC = [[RCAlbumDeailViewController alloc]init];
+    [self.navigationController pushViewController:albumDeailVC animated:YES];
     
 }
 @end
