@@ -9,6 +9,12 @@
 #import "RCOneParentComment.h"
 #import "MJExtension.h"
 #import "NSDate+RC.h"
+#import "RegexKitLite.h"
+#import "HWEmotionTool.h"
+#import "RCTextPart.h"
+#import <UIKit/UIKit.h>
+#import "RCSpecialText.h"
+#import "HWEmotion.h"
 @implementation RCOneParentComment
 + (NSDictionary *)replacedKeyFromPropertyName{
 
@@ -40,6 +46,82 @@
         fmt.dateFormat                             = @"MM-YYYY";
         return [fmt stringFromDate:date];
     }
+    
+}
+
+- (void)setContent:(NSString *)content{
+    _content = [content copy];
+    self.attributedContent = [self attributedTextWithText:content];
+}
+/**
+ *  返回一个带有属性的文字
+ *
+ *  @param text 普通文字
+ *
+ *  @return 带有属性的文字
+ */
+- (NSAttributedString *)attributedTextWithText:(NSString *)text{
+    NSMutableAttributedString * attributedText = [[NSMutableAttributedString alloc]init];
+
+    // 表情的规则
+    NSString *emotionPattern                   = @"\\[[0-9a-zA-Z\\u4e00-\\u9fa5]+\\]";
+
+
+    //存放textPart模型的shuj
+    NSMutableArray * textParts                 = [NSMutableArray array];
+    //遍历所有的特殊字符
+    [text enumerateStringsMatchedByRegex:emotionPattern usingBlock:^(NSInteger captureCount, NSString *const __unsafe_unretained *capturedStrings, const NSRange *capturedRanges, volatile BOOL *const stop) {
+        if ((*capturedStrings).length == 0) return;
+        RCTextPart * part                          = [[RCTextPart alloc]init];
+        part.text                                  = *capturedStrings;
+        part.range                                 = *capturedRanges;
+        part.emotion                               = YES;
+        [textParts addObject:part];
+    }];
+
+
+    //遍历所有的非特殊字符
+    [text enumerateStringsSeparatedByRegex:emotionPattern usingBlock:^(NSInteger captureCount, NSString *const __unsafe_unretained *capturedStrings, const NSRange *capturedRanges, volatile BOOL *const stop) {
+        if ((*capturedStrings).length == 0) return;
+
+        RCTextPart * part                          = [[RCTextPart alloc]init];
+        part.text                                  = *capturedStrings;
+        part.range                                 = *capturedRanges;
+        part.emotion                               = NO;
+        [textParts addObject:part];
+    }];
+    //对数组进行排序
+
+    [textParts sortUsingComparator:^NSComparisonResult(RCTextPart * part1,  RCTextPart * part2) {
+        //NSOrderedAscending = -1L, NSOrderedSame, NSOrderedDescending
+        if (part1.range.location > part2.range.location) {
+        return NSOrderedDescending;
+        }
+        return NSOrderedAscending;
+    }];
+    UIFont * font            = [UIFont systemFontOfSize:13];
+    for (RCTextPart * part in  textParts) {
+        NSAttributedString * subText               = nil;
+        if (part.isEmotion) {
+            HWEmotion * emotion = [HWEmotionTool emotionWithChs:part.text];
+
+                NSTextAttachment * atta                    = [[NSTextAttachment alloc]init];
+                atta.image                                 = [UIImage imageNamed:emotion.png];
+                atta.bounds                                = CGRectMake(0, -3, font.lineHeight, font.lineHeight);
+                subText                                    = [NSAttributedString attributedStringWithAttachment:atta];
+
+        }else{
+            subText  = [[NSAttributedString alloc]initWithString:part.text];
+        }
+
+        [attributedText appendAttributedString:subText];
+
+    }
+    //设置字体
+    [attributedText addAttribute:NSFontAttributeName value:font range:NSMakeRange(0, attributedText.length)];
+    NSLog(@"%@",attributedText);
+    return attributedText;
+    
     
 }
 @end

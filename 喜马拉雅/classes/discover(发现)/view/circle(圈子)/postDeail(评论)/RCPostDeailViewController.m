@@ -9,6 +9,7 @@
 #import "RCPostDeailViewController.h"
 #import "UITableView+FDTemplateLayoutCell.h"
 #import "RCCommentViewCell.h"
+#import "HWEmotionTool.h"
 #import "RCCircleViewModel.h"
 #import "RCBuildingOnwerViewCell.h"
 static NSString * const commentID = @"commentViewCell";

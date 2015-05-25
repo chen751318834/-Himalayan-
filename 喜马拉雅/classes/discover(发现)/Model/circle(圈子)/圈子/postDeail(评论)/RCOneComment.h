@@ -35,6 +35,7 @@
 @property(nonatomic,strong) NSNumber  *parentCommentId;
 @property(nonatomic,strong) NSNumber  *groupId;
 @property(nonatomic,copy) NSString  *content;
+@property(nonatomic,copy) NSAttributedString * attributedContent;
 @property(nonatomic,strong) NSArray  *images;
 @property(nonatomic,assign) BOOL canBeDeleted;
 @property (nonatomic, assign) BOOL hasAudioClip;

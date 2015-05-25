@@ -130,6 +130,11 @@
 		4B9211281B106A6A0004DB2A /* RCCommentViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B9211261B106A6A0004DB2A /* RCCommentViewCell.m */; };
 		4B9211291B106A6A0004DB2A /* RCCommentViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B9211271B106A6A0004DB2A /* RCCommentViewCell.xib */; };
 		4B93F5821B11AD4700BFBF6A /* UIView+FDCollapsibleConstraints.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B93F5811B11AD4700BFBF6A /* UIView+FDCollapsibleConstraints.m */; };
+		4BDE7D201B12F98800073E12 /* RCAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BDE7D1F1B12F98800073E12 /* RCAlbum.m */; };
+		4BDE7D231B12F9F700073E12 /* RCAlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BDE7D221B12F9F700073E12 /* RCAlbumViewController.m */; };
+		4BDE7D261B12FA5D00073E12 /* RCAlbumViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BDE7D251B12FA5D00073E12 /* RCAlbumViewModel.m */; };
+		4BDE7D2A1B12FE4400073E12 /* RCAlbumViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BDE7D281B12FE4400073E12 /* RCAlbumViewCell.m */; };
+		4BDE7D2B1B12FE4400073E12 /* RCAlbumViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BDE7D291B12FE4400073E12 /* RCAlbumViewCell.xib */; };
 		4BF787AE1B0DB7700002704A /* RCHotAnchorVIewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF787AD1B0DB7700002704A /* RCHotAnchorVIewModel.m */; };
 		4BF787C51B0DB8F20002704A /* RCAnchorList.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF787C41B0DB8F20002704A /* RCAnchorList.m */; };
 		4BF787C81B0DB9770002704A /* RCOneAnchorList.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF787C71B0DB9770002704A /* RCOneAnchorList.m */; };
@@ -162,6 +167,17 @@
 		4BF7883A1B0DEE310002704A /* RCHotAudioViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF788381B0DEE310002704A /* RCHotAudioViewCell.m */; };
 		4BF7883B1B0DEE310002704A /* RCHotAudioViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BF788391B0DEE310002704A /* RCHotAudioViewCell.xib */; };
 		4BF7883F1B0E14AF0002704A /* Toast+UIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF7883E1B0E14AF0002704A /* Toast+UIView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		4BF9A1271B12ABF4003FD44E /* TTTAttributedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF9A1261B12ABF4003FD44E /* TTTAttributedLabel.m */; };
+		4BF9A12A1B12AD3B003FD44E /* RCStatusTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF9A1291B12AD3B003FD44E /* RCStatusTextView.m */; };
+		4BF9A12D1B12AD4E003FD44E /* RCSpecialText.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF9A12C1B12AD4E003FD44E /* RCSpecialText.m */; };
+		4BF9A1351B12B310003FD44E /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF9A1341B12B310003FD44E /* RegexKitLite.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		4BF9A1371B12B37F003FD44E /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BF9A1361B12B37F003FD44E /* libicucore.dylib */; };
+		4BF9A13D1B12B42B003FD44E /* HWEmotionTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF9A13C1B12B42B003FD44E /* HWEmotionTool.m */; };
+		4BF9A1401B12B447003FD44E /* RCTextPart.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF9A13F1B12B447003FD44E /* RCTextPart.m */; };
+		4BF9A1431B12B485003FD44E /* HWEmotion.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF9A1421B12B485003FD44E /* HWEmotion.m */; };
+		4BF9A32F1B12C323003FD44E /* emoticon_default.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4BF9A32E1B12C323003FD44E /* emoticon_default.plist */; };
+		4BF9A3321B12C3DD003FD44E /* RCGroupEmoticon.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF9A3311B12C3DD003FD44E /* RCGroupEmoticon.m */; };
+		4BF9A3341B12CC02003FD44E /* Foundation+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF9A3331B12CC02003FD44E /* Foundation+Log.m */; };
 		6123F0DE997B4F49BDD11F01 /* libPods-喜马拉雅.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE502E6A73C69FAB4A1ACDFF /* libPods-喜马拉雅.a */; };
 /* End PBXBuildFile section */
 
@@ -410,6 +426,15 @@
 		4B9211271B106A6A0004DB2A /* RCCommentViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RCCommentViewCell.xib; sourceTree = "<group>"; };
 		4B93F5801B11AD4700BFBF6A /* UIView+FDCollapsibleConstraints.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+FDCollapsibleConstraints.h"; sourceTree = "<group>"; };
 		4B93F5811B11AD4700BFBF6A /* UIView+FDCollapsibleConstraints.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+FDCollapsibleConstraints.m"; sourceTree = "<group>"; };
+		4BDE7D1E1B12F98800073E12 /* RCAlbum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCAlbum.h; sourceTree = "<group>"; };
+		4BDE7D1F1B12F98800073E12 /* RCAlbum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCAlbum.m; sourceTree = "<group>"; };
+		4BDE7D211B12F9F700073E12 /* RCAlbumViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCAlbumViewController.h; sourceTree = "<group>"; };
+		4BDE7D221B12F9F700073E12 /* RCAlbumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCAlbumViewController.m; sourceTree = "<group>"; };
+		4BDE7D241B12FA5D00073E12 /* RCAlbumViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCAlbumViewModel.h; sourceTree = "<group>"; };
+		4BDE7D251B12FA5D00073E12 /* RCAlbumViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCAlbumViewModel.m; sourceTree = "<group>"; };
+		4BDE7D271B12FE4400073E12 /* RCAlbumViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCAlbumViewCell.h; sourceTree = "<group>"; };
+		4BDE7D281B12FE4400073E12 /* RCAlbumViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCAlbumViewCell.m; sourceTree = "<group>"; };
+		4BDE7D291B12FE4400073E12 /* RCAlbumViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RCAlbumViewCell.xib; sourceTree = "<group>"; };
 		4BF787AC1B0DB7700002704A /* RCHotAnchorVIewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCHotAnchorVIewModel.h; sourceTree = "<group>"; };
 		4BF787AD1B0DB7700002704A /* RCHotAnchorVIewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCHotAnchorVIewModel.m; sourceTree = "<group>"; };
 		4BF787C31B0DB8F20002704A /* RCAnchorList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCAnchorList.h; sourceTree = "<group>"; };
@@ -471,6 +496,25 @@
 		4BF788391B0DEE310002704A /* RCHotAudioViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RCHotAudioViewCell.xib; sourceTree = "<group>"; };
 		4BF7883D1B0E14AF0002704A /* Toast+UIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Toast+UIView.h"; sourceTree = "<group>"; };
 		4BF7883E1B0E14AF0002704A /* Toast+UIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Toast+UIView.m"; sourceTree = "<group>"; };
+		4BF9A1251B12ABF4003FD44E /* TTTAttributedLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTAttributedLabel.h; sourceTree = "<group>"; };
+		4BF9A1261B12ABF4003FD44E /* TTTAttributedLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTAttributedLabel.m; sourceTree = "<group>"; };
+		4BF9A1281B12AD3B003FD44E /* RCStatusTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCStatusTextView.h; sourceTree = "<group>"; };
+		4BF9A1291B12AD3B003FD44E /* RCStatusTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCStatusTextView.m; sourceTree = "<group>"; };
+		4BF9A12B1B12AD4E003FD44E /* RCSpecialText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCSpecialText.h; sourceTree = "<group>"; };
+		4BF9A12C1B12AD4E003FD44E /* RCSpecialText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCSpecialText.m; sourceTree = "<group>"; };
+		4BF9A1331B12B310003FD44E /* RegexKitLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegexKitLite.h; sourceTree = "<group>"; };
+		4BF9A1341B12B310003FD44E /* RegexKitLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegexKitLite.m; sourceTree = "<group>"; };
+		4BF9A1361B12B37F003FD44E /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+		4BF9A13B1B12B42B003FD44E /* HWEmotionTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWEmotionTool.h; sourceTree = "<group>"; };
+		4BF9A13C1B12B42B003FD44E /* HWEmotionTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWEmotionTool.m; sourceTree = "<group>"; };
+		4BF9A13E1B12B447003FD44E /* RCTextPart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCTextPart.h; sourceTree = "<group>"; };
+		4BF9A13F1B12B447003FD44E /* RCTextPart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCTextPart.m; sourceTree = "<group>"; };
+		4BF9A1411B12B485003FD44E /* HWEmotion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWEmotion.h; sourceTree = "<group>"; };
+		4BF9A1421B12B485003FD44E /* HWEmotion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWEmotion.m; sourceTree = "<group>"; };
+		4BF9A32E1B12C323003FD44E /* emoticon_default.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = emoticon_default.plist; sourceTree = "<group>"; };
+		4BF9A3301B12C3DD003FD44E /* RCGroupEmoticon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCGroupEmoticon.h; sourceTree = "<group>"; };
+		4BF9A3311B12C3DD003FD44E /* RCGroupEmoticon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCGroupEmoticon.m; sourceTree = "<group>"; };
+		4BF9A3331B12CC02003FD44E /* Foundation+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Foundation+Log.m"; sourceTree = "<group>"; };
 		A87DFC431E05D82BB5657FCF /* Pods-喜马拉雅.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-喜马拉雅.release.xcconfig"; path = "Pods/Target Support Files/Pods-喜马拉雅/Pods-喜马拉雅.release.xcconfig"; sourceTree = "<group>"; };
 		CE502E6A73C69FAB4A1ACDFF /* libPods-喜马拉雅.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-喜马拉雅.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE5D8EB88CC2CE53CB7B2C23 /* Pods-喜马拉雅.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-喜马拉雅.debug.xcconfig"; path = "Pods/Target Support Files/Pods-喜马拉雅/Pods-喜马拉雅.debug.xcconfig"; sourceTree = "<group>"; };
@@ -481,6 +525,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4BF9A1371B12B37F003FD44E /* libicucore.dylib in Frameworks */,
 				6123F0DE997B4F49BDD11F01 /* libPods-喜马拉雅.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -576,6 +621,7 @@
 		4B1D812B1B0C935D00B7C9DC /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4BDE7D1D1B12F97B00073E12 /* Album(专辑) */,
 				4B912E191B0EF87E007B64DD /* circle(圈子) */,
 				4B912E091B0EE8B2007B64DD /* hotActivity(热门活动) */,
 				4B912DEA1B0EBE9A007B64DD /* subject(专题) */,
@@ -590,6 +636,7 @@
 		4B1D812C1B0C935D00B7C9DC /* view */ = {
 			isa = PBXGroup;
 			children = (
+				4BDE7D1C1B12F97500073E12 /* Album(专辑) */,
 				4B912E1A1B0EF885007B64DD /* circle(圈子) */,
 				4B912E0A1B0EE8BC007B64DD /* hotActivity(热门活动) */,
 				4B912DE91B0EBE89007B64DD /* subject(专题) */,
@@ -604,6 +651,8 @@
 		4B1D812D1B0C935D00B7C9DC /* viewModel */ = {
 			isa = PBXGroup;
 			children = (
+				4BDE7D241B12FA5D00073E12 /* RCAlbumViewModel.h */,
+				4BDE7D251B12FA5D00073E12 /* RCAlbumViewModel.m */,
 				4B912E1E1B0EF8B6007B64DD /* RCCircleViewModel.h */,
 				4B912E1F1B0EF8B6007B64DD /* RCCircleViewModel.m */,
 				4B912E0B1B0EE8DB007B64DD /* RCHotActivityViewModel.h */,
@@ -704,6 +753,16 @@
 		4B1D81371B0C935D00B7C9DC /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4BF9A1411B12B485003FD44E /* HWEmotion.h */,
+				4BF9A1421B12B485003FD44E /* HWEmotion.m */,
+				4BF9A13B1B12B42B003FD44E /* HWEmotionTool.h */,
+				4BF9A13C1B12B42B003FD44E /* HWEmotionTool.m */,
+				4BF9A13E1B12B447003FD44E /* RCTextPart.h */,
+				4BF9A13F1B12B447003FD44E /* RCTextPart.m */,
+				4BF9A12B1B12AD4E003FD44E /* RCSpecialText.h */,
+				4BF9A12C1B12AD4E003FD44E /* RCSpecialText.m */,
+				4BF9A3301B12C3DD003FD44E /* RCGroupEmoticon.h */,
+				4BF9A3311B12C3DD003FD44E /* RCGroupEmoticon.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -720,6 +779,8 @@
 		4B1D81391B0C935D00B7C9DC /* view */ = {
 			isa = PBXGroup;
 			children = (
+				4BF9A1281B12AD3B003FD44E /* RCStatusTextView.h */,
+				4BF9A1291B12AD3B003FD44E /* RCStatusTextView.m */,
 				4B1D82A71B0C9E7800B7C9DC /* RCTabBarViewController.h */,
 				4B1D82A81B0C9E7800B7C9DC /* RCTabBarViewController.m */,
 				4B1D829E1B0C9E3300B7C9DC /* RCTabBar.h */,
@@ -795,6 +856,7 @@
 		4B1D81421B0C935D00B7C9DC /* category */ = {
 			isa = PBXGroup;
 			children = (
+				4BF9A3331B12CC02003FD44E /* Foundation+Log.m */,
 				4B912E031B0ED039007B64DD /* NSDate+RC.h */,
 				4B912E041B0ED039007B64DD /* NSDate+RC.m */,
 				4B1D82AA1B0C9F7B00B7C9DC /* UIBarButtonItem+MJ.h */,
@@ -810,6 +872,8 @@
 		4B1D81441B0C935D00B7C9DC /* lib */ = {
 			isa = PBXGroup;
 			children = (
+				4BF9A1321B12B310003FD44E /* RegexKitLite */,
+				4BF9A1241B12ABF4003FD44E /* TTTAttributedLabel */,
 				4B93F57F1B11AD4700BFBF6A /* FDCollapsibleConstraints */,
 				4B60C4C11B1080A700EA7B7F /* FDTemplateLayoutCell */,
 				4BF7883C1B0E14AF0002704A /* Toast */,
@@ -1001,6 +1065,7 @@
 		4B1D82831B0C997B00B7C9DC /* plist */ = {
 			isa = PBXGroup;
 			children = (
+				4BF9A32E1B12C323003FD44E /* emoticon_default.plist */,
 				4B1D82841B0C998200B7C9DC /* Category.plist */,
 			);
 			path = plist;
@@ -1204,6 +1269,27 @@
 			path = FDCollapsibleConstraints;
 			sourceTree = "<group>";
 		};
+		4BDE7D1C1B12F97500073E12 /* Album(专辑) */ = {
+			isa = PBXGroup;
+			children = (
+				4BDE7D211B12F9F700073E12 /* RCAlbumViewController.h */,
+				4BDE7D221B12F9F700073E12 /* RCAlbumViewController.m */,
+				4BDE7D271B12FE4400073E12 /* RCAlbumViewCell.h */,
+				4BDE7D281B12FE4400073E12 /* RCAlbumViewCell.m */,
+				4BDE7D291B12FE4400073E12 /* RCAlbumViewCell.xib */,
+			);
+			path = "Album(专辑)";
+			sourceTree = "<group>";
+		};
+		4BDE7D1D1B12F97B00073E12 /* Album(专辑) */ = {
+			isa = PBXGroup;
+			children = (
+				4BDE7D1E1B12F98800073E12 /* RCAlbum.h */,
+				4BDE7D1F1B12F98800073E12 /* RCAlbum.m */,
+			);
+			path = "Album(专辑)";
+			sourceTree = "<group>";
+		};
 		4BF787C21B0DB8DF0002704A /* Hot Anchor(最火主播) */ = {
 			isa = PBXGroup;
 			children = (
@@ -1294,6 +1380,24 @@
 			path = Toast;
 			sourceTree = "<group>";
 		};
+		4BF9A1241B12ABF4003FD44E /* TTTAttributedLabel */ = {
+			isa = PBXGroup;
+			children = (
+				4BF9A1251B12ABF4003FD44E /* TTTAttributedLabel.h */,
+				4BF9A1261B12ABF4003FD44E /* TTTAttributedLabel.m */,
+			);
+			path = TTTAttributedLabel;
+			sourceTree = "<group>";
+		};
+		4BF9A1321B12B310003FD44E /* RegexKitLite */ = {
+			isa = PBXGroup;
+			children = (
+				4BF9A1331B12B310003FD44E /* RegexKitLite.h */,
+				4BF9A1341B12B310003FD44E /* RegexKitLite.m */,
+			);
+			path = RegexKitLite;
+			sourceTree = "<group>";
+		};
 		9AC50D7E1B3571C4F9B64EAB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1306,6 +1410,7 @@
 		C79F1350FF140A459021F18A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4BF9A1361B12B37F003FD44E /* libicucore.dylib */,
 				CE502E6A73C69FAB4A1ACDFF /* libPods-喜马拉雅.a */,
 			);
 			name = Frameworks;
@@ -1404,6 +1509,8 @@
 				4B1D81C21B0C967300B7C9DC /* RCCategoryListViewCell.xib in Resources */,
 				4B9210FB1B10241F0004DB2A /* RCRecommendZoneViewCell.xib in Resources */,
 				4B912E181B0EEB73007B64DD /* RCHotActivityViewCell.xib in Resources */,
+				4BF9A32F1B12C323003FD44E /* emoticon_default.plist in Resources */,
+				4BDE7D2B1B12FE4400073E12 /* RCAlbumViewCell.xib in Resources */,
 				4B9210F91B10241F0004DB2A /* RCRecommendPostViewCell.xib in Resources */,
 				4B1D81C81B0C967300B7C9DC /* RCDiscoverItemViewCell.xib in Resources */,
 				4B9211291B106A6A0004DB2A /* RCCommentViewCell.xib in Resources */,
@@ -1464,6 +1571,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4BF9A12D1B12AD4E003FD44E /* RCSpecialText.m in Sources */,
 				4BF788141B0DBF8E0002704A /* RCAnthorViewCell.m in Sources */,
 				4B1D827E1B0C982900B7C9DC /* UIImage+GIF.m in Sources */,
 				4B1D82A01B0C9E3300B7C9DC /* RCTabBar.m in Sources */,
@@ -1493,7 +1601,9 @@
 				4BF787AE1B0DB7700002704A /* RCHotAnchorVIewModel.m in Sources */,
 				4B1D82B71B0CC3BB00B7C9DC /* RCCollectionHeaderReusableView.m in Sources */,
 				4B1D81C71B0C967300B7C9DC /* RCDiscoverItemViewCell.m in Sources */,
+				4BF9A1351B12B310003FD44E /* RegexKitLite.m in Sources */,
 				4BF7880C1B0DBD970002704A /* MJRefreshLegendFooter.m in Sources */,
+				4BDE7D2A1B12FE4400073E12 /* RCAlbumViewCell.m in Sources */,
 				4B9211011B10256C0004DB2A /* RCZonePostHeadData.m in Sources */,
 				4BF7880A1B0DBD970002704A /* MJRefreshGifHeader.m in Sources */,
 				4B1D81A61B0C95E300B7C9DC /* RCConst.m in Sources */,
@@ -1504,10 +1614,12 @@
 				4BF788091B0DBD970002704A /* MJRefreshGifFooter.m in Sources */,
 				4B1D827C1B0C982900B7C9DC /* SDWebImagePrefetcher.m in Sources */,
 				4B1D82A91B0C9E7800B7C9DC /* RCTabBarViewController.m in Sources */,
+				4BDE7D201B12F98800073E12 /* RCAlbum.m in Sources */,
 				4B912DFE1B0EC430007B64DD /* RCSubjectSectionHeaderView.m in Sources */,
 				4BF787D21B0DBCBA0002704A /* RCBaseViewController.m in Sources */,
 				4B1D81CF1B0C96B100B7C9DC /* RCFocusImageViewCell.m in Sources */,
 				4B1D82901B0C9C9200B7C9DC /* UIImage+KVNEmpty.m in Sources */,
+				4BF9A1271B12ABF4003FD44E /* TTTAttributedLabel.m in Sources */,
 				4B1D82981B0C9DE500B7C9DC /* RCNavigationController.m in Sources */,
 				4B1D82421B0C978000B7C9DC /* MJType.m in Sources */,
 				4B9210E91B1023CF0004DB2A /* RCRecommendOwnerZone.m in Sources */,
@@ -1536,6 +1648,7 @@
 				4BF7883A1B0DEE310002704A /* RCHotAudioViewCell.m in Sources */,
 				4B1D81A91B0C95F600B7C9DC /* RCCustomizatinTableViewController.m in Sources */,
 				4B1D82911B0C9C9200B7C9DC /* UIImage+KVNImageEffects.m in Sources */,
+				4BDE7D231B12F9F700073E12 /* RCAlbumViewController.m in Sources */,
 				4BF7880E1B0DBD970002704A /* UIScrollView+MJExtension.m in Sources */,
 				4B912DFA1B0EC1A3007B64DD /* RCSubjectViewCell.m in Sources */,
 				4B9211241B105EFC0004DB2A /* RCOneParentComment.m in Sources */,
@@ -1555,8 +1668,11 @@
 				4B1D81C91B0C967300B7C9DC /* RCDiscoverViewController.m in Sources */,
 				4BF7880D1B0DBD970002704A /* MJRefreshLegendHeader.m in Sources */,
 				4B1D81D71B0C96C400B7C9DC /* RCLatestSpecial.m in Sources */,
+				4BF9A3341B12CC02003FD44E /* Foundation+Log.m in Sources */,
 				4B1D82441B0C978000B7C9DC /* NSObject+MJKeyValue.m in Sources */,
 				4B9210F61B10241F0004DB2A /* RCCircleDeailViewController.m in Sources */,
+				4BF9A12A1B12AD3B003FD44E /* RCStatusTextView.m in Sources */,
+				4BF9A13D1B12B42B003FD44E /* HWEmotionTool.m in Sources */,
 				4B1D82821B0C982900B7C9DC /* UIView+WebCacheOperation.m in Sources */,
 				4BF7880B1B0DBD970002704A /* MJRefreshHeader.m in Sources */,
 				4B912E051B0ED039007B64DD /* NSDate+RC.m in Sources */,
@@ -1577,8 +1693,10 @@
 				4B1D81F41B0C973800B7C9DC /* UIView+AutoLayout.m in Sources */,
 				4B1D82411B0C978000B7C9DC /* MJProperty.m in Sources */,
 				4B1D81921B0C958D00B7C9DC /* RCCategoryFocusImageParam.m in Sources */,
+				4BDE7D261B12FA5D00073E12 /* RCAlbumViewModel.m in Sources */,
 				4B9211091B102D1B0004DB2A /* RCCicleDeailHeaderView.m in Sources */,
 				4B9210F81B10241F0004DB2A /* RCRecommendPostViewCell.m in Sources */,
+				4BF9A1401B12B447003FD44E /* RCTextPart.m in Sources */,
 				4BF788071B0DBD970002704A /* MJRefreshConst.m in Sources */,
 				4B1D81461B0C935D00B7C9DC /* AppDelegate.m in Sources */,
 				4B9210FE1B10254B0004DB2A /* RCZonePost.m in Sources */,
@@ -1591,6 +1709,8 @@
 				4B1D81C11B0C967300B7C9DC /* RCCategoryListViewCell.m in Sources */,
 				4B1D827B1B0C982900B7C9DC /* SDWebImageManager.m in Sources */,
 				4B1D82281B0C977400B7C9DC /* AFSecurityPolicy.m in Sources */,
+				4BF9A1431B12B485003FD44E /* HWEmotion.m in Sources */,
+				4BF9A3321B12C3DD003FD44E /* RCGroupEmoticon.m in Sources */,
 				4B1D82251B0C977400B7C9DC /* AFHTTPRequestOperationManager.m in Sources */,
 				4B912E0D1B0EE8DB007B64DD /* RCHotActivityViewModel.m in Sources */,
 				4B912E101B0EE95A007B64DD /* RCHotActivity.m in Sources */,
@@ -1706,6 +1826,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DE5D8EB88CC2CE53CB7B2C23 /* Pods-喜马拉雅.debug.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				HEADER_SEARCH_PATHS = (
@@ -1724,6 +1845,7 @@
 					"\"UIKit\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = "arm64 armv7 armv7s x86_64";
 			};
 			name = Debug;
 		};
@@ -1731,6 +1853,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A87DFC431E05D82BB5657FCF /* Pods-喜马拉雅.release.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				HEADER_SEARCH_PATHS = (
@@ -1740,6 +1863,7 @@
 				);
 				INFOPLIST_FILE = "/workSpace/Code/Objective-C/喜马拉雅/喜马拉雅/classes/other/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-l\"Pods-喜马拉雅-ReactiveCocoa\"",
@@ -1749,6 +1873,7 @@
 					"\"UIKit\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = "arm64 armv7 armv7s x86_64";
 			};
 			name = Release;
 		};

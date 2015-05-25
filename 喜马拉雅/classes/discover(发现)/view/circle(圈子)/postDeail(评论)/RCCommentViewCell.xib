@@ -37,6 +37,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autoCollapse" value="NO"/>
+                                </userDefinedRuntimeAttributes>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="topic_lz" translatesAutoresizingMaskIntoConstraints="NO" id="zfX-XW-3zF">
                                 <rect key="frame" x="76" y="15" width="31" height="16"/>
@@ -44,6 +47,9 @@
                                     <constraint firstAttribute="width" constant="31" id="dd1-jG-J2x"/>
                                     <constraint firstAttribute="height" constant="16" id="l6R-Ho-HAr"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autoCollapse" value="NO"/>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="findCategory_default" translatesAutoresizingMaskIntoConstraints="NO" id="gd1-W8-MWO">
                                 <rect key="frame" x="0.0" y="8" width="30" height="30"/>
@@ -51,6 +57,9 @@
                                     <constraint firstAttribute="width" constant="30" id="pt5-gv-Aee"/>
                                     <constraint firstAttribute="height" constant="30" id="yLw-QN-4m2"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autoCollapse" value="NO"/>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="248" verticalCompressionResistancePriority="749" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Duh-J3-QEa">
                                 <rect key="frame" x="11" y="41" width="281" height="64"/>
@@ -61,6 +70,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" red="0.30052477900000002" green="0.30052477900000002" blue="0.30052477900000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autoCollapse" value="NO"/>
+                                </userDefinedRuntimeAttributes>
                             </label>
                         </subviews>
                         <constraints>

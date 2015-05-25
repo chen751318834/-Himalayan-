@@ -20,6 +20,7 @@
 #import "RCHotActivityViewController.h"
 #import "RCDiscoverItemViewCell.h"
 #import "RCSectionheaderView.h"
+#import "RCAlbumViewController.h"
 #import "RCCatrgory.h"
 #import "RCCategoryListViewModel.h"
 #import "RCDisCoverViewModel.h"
@@ -44,11 +45,22 @@ static const NSUInteger sectionCount = 100;
 @property(nonatomic,strong) RCDisCoverViewModel  *viewModel;
 @property(nonatomic,strong) RCCategoryListViewModel  *categoryViewModel;
 @property(nonatomic,weak) UIPageControl   *pageControl;
+@property(nonatomic,weak) UIImageView   *coverView;
 
 @end
 
 @implementation RCDiscoverViewController
 #pragma mark - 懒加载
+-  (UIImageView *)coverView{
+    if (!_coverView) {
+        UIImageView * coverView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"LaunchImage"]];
+        [self.view addSubview:coverView];
+        [coverView autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
+        self.coverView = coverView;
+
+    }
+    return _coverView;
+}
 -  (RCDisCoverViewModel *)viewModel{
     if (!_viewModel) {
          self.viewModel = [[RCDisCoverViewModel alloc]init];
@@ -81,13 +93,15 @@ static const NSUInteger sectionCount = 100;
     [self setUpSearchBar];
     [self setUpHeaderView];
     [self setUpPageControl];
-
+    self.coverView.hidden = NO;
     [self.viewModel fetchDiscoverDataWithSuccess:^{
         [self.scrollCollectionView reloadData];
         [self.tableView reloadData];
+        self.coverView.hidden = YES;
         [self addTimer];
 
     } failure:^{
+        self.coverView.hidden = YES;
 
     }];
 
@@ -235,15 +249,18 @@ static const NSUInteger sectionCount = 100;
     }
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
+    if (scrollView == self.scrollCollectionView) {
     [self removeTimer];
+    }
     [self.searchBar endEditing:YES];
 
 }
 
+
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
-
+    if (scrollView == self.scrollCollectionView) {
     [self addTimer];
-
+    }
 }
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
 
@@ -363,7 +380,7 @@ static const NSUInteger sectionCount = 100;
     if (section == 5) {
         RCSectionheaderView * headerView = [RCSectionheaderView headerView];
         [[headerView.titleButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
-
+            [self.navigationController pushViewController:[[RCAlbumViewController alloc]init] animated:YES];
         }];
         return headerView;
     }
@@ -404,7 +421,7 @@ static const NSUInteger sectionCount = 100;
  */
 - (void)addTimer{
     NSTimer * timer = [NSTimer scheduledTimerWithTimeInterval:3.0f target:self selector:@selector(nextPage) userInfo:nil repeats:YES];
-    [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
+    [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
     self.timer = timer;
 
 }

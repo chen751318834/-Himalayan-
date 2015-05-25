@@ -196,7 +196,7 @@ static const NSUInteger sectionCount = 100;
  */
 - (void)addTimer{
     NSTimer * timer = [NSTimer scheduledTimerWithTimeInterval:3.0f target:self selector:@selector(nextPage) userInfo:nil repeats:YES];
-    [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
+    [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
     self.timer = timer;
 
 }
@@ -242,14 +242,17 @@ static const NSUInteger sectionCount = 100;
 }
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
-    [self removeTimer];
+    if (scrollView == self.scrollCollectionView) {
 
+    [self removeTimer];
+    }
 }
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
+    if (scrollView == self.scrollCollectionView) {
 
     [self addTimer];
-
+    }
 }
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
 

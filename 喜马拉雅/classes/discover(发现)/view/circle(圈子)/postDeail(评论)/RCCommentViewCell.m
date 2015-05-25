@@ -11,6 +11,7 @@
 #import "UIImageView+WebCache.h"
 #import "RCRecommendPoster.h"
 #import "UIImage+RC.h"
+#import "RCStatusTextView.h"
 #import "UIView+FDCollapsibleConstraints.h"
 
 @interface RCCommentViewCell ()
@@ -38,7 +39,7 @@
     RCRecommendPoster * poster = oneComment.poster;
 
      [self.iconView sd_setImageWithURL:[NSURL URLWithString:poster.smallLogo] placeholderImage:[UIImage imageNamed:@"findsection_sound_bg"]completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-         self.iconView.image = [UIImage circleImage:image borderWidth:0 borderColor:nil];
+         self.iconView.image = [UIImage circleImage:image?image:[UIImage imageNamed:@"findsection_sound_bg"] borderWidth:0 borderColor:nil];
      }];
     self.userNameLabel.text = poster.nickname;
     self.timelabel.text = oneComment.created_at;
@@ -60,7 +61,7 @@
             self.bulidingOnwerView.hidden = NO;
     }else{
         self.reweetedContentView.backgroundColor = [UIColor whiteColor];
-        self.topCon.constant = -47;
+        self.topCon.constant = -45;
         self.bulidingOnwerView.hidden = YES;
 
 

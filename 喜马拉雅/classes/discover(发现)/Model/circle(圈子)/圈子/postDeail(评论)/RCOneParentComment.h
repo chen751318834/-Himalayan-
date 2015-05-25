@@ -17,6 +17,8 @@
 @property(nonatomic,strong) NSNumber  *postId;
 @property(nonatomic,strong) NSNumber  *timeline;
 @property(nonatomic,copy) NSString  *content;
+@property(nonatomic,copy) NSAttributedString * attributedContent;
+
 @property(nonatomic,strong) NSArray  *images;
 @property(nonatomic,assign) BOOL canBeDeleted;
 @property(nonatomic,strong) RCRecommendPoster  *poster;
