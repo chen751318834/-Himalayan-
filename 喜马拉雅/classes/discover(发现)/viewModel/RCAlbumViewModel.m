@@ -10,7 +10,7 @@
 #import "RCAlbum.h"
 #import "RCAlbumTrack.h"
 #import "RCTrack.h"
-
+#import <UIKit/UIKit.h>
 
 @interface RCAlbumViewModel ()
 @property(nonatomic,strong) NSMutableArray  *trarkLists;
@@ -146,9 +146,10 @@
 - ( void)fetchNewAlbumDeailDataWithSuccess:(void (^)(void ))success failure:(void (^)(void ))failure{
 
     [RCNetWorkingTool get:[NSString stringWithFormat:@"http://mobile.ximalaya.com/mobile/others/ca/album/track/%@/true/1/15",self.ID] params:nil success:^(id json) {
-        [self.models removeAllObjects];
+        [self.trarkLists removeAllObjects];
         RCAlbumTrack  * albumTrack  = [RCAlbumTrack objectWithKeyValues:json];
-        [self.models addObjectsFromArray:albumTrack.tracks.list];
+        [self.trarkLists addObjectsFromArray:albumTrack.tracks.list];
+        self.totalCount = albumTrack.tracks.totalCount;
         self.album = albumTrack.album;
         if (success) {
             success();
@@ -171,7 +172,7 @@
             }
             return ;
         }
-        [self.models addObjectsFromArray:albumTrack.tracks.list];
+        [self.trarkLists addObjectsFromArray:albumTrack.tracks.list];
         if (success) {
             success();
         }
@@ -184,11 +185,11 @@
 
 }
 - (NSInteger)numberOfRowOfAlbumDeailDataInSection: (NSInteger)section{
-    return 0;
+    return self.trarkLists.count;
 
 }
 - (RCTrackList *)trackListAtIndexPath: (NSIndexPath *)indexPath{
 
-    return nil;
+    return self.trarkLists[indexPath.item];
 }
 @end

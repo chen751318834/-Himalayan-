@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "RCBaseViewModel.h"
 #import "RCOneAlbum.h"
+
 #import "RCTrackList.h"
 @interface RCAlbumViewModel : RCBaseViewModel
 /**
@@ -36,4 +37,5 @@
 - (RCTrackList *)trackListAtIndexPath: (NSIndexPath *)indexPath;
 @property(nonatomic,strong) NSNumber  *ID;
 @property(nonatomic,strong) RCOneAlbum  *album;
+@property(nonatomic,strong) NSNumber  *totalCount;
 @end

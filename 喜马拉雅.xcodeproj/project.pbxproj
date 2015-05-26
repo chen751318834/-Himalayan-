@@ -93,6 +93,10 @@
 		4B1D82A91B0C9E7800B7C9DC /* RCTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B1D82A81B0C9E7800B7C9DC /* RCTabBarViewController.m */; };
 		4B1D82AC1B0C9F7B00B7C9DC /* UIBarButtonItem+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B1D82AB1B0C9F7B00B7C9DC /* UIBarButtonItem+MJ.m */; };
 		4B1D82B71B0CC3BB00B7C9DC /* RCCollectionHeaderReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B1D82B61B0CC3BB00B7C9DC /* RCCollectionHeaderReusableView.m */; };
+		4B4F460E1B14113D00284DAB /* RCAlbumDeailViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B4F460C1B14113D00284DAB /* RCAlbumDeailViewCell.m */; };
+		4B4F460F1B14113D00284DAB /* RCAlbumDeailViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B4F460D1B14113D00284DAB /* RCAlbumDeailViewCell.xib */; };
+		4B4F46131B141BA200284DAB /* RCAlbumSectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B4F46111B141BA200284DAB /* RCAlbumSectionHeaderView.m */; };
+		4B4F46141B141BA200284DAB /* RCAlbumSectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B4F46121B141BA200284DAB /* RCAlbumSectionHeaderView.xib */; };
 		4B60C4C41B1080A700EA7B7F /* UITableView+FDTemplateLayoutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B60C4C31B1080A700EA7B7F /* UITableView+FDTemplateLayoutCell.m */; };
 		4B912DED1B0EBEB4007B64DD /* RCSubject.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B912DEC1B0EBEB4007B64DD /* RCSubject.m */; };
 		4B912DF01B0EBF02007B64DD /* RCSubjectList.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B912DEF1B0EBF02007B64DD /* RCSubjectList.m */; };
@@ -372,6 +376,12 @@
 		4B1D82AB1B0C9F7B00B7C9DC /* UIBarButtonItem+MJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+MJ.m"; sourceTree = "<group>"; };
 		4B1D82B51B0CC3BB00B7C9DC /* RCCollectionHeaderReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCCollectionHeaderReusableView.h; sourceTree = "<group>"; };
 		4B1D82B61B0CC3BB00B7C9DC /* RCCollectionHeaderReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCCollectionHeaderReusableView.m; sourceTree = "<group>"; };
+		4B4F460B1B14113D00284DAB /* RCAlbumDeailViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCAlbumDeailViewCell.h; sourceTree = "<group>"; };
+		4B4F460C1B14113D00284DAB /* RCAlbumDeailViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCAlbumDeailViewCell.m; sourceTree = "<group>"; };
+		4B4F460D1B14113D00284DAB /* RCAlbumDeailViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RCAlbumDeailViewCell.xib; sourceTree = "<group>"; };
+		4B4F46101B141BA200284DAB /* RCAlbumSectionHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCAlbumSectionHeaderView.h; sourceTree = "<group>"; };
+		4B4F46111B141BA200284DAB /* RCAlbumSectionHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCAlbumSectionHeaderView.m; sourceTree = "<group>"; };
+		4B4F46121B141BA200284DAB /* RCAlbumSectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RCAlbumSectionHeaderView.xib; sourceTree = "<group>"; };
 		4B60C4C21B1080A700EA7B7F /* UITableView+FDTemplateLayoutCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+FDTemplateLayoutCell.h"; sourceTree = "<group>"; };
 		4B60C4C31B1080A700EA7B7F /* UITableView+FDTemplateLayoutCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+FDTemplateLayoutCell.m"; sourceTree = "<group>"; };
 		4B912DEB1B0EBEB4007B64DD /* RCSubject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCSubject.h; sourceTree = "<group>"; };
@@ -1371,6 +1381,12 @@
 				4BDE7D591B13335B00073E12 /* RCAlbumHeaderView.h */,
 				4BDE7D5A1B13335B00073E12 /* RCAlbumHeaderView.m */,
 				4BDE7D5B1B13335B00073E12 /* RCAlbumHeaderView.xib */,
+				4B4F460B1B14113D00284DAB /* RCAlbumDeailViewCell.h */,
+				4B4F460C1B14113D00284DAB /* RCAlbumDeailViewCell.m */,
+				4B4F460D1B14113D00284DAB /* RCAlbumDeailViewCell.xib */,
+				4B4F46101B141BA200284DAB /* RCAlbumSectionHeaderView.h */,
+				4B4F46111B141BA200284DAB /* RCAlbumSectionHeaderView.m */,
+				4B4F46121B141BA200284DAB /* RCAlbumSectionHeaderView.xib */,
 			);
 			path = "AlbumDeail(专辑详情)";
 			sourceTree = "<group>";
@@ -1585,6 +1601,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B1D81E61B0C970B00B7C9DC /* RCRecommendAlbumViewCell.xib in Resources */,
+				4B4F460F1B14113D00284DAB /* RCAlbumDeailViewCell.xib in Resources */,
+				4B4F46141B141BA200284DAB /* RCAlbumSectionHeaderView.xib in Resources */,
 				4BDE7D4E1B131B8000073E12 /* CSCell.xib in Resources */,
 				4B1D81471B0C935D00B7C9DC /* Info.plist in Resources */,
 				4B1D81C51B0C967300B7C9DC /* RCDiscover2IMGViewCell.xib in Resources */,
@@ -1678,6 +1696,7 @@
 				4B9211171B1057E40004DB2A /* RCPostDeailViewController.m in Sources */,
 				4B1D81E51B0C970B00B7C9DC /* RCRecommendAlbumViewCell.m in Sources */,
 				4BF787C51B0DB8F20002704A /* RCAnchorList.m in Sources */,
+				4B4F46131B141BA200284DAB /* RCAlbumSectionHeaderView.m in Sources */,
 				4BDE7D6B1B135CB600073E12 /* RCTrackList.m in Sources */,
 				4B1D81D81B0C96C400B7C9DC /* RCList.m in Sources */,
 				4B1D82461B0C978000B7C9DC /* NSString+MJExtension.m in Sources */,
@@ -1719,6 +1738,7 @@
 				4B1D822C1B0C977400B7C9DC /* AFURLSessionManager.m in Sources */,
 				4B1D827D1B0C982900B7C9DC /* UIButton+WebCache.m in Sources */,
 				4B1D81DB1B0C96E400B7C9DC /* RCNetWorkingTool.m in Sources */,
+				4B4F460E1B14113D00284DAB /* RCAlbumDeailViewCell.m in Sources */,
 				4B1D81F51B0C973800B7C9DC /* UIView+Extension.m in Sources */,
 				4B912DF01B0EBF02007B64DD /* RCSubjectList.m in Sources */,
 				4B1D81E11B0C970000B7C9DC /* RCRecommendAlbums.m in Sources */,

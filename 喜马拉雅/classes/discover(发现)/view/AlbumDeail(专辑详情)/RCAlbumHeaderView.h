@@ -10,5 +10,7 @@
 #import "RCOneAlbum.h"
 @interface RCAlbumHeaderView : UICollectionReusableView
 + (instancetype)headerView;
+@property (weak, nonatomic) IBOutlet UIButton *back;
+@property (weak, nonatomic) IBOutlet UIView *bottomView;
 @property(nonatomic,strong) RCOneAlbum  *album;
 @end

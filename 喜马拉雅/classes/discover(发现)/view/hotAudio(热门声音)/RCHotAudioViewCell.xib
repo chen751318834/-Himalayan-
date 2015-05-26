@@ -30,7 +30,7 @@
                                     <constraint firstAttribute="height" constant="36" id="NVJ-m7-50E"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="子标题" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1y3-it-gMa">
@@ -154,6 +154,7 @@
                             <constraint firstItem="Bnp-Ci-BQB" firstAttribute="top" secondItem="THf-ov-o7k" secondAttribute="top" id="aei-th-cgh"/>
                             <constraint firstItem="MaE-YF-TeL" firstAttribute="leading" secondItem="MUz-DM-8lk" secondAttribute="leading" constant="8" id="cc3-xT-zxO"/>
                             <constraint firstItem="pNE-lc-mbY" firstAttribute="leading" secondItem="t23-JO-yE6" secondAttribute="trailing" constant="18" id="cmO-FL-hx4"/>
+                            <constraint firstAttribute="bottom" secondItem="Yp0-vt-Bqe" secondAttribute="bottom" constant="11" id="e0w-Oi-3gF"/>
                             <constraint firstAttribute="trailing" secondItem="lHX-Oa-MMp" secondAttribute="trailing" constant="8" id="efQ-gZ-ijp"/>
                             <constraint firstItem="MaE-YF-TeL" firstAttribute="top" secondItem="MUz-DM-8lk" secondAttribute="top" constant="8" id="j4I-4A-Hfa"/>
                             <constraint firstAttribute="trailing" secondItem="Ge0-08-zSc" secondAttribute="trailing" constant="8" id="nla-pi-dWR"/>

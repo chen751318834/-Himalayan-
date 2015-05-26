@@ -13,7 +13,7 @@
 @protocol RCSegementControlDelegate <NSObject>
 
 @optional
-- (void)segementControl:(RCSegementControl *)segement from:(int)from to:(int)to;
+- (void)segementControl:(RCSegementControl *)segement from:(NSUInteger)from to:(NSUInteger)to;
 
 @end
 @interface RCSegementControl : UIView
@@ -24,6 +24,6 @@
 /**
  *  索引
  */
-@property (nonatomic, assign)int selectedSegmentIndex;
+@property (nonatomic, assign)NSUInteger selectedSegmentIndex;
 @property(nonatomic,weak) id  delegate;
 @end

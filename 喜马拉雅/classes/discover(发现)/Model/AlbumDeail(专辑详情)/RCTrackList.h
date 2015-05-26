@@ -58,5 +58,6 @@
 @property(nonatomic,copy) NSString  *albumTitle;
 @property(nonatomic,copy) NSString  *albumImage;
 @property(nonatomic,assign) BOOL isPublic;
-
+@property(nonatomic,copy) NSString  *created_at;
+@property(nonatomic,assign,getter=isDownloading) BOOL downloading;
 @end

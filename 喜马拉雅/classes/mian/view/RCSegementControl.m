@@ -14,27 +14,37 @@
 
 
 @interface RCSegementControl ()
-@property(nonatomic,weak) SegementButton * selectedButton;
+@property(nonatomic,weak) UIButton * selectedButton;
+@property(nonatomic,strong) NSMutableArray  *buttons;
+@property(nonatomic,strong) NSMutableArray  *sliders;
+@property(nonatomic,weak) UIView   *sliderView;
+
 @end
 @implementation RCSegementControl
-- (instancetype)initWithFrame:(CGRect)frame{
-    if ([super initWithFrame:frame]) {
-        
+-  (NSMutableArray *)buttons{
+    if (!_buttons) {
+        self.buttons= [NSMutableArray array];
+
     }
-    
-    return self;
-    
-    
+    return _buttons;
 }
+-  (NSMutableArray *)sliders{
+    if (!_sliders) {
+        self.sliders= [NSMutableArray array];
+
+    }
+    return _sliders;
+}
+
 - (void)setItems:(NSArray *)items{
     _items =items;
-    
     [self.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
-    int count = items.count;
-    for (int i =0; i<count; i++) {
-        SegementButton *button =[[SegementButton alloc]init];
+    NSUInteger count = items.count;
+    for (NSUInteger i =0; i<count; i++) {
+        UIButton *button =items[i];
         button.tag = i ;
-                [button setTitle:items[i] forState:UIControlStateNormal];
+        [button setImage:button.imageView.image forState:UIControlStateNormal];
+        [button setTitle:button.titleLabel.text forState:UIControlStateNormal];
         [button addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchDown];
         NSString *bgName;
         if (i ==0) {
@@ -57,10 +67,20 @@
         
         [button setBackgroundImage:[UIImage resizableImage:SelectedBgName] forState:UIControlStateSelected];
         [self addSubview:button];
+        [self.buttons addObject:button];
+    }
+    for (int i = 0; i<items.count - 1; i++) {
+        UIView * sliderView = [[UIView alloc]init];
+        sliderView.backgroundColor = [UIColor whiteColor];
+        sliderView.alpha = 0.5;
+        [self addSubview:sliderView];
+        self.sliderView = sliderView;
+        [self.sliders addObject:sliderView];
+
     }
 
 }
-- (void)buttonClicked:(SegementButton *)button{
+- (void)buttonClicked:(UIButton *)button{
     if ([self.delegate respondsToSelector:@selector(segementControl:from:to:)]) {
         [self.delegate segementControl:self from:self.selectedButton.tag to:button.tag];
     }
@@ -70,30 +90,35 @@
 
 }
 
-- (void)setSelectedSegmentIndex:(int)selectedSegmentIndex{
-    if (selectedSegmentIndex <0 ||selectedSegmentIndex >=self.items.count) {
-        return;
-    }
-    SegementButton *segement =self.subviews[selectedSegmentIndex];
+- (void)setSelectedSegmentIndex:(NSUInteger)selectedSegmentIndex{
+//    if (selectedSegmentIndex < 0 ||selectedSegmentIndex >=self.items.count) {
+//        return;
+//    }
+    UIButton *segement =self.subviews[selectedSegmentIndex];
     [self buttonClicked:segement];
 }
-- (int)selectedSegmentIndex{
+- (NSUInteger)selectedSegmentIndex{
 
     return self.selectedButton.tag;
 }
 - (void)layoutSubviews{
-    
     [super layoutSubviews];
-    int count =self.subviews.count;
+    NSUInteger count =self.buttons.count;
+    CGFloat buttonW = (self.width/count);
     for (int i =0; i<count; i++) {
-        SegementButton *button =self.subviews[i];
+        UIButton *button =self.buttons[i];
         button.y =0;
         button.width =(self.width/count);
         button.height =self.height;
         button.x =i*button.width;
-        
-        //        NSLog(@"%@",button);
+        }
+    for (int i = 0; i<self.sliders.count; i++) {
+        UIView * slilerView = self.sliders[i];
+        CGFloat sliderViewX = buttonW*(i+1);
+        slilerView.width = 0.5;
+        slilerView.height = self.bounds.size.height;
+        slilerView.y = 0;
+        slilerView.x = sliderViewX;
     }
-    
 }
 @end
