@@ -40,9 +40,9 @@
     self.subTitleLabel.text = [NSString stringWithFormat:@"by %@",trackList.nickname];
     [self.titleLeghtLabel setTitle:[NSString stringWithFormat:@"%.2ld:%.2ld", [trackList.duration integerValue]/60,[trackList.duration integerValue]%60] forState:UIControlStateNormal];
     [self setUpWithButton:self.playCountLabel count:[trackList.playtimes intValue] title:nil];
-    [self setUpWithButton:self.saveCountLabel count:[trackList.shares intValue] title:nil];
+    [self setUpWithButton:self.saveCountLabel count:[trackList.likes intValue] title:nil];
     [self setUpWithButton:self.sayCountLabel count:[trackList.comments intValue] title:nil];
-//    self.downloadButton.selected = trackList.isDownloading;
+    self.downloadButton.selected = trackList.isDownloaded;
     self.createTImeLabel.text = trackList.created_at;
 }
 - (void)setUpWithButton:(UIButton *)button count:(int)count title:(NSString *)title {

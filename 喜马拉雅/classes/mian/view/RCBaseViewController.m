@@ -23,6 +23,7 @@
     [super viewDidLoad];
     [self setUpRefreshView];
     self.tableView.tableFooterView = [[UIView alloc]init];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 
 #pragma mark 集成刷新控件

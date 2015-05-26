@@ -13,7 +13,6 @@
 #import <UIKit/UIKit.h>
 
 @interface RCAlbumViewModel ()
-@property(nonatomic,strong) NSMutableArray  *trarkLists;
 @end
 @implementation RCAlbumViewModel
 -  (NSMutableArray *)trarkLists{
@@ -192,4 +191,52 @@
 
     return self.trarkLists[indexPath.item];
 }
+
+
+- ( void)fetchNewTagAlbumWithSuccess:(void (^)(void ))success failure:(void (^)(void ))failure{
+    NSMutableDictionary *  params = [NSMutableDictionary dictionary];
+    params[@"tname"] = self.tag;
+    params[@"sort"] = @"hot";
+    params[@"device"] = @"android";
+    params[@"page"] = @1;
+
+    [RCNetWorkingTool get:@"http://mobile.ximalaya.com/m/tags/get_albums" params:params success:^(id json) {
+        [self.models removeAllObjects];
+        NSArray * newAudios = [RCAlbum objectArrayWithKeyValuesArray:json[@"list"]];
+        [self.models addObjectsFromArray:newAudios];
+        if (success) {
+            success();
+        }
+    } failure:^(NSError *error) {
+        if (failure) {
+            failure();
+        }
+    }];
+}
+- ( void)fetchMoreTagAlbumWithSuccess:(void (^)(void ))success failure:(void (^)(void ))failure completion:(void (^)(void))completion{
+    self.currrentPage ++;
+    NSMutableDictionary *  params = [NSMutableDictionary dictionary];
+    params[@"tname"] = self.tag;
+    params[@"sort"] = @"hot";
+    params[@"device"] = @"android";
+    params[@"page"] =  @(self.currrentPage);
+    [RCNetWorkingTool get:@"http://mobile.ximalaya.com/m/tags/get_albums" params:params success:^(id json) {
+        NSArray * newAudios = [RCAlbum objectArrayWithKeyValuesArray:json[@"list"]];
+        [self.models addObjectsFromArray:newAudios];
+        NSNumber *  maxPageID = (NSNumber *)json[@"maxPageId"];
+        if (self.currrentPage  > [maxPageID integerValue]) {
+            if (completion) {
+                completion();
+            }
+            return ;
+        }
+    } failure:^(NSError *error) {
+        if (failure) {
+            failure();
+        }
+    }];
+    
+
+}
+
 @end

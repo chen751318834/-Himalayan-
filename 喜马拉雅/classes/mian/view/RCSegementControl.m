@@ -43,6 +43,7 @@
     for (NSUInteger i =0; i<count; i++) {
         UIButton *button =items[i];
         button.tag = i ;
+//        [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [button setImage:button.imageView.image forState:UIControlStateNormal];
         [button setTitle:button.titleLabel.text forState:UIControlStateNormal];
         [button addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchDown];

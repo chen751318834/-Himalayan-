@@ -19,7 +19,7 @@
                     <state key="normal" backgroundImage="mark_albumsound_reverse">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
-                    <state key="selected" image="mark_albumsound_order"/>
+                    <state key="selected" backgroundImage="mark_albumsound_order"/>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="个数 " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BtR-Bc-DAu">
                     <rect key="frame" x="8" y="16" width="33" height="17"/>

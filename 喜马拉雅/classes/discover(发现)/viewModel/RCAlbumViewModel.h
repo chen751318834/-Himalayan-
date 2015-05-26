@@ -35,7 +35,15 @@
 
 - (NSInteger)numberOfRowOfAlbumDeailDataInSection: (NSInteger)section;
 - (RCTrackList *)trackListAtIndexPath: (NSIndexPath *)indexPath;
+@property(nonatomic,strong) NSMutableArray  *trarkLists;
+
 @property(nonatomic,strong) NSNumber  *ID;
 @property(nonatomic,strong) RCOneAlbum  *album;
 @property(nonatomic,strong) NSNumber  *totalCount;
+@property(nonatomic,copy) NSString  *tag;
+
+
+- ( void)fetchNewTagAlbumWithSuccess:(void (^)(void ))success failure:(void (^)(void ))failure;
+- ( void)fetchMoreTagAlbumWithSuccess:(void (^)(void ))success failure:(void (^)(void ))failure completion:(void (^)(void))completion;
+
 @end

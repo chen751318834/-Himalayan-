@@ -29,9 +29,9 @@
     self.titlelabel.text = album.title;
     self.updataTimelabel.text = album.updateTime;
     [self setUpWithButton:self.playCountLabel count:[album.playsCounts intValue]
-   title:nil];
+   title:@"0"];
     [self setUpWithButton:self.audioCountLabel count:[album.tracksCounts intValue]
- title:nil];
+ title:@"0"];
 
 
 
@@ -40,7 +40,6 @@
     if (count ==0) {
         [button setTitle:title forState:UIControlStateNormal];
     }else{
-
         //小于1000
         if (count <10000) {  //小于1000
             title = [NSString stringWithFormat:@"%d",count];

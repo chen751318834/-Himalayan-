@@ -1,6 +1,6 @@
 //
 //  RCAlbumDeailViewController.m
-//  喜马拉雅
+//
 //
 //  Created by Raychen on 15/5/25.
 //  Copyright (c) 2015年 raychen. All rights reserved.
@@ -19,7 +19,7 @@
 #import "RCAlbumDeailViewCell.h"
 #import "RCAlbumHeaderView.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>
-@interface RCAlbumDeailViewController ()
+@interface RCAlbumDeailViewController () <RCSegementControlDelegate>
 
 @property (nonatomic, strong) NSArray *sections;
 @property(nonatomic,strong) RCAlbumViewModel  *viewModel;
@@ -141,8 +141,8 @@
     @weakify(self);
     [[cell.downloadButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(UIButton * button) {
         @strongify(self);
-        trackList.downloading = YES;
-        [self.collectionView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.item]];
+        trackList.downloaded = YES;
+        [self.collectionView reloadItemsAtIndexPaths:@[indexPath]];
         [[UIApplication sharedApplication].keyWindow makeToast:@"加入下载队列成功" duration:1 position:@"bottom"];
     }];
     return cell;
@@ -155,6 +155,28 @@
     if ([kind  isEqualToString:UICollectionElementKindSectionHeader]) {
         RCAlbumSectionHeaderView * sectionheaderView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"sectionheaderView" forIndexPath:indexPath];
         sectionheaderView.albumCountlabel.text = [NSString stringWithFormat:@"声音(%@)",self.viewModel.totalCount];
+        [[sectionheaderView.sortButton rac_signalForControlEvents:UIControlEventTouchDown] subscribeNext:^(UIButton * sortButton) {
+            sortButton.selected = !sortButton.isSelected;
+            if (sortButton.isSelected) {
+            [self.viewModel.trarkLists sortUsingComparator:^NSComparisonResult(RCTrackList * obj1, RCTrackList * obj2) {
+                if (obj1.createdAt > obj2.createdAt) {
+                    return NSOrderedDescending;
+                }
+                return NSOrderedAscending;
+            }];
+
+            }else{
+                [self.viewModel.trarkLists sortUsingComparator:^NSComparisonResult(RCTrackList * obj1, RCTrackList * obj2) {
+                    if (obj1.createdAt > obj2.createdAt) {
+                        return NSOrderedAscending;
+                    }
+                    return NSOrderedDescending;
+                }];
+
+            }
+            [self.collectionView reloadData];
+
+        }];
         return sectionheaderView;
     }else if ([kind isEqualToString:CSStickyHeaderParallaxHeader]) {
         RCAlbumHeaderView *headerView = [collectionView
@@ -164,12 +186,13 @@
          [self.navigationController popViewControllerAnimated:YES];
      }];
      RCSegementControl * segmentConrtol = [[RCSegementControl alloc]init];
+        segmentConrtol.delegate = self;
      UIButton * saveButton = [UIButton buttonWithType:UIButtonTypeCustom];
      saveButton.titleLabel.text = @"收藏";
      UIButton * downloadButton = [UIButton buttonWithType:UIButtonTypeCustom];
      downloadButton.titleLabel.text = @"批量下载";
      UIButton * aboutAlbumButton = [UIButton buttonWithType:UIButtonTypeCustom];
-     aboutAlbumButton.titleLabel.text = @"相关专辑";
+     aboutAlbumButton.titleLabel.text = @"推荐专辑";
      segmentConrtol.items = @[saveButton,downloadButton,aboutAlbumButton];
                               segmentConrtol.selectedSegmentIndex  = 0;
                               segmentConrtol.backgroundColor = [UIColor clearColor];
@@ -183,6 +206,18 @@
 - (UIStatusBarStyle)preferredStatusBarStyle {
     return UIStatusBarStyleLightContent;
 }
+#pragma mark - RCSegementControlDelegate
+- (void)segementControl:(RCSegementControl *)segement from:(NSUInteger)from to:(NSUInteger)to{
+    switch (to) {
+        case  0:
 
+            break;
+        case  1:
 
+            break;
+        case  2:
+
+            break;
+    }
+}
 @end

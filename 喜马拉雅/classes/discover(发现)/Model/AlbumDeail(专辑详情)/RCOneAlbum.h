@@ -36,6 +36,8 @@
 "playTimes": 61727871,
 "lastUptrackAt": 1432548240000,
 "status": 1
+ 
+ http://mobile.ximalaya.com/m/tags/get_albums?sort=hot&device=android&tname=儿童&page=1
 */
 @property(nonatomic,strong) NSNumber  *albumId;
 @property(nonatomic,strong) NSNumber  *categoryId;
