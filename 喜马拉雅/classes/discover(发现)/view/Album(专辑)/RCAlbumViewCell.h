@@ -10,5 +10,7 @@
 #import "RCAlbum.h"
 @interface RCAlbumViewCell : UITableViewCell
 + (instancetype)cell;
+@property (weak, nonatomic) IBOutlet UIButton *saveButton;
+
 @property(nonatomic,strong) RCAlbum  *album;
 @end

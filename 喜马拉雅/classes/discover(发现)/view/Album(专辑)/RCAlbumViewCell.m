@@ -15,7 +15,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *playCountLabel;
 @property (weak, nonatomic) IBOutlet UIButton *audioCountLabel;
 @property (weak, nonatomic) IBOutlet UILabel *updataTimelabel;
-@property (weak, nonatomic) IBOutlet UIButton *saveButton;
 
 @end
 @implementation RCAlbumViewCell
@@ -32,7 +31,7 @@
    title:@"0"];
     [self setUpWithButton:self.audioCountLabel count:[album.tracksCounts intValue]
  title:@"0"];
-
+    self.saveButton.selected = album.isCollect;
 
 
 }

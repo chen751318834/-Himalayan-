@@ -24,6 +24,7 @@
 @property(nonatomic,copy) NSString  *coverSmall;
 @property(nonatomic,copy) NSString  *title;
 @property(nonatomic,copy) NSString  *updateTime;
+@property(nonatomic,assign,getter=isCollect) BOOL collect;
 
 
 @end

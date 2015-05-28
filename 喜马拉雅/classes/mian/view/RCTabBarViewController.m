@@ -12,9 +12,13 @@
 #import "RCTabBar.h"
 #import "RCDiscoverViewController.h"
 #import "ReactiveCocoa/ReactiveCocoa.h"
-#import "RCCustomizatinTableViewController.h"
 #import "RCTabBar.h"
 #import "RCDownloadViewController.h"
+#import "RCollectViewController.h"
+#import "RCHistoryViewController.h"
+#import "NTSlidingViewController.h"
+#import "RCAttentionViewController.h"
+#import "DMPagerViewController.h"
 @interface RCTabBarViewController () <RCTabBarDelegate>
 
 @end
@@ -41,9 +45,32 @@
     RCDiscoverViewController * discoverVC  = [[RCDiscoverViewController alloc]init];
     [self addChildViewController:[self setUpChildcController:discoverVC  image:@"tabbar_find_n" selectedImage:@"tabbar_find_h"]];
 
-    RCCustomizatinTableViewController * customizationVC  = [[RCCustomizatinTableViewController alloc]init];
-    [self addChildViewController:[self setUpChildcController:customizationVC  image:@"tabbar_sound_n" selectedImage:@"tabbar_sound_h"]];
+    NSDictionary *textAttributes = @{ NSFontAttributeName : [UIFont systemFontOfSize:18.0f],
+                                      NSForegroundColorAttributeName : [UIColor grayColor]};
+    RCHistoryViewController * historyVC = [[RCHistoryViewController alloc]initWithText:nil backgroundColor:nil];
+    historyVC.pagerObj = [DMPagerNavigationBarItem newItemWithText:[[NSAttributedString alloc] initWithString:@"历史" attributes:textAttributes] andIcon:nil];
+    historyVC.pagerObj.renderingMode = DMPagerNavigationBarItemModeOnlyText;
+    RCollectViewController * collectVC = [[RCollectViewController alloc]initWithText:nil backgroundColor:nil];
 
+    collectVC.pagerObj = [DMPagerNavigationBarItem newItemWithText:[[NSAttributedString alloc] initWithString:@"收藏" attributes:textAttributes] andIcon:nil];
+    collectVC.pagerObj.renderingMode = DMPagerNavigationBarItemModeOnlyText;
+    RCAttentionViewController * attentionVC = [[RCAttentionViewController alloc]initWithText:nil backgroundColor:nil];
+    attentionVC.pagerObj = [DMPagerNavigationBarItem newItemWithText:[[NSAttributedString alloc] initWithString:@"关注" attributes:textAttributes] andIcon:nil];
+    attentionVC.pagerObj.renderingMode = DMPagerNavigationBarItemModeOnlyText;
+    DMPagerViewController * slidingVC = [[DMPagerViewController alloc]initWithViewControllers:@[attentionVC,collectVC,historyVC]];
+    slidingVC.animation = DMPagerViewControllerAnimationBounceStartEnd;
+    slidingVC.navigationBarHeight = 30;
+    slidingVC.navigationBar.style = DMPagerNavigationBarStyleFar;
+    slidingVC.navigationBar.colorizeMode = DMPagerNavigationBarItemColorizeWithFade;
+    UIColor *activeColor = [UIColor colorWithRed:0.000 green:0.235 blue:0.322 alpha:1.000];
+    UIColor *inactiveColor = [UIColor colorWithRed:.84 green:.84 blue:.84 alpha:1.0];
+    slidingVC.navigationBar.inactiveItemColor = inactiveColor;
+    slidingVC.navigationBar.activeItemColor = activeColor;
+
+    [self addChildViewController:slidingVC];
+
+    [slidingVC.tabBarItem setImage:[[UIImage imageNamed:@"tabbar_sound_n"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+    [slidingVC.tabBarItem setSelectedImage:[[UIImage imageNamed:@"tabbar_sound_h"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
     RCDownloadViewController * downloadVC  = [[RCDownloadViewController alloc]init];
     [self addChildViewController:[self setUpChildcController:downloadVC  image:@"tabbar_download_n" selectedImage:@"tabbar_download_h"]];
 

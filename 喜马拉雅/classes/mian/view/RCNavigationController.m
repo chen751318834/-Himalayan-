@@ -9,7 +9,6 @@
 #import "RCNavigationController.h"
 #import "RCMeViewController.h"
 #import "RCDiscoverViewController.h"
-#import "RCCustomizatinTableViewController.h"
 #import "RCDownloadViewController.h"
 #import "UIBarButtonItem+MJ.h"
 @interface RCNavigationController ()

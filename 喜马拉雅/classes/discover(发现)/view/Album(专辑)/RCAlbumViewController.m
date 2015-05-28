@@ -128,7 +128,12 @@
 #pragma mark - UITableViewDelegate
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     RCAlbumViewCell * cell = [RCAlbumViewCell cell];
-    cell.album = self.contents[indexPath.row];
+    RCAlbum * album = self.contents[indexPath.row];
+    cell.album = album;
+    [[cell.saveButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(UIButton * butotn) {
+        album.collect = YES;
+        [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+    }];
     return cell;
 
 }

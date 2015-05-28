@@ -266,7 +266,6 @@
 }
 #pragma mark - RCSegementControlDelegate
 - (void)segementControl:(RCSegementControl *)segement button:(UIButton *)button from:(NSUInteger)from to:(NSUInteger)to{
-    RCLog(@"%ld ---- %ld",from,to);
     [KVNProgress showWithParameters:@{KVNProgressViewParameterStatus:@"loading..."}];
     [self.viewModel fetchAlbumDeailDataWithPage:from+1 success:^{
         [self cancleChangeERangeView];

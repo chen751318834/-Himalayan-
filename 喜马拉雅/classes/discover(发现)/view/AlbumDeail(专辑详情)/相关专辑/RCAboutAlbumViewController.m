@@ -10,6 +10,7 @@
 #import "RCAlbumViewModel.h"
 #import "RCAboutAlbumViewCell.h"
 #import "KVNProgress.h"
+#import <ReactiveCocoa/ReactiveCocoa.h>
 @interface RCAboutAlbumViewController ()
 @property(nonatomic,strong) RCAlbumViewModel  *viewModel;
 
@@ -42,7 +43,12 @@
 #pragma mark - UITableViewDelegate
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     RCAboutAlbumViewCell * cell = [RCAboutAlbumViewCell cell];
-    cell.album = [self.viewModel aboutAlbumListAtIndexPath:indexPath];
+    RCAboutAlbum * album = [self.viewModel aboutAlbumListAtIndexPath:indexPath];
+    cell.album = album;
+    [[cell.saveButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(UIButton * butotn) {
+        album.collect = YES;
+        [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+    }];
     return cell;
 
 }

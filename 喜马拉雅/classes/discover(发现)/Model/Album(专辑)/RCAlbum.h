@@ -27,6 +27,7 @@
 @property(nonatomic,copy) NSString  *albumCoverUrl290;
 @property(nonatomic,copy) NSString  *updateTime;
 
+@property(nonatomic,assign,getter=isCollect) BOOL collect;
 
 
 @end

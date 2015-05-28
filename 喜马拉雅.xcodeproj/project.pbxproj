@@ -27,7 +27,6 @@
 		4B1D81951B0C958D00B7C9DC /* RCCategoryListResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B1D81901B0C958D00B7C9DC /* RCCategoryListResult.m */; };
 		4B1D819D1B0C95B300B7C9DC /* RCCategryListParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B1D819C1B0C95B300B7C9DC /* RCCategryListParam.m */; };
 		4B1D81A61B0C95E300B7C9DC /* RCConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B1D81A51B0C95E300B7C9DC /* RCConst.m */; };
-		4B1D81A91B0C95F600B7C9DC /* RCCustomizatinTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B1D81A81B0C95F600B7C9DC /* RCCustomizatinTableViewController.m */; };
 		4B1D81AF1B0C962500B7C9DC /* RCCatrgory.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B1D81AE1B0C962500B7C9DC /* RCCatrgory.m */; };
 		4B1D81C11B0C967300B7C9DC /* RCCategoryListViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B1D81B21B0C967300B7C9DC /* RCCategoryListViewCell.m */; };
 		4B1D81C21B0C967300B7C9DC /* RCCategoryListViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B1D81B31B0C967300B7C9DC /* RCCategoryListViewCell.xib */; };
@@ -147,6 +146,13 @@
 		4BC647A01B17077400661DB0 /* RCAboutAlbumViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC6479E1B17077400661DB0 /* RCAboutAlbumViewCell.m */; };
 		4BC647A11B17077400661DB0 /* RCAboutAlbumViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BC6479F1B17077400661DB0 /* RCAboutAlbumViewCell.xib */; };
 		4BC647A41B17084600661DB0 /* RCAboutAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC647A31B17084600661DB0 /* RCAboutAlbum.m */; };
+		4BC647C61B1734B200661DB0 /* NTSlidingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC647C51B1734B200661DB0 /* NTSlidingViewController.m */; };
+		4BC647D01B17358200661DB0 /* RCollectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC647CF1B17358200661DB0 /* RCollectViewController.m */; };
+		4BC647D31B17359B00661DB0 /* RCAttentionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC647D21B17359B00661DB0 /* RCAttentionViewController.m */; };
+		4BC647D61B1735A600661DB0 /* RCHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC647D51B1735A600661DB0 /* RCHistoryViewController.m */; };
+		4BC647F01B1749C700661DB0 /* DMPagerNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC647ED1B1749C700661DB0 /* DMPagerNavigationBar.m */; };
+		4BC647F11B1749C700661DB0 /* DMPagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC647EF1B1749C700661DB0 /* DMPagerViewController.m */; };
+		4BC647F41B174B9000661DB0 /* RCbasePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC647F31B174B9000661DB0 /* RCbasePageViewController.m */; };
 		4BDE7D201B12F98800073E12 /* RCAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BDE7D1F1B12F98800073E12 /* RCAlbum.m */; };
 		4BDE7D231B12F9F700073E12 /* RCAlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BDE7D221B12F9F700073E12 /* RCAlbumViewController.m */; };
 		4BDE7D261B12FA5D00073E12 /* RCAlbumViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BDE7D251B12FA5D00073E12 /* RCAlbumViewModel.m */; };
@@ -258,8 +264,6 @@
 		4B1D819C1B0C95B300B7C9DC /* RCCategryListParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCCategryListParam.m; sourceTree = "<group>"; };
 		4B1D81A41B0C95E300B7C9DC /* RCConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCConst.h; sourceTree = "<group>"; };
 		4B1D81A51B0C95E300B7C9DC /* RCConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCConst.m; sourceTree = "<group>"; };
-		4B1D81A71B0C95F600B7C9DC /* RCCustomizatinTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCCustomizatinTableViewController.h; sourceTree = "<group>"; };
-		4B1D81A81B0C95F600B7C9DC /* RCCustomizatinTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCCustomizatinTableViewController.m; sourceTree = "<group>"; };
 		4B1D81AD1B0C962500B7C9DC /* RCCatrgory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCCatrgory.h; sourceTree = "<group>"; };
 		4B1D81AE1B0C962500B7C9DC /* RCCatrgory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCCatrgory.m; sourceTree = "<group>"; };
 		4B1D81B11B0C967300B7C9DC /* RCCategoryListViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCCategoryListViewCell.h; sourceTree = "<group>"; };
@@ -482,6 +486,20 @@
 		4BC6479F1B17077400661DB0 /* RCAboutAlbumViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RCAboutAlbumViewCell.xib; sourceTree = "<group>"; };
 		4BC647A21B17084600661DB0 /* RCAboutAlbum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCAboutAlbum.h; sourceTree = "<group>"; };
 		4BC647A31B17084600661DB0 /* RCAboutAlbum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCAboutAlbum.m; sourceTree = "<group>"; };
+		4BC647C41B1734B200661DB0 /* NTSlidingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTSlidingViewController.h; sourceTree = "<group>"; };
+		4BC647C51B1734B200661DB0 /* NTSlidingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTSlidingViewController.m; sourceTree = "<group>"; };
+		4BC647CE1B17358200661DB0 /* RCollectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCollectViewController.h; sourceTree = "<group>"; };
+		4BC647CF1B17358200661DB0 /* RCollectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCollectViewController.m; sourceTree = "<group>"; };
+		4BC647D11B17359B00661DB0 /* RCAttentionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCAttentionViewController.h; sourceTree = "<group>"; };
+		4BC647D21B17359B00661DB0 /* RCAttentionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCAttentionViewController.m; sourceTree = "<group>"; };
+		4BC647D41B1735A600661DB0 /* RCHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCHistoryViewController.h; sourceTree = "<group>"; };
+		4BC647D51B1735A600661DB0 /* RCHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCHistoryViewController.m; sourceTree = "<group>"; };
+		4BC647EC1B1749C700661DB0 /* DMPagerNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMPagerNavigationBar.h; sourceTree = "<group>"; };
+		4BC647ED1B1749C700661DB0 /* DMPagerNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMPagerNavigationBar.m; sourceTree = "<group>"; };
+		4BC647EE1B1749C700661DB0 /* DMPagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMPagerViewController.h; sourceTree = "<group>"; };
+		4BC647EF1B1749C700661DB0 /* DMPagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMPagerViewController.m; sourceTree = "<group>"; };
+		4BC647F21B174B9000661DB0 /* RCbasePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCbasePageViewController.h; sourceTree = "<group>"; };
+		4BC647F31B174B9000661DB0 /* RCbasePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCbasePageViewController.m; sourceTree = "<group>"; };
 		4BDE7D1E1B12F98800073E12 /* RCAlbum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCAlbum.h; sourceTree = "<group>"; };
 		4BDE7D1F1B12F98800073E12 /* RCAlbum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCAlbum.m; sourceTree = "<group>"; };
 		4BDE7D211B12F9F700073E12 /* RCAlbumViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCAlbumViewController.h; sourceTree = "<group>"; };
@@ -859,6 +877,8 @@
 		4B1D81391B0C935D00B7C9DC /* view */ = {
 			isa = PBXGroup;
 			children = (
+				4BC647C41B1734B200661DB0 /* NTSlidingViewController.h */,
+				4BC647C51B1734B200661DB0 /* NTSlidingViewController.m */,
 				4BDE7D311B130F1700073E12 /* RCSegementControl.h */,
 				4BDE7D321B130F1700073E12 /* RCSegementControl.m */,
 				4BDE7D331B130F1700073E12 /* SegementButton.h */,
@@ -889,8 +909,8 @@
 		4B1D813B1B0C935D00B7C9DC /* online(订阅听) */ = {
 			isa = PBXGroup;
 			children = (
+				4BC647BC1B17187F00661DB0 /* view */,
 				4B1D813C1B0C935D00B7C9DC /* Model */,
-				4B1D813D1B0C935D00B7C9DC /* view */,
 				4B1D813E1B0C935D00B7C9DC /* viewModel */,
 			);
 			path = "online(订阅听)";
@@ -901,15 +921,6 @@
 			children = (
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		4B1D813D1B0C935D00B7C9DC /* view */ = {
-			isa = PBXGroup;
-			children = (
-				4B1D81A71B0C95F600B7C9DC /* RCCustomizatinTableViewController.h */,
-				4B1D81A81B0C95F600B7C9DC /* RCCustomizatinTableViewController.m */,
-			);
-			path = view;
 			sourceTree = "<group>";
 		};
 		4B1D813E1B0C935D00B7C9DC /* viewModel */ = {
@@ -958,6 +969,7 @@
 		4B1D81441B0C935D00B7C9DC /* lib */ = {
 			isa = PBXGroup;
 			children = (
+				4BC647EB1B1749C700661DB0 /* DMPagerViewController */,
 				4BDE7D371B1319BF00073E12 /* CSStickyHeaderFlowLayout */,
 				4BF9A1321B12B310003FD44E /* RegexKitLite */,
 				4BF9A1241B12ABF4003FD44E /* TTTAttributedLabel */,
@@ -1395,6 +1407,56 @@
 			path = "相关专辑";
 			sourceTree = "<group>";
 		};
+		4BC647BC1B17187F00661DB0 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				4BC647CD1B17357700661DB0 /* collect(收藏) */,
+				4BC647C81B17352800661DB0 /* follow(关注) */,
+				4BC647C91B17352800661DB0 /* history(历史) */,
+				4BC647F21B174B9000661DB0 /* RCbasePageViewController.h */,
+				4BC647F31B174B9000661DB0 /* RCbasePageViewController.m */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		4BC647C81B17352800661DB0 /* follow(关注) */ = {
+			isa = PBXGroup;
+			children = (
+				4BC647D11B17359B00661DB0 /* RCAttentionViewController.h */,
+				4BC647D21B17359B00661DB0 /* RCAttentionViewController.m */,
+			);
+			path = "follow(关注)";
+			sourceTree = "<group>";
+		};
+		4BC647C91B17352800661DB0 /* history(历史) */ = {
+			isa = PBXGroup;
+			children = (
+				4BC647D41B1735A600661DB0 /* RCHistoryViewController.h */,
+				4BC647D51B1735A600661DB0 /* RCHistoryViewController.m */,
+			);
+			path = "history(历史)";
+			sourceTree = "<group>";
+		};
+		4BC647CD1B17357700661DB0 /* collect(收藏) */ = {
+			isa = PBXGroup;
+			children = (
+				4BC647CE1B17358200661DB0 /* RCollectViewController.h */,
+				4BC647CF1B17358200661DB0 /* RCollectViewController.m */,
+			);
+			path = "collect(收藏)";
+			sourceTree = "<group>";
+		};
+		4BC647EB1B1749C700661DB0 /* DMPagerViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4BC647EC1B1749C700661DB0 /* DMPagerNavigationBar.h */,
+				4BC647ED1B1749C700661DB0 /* DMPagerNavigationBar.m */,
+				4BC647EE1B1749C700661DB0 /* DMPagerViewController.h */,
+				4BC647EF1B1749C700661DB0 /* DMPagerViewController.m */,
+			);
+			path = DMPagerViewController;
+			sourceTree = "<group>";
+		};
 		4BDE7D1C1B12F97500073E12 /* Album(专辑) */ = {
 			isa = PBXGroup;
 			children = (
@@ -1761,6 +1823,7 @@
 				4B1D81931B0C958D00B7C9DC /* RCCategoryFocusImageResult.m in Sources */,
 				4B1D82761B0C982900B7C9DC /* SDImageCache.m in Sources */,
 				4BF7883F1B0E14AF0002704A /* Toast+UIView.m in Sources */,
+				4BC647D31B17359B00661DB0 /* RCAttentionViewController.m in Sources */,
 				4B1D82791B0C982900B7C9DC /* SDWebImageDownloader.m in Sources */,
 				4B1D816E1B0C94D100B7C9DC /* RCCategoryListViewModel.m in Sources */,
 				4B1D827F1B0C982900B7C9DC /* UIImage+MultiFormat.m in Sources */,
@@ -1800,12 +1863,16 @@
 				4BF788091B0DBD970002704A /* MJRefreshGifFooter.m in Sources */,
 				4B1D827C1B0C982900B7C9DC /* SDWebImagePrefetcher.m in Sources */,
 				4B1D82A91B0C9E7800B7C9DC /* RCTabBarViewController.m in Sources */,
+				4BC647F11B1749C700661DB0 /* DMPagerViewController.m in Sources */,
 				4BDE7D201B12F98800073E12 /* RCAlbum.m in Sources */,
 				4B912DFE1B0EC430007B64DD /* RCSubjectSectionHeaderView.m in Sources */,
 				4BF787D21B0DBCBA0002704A /* RCBaseViewController.m in Sources */,
 				4B1D81CF1B0C96B100B7C9DC /* RCFocusImageViewCell.m in Sources */,
 				4B1D82901B0C9C9200B7C9DC /* UIImage+KVNEmpty.m in Sources */,
+				4BC647F01B1749C700661DB0 /* DMPagerNavigationBar.m in Sources */,
 				4BF9A1271B12ABF4003FD44E /* TTTAttributedLabel.m in Sources */,
+				4BC647F41B174B9000661DB0 /* RCbasePageViewController.m in Sources */,
+				4BC647D01B17358200661DB0 /* RCollectViewController.m in Sources */,
 				4B1D82981B0C9DE500B7C9DC /* RCNavigationController.m in Sources */,
 				4B1D82421B0C978000B7C9DC /* MJType.m in Sources */,
 				4B9210E91B1023CF0004DB2A /* RCRecommendOwnerZone.m in Sources */,
@@ -1828,13 +1895,13 @@
 				4B0138D21B1074FA003422EC /* RCBuildingOnwerViewCell.m in Sources */,
 				4B912DED1B0EBEB4007B64DD /* RCSubject.m in Sources */,
 				4B1D82801B0C982900B7C9DC /* UIImageView+HighlightedWebCache.m in Sources */,
+				4BC647C61B1734B200661DB0 /* NTSlidingViewController.m in Sources */,
 				4B1D82401B0C978000B7C9DC /* MJFoundation.m in Sources */,
 				4B1D81811B0C952000B7C9DC /* RCMeViewController.m in Sources */,
 				4B1D81DE1B0C96F200B7C9DC /* RCPlayListViewCell.m in Sources */,
 				4B1D823F1B0C978000B7C9DC /* MJConst.m in Sources */,
 				4BF7883A1B0DEE310002704A /* RCHotAudioViewCell.m in Sources */,
 				4BC6479B1B17023300661DB0 /* RCAboutAlbumViewController.m in Sources */,
-				4B1D81A91B0C95F600B7C9DC /* RCCustomizatinTableViewController.m in Sources */,
 				4B4F46201B14914500284DAB /* RCAlbumDownLoadViewController.m in Sources */,
 				4B1D82911B0C9C9200B7C9DC /* UIImage+KVNImageEffects.m in Sources */,
 				4BDE7D231B12F9F700073E12 /* RCAlbumViewController.m in Sources */,
@@ -1864,6 +1931,7 @@
 				4B1D81D71B0C96C400B7C9DC /* RCLatestSpecial.m in Sources */,
 				4BF9A3341B12CC02003FD44E /* Foundation+Log.m in Sources */,
 				4B1D82441B0C978000B7C9DC /* NSObject+MJKeyValue.m in Sources */,
+				4BC647D61B1735A600661DB0 /* RCHistoryViewController.m in Sources */,
 				4B9210F61B10241F0004DB2A /* RCCircleDeailViewController.m in Sources */,
 				4BF9A12A1B12AD3B003FD44E /* RCStatusTextView.m in Sources */,
 				4BF9A13D1B12B42B003FD44E /* HWEmotionTool.m in Sources */,

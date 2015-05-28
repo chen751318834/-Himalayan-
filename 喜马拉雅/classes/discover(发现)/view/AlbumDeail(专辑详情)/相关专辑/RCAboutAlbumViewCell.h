@@ -11,4 +11,6 @@
 @interface RCAboutAlbumViewCell : UITableViewCell
 @property(nonatomic,strong) RCAboutAlbum  *album;
 + (instancetype)cell;
+@property (weak, nonatomic) IBOutlet UIButton *saveButton;
+
 @end
