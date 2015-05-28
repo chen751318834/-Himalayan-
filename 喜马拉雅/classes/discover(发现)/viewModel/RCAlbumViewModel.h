@@ -9,7 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "RCBaseViewModel.h"
 #import "RCOneAlbum.h"
-
+#import "RCAlbum.h"
+#import "RCAboutAlbum.h"
 #import "RCTrackList.h"
 @interface RCAlbumViewModel : RCBaseViewModel
 /**
@@ -49,4 +50,12 @@
 - ( void)fetchNewTagAlbumWithSuccess:(void (^)(void ))success failure:(void (^)(void ))failure;
 - ( void)fetchMoreTagAlbumWithSuccess:(void (^)(void ))success failure:(void (^)(void ))failure completion:(void (^)(void))completion;
 
+
+/**
+ *  相关专辑
+ */
+@property(nonatomic,strong) NSNumber  *albumId;
+- ( void)fetchAboutAlbumWithSuccess:(void (^)(void ))success failure:(void (^)(void ))failure;
+- (NSInteger)numberOfRowOfAboutAlbumlistInSection: (NSInteger)section;
+- (RCAboutAlbum *)aboutAlbumListAtIndexPath: (NSIndexPath *)indexPath;
 @end

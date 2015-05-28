@@ -158,6 +158,7 @@
         sectionheaderView.albumCountlabel.text = [NSString stringWithFormat:@"声音(%@)",self.viewModel.totalCount];
         [[sectionheaderView.sortButton rac_signalForControlEvents:UIControlEventTouchDown] subscribeNext:^(UIButton * sortButton) {
             sortButton.selected = !sortButton.isSelected;
+
             if (sortButton.isSelected) {
             [self.viewModel.trarkLists sortUsingComparator:^NSComparisonResult(RCTrackList * obj1, RCTrackList * obj2) {
                 if (obj1.createdAt > obj2.createdAt) {
@@ -165,7 +166,6 @@
                 }
                 return NSOrderedAscending;
             }];
-
             }else{
                 [self.viewModel.trarkLists sortUsingComparator:^NSComparisonResult(RCTrackList * obj1, RCTrackList * obj2) {
                     if (obj1.createdAt > obj2.createdAt) {
@@ -174,6 +174,7 @@
                     return NSOrderedDescending;
                 }];
             }
+
             [self.collectionView reloadData];
 
         }];
@@ -185,6 +186,7 @@
      headerView.album = self.viewModel.album;
         headerView.tracklist = self.viewModel.trarkLists;
         headerView.ID = self.ID;
+        headerView.albumId = self.viewModel.album.albumId;
         [headerView.back addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
         [[headerView.saveButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(UIButton * button) {
             button.selected = YES;

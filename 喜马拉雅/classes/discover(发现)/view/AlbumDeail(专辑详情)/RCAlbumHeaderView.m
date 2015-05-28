@@ -17,6 +17,7 @@
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #import "RCNavigationController.h"
 #import "RCAlbumDownLoadViewController.h"
+#import "RCAboutAlbumViewController.h"
 @interface RCAlbumHeaderView ()
 @property (weak, nonatomic) IBOutlet UILabel *tilteLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *iconView;
@@ -127,6 +128,13 @@
     [navVC pushViewController:VC animated:YES];
 }
 - (IBAction)tuijainAlbum:(id)sender {
+    RCTabBarViewController * tabBarVC =(RCTabBarViewController *)[UIApplication sharedApplication].keyWindow.rootViewController;
+    RCNavigationController * navVC = ( RCNavigationController *)tabBarVC.selectedViewController;
+    RCAboutAlbumViewController * VC = [[RCAboutAlbumViewController alloc]init];
+    VC.title = @"相关专辑";
+    VC.albumId = self.albumId;
+    [navVC pushViewController:VC animated:YES];
+
 }
 
 @end

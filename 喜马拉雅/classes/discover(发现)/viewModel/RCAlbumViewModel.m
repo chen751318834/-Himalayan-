@@ -7,14 +7,21 @@
 //
 
 #import "RCAlbumViewModel.h"
-#import "RCAlbum.h"
 #import "RCAlbumTrack.h"
 #import "RCTrack.h"
 #import <UIKit/UIKit.h>
 
 @interface RCAlbumViewModel ()
+@property(nonatomic,strong) NSMutableArray  *aboutAlbumlists;
 @end
 @implementation RCAlbumViewModel
+-  (NSMutableArray *)aboutAlbumlists{
+    if (!_aboutAlbumlists) {
+        self.aboutAlbumlists = [NSMutableArray array];
+
+    }
+    return _aboutAlbumlists;
+}
 -  (NSMutableArray *)trarkLists{
     if (!_trarkLists) {
         self.trarkLists = [NSMutableArray array];
@@ -156,6 +163,7 @@
         RCAlbumTrack  * albumTrack  = [RCAlbumTrack objectWithKeyValues:json];
         [self.trarkLists addObjectsFromArray:albumTrack.tracks.list];
         self.album = albumTrack.album;
+        self.totalCount = albumTrack.tracks.totalCount;
         if (success) {
             success();
         }
@@ -263,5 +271,28 @@
     
 
 }
+- ( void)fetchAboutAlbumWithSuccess:(void (^)(void ))success failure:(void (^)(void ))failure{
 
+    [RCNetWorkingTool get:[NSString stringWithFormat:@"http://ar.ximalaya.com/rec-association/recommend/album/by_album?albumId=%@&device=android",self.albumId] params:nil success:^(id json) {
+        NSArray * newAudios = [RCAboutAlbum objectArrayWithKeyValuesArray:json[@"albums"]];
+        [self.aboutAlbumlists addObjectsFromArray:newAudios];
+        if (success) {
+            success();
+        }
+    } failure:^(NSError *error) {
+        if (failure) {
+            failure();
+        }
+    }];
+
+}
+
+- (NSInteger)numberOfRowOfAboutAlbumlistInSection: (NSInteger)section{
+    return self.aboutAlbumlists.count;
+
+}
+- (RCAboutAlbum *)aboutAlbumListAtIndexPath: (NSIndexPath *)indexPath{
+    return self.aboutAlbumlists[indexPath.row];
+
+}
 @end

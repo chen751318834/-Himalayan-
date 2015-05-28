@@ -34,7 +34,7 @@
     NSUInteger count = items.count;
     for (NSUInteger i =0; i<count; i++) {
         UIButton *button =items[i];
-        button.font = [UIFont systemFontOfSize:13];
+        button.font = [UIFont systemFontOfSize:11];
         button.tag = i ;
         if (button.isSelected) {
             [button setImage:button.imageView.image forState:UIControlStateSelected];

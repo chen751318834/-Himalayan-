@@ -15,4 +15,5 @@
 @property(nonatomic,strong) NSNumber  *ID;
 @property(nonatomic,strong) RCOneAlbum  *album;
 @property(nonatomic,strong) NSArray  *tracklist;
+@property(nonatomic,strong) NSNumber  *albumId;
 @end

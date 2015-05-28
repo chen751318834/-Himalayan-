@@ -28,4 +28,5 @@
 @property(nonatomic,copy) NSString  *updateTime;
 
 
+
 @end
