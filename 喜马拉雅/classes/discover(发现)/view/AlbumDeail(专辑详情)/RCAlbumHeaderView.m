@@ -120,10 +120,10 @@
 }
 
 - (IBAction)download:(id)sender {
-    RCTabBarViewController * tabBarVC =(RCTabBarViewController *)   [UIApplication sharedApplication].keyWindow.rootViewController;
+    RCTabBarViewController * tabBarVC =(RCTabBarViewController *)[UIApplication sharedApplication].keyWindow.rootViewController;
     RCNavigationController * navVC = ( RCNavigationController *)tabBarVC.selectedViewController;
    RCAlbumDownLoadViewController * VC = [[RCAlbumDownLoadViewController alloc]init];
-    VC.tracklist = self.tracklist;
+    VC.ID = self.ID;
     [navVC pushViewController:VC animated:YES];
 }
 - (IBAction)tuijainAlbum:(id)sender {

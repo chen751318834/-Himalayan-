@@ -152,8 +152,6 @@
 		4BDE7D361B130F1700073E12 /* SegementButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BDE7D341B130F1700073E12 /* SegementButton.m */; };
 		4BDE7D3C1B1319BF00073E12 /* CSStickyHeaderFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BDE7D391B1319BF00073E12 /* CSStickyHeaderFlowLayout.m */; };
 		4BDE7D3D1B1319BF00073E12 /* CSStickyHeaderFlowLayoutAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BDE7D3B1B1319BF00073E12 /* CSStickyHeaderFlowLayoutAttributes.m */; };
-		4BDE7D4D1B131B8000073E12 /* CSCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BDE7D4B1B131B8000073E12 /* CSCell.m */; };
-		4BDE7D4E1B131B8000073E12 /* CSCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BDE7D4C1B131B8000073E12 /* CSCell.xib */; };
 		4BDE7D571B132F8B00073E12 /* RCAlbumDeailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BDE7D551B132F8B00073E12 /* RCAlbumDeailViewController.m */; };
 		4BDE7D5C1B13335B00073E12 /* RCAlbumHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BDE7D5A1B13335B00073E12 /* RCAlbumHeaderView.m */; };
 		4BDE7D5D1B13335B00073E12 /* RCAlbumHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BDE7D5B1B13335B00073E12 /* RCAlbumHeaderView.xib */; };
@@ -490,9 +488,6 @@
 		4BDE7D391B1319BF00073E12 /* CSStickyHeaderFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSStickyHeaderFlowLayout.m; sourceTree = "<group>"; };
 		4BDE7D3A1B1319BF00073E12 /* CSStickyHeaderFlowLayoutAttributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSStickyHeaderFlowLayoutAttributes.h; sourceTree = "<group>"; };
 		4BDE7D3B1B1319BF00073E12 /* CSStickyHeaderFlowLayoutAttributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSStickyHeaderFlowLayoutAttributes.m; sourceTree = "<group>"; };
-		4BDE7D4A1B131B8000073E12 /* CSCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSCell.h; sourceTree = "<group>"; };
-		4BDE7D4B1B131B8000073E12 /* CSCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSCell.m; sourceTree = "<group>"; };
-		4BDE7D4C1B131B8000073E12 /* CSCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CSCell.xib; sourceTree = "<group>"; };
 		4BDE7D541B132F8B00073E12 /* RCAlbumDeailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCAlbumDeailViewController.h; sourceTree = "<group>"; };
 		4BDE7D551B132F8B00073E12 /* RCAlbumDeailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCAlbumDeailViewController.m; sourceTree = "<group>"; };
 		4BDE7D591B13335B00073E12 /* RCAlbumHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCAlbumHeaderView.h; sourceTree = "<group>"; };
@@ -1412,9 +1407,6 @@
 				4B4F46231B14930300284DAB /* RCAlbumDownloadViewCell.xib */,
 				4BDE7D541B132F8B00073E12 /* RCAlbumDeailViewController.h */,
 				4BDE7D551B132F8B00073E12 /* RCAlbumDeailViewController.m */,
-				4BDE7D4A1B131B8000073E12 /* CSCell.h */,
-				4BDE7D4B1B131B8000073E12 /* CSCell.m */,
-				4BDE7D4C1B131B8000073E12 /* CSCell.xib */,
 				4B4F461B1B145AB800284DAB /* RCOneAlbumViewController.h */,
 				4B4F461C1B145AB800284DAB /* RCOneAlbumViewController.m */,
 				4BDE7D591B13335B00073E12 /* RCAlbumHeaderView.h */,
@@ -1642,7 +1634,6 @@
 				4B1D81E61B0C970B00B7C9DC /* RCRecommendAlbumViewCell.xib in Resources */,
 				4B4F460F1B14113D00284DAB /* RCAlbumDeailViewCell.xib in Resources */,
 				4B4F46141B141BA200284DAB /* RCAlbumSectionHeaderView.xib in Resources */,
-				4BDE7D4E1B131B8000073E12 /* CSCell.xib in Resources */,
 				4B1D81471B0C935D00B7C9DC /* Info.plist in Resources */,
 				4B1D81C51B0C967300B7C9DC /* RCDiscover2IMGViewCell.xib in Resources */,
 				4B0138D31B1074FA003422EC /* RCBuildingOnwerViewCell.xib in Resources */,
@@ -1723,7 +1714,6 @@
 				4BDE7D3D1B1319BF00073E12 /* CSStickyHeaderFlowLayoutAttributes.m in Sources */,
 				4B1D827E1B0C982900B7C9DC /* UIImage+GIF.m in Sources */,
 				4B1D82A01B0C9E3300B7C9DC /* RCTabBar.m in Sources */,
-				4BDE7D4D1B131B8000073E12 /* CSCell.m in Sources */,
 				4BF788101B0DBD970002704A /* UIView+MJExtension.m in Sources */,
 				4B1D81931B0C958D00B7C9DC /* RCCategoryFocusImageResult.m in Sources */,
 				4B1D82761B0C982900B7C9DC /* SDImageCache.m in Sources */,

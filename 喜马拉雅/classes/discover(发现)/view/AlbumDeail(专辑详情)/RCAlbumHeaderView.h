@@ -12,7 +12,7 @@
 + (instancetype)headerView;
 @property (weak, nonatomic) IBOutlet UIButton *back;
 @property (weak, nonatomic) IBOutlet UIButton *saveButton;
-
+@property(nonatomic,strong) NSNumber  *ID;
 @property(nonatomic,strong) RCOneAlbum  *album;
 @property(nonatomic,strong) NSArray  *tracklist;
 @end

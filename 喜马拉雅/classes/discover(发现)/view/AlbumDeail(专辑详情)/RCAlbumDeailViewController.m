@@ -7,7 +7,6 @@
 //
 
 #import "RCAlbumDeailViewController.h"
-#import "CSCell.h"
 #import "CSStickyHeaderFlowLayout.h"
 #import "RCAlbumViewModel.h"
 #import "RCSegementControl.h"
@@ -185,6 +184,7 @@
         dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"header"forIndexPath:indexPath];
      headerView.album = self.viewModel.album;
         headerView.tracklist = self.viewModel.trarkLists;
+        headerView.ID = self.ID;
         [headerView.back addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
         [[headerView.saveButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(UIButton * button) {
             button.selected = YES;

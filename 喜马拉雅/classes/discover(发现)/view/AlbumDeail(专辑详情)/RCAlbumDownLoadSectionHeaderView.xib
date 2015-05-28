@@ -15,29 +15,39 @@
                     <constraints>
                         <constraint firstAttribute="width" constant="114" id="bXr-dE-Sml"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qBZ-UT-GNX">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qBZ-UT-GNX">
                     <rect key="frame" x="214" y="8" width="98" height="28"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="98" id="klK-5e-Lgp"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                    <state key="normal" title="选集(12~100)" image="arrow_down">
+                    <state key="normal" image="arrow_down">
                         <color key="titleColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <state key="selected" image="arrow_up"/>
                 </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TQ2-am-kuq">
+                    <rect key="frame" x="0.0" y="43" width="320" height="1"/>
+                    <color key="backgroundColor" white="0.5" alpha="0.20000000000000001" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="rLX-h4-CSB"/>
+                    </constraints>
+                </view>
             </subviews>
-            <color key="backgroundColor" red="0.87450980389999999" green="0.87450980389999999" blue="0.87450980389999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="Dnk-5l-vN9" secondAttribute="bottom" constant="9" id="BAC-ou-S77"/>
+                <constraint firstAttribute="bottom" secondItem="TQ2-am-kuq" secondAttribute="bottom" id="Gst-hh-ulz"/>
                 <constraint firstItem="Dnk-5l-vN9" firstAttribute="leading" secondItem="Mqw-eb-6bO" secondAttribute="leading" constant="8" id="WXU-47-CFP"/>
                 <constraint firstAttribute="bottom" secondItem="qBZ-UT-GNX" secondAttribute="bottom" constant="8" id="Whe-vN-IYv"/>
                 <constraint firstItem="qBZ-UT-GNX" firstAttribute="top" secondItem="Mqw-eb-6bO" secondAttribute="top" constant="8" id="cG8-xC-AFk"/>
+                <constraint firstItem="TQ2-am-kuq" firstAttribute="leading" secondItem="Mqw-eb-6bO" secondAttribute="leading" id="m7J-rZ-RjU"/>
                 <constraint firstItem="Dnk-5l-vN9" firstAttribute="top" secondItem="Mqw-eb-6bO" secondAttribute="top" constant="8" id="xuf-V8-aL0"/>
+                <constraint firstAttribute="trailing" secondItem="TQ2-am-kuq" secondAttribute="trailing" id="z74-LH-C8V"/>
                 <constraint firstAttribute="trailing" secondItem="qBZ-UT-GNX" secondAttribute="trailing" constant="8" id="zT3-L7-4at"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
@@ -51,5 +61,6 @@
     </objects>
     <resources>
         <image name="arrow_down" width="6" height="4"/>
+        <image name="arrow_up" width="6" height="4"/>
     </resources>
 </document>

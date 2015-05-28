@@ -10,17 +10,6 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DB7-vy-PzU">
-                    <rect key="frame" x="259" y="14" width="53" height="16"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="53" id="2Eg-PS-XgJ"/>
-                        <constraint firstAttribute="height" constant="16" id="YEj-bE-T6I"/>
-                    </constraints>
-                    <state key="normal" backgroundImage="seg_unselectedAll">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <state key="selected" backgroundImage="seg_selectedAll"/>
-                </button>
                 <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zvx-Yi-YES">
                     <rect key="frame" x="106" y="9" width="109" height="25"/>
                     <constraints>
@@ -38,12 +27,33 @@
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DB7-vy-PzU">
+                    <rect key="frame" x="268" y="14" width="44" height="16"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="44" id="2Eg-PS-XgJ"/>
+                        <constraint firstAttribute="height" constant="16" id="YEj-bE-T6I"/>
+                    </constraints>
+                    <state key="normal" backgroundImage="seg_unselectedAll">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="selected" backgroundImage="seg_selectedAll"/>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xYV-yW-OTS">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="1"/>
+                    <color key="backgroundColor" white="0.5" alpha="0.20000000000000001" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="mOo-HN-g7L"/>
+                    </constraints>
+                </view>
             </subviews>
             <constraints>
+                <constraint firstItem="xYV-yW-OTS" firstAttribute="top" secondItem="Yk9-hv-PhB" secondAttribute="top" id="0cd-rL-0VS"/>
                 <constraint firstAttribute="trailing" secondItem="DB7-vy-PzU" secondAttribute="trailing" constant="8" id="6mb-rC-Kva"/>
                 <constraint firstAttribute="centerY" secondItem="Zvx-Yi-YES" secondAttribute="centerY" id="CAU-w3-6oa"/>
+                <constraint firstAttribute="trailing" secondItem="xYV-yW-OTS" secondAttribute="trailing" id="EJa-uJ-Dc2"/>
                 <constraint firstAttribute="centerX" secondItem="Zvx-Yi-YES" secondAttribute="centerX" id="FFU-mA-9YC"/>
                 <constraint firstItem="DB7-vy-PzU" firstAttribute="centerY" secondItem="Zvx-Yi-YES" secondAttribute="centerY" constant="0.5" id="SLS-sB-K65"/>
+                <constraint firstItem="xYV-yW-OTS" firstAttribute="leading" secondItem="Yk9-hv-PhB" secondAttribute="leading" id="r5j-IW-JHW"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -51,13 +61,13 @@
                 <outlet property="nowDownloaduButton" destination="Zvx-Yi-YES" id="FYE-4i-GSd"/>
                 <outlet property="seleectedAllButton" destination="DB7-vy-PzU" id="RgA-t8-wLS"/>
             </connections>
-            <point key="canvasLocation" x="319" y="227"/>
+            <point key="canvasLocation" x="421" y="270"/>
         </view>
     </objects>
     <resources>
         <image name="seg_selectedAll" width="55" height="19"/>
         <image name="seg_unselectedAll" width="55" height="19"/>
-        <image name="sound_tags" width="40" height="25"/>
-        <image name="sound_tags_s" width="40" height="25"/>
+        <image name="sound_tags" width="21" height="25"/>
+        <image name="sound_tags_s" width="21" height="25"/>
     </resources>
 </document>

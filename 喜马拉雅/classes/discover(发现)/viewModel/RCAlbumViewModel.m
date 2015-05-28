@@ -22,6 +22,13 @@
     }
     return _trarkLists;
 }
+-  (NSMutableArray *)downloadLists{
+    if (!_downloadLists) {
+        self.downloadLists = [NSMutableArray array];
+
+    }
+    return _downloadLists;
+}
 - ( void)fetchNewHotAlbumDataWithSuccess:(void (^)(void ))success failure:(void (^)(void ))failure{
 
     [RCNetWorkingTool get:[NSString stringWithFormat:@"http://mobile.ximalaya.com/m/explore_album_list?category_name=all&condition=hot&device=android&page=1&per_page=20&status=0&tag_name="] params:nil success:^(id json) {
@@ -148,7 +155,6 @@
         [self.trarkLists removeAllObjects];
         RCAlbumTrack  * albumTrack  = [RCAlbumTrack objectWithKeyValues:json];
         [self.trarkLists addObjectsFromArray:albumTrack.tracks.list];
-        self.totalCount = albumTrack.tracks.totalCount;
         self.album = albumTrack.album;
         if (success) {
             success();
@@ -172,6 +178,25 @@
             return ;
         }
         [self.trarkLists addObjectsFromArray:albumTrack.tracks.list];
+        if (success) {
+            success();
+        }
+    } failure:^(NSError *error) {
+        if (failure) {
+            failure();
+        }
+    }];
+
+
+}
+- ( void)fetchAlbumDeailDataWithPage:(NSUInteger)page success:(void (^)(void ))success failure:(void (^)(void ))failure{
+    [RCNetWorkingTool get:[NSString stringWithFormat:@"http://mobile.ximalaya.com/mobile/others/ca/album/track/%@/true/%ld/50",self.ID,page] params:nil success:^(id json) {
+        [self.trarkLists removeAllObjects];
+        RCAlbumTrack  * albumTrack  = [RCAlbumTrack objectWithKeyValues:json];
+        [self.downloadLists removeAllObjects];
+        [self.downloadLists addObjectsFromArray:albumTrack.tracks.list];
+        self.album = albumTrack.album;
+        self.totalCount = albumTrack.tracks.totalCount;
         if (success) {
             success();
         }

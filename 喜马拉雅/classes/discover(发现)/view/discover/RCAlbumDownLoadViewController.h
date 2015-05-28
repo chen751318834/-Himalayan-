@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface RCAlbumDownLoadViewController : UIViewController
-@property(nonatomic,strong) NSArray  *tracklist;
+@property(nonatomic,strong) NSNumber  *ID;
+
 @end

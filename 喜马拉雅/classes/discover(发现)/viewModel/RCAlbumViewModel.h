@@ -32,6 +32,9 @@
  */
 - ( void)fetchNewAlbumDeailDataWithSuccess:(void (^)(void ))success failure:(void (^)(void ))failure;
 - ( void)fetchMoreAlbumDeailDataWithSuccess:(void (^)(void ))success failure:(void (^)(void ))failure completion:(void (^)(void))completion;
+- ( void)fetchAlbumDeailDataWithPage:(NSUInteger)page success:(void (^)(void ))success failure:(void (^)(void ))failure;
+
+@property(nonatomic,strong) NSMutableArray  *downloadLists;
 
 - (NSInteger)numberOfRowOfAlbumDeailDataInSection: (NSInteger)section;
 - (RCTrackList *)trackListAtIndexPath: (NSIndexPath *)indexPath;

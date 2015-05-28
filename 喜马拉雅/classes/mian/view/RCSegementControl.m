@@ -16,8 +16,6 @@
 @interface RCSegementControl ()
 @property(nonatomic,weak) UIButton * selectedButton;
 @property(nonatomic,strong) NSMutableArray  *buttons;
-@property(nonatomic,strong) NSMutableArray  *sliders;
-@property(nonatomic,weak) UIView   *sliderView;
 
 @end
 @implementation RCSegementControl
@@ -28,13 +26,7 @@
     }
     return _buttons;
 }
--  (NSMutableArray *)sliders{
-    if (!_sliders) {
-        self.sliders= [NSMutableArray array];
 
-    }
-    return _sliders;
-}
 
 - (void)setItems:(NSArray *)items{
     _items =items;
@@ -42,6 +34,7 @@
     NSUInteger count = items.count;
     for (NSUInteger i =0; i<count; i++) {
         UIButton *button =items[i];
+        button.font = [UIFont systemFontOfSize:13];
         button.tag = i ;
         if (button.isSelected) {
             [button setImage:button.imageView.image forState:UIControlStateSelected];
@@ -50,7 +43,7 @@
             [button setImage:button.imageView.image forState:UIControlStateNormal];
             [button setTitle:button.titleLabel.text forState:UIControlStateNormal];
         }
-//        [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [button setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
 
         [button addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchDown];
         NSString *bgName;
@@ -76,24 +69,21 @@
         [self addSubview:button];
         [self.buttons addObject:button];
     }
-    for (int i = 0; i<items.count - 1; i++) {
-        UIView * sliderView = [[UIView alloc]init];
-        sliderView.backgroundColor = [UIColor whiteColor];
-        sliderView.alpha = 0.5;
-        [self addSubview:sliderView];
-        self.sliderView = sliderView;
-        [self.sliders addObject:sliderView];
 
-    }
+
+
 
 }
 - (void)buttonClicked:(UIButton *)button{
     if ([self.delegate respondsToSelector:@selector(segementControl:button:from:to:)]) {
         [self.delegate segementControl:self button:button from:button.tag to:self.selectedButton.tag];
     }
-//    self.selectedButton.selected =NO;
-//    button.selected = YES;
-//    self.selectedButton =button;
+    button.backgroundColor = [UIColor colorWithRed:0.973 green:0.392 blue:0.259 alpha:1.000];
+    self.selectedButton.backgroundColor = [UIColor whiteColor];
+    self.selectedButton.selected =NO;
+    button.selected = YES;
+    self.selectedButton =button;
+
 
 }
 
@@ -111,7 +101,6 @@
 - (void)layoutSubviews{
     [super layoutSubviews];
     NSUInteger count =self.buttons.count;
-    CGFloat buttonW = (self.width/count);
     for (int i =0; i<count; i++) {
         UIButton *button =self.buttons[i];
         button.y =0;
@@ -119,13 +108,7 @@
         button.height =self.height;
         button.x =i*button.width;
         }
-    for (int i = 0; i<self.sliders.count; i++) {
-        UIView * slilerView = self.sliders[i];
-        CGFloat sliderViewX = buttonW*(i+1);
-        slilerView.width = 0.5;
-        slilerView.height = self.bounds.size.height;
-        slilerView.y = 0;
-        slilerView.x = sliderViewX;
-    }
+
+
 }
 @end
