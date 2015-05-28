@@ -43,9 +43,15 @@
     for (NSUInteger i =0; i<count; i++) {
         UIButton *button =items[i];
         button.tag = i ;
+        if (button.isSelected) {
+            [button setImage:button.imageView.image forState:UIControlStateSelected];
+            [button setTitle:button.titleLabel.text forState:UIControlStateSelected];
+        }else{
+            [button setImage:button.imageView.image forState:UIControlStateNormal];
+            [button setTitle:button.titleLabel.text forState:UIControlStateNormal];
+        }
 //        [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [button setImage:button.imageView.image forState:UIControlStateNormal];
-        [button setTitle:button.titleLabel.text forState:UIControlStateNormal];
+
         [button addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchDown];
         NSString *bgName;
         if (i ==0) {
@@ -82,12 +88,12 @@
 
 }
 - (void)buttonClicked:(UIButton *)button{
-    if ([self.delegate respondsToSelector:@selector(segementControl:from:to:)]) {
-        [self.delegate segementControl:self from:self.selectedButton.tag to:button.tag];
+    if ([self.delegate respondsToSelector:@selector(segementControl:button:from:to:)]) {
+        [self.delegate segementControl:self button:button from:button.tag to:self.selectedButton.tag];
     }
-    self.selectedButton.selected =NO;
-    button.selected = YES;
-    self.selectedButton =button;
+//    self.selectedButton.selected =NO;
+//    button.selected = YES;
+//    self.selectedButton =button;
 
 }
 

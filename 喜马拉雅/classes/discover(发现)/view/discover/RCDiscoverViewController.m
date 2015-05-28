@@ -55,7 +55,7 @@ static const NSUInteger sectionCount = 100;
 -  (UIImageView *)coverView{
     if (!_coverView) {
         UIImageView * coverView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"LaunchImage"]];
-        [self.view addSubview:coverView];
+        [[UIApplication sharedApplication].keyWindow addSubview:coverView];
         [coverView autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
         self.coverView = coverView;
 
@@ -410,6 +410,7 @@ static const NSUInteger sectionCount = 100;
 
         RCAlbumDeailViewController * albumDeailVC = [[RCAlbumDeailViewController alloc]init];
         albumDeailVC.ID = list.ID;
+        albumDeailVC.fromHomeController = YES;
         [self.navigationController pushViewController:albumDeailVC animated:YES];
     }
 }

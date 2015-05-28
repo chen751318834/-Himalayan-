@@ -16,7 +16,7 @@
     [btn setImage:[UIImage imageNamed:highImage] forState:UIControlStateHighlighted];
     btn.imageView.contentMode = UIViewContentModeLeft;
 //    btn.backgroundColor = [UIColor blackColor];
-    btn.size =  CGSizeMake(45, 40);
+    btn.size =  CGSizeMake(24, 40);
     [btn addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
     return [[UIBarButtonItem alloc] initWithCustomView:btn];
 }

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14E17e" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="Yk9-hv-PhB" customClass="RCAlbumDownloadBottomToolBar">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DB7-vy-PzU">
+                    <rect key="frame" x="259" y="14" width="53" height="16"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="53" id="2Eg-PS-XgJ"/>
+                        <constraint firstAttribute="height" constant="16" id="YEj-bE-T6I"/>
+                    </constraints>
+                    <state key="normal" backgroundImage="seg_unselectedAll">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="selected" backgroundImage="seg_selectedAll"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zvx-Yi-YES">
+                    <rect key="frame" x="106" y="9" width="109" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="109" id="4V6-kd-xtC"/>
+                        <constraint firstAttribute="height" constant="25" id="9Wd-Ja-rDv"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" title="立即下载" backgroundImage="sound_tags_s">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="disabled" backgroundImage="sound_tags">
+                        <color key="titleColor" white="0.5" alpha="0.93000000000000005" colorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="selected" title="立即下载">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="DB7-vy-PzU" secondAttribute="trailing" constant="8" id="6mb-rC-Kva"/>
+                <constraint firstAttribute="centerY" secondItem="Zvx-Yi-YES" secondAttribute="centerY" id="CAU-w3-6oa"/>
+                <constraint firstAttribute="centerX" secondItem="Zvx-Yi-YES" secondAttribute="centerX" id="FFU-mA-9YC"/>
+                <constraint firstItem="DB7-vy-PzU" firstAttribute="centerY" secondItem="Zvx-Yi-YES" secondAttribute="centerY" constant="0.5" id="SLS-sB-K65"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="nowDownloaduButton" destination="Zvx-Yi-YES" id="FYE-4i-GSd"/>
+                <outlet property="seleectedAllButton" destination="DB7-vy-PzU" id="RgA-t8-wLS"/>
+            </connections>
+            <point key="canvasLocation" x="319" y="227"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="seg_selectedAll" width="55" height="19"/>
+        <image name="seg_unselectedAll" width="55" height="19"/>
+        <image name="sound_tags" width="40" height="25"/>
+        <image name="sound_tags_s" width="40" height="25"/>
+    </resources>
+</document>

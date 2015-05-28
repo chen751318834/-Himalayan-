@@ -167,6 +167,7 @@
     RCAlbum * album = self.contents[indexPath.row];
     RCAlbumDeailViewController * albumDeailVC = [[RCAlbumDeailViewController alloc]init];
     albumDeailVC.ID = album.ID;
+
     [self.navigationController pushViewController:albumDeailVC animated:YES];
     
 }

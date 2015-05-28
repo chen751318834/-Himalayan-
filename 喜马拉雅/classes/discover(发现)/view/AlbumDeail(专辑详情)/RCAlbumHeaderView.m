@@ -16,7 +16,7 @@
 #import "RCOneAlbumViewController.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #import "RCNavigationController.h"
-
+#import "RCAlbumDownLoadViewController.h"
 @interface RCAlbumHeaderView ()
 @property (weak, nonatomic) IBOutlet UILabel *tilteLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *iconView;
@@ -91,8 +91,6 @@
         CGFloat W  = 50;
         CGFloat X = i*(W +5);
         button.frame = CGRectMake(X, Y, W, H);
-        NSLog(@"%f",X );
-
     }
 
 }
@@ -120,4 +118,15 @@
     }
       [UIView commitAnimations];
 }
+
+- (IBAction)download:(id)sender {
+    RCTabBarViewController * tabBarVC =(RCTabBarViewController *)   [UIApplication sharedApplication].keyWindow.rootViewController;
+    RCNavigationController * navVC = ( RCNavigationController *)tabBarVC.selectedViewController;
+   RCAlbumDownLoadViewController * VC = [[RCAlbumDownLoadViewController alloc]init];
+    VC.tracklist = self.tracklist;
+    [navVC pushViewController:VC animated:YES];
+}
+- (IBAction)tuijainAlbum:(id)sender {
+}
+
 @end

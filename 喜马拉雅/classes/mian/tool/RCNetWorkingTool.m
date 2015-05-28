@@ -8,6 +8,7 @@
 
 #import "RCNetWorkingTool.h"
 #import "AFNetworking.h"
+#import <Foundation/Foundation.h>
 @implementation RCNetWorkingTool
 + (void)get:(NSString *)url params:(NSDictionary *)params success:(void (^)(id ))success failure:(void (^)(NSError *))failure{
     AFHTTPRequestOperationManager * manager = [AFHTTPRequestOperationManager manager];

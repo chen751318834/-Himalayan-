@@ -59,13 +59,73 @@
                                 <constraint firstAttribute="height" constant="1" id="gQ9-u3-kb2"/>
                             </constraints>
                         </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C4L-aY-Pbw">
+                            <rect key="frame" x="218" y="0.0" width="1" height="40"/>
+                            <color key="backgroundColor" white="1" alpha="0.5" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="1" id="YM8-xS-i96"/>
+                            </constraints>
+                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zQE-hE-BJL">
+                            <rect key="frame" x="8" y="1" width="93" height="39"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <state key="normal" title="收藏">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <state key="selected" title="已收藏"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O2z-mq-XLo">
+                            <rect key="frame" x="118" y="1" width="92" height="39"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <state key="normal" title="批量下载">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="download:" destination="U6b-Vx-4bR" eventType="touchUpInside" id="nh2-kV-QTU"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jUh-H9-cgY">
+                            <rect key="frame" x="227" y="1" width="93" height="39"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <state key="normal" title="推荐专辑">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="tuijainAlbum:" destination="U6b-Vx-4bR" eventType="touchUpInside" id="emi-dk-cOP"/>
+                            </connections>
+                        </button>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h41-69-4VZ">
+                            <rect key="frame" x="109" y="0.0" width="1" height="40"/>
+                            <color key="backgroundColor" white="1" alpha="0.52000000000000002" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="1" id="86d-tJ-fIk"/>
+                            </constraints>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
+                        <constraint firstAttribute="trailing" secondItem="jUh-H9-cgY" secondAttribute="trailing" id="0MM-36-kWz"/>
                         <constraint firstAttribute="height" constant="40" id="236-fh-6Od"/>
+                        <constraint firstItem="O2z-mq-XLo" firstAttribute="width" secondItem="jUh-H9-cgY" secondAttribute="width" id="2Xy-2n-VPp"/>
+                        <constraint firstAttribute="bottom" secondItem="O2z-mq-XLo" secondAttribute="bottom" id="2zd-EM-ZPZ"/>
+                        <constraint firstAttribute="bottom" secondItem="C4L-aY-Pbw" secondAttribute="bottom" id="5G0-z1-VwO"/>
+                        <constraint firstItem="zQE-hE-BJL" firstAttribute="leading" secondItem="qMl-Fu-8fm" secondAttribute="leading" constant="8" id="6MW-sw-gLm"/>
+                        <constraint firstAttribute="bottom" secondItem="zQE-hE-BJL" secondAttribute="bottom" id="7Iw-U6-ugo"/>
+                        <constraint firstItem="C4L-aY-Pbw" firstAttribute="top" secondItem="qMl-Fu-8fm" secondAttribute="top" id="8G8-Gl-6PR"/>
                         <constraint firstItem="bAz-eE-fXH" firstAttribute="top" secondItem="qMl-Fu-8fm" secondAttribute="top" id="Bsq-0j-2PL"/>
+                        <constraint firstItem="h41-69-4VZ" firstAttribute="top" secondItem="qMl-Fu-8fm" secondAttribute="top" id="HZj-T4-spf"/>
+                        <constraint firstAttribute="bottom" secondItem="h41-69-4VZ" secondAttribute="bottom" id="J1a-vy-fe2"/>
+                        <constraint firstItem="C4L-aY-Pbw" firstAttribute="leading" secondItem="O2z-mq-XLo" secondAttribute="trailing" constant="8" id="JT3-r6-nHY"/>
+                        <constraint firstItem="zQE-hE-BJL" firstAttribute="width" secondItem="O2z-mq-XLo" secondAttribute="width" id="Kfp-Yp-Kbr"/>
+                        <constraint firstItem="jUh-H9-cgY" firstAttribute="leading" secondItem="C4L-aY-Pbw" secondAttribute="trailing" constant="8" id="OwX-hP-SP3"/>
                         <constraint firstItem="bAz-eE-fXH" firstAttribute="leading" secondItem="qMl-Fu-8fm" secondAttribute="leading" id="Tkq-N6-Dj1"/>
+                        <constraint firstItem="h41-69-4VZ" firstAttribute="leading" secondItem="zQE-hE-BJL" secondAttribute="trailing" constant="8" id="U77-Zs-IWv"/>
+                        <constraint firstItem="zQE-hE-BJL" firstAttribute="top" secondItem="bAz-eE-fXH" secondAttribute="bottom" id="ZeA-Zy-pq2"/>
                         <constraint firstAttribute="trailing" secondItem="bAz-eE-fXH" secondAttribute="trailing" id="drW-dr-47v"/>
+                        <constraint firstItem="O2z-mq-XLo" firstAttribute="top" secondItem="bAz-eE-fXH" secondAttribute="bottom" id="f3z-sn-EoJ"/>
+                        <constraint firstItem="O2z-mq-XLo" firstAttribute="leading" secondItem="h41-69-4VZ" secondAttribute="trailing" constant="8" id="g29-Ug-Kdz"/>
+                        <constraint firstAttribute="bottom" secondItem="jUh-H9-cgY" secondAttribute="bottom" id="jvg-5i-0aS"/>
+                        <constraint firstItem="jUh-H9-cgY" firstAttribute="top" secondItem="bAz-eE-fXH" secondAttribute="bottom" id="q5Y-eT-ZgW"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JKf-qb-HHT" userLabel="顶部的view">
@@ -89,7 +149,7 @@
                                 <constraint firstAttribute="width" constant="33" id="C6Z-2J-naf"/>
                                 <constraint firstAttribute="height" constant="44" id="jUY-jx-jEd"/>
                             </constraints>
-                            <state key="normal" image="btn_back_n">
+                            <state key="normal" image="btn_back_h">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                         </button>
@@ -153,9 +213,9 @@
             <connections>
                 <outlet property="back" destination="beF-hV-AN5" id="jvt-XM-INd"/>
                 <outlet property="bgimageView" destination="Wlc-Yu-xXR" id="Lp6-wr-fhI"/>
-                <outlet property="bottomView" destination="qMl-Fu-8fm" id="h2h-bI-CCO"/>
                 <outlet property="iconView" destination="WeP-fM-w4m" id="mq1-wM-v6p"/>
                 <outlet property="nickNameLabel" destination="ygQ-v3-XiP" id="dXJ-hE-mWv"/>
+                <outlet property="saveButton" destination="zQE-hE-BJL" id="b1O-xw-pfH"/>
                 <outlet property="smallIconView" destination="8CA-nJ-MYx" id="Ax7-Lp-KOq"/>
                 <outlet property="subTitleLabel" destination="cKp-2m-AKP" id="bhU-hQ-VUZ"/>
                 <outlet property="tagContentView" destination="kTD-gF-Kuc" id="86r-1D-nhb"/>
@@ -166,7 +226,7 @@
     </objects>
     <resources>
         <image name="albumBg" width="247" height="220"/>
-        <image name="btn_back_n" width="30" height="45"/>
+        <image name="btn_back_h" width="30" height="45"/>
         <image name="np_loverview_arraw" width="6" height="13"/>
     </resources>
 </document>

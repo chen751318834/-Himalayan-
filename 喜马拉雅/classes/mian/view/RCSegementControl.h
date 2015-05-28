@@ -13,7 +13,7 @@
 @protocol RCSegementControlDelegate <NSObject>
 
 @optional
-- (void)segementControl:(RCSegementControl *)segement from:(NSUInteger)from to:(NSUInteger)to;
+- (void)segementControl:(RCSegementControl *)segement button:(UIButton *)button from:(NSUInteger)from to:(NSUInteger)to;
 
 @end
 @interface RCSegementControl : UIView

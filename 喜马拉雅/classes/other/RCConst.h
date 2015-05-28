@@ -20,7 +20,7 @@
 #import <Foundation/Foundation.h>
 #import "UIView+Extension.h"
 #import "UIView+AutoLayout.h"
-#import "UIImage+RC.h"
+#import "UIImage+RC.h"z
 #import "MJExtension.h"
 #import "KVNProgress.h"
 #import "Toast+UIView.h"

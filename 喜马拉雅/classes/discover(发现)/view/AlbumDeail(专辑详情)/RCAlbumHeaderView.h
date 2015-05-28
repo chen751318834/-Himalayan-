@@ -11,6 +11,8 @@
 @interface RCAlbumHeaderView : UICollectionReusableView
 + (instancetype)headerView;
 @property (weak, nonatomic) IBOutlet UIButton *back;
-@property (weak, nonatomic) IBOutlet UIView *bottomView;
+@property (weak, nonatomic) IBOutlet UIButton *saveButton;
+
 @property(nonatomic,strong) RCOneAlbum  *album;
+@property(nonatomic,strong) NSArray  *tracklist;
 @end

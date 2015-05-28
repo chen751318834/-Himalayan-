@@ -10,4 +10,6 @@
 
 @interface RCAlbumDeailViewController : UICollectionViewController
 @property(nonatomic,strong) NSNumber  *ID;
+@property(nonatomic,assign,getter=isFromHomeController) BOOL fromHomeController;
+
 @end

@@ -15,15 +15,15 @@
 #import "MJRefresh.h"
 #import "Toast+UIView.h"
 #import "RCHotAudioViewCell.h"
+#import "RCDiscoverViewController.h"
+#import "RCAlbumViewController.h"
 #import "RCConst.h"
 #import "RCAlbumDeailViewCell.h"
 #import "RCAlbumHeaderView.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>
 @interface RCAlbumDeailViewController () <RCSegementControlDelegate>
-
 @property (nonatomic, strong) NSArray *sections;
 @property(nonatomic,strong) RCAlbumViewModel  *viewModel;
-
 @end
 
 @implementation RCAlbumDeailViewController
@@ -51,20 +51,22 @@
     return [super initWithCollectionViewLayout:layout];
 }
 - (void)viewWillDisappear:(BOOL)animated{
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
     [super viewWillDisappear:animated];
-    self.navigationController.navigationBar.hidden = NO;
 
 }
 - (void)viewWillAppear:(BOOL)animated{
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
     [super viewWillAppear:animated];
-    self.navigationController.navigationBar.hidden = YES;
-
 
 }
+
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    NSLog(@"%@",self.navigationController.viewControllers);
+
     [self.viewModel fetchNewAlbumDeailDataWithSuccess:^{
         [self.collectionView reloadData];
     } failure:^{
@@ -172,7 +174,6 @@
                     }
                     return NSOrderedDescending;
                 }];
-
             }
             [self.collectionView reloadData];
 
@@ -180,44 +181,25 @@
         return sectionheaderView;
     }else if ([kind isEqualToString:CSStickyHeaderParallaxHeader]) {
         RCAlbumHeaderView *headerView = [collectionView
+
         dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"header"forIndexPath:indexPath];
      headerView.album = self.viewModel.album;
-     [[headerView.back rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
-         [self.navigationController popViewControllerAnimated:YES];
-     }];
-     RCSegementControl * segmentConrtol = [[RCSegementControl alloc]init];
-        segmentConrtol.delegate = self;
-     UIButton * saveButton = [UIButton buttonWithType:UIButtonTypeCustom];
-     saveButton.titleLabel.text = @"收藏";
-     UIButton * downloadButton = [UIButton buttonWithType:UIButtonTypeCustom];
-     downloadButton.titleLabel.text = @"批量下载";
-     UIButton * aboutAlbumButton = [UIButton buttonWithType:UIButtonTypeCustom];
-     aboutAlbumButton.titleLabel.text = @"推荐专辑";
-     segmentConrtol.items = @[saveButton,downloadButton,aboutAlbumButton];
-                              segmentConrtol.selectedSegmentIndex  = 0;
-                              segmentConrtol.backgroundColor = [UIColor clearColor];
-    [headerView.bottomView addSubview:segmentConrtol];
-    [segmentConrtol autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
+        headerView.tracklist = self.viewModel.trarkLists;
+        [headerView.back addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
+        [[headerView.saveButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(UIButton * button) {
+            button.selected = YES;
+        }];      
         return headerView;
     }
     return nil;
 }
 
+- (void)back{
+    [self.navigationController popViewControllerAnimated:YES];
+
+}
 - (UIStatusBarStyle)preferredStatusBarStyle {
     return UIStatusBarStyleLightContent;
 }
-#pragma mark - RCSegementControlDelegate
-- (void)segementControl:(RCSegementControl *)segement from:(NSUInteger)from to:(NSUInteger)to{
-    switch (to) {
-        case  0:
 
-            break;
-        case  1:
-
-            break;
-        case  2:
-
-            break;
-    }
-}
 @end
