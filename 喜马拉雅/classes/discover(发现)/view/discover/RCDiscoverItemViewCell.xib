@@ -74,7 +74,7 @@
                         </constraints>
                     </view>
                 </subviews>
-                <color key="backgroundColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
+                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="0.059999999999999998" colorSpace="calibratedRGB"/>
                 <constraints>
                     <constraint firstAttribute="trailingMargin" secondItem="1FJ-mP-WrL" secondAttribute="trailing" id="7xs-76-hOZ"/>
                     <constraint firstItem="1FJ-mP-WrL" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="Nea-M2-Y6N"/>
@@ -82,6 +82,7 @@
                     <constraint firstItem="1FJ-mP-WrL" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="tjh-Oa-l5p"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="0.059999999999999998" colorSpace="calibratedRGB"/>
             <connections>
                 <outlet property="hotView" destination="612-yV-Khc" id="EKu-3m-IpA"/>
                 <outlet property="iconView" destination="RHW-GR-AfZ" id="pvw-9w-gnK"/>

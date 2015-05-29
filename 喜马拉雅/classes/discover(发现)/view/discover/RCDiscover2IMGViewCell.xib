@@ -24,7 +24,7 @@
                                 <rect key="frame" x="157" y="0.0" width="147" height="84"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="0.059999999999999998" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="W3l-6f-ha1" firstAttribute="top" secondItem="PMv-qa-ARa" secondAttribute="top" id="9i8-oV-Uzr"/>
                             <constraint firstAttribute="trailing" secondItem="W3l-6f-ha1" secondAttribute="trailing" id="9uZ-L4-PhF"/>
@@ -37,7 +37,7 @@
                         </constraints>
                     </view>
                 </subviews>
-                <color key="backgroundColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
+                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="0.059999999999999998" colorSpace="calibratedRGB"/>
                 <constraints>
                     <constraint firstItem="PMv-qa-ARa" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="1za-YB-cPF"/>
                     <constraint firstAttribute="trailingMargin" secondItem="PMv-qa-ARa" secondAttribute="trailing" id="5xf-pN-KjS"/>
@@ -45,7 +45,7 @@
                     <constraint firstItem="PMv-qa-ARa" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="oeh-6a-2ke"/>
                 </constraints>
             </tableViewCellContentView>
-            <color key="backgroundColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="0.059999999999999998" colorSpace="calibratedRGB"/>
             <connections>
                 <outlet property="icon1View" destination="Ghs-Ce-0o5" id="PR6-xC-cVy"/>
                 <outlet property="icon2View" destination="W3l-6f-ha1" id="oLl-Xb-2fZ"/>

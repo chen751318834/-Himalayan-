@@ -111,6 +111,14 @@
 		4B7A33851B182CF80042E0EF /* RCCollectViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B7A33831B182CF80042E0EF /* RCCollectViewCell.m */; };
 		4B7A33861B182CF80042E0EF /* RCCollectViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B7A33841B182CF80042E0EF /* RCCollectViewCell.xib */; };
 		4B7A338A1B18327A0042E0EF /* DXAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B7A33891B18327A0042E0EF /* DXAlertView.m */; };
+		4B7A338D1B1864EF0042E0EF /* RCAttentionViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B7A338C1B1864EF0042E0EF /* RCAttentionViewModel.m */; };
+		4B7A33901B18661D0042E0EF /* RCAttentionData.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B7A338F1B18661D0042E0EF /* RCAttentionData.m */; };
+		4B7A33931B18667D0042E0EF /* RCAttentionOneData.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B7A33921B18667D0042E0EF /* RCAttentionOneData.m */; };
+		4B7A33961B1866960042E0EF /* RCAttentionFrData.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B7A33951B1866960042E0EF /* RCAttentionFrData.m */; };
+		4B7A339A1B187F480042E0EF /* RCAtentionTopViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B7A33981B187F480042E0EF /* RCAtentionTopViewCell.m */; };
+		4B7A339B1B187F480042E0EF /* RCAtentionTopViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B7A33991B187F480042E0EF /* RCAtentionTopViewCell.xib */; };
+		4B7A339F1B187F580042E0EF /* RCAttentionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B7A339D1B187F580042E0EF /* RCAttentionViewCell.m */; };
+		4B7A33A01B187F580042E0EF /* RCAttentionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B7A339E1B187F580042E0EF /* RCAttentionViewCell.xib */; };
 		4B912DED1B0EBEB4007B64DD /* RCSubject.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B912DEC1B0EBEB4007B64DD /* RCSubject.m */; };
 		4B912DF01B0EBF02007B64DD /* RCSubjectList.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B912DEF1B0EBF02007B64DD /* RCSubjectList.m */; };
 		4B912DF31B0EBFAD007B64DD /* RCSubjectViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B912DF21B0EBFAD007B64DD /* RCSubjectViewModel.m */; };
@@ -435,6 +443,20 @@
 		4B7A33841B182CF80042E0EF /* RCCollectViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RCCollectViewCell.xib; sourceTree = "<group>"; };
 		4B7A33881B18327A0042E0EF /* DXAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXAlertView.h; sourceTree = "<group>"; };
 		4B7A33891B18327A0042E0EF /* DXAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXAlertView.m; sourceTree = "<group>"; };
+		4B7A338B1B1864EF0042E0EF /* RCAttentionViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCAttentionViewModel.h; sourceTree = "<group>"; };
+		4B7A338C1B1864EF0042E0EF /* RCAttentionViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCAttentionViewModel.m; sourceTree = "<group>"; };
+		4B7A338E1B18661D0042E0EF /* RCAttentionData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCAttentionData.h; sourceTree = "<group>"; };
+		4B7A338F1B18661D0042E0EF /* RCAttentionData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCAttentionData.m; sourceTree = "<group>"; };
+		4B7A33911B18667D0042E0EF /* RCAttentionOneData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCAttentionOneData.h; sourceTree = "<group>"; };
+		4B7A33921B18667D0042E0EF /* RCAttentionOneData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCAttentionOneData.m; sourceTree = "<group>"; };
+		4B7A33941B1866960042E0EF /* RCAttentionFrData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCAttentionFrData.h; sourceTree = "<group>"; };
+		4B7A33951B1866960042E0EF /* RCAttentionFrData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCAttentionFrData.m; sourceTree = "<group>"; };
+		4B7A33971B187F480042E0EF /* RCAtentionTopViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCAtentionTopViewCell.h; sourceTree = "<group>"; };
+		4B7A33981B187F480042E0EF /* RCAtentionTopViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCAtentionTopViewCell.m; sourceTree = "<group>"; };
+		4B7A33991B187F480042E0EF /* RCAtentionTopViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RCAtentionTopViewCell.xib; sourceTree = "<group>"; };
+		4B7A339C1B187F580042E0EF /* RCAttentionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCAttentionViewCell.h; sourceTree = "<group>"; };
+		4B7A339D1B187F580042E0EF /* RCAttentionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCAttentionViewCell.m; sourceTree = "<group>"; };
+		4B7A339E1B187F580042E0EF /* RCAttentionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RCAttentionViewCell.xib; sourceTree = "<group>"; };
 		4B912DEB1B0EBEB4007B64DD /* RCSubject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCSubject.h; sourceTree = "<group>"; };
 		4B912DEC1B0EBEB4007B64DD /* RCSubject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCSubject.m; sourceTree = "<group>"; };
 		4B912DEE1B0EBF02007B64DD /* RCSubjectList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCSubjectList.h; sourceTree = "<group>"; };
@@ -718,11 +740,11 @@
 		4B1D81291B0C935D00B7C9DC /* classes */ = {
 			isa = PBXGroup;
 			children = (
+				4B1D813B1B0C935D00B7C9DC /* online(订阅听) */,
 				4B1D812A1B0C935D00B7C9DC /* discover(发现) */,
 				4B1D812E1B0C935D00B7C9DC /* downlaod(下载听) */,
 				4B1D81321B0C935D00B7C9DC /* me(我) */,
 				4B1D81361B0C935D00B7C9DC /* mian */,
-				4B1D813B1B0C935D00B7C9DC /* online(订阅听) */,
 				4B1D813F1B0C935D00B7C9DC /* other */,
 			);
 			path = classes;
@@ -946,6 +968,12 @@
 		4B1D813C1B0C935D00B7C9DC /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4B7A338E1B18661D0042E0EF /* RCAttentionData.h */,
+				4B7A338F1B18661D0042E0EF /* RCAttentionData.m */,
+				4B7A33911B18667D0042E0EF /* RCAttentionOneData.h */,
+				4B7A33921B18667D0042E0EF /* RCAttentionOneData.m */,
+				4B7A33941B1866960042E0EF /* RCAttentionFrData.h */,
+				4B7A33951B1866960042E0EF /* RCAttentionFrData.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -953,6 +981,8 @@
 		4B1D813E1B0C935D00B7C9DC /* viewModel */ = {
 			isa = PBXGroup;
 			children = (
+				4B7A338B1B1864EF0042E0EF /* RCAttentionViewModel.h */,
+				4B7A338C1B1864EF0042E0EF /* RCAttentionViewModel.m */,
 				4B7A33671B17FCE20042E0EF /* RCCollectViewModel.h */,
 				4B7A33681B17FCE20042E0EF /* RCCollectViewModel.m */,
 			);
@@ -1489,6 +1519,12 @@
 			children = (
 				4BC647D11B17359B00661DB0 /* RCAttentionViewController.h */,
 				4BC647D21B17359B00661DB0 /* RCAttentionViewController.m */,
+				4B7A33971B187F480042E0EF /* RCAtentionTopViewCell.h */,
+				4B7A33981B187F480042E0EF /* RCAtentionTopViewCell.m */,
+				4B7A33991B187F480042E0EF /* RCAtentionTopViewCell.xib */,
+				4B7A339C1B187F580042E0EF /* RCAttentionViewCell.h */,
+				4B7A339D1B187F580042E0EF /* RCAttentionViewCell.m */,
+				4B7A339E1B187F580042E0EF /* RCAttentionViewCell.xib */,
 			);
 			path = "follow(关注)";
 			sourceTree = "<group>";
@@ -1816,6 +1852,7 @@
 				4BC647961B1701EC00661DB0 /* RCAlbumDownLoadSectionHeaderView.xib in Resources */,
 				4B912E181B0EEB73007B64DD /* RCHotActivityViewCell.xib in Resources */,
 				4BC647981B1701EC00661DB0 /* RCAlbumDownloadViewCell.xib in Resources */,
+				4B7A33A01B187F580042E0EF /* RCAttentionViewCell.xib in Resources */,
 				4BF9A32F1B12C323003FD44E /* emoticon_default.plist in Resources */,
 				4B7A33861B182CF80042E0EF /* RCCollectViewCell.xib in Resources */,
 				4BDE7D2B1B12FE4400073E12 /* RCAlbumViewCell.xib in Resources */,
@@ -1831,6 +1868,7 @@
 				4B1D81111B0C91C000B7C9DC /* Images.xcassets in Resources */,
 				4BF788051B0DBD970002704A /* MJRefresh.bundle in Resources */,
 				4B92110B1B102D270004DB2A /* RCCicleDeailHeaderView.xib in Resources */,
+				4B7A339B1B187F480042E0EF /* RCAtentionTopViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1907,6 +1945,7 @@
 				4B1D82461B0C978000B7C9DC /* NSString+MJExtension.m in Sources */,
 				4B1D828E1B0C9C9200B7C9DC /* KVNProgress.m in Sources */,
 				4B1D81EF1B0C972F00B7C9DC /* UIImage+RC.m in Sources */,
+				4B7A33961B1866960042E0EF /* RCAttentionFrData.m in Sources */,
 				4B912E131B0EEA7B007B64DD /* RCHotActivityViewController.m in Sources */,
 				4B93F5821B11AD4700BFBF6A /* UIView+FDCollapsibleConstraints.m in Sources */,
 				4B92111B1B105E970004DB2A /* RCComment.m in Sources */,
@@ -1919,6 +1958,7 @@
 				4B1D81C71B0C967300B7C9DC /* RCDiscoverItemViewCell.m in Sources */,
 				4BF9A1351B12B310003FD44E /* RegexKitLite.m in Sources */,
 				4BF7880C1B0DBD970002704A /* MJRefreshLegendFooter.m in Sources */,
+				4B7A339A1B187F480042E0EF /* RCAtentionTopViewCell.m in Sources */,
 				4BDE7D2A1B12FE4400073E12 /* RCAlbumViewCell.m in Sources */,
 				4B9211011B10256C0004DB2A /* RCZonePostHeadData.m in Sources */,
 				4BF7880A1B0DBD970002704A /* MJRefreshGifHeader.m in Sources */,
@@ -1943,6 +1983,7 @@
 				4BC647F41B174B9000661DB0 /* RCbasePageViewController.m in Sources */,
 				4BC647D01B17358200661DB0 /* RCollectViewController.m in Sources */,
 				4B1D82981B0C9DE500B7C9DC /* RCNavigationController.m in Sources */,
+				4B7A33931B18667D0042E0EF /* RCAttentionOneData.m in Sources */,
 				4B1D82421B0C978000B7C9DC /* MJType.m in Sources */,
 				4B9210E91B1023CF0004DB2A /* RCRecommendOwnerZone.m in Sources */,
 				4B1D81C61B0C967300B7C9DC /* RCDiscoverData.m in Sources */,
@@ -1971,9 +2012,11 @@
 				4B1D823F1B0C978000B7C9DC /* MJConst.m in Sources */,
 				4BF7883A1B0DEE310002704A /* RCHotAudioViewCell.m in Sources */,
 				4BC6479B1B17023300661DB0 /* RCAboutAlbumViewController.m in Sources */,
+				4B7A338D1B1864EF0042E0EF /* RCAttentionViewModel.m in Sources */,
 				4B4F46201B14914500284DAB /* RCAlbumDownLoadViewController.m in Sources */,
 				4B1D82911B0C9C9200B7C9DC /* UIImage+KVNImageEffects.m in Sources */,
 				4BDE7D231B12F9F700073E12 /* RCAlbumViewController.m in Sources */,
+				4B7A33901B18661D0042E0EF /* RCAttentionData.m in Sources */,
 				4BF7880E1B0DBD970002704A /* UIScrollView+MJExtension.m in Sources */,
 				4B912DFA1B0EC1A3007B64DD /* RCSubjectViewCell.m in Sources */,
 				4B9211241B105EFC0004DB2A /* RCOneParentComment.m in Sources */,
@@ -2002,6 +2045,7 @@
 				4B1D81C91B0C967300B7C9DC /* RCDiscoverViewController.m in Sources */,
 				4BF7880D1B0DBD970002704A /* MJRefreshLegendHeader.m in Sources */,
 				4B1D81D71B0C96C400B7C9DC /* RCLatestSpecial.m in Sources */,
+				4B7A339F1B187F580042E0EF /* RCAttentionViewCell.m in Sources */,
 				4B7A33811B180B6A0042E0EF /* RCAlbumTool.m in Sources */,
 				4BF9A3341B12CC02003FD44E /* Foundation+Log.m in Sources */,
 				4B7A33851B182CF80042E0EF /* RCCollectViewCell.m in Sources */,

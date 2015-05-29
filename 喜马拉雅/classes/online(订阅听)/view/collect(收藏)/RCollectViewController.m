@@ -52,7 +52,7 @@
 }
 - (void)setUpHeaderView{
     UIButton * deleteButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    deleteButton.backgroundColor = [UIColor colorWithWhite:0.500 alpha:0.530];
+    deleteButton.backgroundColor = [UIColor colorWithWhite:0.722 alpha:0.530];
     [deleteButton setImage:[UIImage imageNamed:@"btn_downloadsound_clear_n"] forState:UIControlStateNormal];
     [deleteButton setImage:[UIImage imageNamed:@"btn_downloadsound_clear_h"] forState:UIControlStateHighlighted];
     self.deleteButton = deleteButton;

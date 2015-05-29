@@ -108,6 +108,7 @@
                         </constraints>
                     </view>
                 </subviews>
+                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="0.059999999999999998" colorSpace="calibratedRGB"/>
                 <constraints>
                     <constraint firstAttribute="trailingMargin" secondItem="CPw-Gy-fcx" secondAttribute="trailing" constant="-8" id="Pv2-wz-OLQ"/>
                     <constraint firstAttribute="bottomMargin" secondItem="CPw-Gy-fcx" secondAttribute="bottom" constant="-8" id="ThW-ZF-xXd"/>

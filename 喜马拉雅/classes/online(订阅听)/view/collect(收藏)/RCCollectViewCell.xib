@@ -107,6 +107,7 @@
                         </constraints>
                     </view>
                 </subviews>
+                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="0.059999999999999998" colorSpace="calibratedRGB"/>
                 <constraints>
                     <constraint firstItem="XC8-pM-ion" firstAttribute="top" secondItem="MK0-He-NZJ" secondAttribute="topMargin" id="0rz-Ms-TEI"/>
                     <constraint firstItem="XC8-pM-ion" firstAttribute="leading" secondItem="MK0-He-NZJ" secondAttribute="leadingMargin" constant="-8" id="Soa-ZP-ABV"/>
@@ -114,7 +115,7 @@
                     <constraint firstAttribute="trailingMargin" secondItem="XC8-pM-ion" secondAttribute="trailing" constant="-8" id="gmD-ND-b26"/>
                 </constraints>
             </tableViewCellContentView>
-            <color key="backgroundColor" white="0.5" alpha="0.20000000000000001" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="0.059999999999999998" colorSpace="calibratedRGB"/>
             <connections>
                 <outlet property="audioCountLabel" destination="N1T-by-ubU" id="nfE-wG-x4x"/>
                 <outlet property="deleteButton" destination="Ea6-Em-THc" id="n1q-hG-f0W"/>
