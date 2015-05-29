@@ -9,7 +9,7 @@
 #import "RCBaseViewController.h"
 #import "DMPagerViewController.h"
 
-@interface RCbasePageViewController : UIViewController <DMPagerViewControllerProtocol>
+@interface RCbasePageViewController : RCBaseViewController <DMPagerViewControllerProtocol>
 @property (nonatomic,strong) DMPagerNavigationBarItem	*pagerObj;
 
 - (instancetype)initWithText:(NSString *) aText backgroundColor:(UIColor *) aBkgColor;

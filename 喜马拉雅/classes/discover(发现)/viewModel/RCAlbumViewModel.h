@@ -57,5 +57,5 @@
 @property(nonatomic,strong) NSNumber  *albumId;
 - ( void)fetchAboutAlbumWithSuccess:(void (^)(void ))success failure:(void (^)(void ))failure;
 - (NSInteger)numberOfRowOfAboutAlbumlistInSection: (NSInteger)section;
-- (RCAboutAlbum *)aboutAlbumListAtIndexPath: (NSIndexPath *)indexPath;
+- (RCAlbum *)aboutAlbumListAtIndexPath: (NSIndexPath *)indexPath;
 @end

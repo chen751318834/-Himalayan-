@@ -47,14 +47,14 @@
 
     NSDictionary *textAttributes = @{ NSFontAttributeName : [UIFont systemFontOfSize:18.0f],
                                       NSForegroundColorAttributeName : [UIColor grayColor]};
-    RCHistoryViewController * historyVC = [[RCHistoryViewController alloc]initWithText:nil backgroundColor:nil];
+    RCHistoryViewController * historyVC = [[RCHistoryViewController alloc]init];
     historyVC.pagerObj = [DMPagerNavigationBarItem newItemWithText:[[NSAttributedString alloc] initWithString:@"历史" attributes:textAttributes] andIcon:nil];
     historyVC.pagerObj.renderingMode = DMPagerNavigationBarItemModeOnlyText;
-    RCollectViewController * collectVC = [[RCollectViewController alloc]initWithText:nil backgroundColor:nil];
+    RCollectViewController * collectVC = [[RCollectViewController alloc]init];
 
     collectVC.pagerObj = [DMPagerNavigationBarItem newItemWithText:[[NSAttributedString alloc] initWithString:@"收藏" attributes:textAttributes] andIcon:nil];
     collectVC.pagerObj.renderingMode = DMPagerNavigationBarItemModeOnlyText;
-    RCAttentionViewController * attentionVC = [[RCAttentionViewController alloc]initWithText:nil backgroundColor:nil];
+    RCAttentionViewController * attentionVC = [[RCAttentionViewController alloc]init];
     attentionVC.pagerObj = [DMPagerNavigationBarItem newItemWithText:[[NSAttributedString alloc] initWithString:@"关注" attributes:textAttributes] andIcon:nil];
     attentionVC.pagerObj.renderingMode = DMPagerNavigationBarItemModeOnlyText;
     DMPagerViewController * slidingVC = [[DMPagerViewController alloc]initWithViewControllers:@[attentionVC,collectVC,historyVC]];

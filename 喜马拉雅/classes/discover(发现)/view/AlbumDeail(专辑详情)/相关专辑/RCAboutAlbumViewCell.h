@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "RCAboutAlbum.h"
+#import "RCAlbum.h"
 @interface RCAboutAlbumViewCell : UITableViewCell
-@property(nonatomic,strong) RCAboutAlbum  *album;
+@property(nonatomic,strong) RCAlbum  *album;
 + (instancetype)cell;
 @property (weak, nonatomic) IBOutlet UIButton *saveButton;
 

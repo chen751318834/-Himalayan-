@@ -100,6 +100,14 @@
 		4B4F461D1B145AB800284DAB /* RCOneAlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B4F461C1B145AB800284DAB /* RCOneAlbumViewController.m */; };
 		4B4F46201B14914500284DAB /* RCAlbumDownLoadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B4F461F1B14914500284DAB /* RCAlbumDownLoadViewController.m */; };
 		4B60C4C41B1080A700EA7B7F /* UITableView+FDTemplateLayoutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B60C4C31B1080A700EA7B7F /* UITableView+FDTemplateLayoutCell.m */; };
+		4B7A33691B17FCE20042E0EF /* RCCollectViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B7A33681B17FCE20042E0EF /* RCCollectViewModel.m */; };
+		4B7A33761B17FE980042E0EF /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B7A336C1B17FE980042E0EF /* FMDatabase.m */; };
+		4B7A33771B17FE980042E0EF /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B7A336E1B17FE980042E0EF /* FMDatabaseAdditions.m */; };
+		4B7A33781B17FE980042E0EF /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B7A33701B17FE980042E0EF /* FMDatabasePool.m */; };
+		4B7A33791B17FE980042E0EF /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B7A33721B17FE980042E0EF /* FMDatabaseQueue.m */; };
+		4B7A337A1B17FE980042E0EF /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B7A33751B17FE980042E0EF /* FMResultSet.m */; };
+		4B7A337C1B17FECF0042E0EF /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B7A337B1B17FECF0042E0EF /* libsqlite3.0.dylib */; };
+		4B7A33811B180B6A0042E0EF /* RCAlbumTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B7A33801B180B6A0042E0EF /* RCAlbumTool.m */; };
 		4B912DED1B0EBEB4007B64DD /* RCSubject.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B912DEC1B0EBEB4007B64DD /* RCSubject.m */; };
 		4B912DF01B0EBF02007B64DD /* RCSubjectList.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B912DEF1B0EBF02007B64DD /* RCSubjectList.m */; };
 		4B912DF31B0EBFAD007B64DD /* RCSubjectViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B912DF21B0EBFAD007B64DD /* RCSubjectViewModel.m */; };
@@ -405,6 +413,23 @@
 		4B4F461F1B14914500284DAB /* RCAlbumDownLoadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCAlbumDownLoadViewController.m; path = ../../discover/RCAlbumDownLoadViewController.m; sourceTree = "<group>"; };
 		4B60C4C21B1080A700EA7B7F /* UITableView+FDTemplateLayoutCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+FDTemplateLayoutCell.h"; sourceTree = "<group>"; };
 		4B60C4C31B1080A700EA7B7F /* UITableView+FDTemplateLayoutCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+FDTemplateLayoutCell.m"; sourceTree = "<group>"; };
+		4B7A33671B17FCE20042E0EF /* RCCollectViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCCollectViewModel.h; sourceTree = "<group>"; };
+		4B7A33681B17FCE20042E0EF /* RCCollectViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCCollectViewModel.m; sourceTree = "<group>"; };
+		4B7A336B1B17FE980042E0EF /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		4B7A336C1B17FE980042E0EF /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		4B7A336D1B17FE980042E0EF /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		4B7A336E1B17FE980042E0EF /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		4B7A336F1B17FE980042E0EF /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
+		4B7A33701B17FE980042E0EF /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
+		4B7A33711B17FE980042E0EF /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
+		4B7A33721B17FE980042E0EF /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
+		4B7A33731B17FE980042E0EF /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDB.h; sourceTree = "<group>"; };
+		4B7A33741B17FE980042E0EF /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		4B7A33751B17FE980042E0EF /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		4B7A337B1B17FECF0042E0EF /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		4B7A337D1B1807780042E0EF /* RCSingleInstance.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCSingleInstance.h; sourceTree = "<group>"; };
+		4B7A337F1B180B6A0042E0EF /* RCAlbumTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCAlbumTool.h; sourceTree = "<group>"; };
+		4B7A33801B180B6A0042E0EF /* RCAlbumTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCAlbumTool.m; sourceTree = "<group>"; };
 		4B912DEB1B0EBEB4007B64DD /* RCSubject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCSubject.h; sourceTree = "<group>"; };
 		4B912DEC1B0EBEB4007B64DD /* RCSubject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCSubject.m; sourceTree = "<group>"; };
 		4B912DEE1B0EBF02007B64DD /* RCSubjectList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCSubjectList.h; sourceTree = "<group>"; };
@@ -620,6 +645,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B7A337C1B17FECF0042E0EF /* libsqlite3.0.dylib in Frameworks */,
 				4BF9A1371B12B37F003FD44E /* libicucore.dylib in Frameworks */,
 				6123F0DE997B4F49BDD11F01 /* libPods-喜马拉雅.a in Frameworks */,
 			);
@@ -909,6 +935,7 @@
 		4B1D813B1B0C935D00B7C9DC /* online(订阅听) */ = {
 			isa = PBXGroup;
 			children = (
+				4B7A337E1B180B5E0042E0EF /* tool */,
 				4BC647BC1B17187F00661DB0 /* view */,
 				4B1D813C1B0C935D00B7C9DC /* Model */,
 				4B1D813E1B0C935D00B7C9DC /* viewModel */,
@@ -926,6 +953,8 @@
 		4B1D813E1B0C935D00B7C9DC /* viewModel */ = {
 			isa = PBXGroup;
 			children = (
+				4B7A33671B17FCE20042E0EF /* RCCollectViewModel.h */,
+				4B7A33681B17FCE20042E0EF /* RCCollectViewModel.m */,
 			);
 			path = viewModel;
 			sourceTree = "<group>";
@@ -951,6 +980,7 @@
 		4B1D81421B0C935D00B7C9DC /* category */ = {
 			isa = PBXGroup;
 			children = (
+				4B7A337D1B1807780042E0EF /* RCSingleInstance.h */,
 				4B4F46181B143FCF00284DAB /* UIImageView+EXtension.h */,
 				4B4F46191B143FCF00284DAB /* UIImageView+EXtension.m */,
 				4BF9A3331B12CC02003FD44E /* Foundation+Log.m */,
@@ -969,6 +999,7 @@
 		4B1D81441B0C935D00B7C9DC /* lib */ = {
 			isa = PBXGroup;
 			children = (
+				4B7A336A1B17FE980042E0EF /* fmdb */,
 				4BC647EB1B1749C700661DB0 /* DMPagerViewController */,
 				4BDE7D371B1319BF00073E12 /* CSStickyHeaderFlowLayout */,
 				4BF9A1321B12B310003FD44E /* RegexKitLite */,
@@ -1191,6 +1222,33 @@
 				4B60C4C31B1080A700EA7B7F /* UITableView+FDTemplateLayoutCell.m */,
 			);
 			path = FDTemplateLayoutCell;
+			sourceTree = "<group>";
+		};
+		4B7A336A1B17FE980042E0EF /* fmdb */ = {
+			isa = PBXGroup;
+			children = (
+				4B7A336B1B17FE980042E0EF /* FMDatabase.h */,
+				4B7A336C1B17FE980042E0EF /* FMDatabase.m */,
+				4B7A336D1B17FE980042E0EF /* FMDatabaseAdditions.h */,
+				4B7A336E1B17FE980042E0EF /* FMDatabaseAdditions.m */,
+				4B7A336F1B17FE980042E0EF /* FMDatabasePool.h */,
+				4B7A33701B17FE980042E0EF /* FMDatabasePool.m */,
+				4B7A33711B17FE980042E0EF /* FMDatabaseQueue.h */,
+				4B7A33721B17FE980042E0EF /* FMDatabaseQueue.m */,
+				4B7A33731B17FE980042E0EF /* FMDB.h */,
+				4B7A33741B17FE980042E0EF /* FMResultSet.h */,
+				4B7A33751B17FE980042E0EF /* FMResultSet.m */,
+			);
+			path = fmdb;
+			sourceTree = "<group>";
+		};
+		4B7A337E1B180B5E0042E0EF /* tool */ = {
+			isa = PBXGroup;
+			children = (
+				4B7A337F1B180B6A0042E0EF /* RCAlbumTool.h */,
+				4B7A33801B180B6A0042E0EF /* RCAlbumTool.m */,
+			);
+			path = tool;
 			sourceTree = "<group>";
 		};
 		4B912DE91B0EBE89007B64DD /* subject(专题) */ = {
@@ -1646,6 +1704,7 @@
 		C79F1350FF140A459021F18A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4B7A337B1B17FECF0042E0EF /* libsqlite3.0.dylib */,
 				4BF9A1361B12B37F003FD44E /* libicucore.dylib */,
 				CE502E6A73C69FAB4A1ACDFF /* libPods-喜马拉雅.a */,
 			);
@@ -1843,8 +1902,10 @@
 				4B912E131B0EEA7B007B64DD /* RCHotActivityViewController.m in Sources */,
 				4B93F5821B11AD4700BFBF6A /* UIView+FDCollapsibleConstraints.m in Sources */,
 				4B92111B1B105E970004DB2A /* RCComment.m in Sources */,
+				4B7A33781B17FE980042E0EF /* FMDatabasePool.m in Sources */,
 				4B1D81D61B0C96C400B7C9DC /* RCLatestActivity.m in Sources */,
 				4B9210FA1B10241F0004DB2A /* RCRecommendZoneViewCell.m in Sources */,
+				4B7A33761B17FE980042E0EF /* FMDatabase.m in Sources */,
 				4BF787AE1B0DB7700002704A /* RCHotAnchorVIewModel.m in Sources */,
 				4B1D82B71B0CC3BB00B7C9DC /* RCCollectionHeaderReusableView.m in Sources */,
 				4B1D81C71B0C967300B7C9DC /* RCDiscoverItemViewCell.m in Sources */,
@@ -1923,12 +1984,16 @@
 				4B1D82451B0C978000B7C9DC /* NSObject+MJProperty.m in Sources */,
 				4BDE7D361B130F1700073E12 /* SegementButton.m in Sources */,
 				4BF7880F1B0DBD970002704A /* UIScrollView+MJRefresh.m in Sources */,
+				4B7A33771B17FE980042E0EF /* FMDatabaseAdditions.m in Sources */,
 				4B1D81C31B0C967300B7C9DC /* RCCateroryListViewController.m in Sources */,
 				4B912E3A1B0EFA4F007B64DD /* RCRecommendedPost.m in Sources */,
+				4B7A337A1B17FE980042E0EF /* FMResultSet.m in Sources */,
 				4B1D81841B0C953800B7C9DC /* RCDownloadViewController.m in Sources */,
+				4B7A33691B17FCE20042E0EF /* RCCollectViewModel.m in Sources */,
 				4B1D81C91B0C967300B7C9DC /* RCDiscoverViewController.m in Sources */,
 				4BF7880D1B0DBD970002704A /* MJRefreshLegendHeader.m in Sources */,
 				4B1D81D71B0C96C400B7C9DC /* RCLatestSpecial.m in Sources */,
+				4B7A33811B180B6A0042E0EF /* RCAlbumTool.m in Sources */,
 				4BF9A3341B12CC02003FD44E /* Foundation+Log.m in Sources */,
 				4B1D82441B0C978000B7C9DC /* NSObject+MJKeyValue.m in Sources */,
 				4BC647D61B1735A600661DB0 /* RCHistoryViewController.m in Sources */,
@@ -1984,6 +2049,7 @@
 				4B912E101B0EE95A007B64DD /* RCHotActivity.m in Sources */,
 				4B4F461D1B145AB800284DAB /* RCOneAlbumViewController.m in Sources */,
 				4BF788261B0DD22B0002704A /* RCTitleButton.m in Sources */,
+				4B7A33791B17FE980042E0EF /* FMDatabaseQueue.m in Sources */,
 				4B9210F71B10241F0004DB2A /* RCCircleViewController.m in Sources */,
 				4B1D82291B0C977400B7C9DC /* AFURLConnectionOperation.m in Sources */,
 				4B1D819D1B0C95B300B7C9DC /* RCCategryListParam.m in Sources */,

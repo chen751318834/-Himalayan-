@@ -8,7 +8,7 @@
 
 #import "RCAboutAlbumViewCell.h"
 #import "UIImageView+WebCache.h"
-
+#import "RCAlbumTool.h"
 @interface RCAboutAlbumViewCell ()
 @property (weak, nonatomic) IBOutlet UIImageView *iconView;
 @property (weak, nonatomic) IBOutlet UILabel *titlelabel;
@@ -20,14 +20,14 @@
 + (instancetype)cell{
     return [[[NSBundle mainBundle]loadNibNamed:@"RCAboutAlbumViewCell" owner:nil options:nil] lastObject];
 }
-- (void)setAlbum:(RCAboutAlbum *)album{
+- (void)setAlbum:(RCAlbum *)album{
     _album = album;
     [self.iconView sd_setImageWithURL:[NSURL URLWithString:album.coverSmall] placeholderImage:[UIImage imageNamed:@"sound_albumcover"]];
     self.titlelabel.text = album.title;
     [self setUpWithButton:self.audioCountLabel count:[album.tracks intValue]
                     title:@"0"];
     self.updataTimelabel.text = album.updateTime;
-    self.saveButton.selected = album.isCollect;
+    self.saveButton.selected = [RCAlbumTool isCollectAlbum:album];
     
 }
 - (void)setUpWithButton:(UIButton *)button count:(int)count title:(NSString *)title {

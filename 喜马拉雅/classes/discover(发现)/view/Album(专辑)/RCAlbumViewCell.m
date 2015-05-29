@@ -8,7 +8,7 @@
 
 #import "RCAlbumViewCell.h"
 #import "UIImageView+WebCache.h"
-
+#import "RCAlbumTool.h"
 @interface RCAlbumViewCell ()
 @property (weak, nonatomic) IBOutlet UIImageView *iconView;
 @property (weak, nonatomic) IBOutlet UILabel *titlelabel;
@@ -26,12 +26,13 @@
     _album = album;
     [self.iconView sd_setImageWithURL:[NSURL URLWithString:album.albumCoverUrl290] placeholderImage:[UIImage imageNamed:@"sound_albumcover"]];
     self.titlelabel.text = album.title;
-    self.updataTimelabel.text = album.updateTime;
+        self.updataTimelabel.text = album.lastUptrackTime;
+
     [self setUpWithButton:self.playCountLabel count:[album.playsCounts intValue]
    title:@"0"];
     [self setUpWithButton:self.audioCountLabel count:[album.tracksCounts intValue]
  title:@"0"];
-    self.saveButton.selected = album.isCollect;
+    self.saveButton.selected = [RCAlbumTool isCollectAlbum:album];
 
 
 }

@@ -20,8 +20,12 @@
 #import <Foundation/Foundation.h>
 #import "UIView+Extension.h"
 #import "UIView+AutoLayout.h"
-#import "UIImage+RC.h"z
+#import "UIImage+RC.h"
 #import "MJExtension.h"
 #import "KVNProgress.h"
 #import "Toast+UIView.h"
+
+static NSString * savedAlbumNotification = @"savedAlbumNotifacation";
+#define RCNotificationCenter  [NSNotificationCenter defaultCenter]
+
 #endif

@@ -274,7 +274,7 @@
 - ( void)fetchAboutAlbumWithSuccess:(void (^)(void ))success failure:(void (^)(void ))failure{
 
     [RCNetWorkingTool get:[NSString stringWithFormat:@"http://ar.ximalaya.com/rec-association/recommend/album/by_album?albumId=%@&device=android",self.albumId] params:nil success:^(id json) {
-        NSArray * newAudios = [RCAboutAlbum objectArrayWithKeyValuesArray:json[@"albums"]];
+        NSArray * newAudios = [RCAlbum objectArrayWithKeyValuesArray:json[@"albums"]];
         [self.aboutAlbumlists addObjectsFromArray:newAudios];
         if (success) {
             success();
@@ -291,7 +291,7 @@
     return self.aboutAlbumlists.count;
 
 }
-- (RCAboutAlbum *)aboutAlbumListAtIndexPath: (NSIndexPath *)indexPath{
+- (RCAlbum *)aboutAlbumListAtIndexPath: (NSIndexPath *)indexPath{
     return self.aboutAlbumlists[indexPath.row];
 
 }

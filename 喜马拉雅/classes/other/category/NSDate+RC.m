@@ -91,7 +91,10 @@
     return timeStr;
 }
 + (NSDate *)dateWithNumber:(NSNumber *)number{
-    NSString * timeStr = [[number stringValue] substringToIndex:10];
+    NSString * timeStr = nil;
+    if ([number stringValue].length >= 10) {
+      timeStr  = [[number stringValue] substringToIndex:10];
+    }
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateStyle:NSDateFormatterMediumStyle];
     [formatter setTimeStyle:NSDateFormatterShortStyle];

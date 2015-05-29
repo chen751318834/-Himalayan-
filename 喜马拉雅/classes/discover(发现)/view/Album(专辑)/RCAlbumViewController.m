@@ -10,6 +10,8 @@
 #import "RCAlbumViewCell.h"
 #import "Toast+UIView.h"
 #import "RCAlbumDeailViewController.h"
+#import "RCAlbumTool.h"
+#import "RCConst.h"
 #import "RCAlbumViewModel.h"
 @interface RCAlbumViewController ()
 @property(nonatomic,weak) UISegmentedControl   *segmentControl;
@@ -132,6 +134,8 @@
     cell.album = album;
     [[cell.saveButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(UIButton * butotn) {
         album.collect = YES;
+        [RCAlbumTool saveAlbum:album];
+        [RCNotificationCenter postNotificationName:savedAlbumNotification object:nil];
         [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
     }];
     return cell;
@@ -175,5 +179,9 @@
 
     [self.navigationController pushViewController:albumDeailVC animated:YES];
     
+}
+- (void)dealloc{
+
+    [RCNotificationCenter removeObserver:self];
 }
 @end

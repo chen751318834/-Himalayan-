@@ -20,14 +20,21 @@
  */
 @property(nonatomic,strong) NSNumber  *ID;
 @property(nonatomic,strong) NSNumber  *lastUptrackAt;
+@property(nonatomic,copy) NSString  *lastUptrackTime;
+
 @property(nonatomic,strong) NSNumber  *playsCounts;
 @property(nonatomic,strong) NSNumber  *tracksCounts;
 @property(nonatomic,strong) NSNumber  *serialState;
 @property(nonatomic,copy) NSString  *title;
 @property(nonatomic,copy) NSString  *albumCoverUrl290;
-@property(nonatomic,copy) NSString  *updateTime;
 
 @property(nonatomic,assign,getter=isCollect) BOOL collect;
 
+@property(nonatomic,strong) NSNumber  *albumId;
+@property(nonatomic,strong) NSNumber  *updatedAt;
+@property(nonatomic,copy) NSString  *updateTime;
+
+@property(nonatomic,strong) NSNumber  *tracks;
+@property(nonatomic,copy) NSString  *coverSmall;
 
 @end
