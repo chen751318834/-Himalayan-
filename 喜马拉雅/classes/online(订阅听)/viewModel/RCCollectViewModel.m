@@ -11,7 +11,6 @@
 #import "RCAlbumTool.h"
 @interface RCCollectViewModel ()
 @property(nonatomic,assign) NSUInteger currentPage;
-@property(nonatomic,strong) NSMutableArray  *saveAlbumlists;
 @end
 @implementation RCCollectViewModel
 RCSingleInstanceM(collectViewModel);

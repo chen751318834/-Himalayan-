@@ -108,6 +108,9 @@
 		4B7A337A1B17FE980042E0EF /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B7A33751B17FE980042E0EF /* FMResultSet.m */; };
 		4B7A337C1B17FECF0042E0EF /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B7A337B1B17FECF0042E0EF /* libsqlite3.0.dylib */; };
 		4B7A33811B180B6A0042E0EF /* RCAlbumTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B7A33801B180B6A0042E0EF /* RCAlbumTool.m */; };
+		4B7A33851B182CF80042E0EF /* RCCollectViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B7A33831B182CF80042E0EF /* RCCollectViewCell.m */; };
+		4B7A33861B182CF80042E0EF /* RCCollectViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B7A33841B182CF80042E0EF /* RCCollectViewCell.xib */; };
+		4B7A338A1B18327A0042E0EF /* DXAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B7A33891B18327A0042E0EF /* DXAlertView.m */; };
 		4B912DED1B0EBEB4007B64DD /* RCSubject.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B912DEC1B0EBEB4007B64DD /* RCSubject.m */; };
 		4B912DF01B0EBF02007B64DD /* RCSubjectList.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B912DEF1B0EBF02007B64DD /* RCSubjectList.m */; };
 		4B912DF31B0EBFAD007B64DD /* RCSubjectViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B912DF21B0EBFAD007B64DD /* RCSubjectViewModel.m */; };
@@ -151,8 +154,6 @@
 		4BC647971B1701EC00661DB0 /* RCAlbumDownloadViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC647901B1701EC00661DB0 /* RCAlbumDownloadViewCell.m */; };
 		4BC647981B1701EC00661DB0 /* RCAlbumDownloadViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BC647911B1701EC00661DB0 /* RCAlbumDownloadViewCell.xib */; };
 		4BC6479B1B17023300661DB0 /* RCAboutAlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC6479A1B17023300661DB0 /* RCAboutAlbumViewController.m */; };
-		4BC647A01B17077400661DB0 /* RCAboutAlbumViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC6479E1B17077400661DB0 /* RCAboutAlbumViewCell.m */; };
-		4BC647A11B17077400661DB0 /* RCAboutAlbumViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BC6479F1B17077400661DB0 /* RCAboutAlbumViewCell.xib */; };
 		4BC647A41B17084600661DB0 /* RCAboutAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC647A31B17084600661DB0 /* RCAboutAlbum.m */; };
 		4BC647C61B1734B200661DB0 /* NTSlidingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC647C51B1734B200661DB0 /* NTSlidingViewController.m */; };
 		4BC647D01B17358200661DB0 /* RCollectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC647CF1B17358200661DB0 /* RCollectViewController.m */; };
@@ -430,6 +431,11 @@
 		4B7A337D1B1807780042E0EF /* RCSingleInstance.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCSingleInstance.h; sourceTree = "<group>"; };
 		4B7A337F1B180B6A0042E0EF /* RCAlbumTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCAlbumTool.h; sourceTree = "<group>"; };
 		4B7A33801B180B6A0042E0EF /* RCAlbumTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCAlbumTool.m; sourceTree = "<group>"; };
+		4B7A33821B182CF80042E0EF /* RCCollectViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCCollectViewCell.h; sourceTree = "<group>"; };
+		4B7A33831B182CF80042E0EF /* RCCollectViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCCollectViewCell.m; sourceTree = "<group>"; };
+		4B7A33841B182CF80042E0EF /* RCCollectViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RCCollectViewCell.xib; sourceTree = "<group>"; };
+		4B7A33881B18327A0042E0EF /* DXAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXAlertView.h; sourceTree = "<group>"; };
+		4B7A33891B18327A0042E0EF /* DXAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXAlertView.m; sourceTree = "<group>"; };
 		4B912DEB1B0EBEB4007B64DD /* RCSubject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCSubject.h; sourceTree = "<group>"; };
 		4B912DEC1B0EBEB4007B64DD /* RCSubject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCSubject.m; sourceTree = "<group>"; };
 		4B912DEE1B0EBF02007B64DD /* RCSubjectList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCSubjectList.h; sourceTree = "<group>"; };
@@ -506,9 +512,6 @@
 		4BC647911B1701EC00661DB0 /* RCAlbumDownloadViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RCAlbumDownloadViewCell.xib; sourceTree = "<group>"; };
 		4BC647991B17023300661DB0 /* RCAboutAlbumViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCAboutAlbumViewController.h; sourceTree = "<group>"; };
 		4BC6479A1B17023300661DB0 /* RCAboutAlbumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCAboutAlbumViewController.m; sourceTree = "<group>"; };
-		4BC6479D1B17077400661DB0 /* RCAboutAlbumViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCAboutAlbumViewCell.h; sourceTree = "<group>"; };
-		4BC6479E1B17077400661DB0 /* RCAboutAlbumViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCAboutAlbumViewCell.m; sourceTree = "<group>"; };
-		4BC6479F1B17077400661DB0 /* RCAboutAlbumViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RCAboutAlbumViewCell.xib; sourceTree = "<group>"; };
 		4BC647A21B17084600661DB0 /* RCAboutAlbum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCAboutAlbum.h; sourceTree = "<group>"; };
 		4BC647A31B17084600661DB0 /* RCAboutAlbum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCAboutAlbum.m; sourceTree = "<group>"; };
 		4BC647C41B1734B200661DB0 /* NTSlidingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTSlidingViewController.h; sourceTree = "<group>"; };
@@ -999,6 +1002,7 @@
 		4B1D81441B0C935D00B7C9DC /* lib */ = {
 			isa = PBXGroup;
 			children = (
+				4B7A33871B18327A0042E0EF /* DXAlertView */,
 				4B7A336A1B17FE980042E0EF /* fmdb */,
 				4BC647EB1B1749C700661DB0 /* DMPagerViewController */,
 				4BDE7D371B1319BF00073E12 /* CSStickyHeaderFlowLayout */,
@@ -1251,6 +1255,15 @@
 			path = tool;
 			sourceTree = "<group>";
 		};
+		4B7A33871B18327A0042E0EF /* DXAlertView */ = {
+			isa = PBXGroup;
+			children = (
+				4B7A33881B18327A0042E0EF /* DXAlertView.h */,
+				4B7A33891B18327A0042E0EF /* DXAlertView.m */,
+			);
+			path = DXAlertView;
+			sourceTree = "<group>";
+		};
 		4B912DE91B0EBE89007B64DD /* subject(专题) */ = {
 			isa = PBXGroup;
 			children = (
@@ -1449,9 +1462,6 @@
 			children = (
 				4BC647991B17023300661DB0 /* RCAboutAlbumViewController.h */,
 				4BC6479A1B17023300661DB0 /* RCAboutAlbumViewController.m */,
-				4BC6479D1B17077400661DB0 /* RCAboutAlbumViewCell.h */,
-				4BC6479E1B17077400661DB0 /* RCAboutAlbumViewCell.m */,
-				4BC6479F1B17077400661DB0 /* RCAboutAlbumViewCell.xib */,
 			);
 			path = "相关专辑";
 			sourceTree = "<group>";
@@ -1500,6 +1510,9 @@
 			children = (
 				4BC647CE1B17358200661DB0 /* RCollectViewController.h */,
 				4BC647CF1B17358200661DB0 /* RCollectViewController.m */,
+				4B7A33821B182CF80042E0EF /* RCCollectViewCell.h */,
+				4B7A33831B182CF80042E0EF /* RCCollectViewCell.m */,
+				4B7A33841B182CF80042E0EF /* RCCollectViewCell.xib */,
 			);
 			path = "collect(收藏)";
 			sourceTree = "<group>";
@@ -1800,7 +1813,6 @@
 				4B1D81471B0C935D00B7C9DC /* Info.plist in Resources */,
 				4B1D81C51B0C967300B7C9DC /* RCDiscover2IMGViewCell.xib in Resources */,
 				4B0138D31B1074FA003422EC /* RCBuildingOnwerViewCell.xib in Resources */,
-				4BC647A11B17077400661DB0 /* RCAboutAlbumViewCell.xib in Resources */,
 				4B1D828F1B0C9C9200B7C9DC /* KVNProgressView.xib in Resources */,
 				4B912DFB1B0EC1A3007B64DD /* RCSubjectViewCell.xib in Resources */,
 				4BF7883B1B0DEE310002704A /* RCHotAudioViewCell.xib in Resources */,
@@ -1810,6 +1822,7 @@
 				4B912E181B0EEB73007B64DD /* RCHotActivityViewCell.xib in Resources */,
 				4BC647981B1701EC00661DB0 /* RCAlbumDownloadViewCell.xib in Resources */,
 				4BF9A32F1B12C323003FD44E /* emoticon_default.plist in Resources */,
+				4B7A33861B182CF80042E0EF /* RCCollectViewCell.xib in Resources */,
 				4BDE7D2B1B12FE4400073E12 /* RCAlbumViewCell.xib in Resources */,
 				4B9210F91B10241F0004DB2A /* RCRecommendPostViewCell.xib in Resources */,
 				4BDE7D5D1B13335B00073E12 /* RCAlbumHeaderView.xib in Resources */,
@@ -1972,6 +1985,7 @@
 				4BC647951B1701EC00661DB0 /* RCAlbumDownLoadSectionHeaderView.m in Sources */,
 				4B912DF61B0EC090007B64DD /* RCSubjectViewController.m in Sources */,
 				4BDE7D5C1B13335B00073E12 /* RCAlbumHeaderView.m in Sources */,
+				4B7A338A1B18327A0042E0EF /* DXAlertView.m in Sources */,
 				4B1D822A1B0C977400B7C9DC /* AFURLRequestSerialization.m in Sources */,
 				4BF788361B0DD6A90002704A /* RCOnneHotAudio.m in Sources */,
 				4B9210E81B1023CF0004DB2A /* RCRecommendMyZone.m in Sources */,
@@ -1995,6 +2009,7 @@
 				4B1D81D71B0C96C400B7C9DC /* RCLatestSpecial.m in Sources */,
 				4B7A33811B180B6A0042E0EF /* RCAlbumTool.m in Sources */,
 				4BF9A3341B12CC02003FD44E /* Foundation+Log.m in Sources */,
+				4B7A33851B182CF80042E0EF /* RCCollectViewCell.m in Sources */,
 				4B1D82441B0C978000B7C9DC /* NSObject+MJKeyValue.m in Sources */,
 				4BC647D61B1735A600661DB0 /* RCHistoryViewController.m in Sources */,
 				4B9210F61B10241F0004DB2A /* RCCircleDeailViewController.m in Sources */,
@@ -2017,7 +2032,6 @@
 				4B9211211B105EEA0004DB2A /* RCOneComment.m in Sources */,
 				4BF7881B1B0DCFA70002704A /* RCSectionheaderView.m in Sources */,
 				4BF788331B0DD6250002704A /* RCHotAudio.m in Sources */,
-				4BC647A01B17077400661DB0 /* RCAboutAlbumViewCell.m in Sources */,
 				4B1D82261B0C977400B7C9DC /* AFHTTPSessionManager.m in Sources */,
 				4BF787CF1B0DBAA80002704A /* RCHotAnthorViewController.m in Sources */,
 				4B1D81F41B0C973800B7C9DC /* UIView+AutoLayout.m in Sources */,

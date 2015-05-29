@@ -34,7 +34,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="标题" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fa4-0o-e4l">
                                 <rect key="frame" x="110" y="12" width="202" height="16"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="更新时间" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jQL-3s-mns">
@@ -57,7 +57,7 @@
                                 <state key="selected" image="find_album_fav_n"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z9Q-uV-RYT">
-                                <rect key="frame" x="148" y="51" width="38" height="14"/>
+                                <rect key="frame" x="158" y="51" width="38" height="14"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="38" id="MGf-Yi-cGp"/>
                                     <constraint firstAttribute="height" constant="14" id="Vbv-3C-OXc"/>
@@ -71,10 +71,10 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HjR-AN-jce">
-                                <rect key="frame" x="88" y="51" width="60" height="14"/>
+                                <rect key="frame" x="88" y="51" width="70" height="14"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="14" id="4Gj-dn-cEE"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="CU2-WR-8RX"/>
+                                    <constraint firstAttribute="width" constant="70" id="bRD-qV-czs"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -116,6 +116,7 @@
                 <outlet property="audioCountLabel" destination="Z9Q-uV-RYT" id="qaa-Wy-idH"/>
                 <outlet property="iconView" destination="XJ2-K7-Lc1" id="izv-GR-7gH"/>
                 <outlet property="playCountLabel" destination="HjR-AN-jce" id="jbK-xa-rVK"/>
+                <outlet property="playCountLabelW" destination="bRD-qV-czs" id="OsM-MV-G9o"/>
                 <outlet property="saveButton" destination="Mtc-lw-xuZ" id="eUH-Ou-GRb"/>
                 <outlet property="titlelabel" destination="Fa4-0o-e4l" id="RDG-3X-BDK"/>
                 <outlet property="updataTimelabel" destination="jQL-3s-mns" id="jHS-J8-G7r"/>

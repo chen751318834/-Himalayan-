@@ -79,11 +79,7 @@ static FMDatabase * _db;
     return [set intForColumn:@"album_count"];
 
 }
-//+ (RCAlbum *)album{
-//
-//    FMResultSet *set = [_db executeQueryWithFormat:@"SELECT album  FROM t_album WHERE albumId = %@;"];
-//    [set next];
-//}
+
 + (BOOL)isCollectAlbum:(RCAlbum *)album{
     FMResultSet *set = [_db executeQueryWithFormat:@"SELECT count(*) AS album_count FROM t_album WHERE albumId = %@;", album.albumId];
     [set next];

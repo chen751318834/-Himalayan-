@@ -13,7 +13,6 @@
 + (void)removealbum:(RCAlbum *)album;
 + (void)removeAllAlbum;
 + (NSArray *)albumsWithPage:(NSUInteger )page;
-+ (RCAlbum *)album;
 + (NSUInteger)albumCount;
 + (BOOL)isCollectAlbum:(RCAlbum *)album;
 @end

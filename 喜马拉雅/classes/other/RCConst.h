@@ -26,6 +26,8 @@
 #import "Toast+UIView.h"
 
 static NSString * savedAlbumNotification = @"savedAlbumNotifacation";
+static NSString * savedAlbumNotificationName = @"savedAlbumNotificationName";
+
 #define RCNotificationCenter  [NSNotificationCenter defaultCenter]
 
 #endif

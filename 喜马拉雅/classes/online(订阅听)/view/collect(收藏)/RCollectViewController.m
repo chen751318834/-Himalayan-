@@ -9,6 +9,9 @@
 #import "RCollectViewController.h"
 #import "RCConst.h"
 #import "RCCollectViewModel.h"
+#import "RCCollectViewCell.h"
+#import "RCAlbumTool.h"
+#import "DXAlertView.h"
 #import "RCAlbumViewCell.h"
 @interface RCollectViewController ()
 @property(nonatomic,strong) RCCollectViewModel  *viewModel;
@@ -26,14 +29,15 @@
     [super viewDidLoad];
     self.tableView.gifHeader.hidden = YES;
     self.tableView.gifFooter.hidden = NO;
-    [RCNotificationCenter addObserver:self selector:@selector(reloadAlbumData) name:savedAlbumNotification object:nil];
-
-}
-- (void)reloadAlbumData{
+    [RCNotificationCenter addObserver:self selector:@selector(reloadAlbumData:) name:savedAlbumNotification object:nil];
     [self.viewModel loadNewAlbumsWithSuccess:^{
         [self.tableView reloadData];
         [self.tableView.gifHeader endRefreshing];
-    } failure:nil];
+    } failure:nil];}
+- (void)reloadAlbumData:(NSNotification *)note{
+    RCAlbum * album = note.userInfo[savedAlbumNotificationName];
+    [self.viewModel.saveAlbumlists insertObject:album atIndex:0];
+    [self.tableView reloadData];
 
 }
 
@@ -46,19 +50,29 @@
 }
 #pragma mark - UITableViewDelegate
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    RCAlbumViewCell * cell = [RCAlbumViewCell cell];
+    RCCollectViewCell * cell = [RCCollectViewCell cell];
     RCAlbum * album = [self.viewModel AlbumListAtIndexPath:indexPath];
     cell.album = album;
-    [[cell.saveButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(UIButton * butotn) {
-        album.collect = YES;
-        [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+    @weakify(self);
+    [[cell.deleteButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(UIButton * butotn) {
+        @strongify(self);
+        DXAlertView * alertView = [[DXAlertView alloc]initWithTitle:@"温馨提示" contentText:@"确定要取消收藏？" leftButtonTitle:@"确定" rightButtonTitle:@"取消"];
+        [alertView show];
+        alertView.leftBlock = ^{
+            [self.viewModel.saveAlbumlists removeObject:album];
+            [RCAlbumTool removealbum:album];
+            [self.tableView reloadData];
+        };
+        
+
+
     }];
     return cell;
 
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    self.tableView.gifFooter.hidden = [self.viewModel numberOfRowAlbumlistInSection:section] == [self.viewModel albumCount];
+    self.tableView.gifFooter.hidden = self.viewModel.saveAlbumlists.count == [self.viewModel albumCount];
     return [self.viewModel numberOfRowAlbumlistInSection:section];
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{

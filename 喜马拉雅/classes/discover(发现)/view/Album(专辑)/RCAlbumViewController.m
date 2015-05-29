@@ -135,8 +135,7 @@
     [[cell.saveButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(UIButton * butotn) {
         album.collect = YES;
         [RCAlbumTool saveAlbum:album];
-        [RCNotificationCenter postNotificationName:savedAlbumNotification object:nil];
-        [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+  [RCNotificationCenter postNotificationName:savedAlbumNotification object:nil userInfo:@{savedAlbumNotificationName:album}];        [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
     }];
     return cell;
 

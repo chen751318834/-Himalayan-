@@ -10,6 +10,7 @@
 #import "RCAlbum.h"
 #import "RCSingleInstance.h"
 @interface RCCollectViewModel : NSObject
+@property(nonatomic,strong) NSMutableArray  *saveAlbumlists;
 
 - (void)loadNewAlbumsWithSuccess:(void (^)(void ))success failure:(void (^)(void ))failure ;
 - (void)loadMoreAlbumsWithSuccess:(void (^)(void ))success failure:(void (^)(void ))failure completion:(void (^)(void))completion;

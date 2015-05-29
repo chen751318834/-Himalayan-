@@ -1,15 +1,15 @@
 //
-//  RCAlbumViewCell.m
+//  RCCollectViewCell.m
 //  喜马拉雅
 //
-//  Created by Raychen on 15/5/25.
+//  Created by Raychen on 15/5/29.
 //  Copyright (c) 2015年 raychen. All rights reserved.
 //
 
-#import "RCAlbumViewCell.h"
-#import "UIImageView+WebCache.h"
+#import "RCCollectViewCell.h"
 #import "RCAlbumTool.h"
-@interface RCAlbumViewCell ()
+#import "UIImageView+WebCache.h"
+@interface RCCollectViewCell ()
 @property (weak, nonatomic) IBOutlet UIImageView *iconView;
 @property (weak, nonatomic) IBOutlet UILabel *titlelabel;
 @property (weak, nonatomic) IBOutlet UIButton *playCountLabel;
@@ -17,11 +17,11 @@
 @property (weak, nonatomic) IBOutlet UILabel *updataTimelabel;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *playCountLabelW;
 
-
 @end
-@implementation RCAlbumViewCell
+@implementation RCCollectViewCell
+
 + (instancetype)cell{
-    return [[[NSBundle mainBundle]loadNibNamed:@"RCAlbumViewCell" owner:nil options:nil] lastObject];
+    return [[[NSBundle mainBundle]loadNibNamed:@"RCCollectViewCell" owner:nil options:nil] lastObject];
 }
 - (void)setAlbum:(RCAlbum *)album{
 
@@ -54,10 +54,6 @@
     }else{
         self.audioCountLabel.hidden = YES;
     }
-
-    self.saveButton.selected = [RCAlbumTool isCollectAlbum:album];
-
-
 }
 - (void)setUpWithButton:(UIButton *)button count:(int)count title:(NSString *)title {
     if (count ==0) {
@@ -70,13 +66,7 @@
             title = [NSString stringWithFormat:@"%.1f万",count/10000.0];
             title = [title stringByReplacingOccurrencesOfString:@".0" withString:@""];
         }
-
-        //大于14000  -> 1.4万
-
-        //大于10445  -> 1万
         [button setTitle:title forState:UIControlStateNormal];
-        
-        
     }
     
 }
