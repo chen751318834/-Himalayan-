@@ -215,7 +215,7 @@
                 <outlet property="bgimageView" destination="Wlc-Yu-xXR" id="Lp6-wr-fhI"/>
                 <outlet property="iconView" destination="WeP-fM-w4m" id="mq1-wM-v6p"/>
                 <outlet property="nickNameLabel" destination="ygQ-v3-XiP" id="dXJ-hE-mWv"/>
-                <outlet property="saveButton" destination="zQE-hE-BJL" id="b1O-xw-pfH"/>
+                <outlet property="saveButton" destination="zQE-hE-BJL" id="ZQQ-fB-OMh"/>
                 <outlet property="smallIconView" destination="8CA-nJ-MYx" id="Ax7-Lp-KOq"/>
                 <outlet property="subTitleLabel" destination="cKp-2m-AKP" id="bhU-hQ-VUZ"/>
                 <outlet property="tagContentView" destination="kTD-gF-Kuc" id="86r-1D-nhb"/>

@@ -16,6 +16,7 @@
 #import "RCOneAlbumViewController.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #import "RCNavigationController.h"
+#import "RCAlbumTool.h"
 #import "RCAlbumDownLoadViewController.h"
 #import "RCAboutAlbumViewController.h"
 @interface RCAlbumHeaderView ()
@@ -37,13 +38,13 @@
     return _buttons;
 }
 
-- (void)setAlbum:(RCOneAlbum *)album{
+- (void)setAlbum:(RCAlbum *)album{
     _album = album;
     self.nickNameLabel.text = album.nickname;
     self.tilteLabel.text = album.title;
     self.subTitleLabel.text = album.intro;
 
-
+    self.saveButton.selected = [RCAlbumTool isCollectAlbum:album];
     [self.bgimageView sd_setImageWithURL:[NSURL URLWithString:album.coverOrigin] placeholderImage:[UIImage imageNamed:@"bg_albumView_header"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         [self.bgimageView setImageToBlur:image blurRadius:40 completionBlock:^(NSError *error) {
 
@@ -80,6 +81,7 @@
         }];
 
     }
+
 }
 - (void)layoutSubviews{
 

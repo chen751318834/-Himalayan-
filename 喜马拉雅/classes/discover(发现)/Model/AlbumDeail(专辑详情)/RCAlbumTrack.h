@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "RCOneAlbum.h"
+//#import "RCOneAlbum.h"
+#import "RCAlbum.h"
 #import "RCTrack.h"
 @interface RCAlbumTrack : NSObject
 /**
@@ -18,6 +19,6 @@
  */
 @property(nonatomic,strong) NSNumber  *ret;
 @property(nonatomic,strong) NSNumber  *msg;
-@property(nonatomic,strong) RCOneAlbum  *album;
+@property(nonatomic,strong) RCAlbum  *album;
 @property(nonatomic,strong) RCTrack  *tracks;
 @end

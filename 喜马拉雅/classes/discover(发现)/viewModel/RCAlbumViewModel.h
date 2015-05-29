@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import "RCBaseViewModel.h"
-#import "RCOneAlbum.h"
 #import "RCAlbum.h"
 #import "RCAboutAlbum.h"
 #import "RCTrackList.h"
@@ -42,7 +41,7 @@
 @property(nonatomic,strong) NSMutableArray  *trarkLists;
 
 @property(nonatomic,strong) NSNumber  *ID;
-@property(nonatomic,strong) RCOneAlbum  *album;
+@property(nonatomic,strong) RCAlbum  *album;
 @property(nonatomic,strong) NSNumber  *totalCount;
 @property(nonatomic,copy) NSString  *tag;
 

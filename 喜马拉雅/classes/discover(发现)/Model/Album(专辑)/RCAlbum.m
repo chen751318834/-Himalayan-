@@ -19,7 +19,7 @@ MJCodingImplementation
     NSDate * date = [NSDate dateWithNumber:_lastUptrackAt];
     NSDateFormatter *fmt                       = [[NSDateFormatter alloc] init];
     //#warning 真机调试下, 必须加上这段
-    fmt.locale                                 = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
+    fmt.locale                                 = [[NSLocale alloc] initWithLocaleIdentifier:@"zh_CN"];
 
     if (date.isToday) { // 今天
         if (date.deltaWithNow.hour >= 1) {
@@ -48,7 +48,7 @@ MJCodingImplementation
     NSDate * date = [NSDate dateWithNumber:_updatedAt];
     NSDateFormatter *fmt                       = [[NSDateFormatter alloc] init];
     //#warning 真机调试下, 必须加上这段
-    fmt.locale                                 = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
+    fmt.locale                                 = [[NSLocale alloc] initWithLocaleIdentifier:@"zh_CN"];
 
     if (date.isToday) { // 今天
         if (date.deltaWithNow.hour >= 1) {

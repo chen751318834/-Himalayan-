@@ -175,7 +175,6 @@
 		4BDE7D5C1B13335B00073E12 /* RCAlbumHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BDE7D5A1B13335B00073E12 /* RCAlbumHeaderView.m */; };
 		4BDE7D5D1B13335B00073E12 /* RCAlbumHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BDE7D5B1B13335B00073E12 /* RCAlbumHeaderView.xib */; };
 		4BDE7D621B135AB100073E12 /* RCAlbumTrack.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BDE7D611B135AB100073E12 /* RCAlbumTrack.m */; };
-		4BDE7D651B135ACB00073E12 /* RCOneAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BDE7D641B135ACB00073E12 /* RCOneAlbum.m */; };
 		4BDE7D681B135ADC00073E12 /* RCTrack.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BDE7D671B135ADC00073E12 /* RCTrack.m */; };
 		4BDE7D6B1B135CB600073E12 /* RCTrackList.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BDE7D6A1B135CB600073E12 /* RCTrackList.m */; };
 		4BF787AE1B0DB7700002704A /* RCHotAnchorVIewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF787AD1B0DB7700002704A /* RCHotAnchorVIewModel.m */; };
@@ -552,8 +551,6 @@
 		4BDE7D5B1B13335B00073E12 /* RCAlbumHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RCAlbumHeaderView.xib; sourceTree = "<group>"; };
 		4BDE7D601B135AB100073E12 /* RCAlbumTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCAlbumTrack.h; sourceTree = "<group>"; };
 		4BDE7D611B135AB100073E12 /* RCAlbumTrack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCAlbumTrack.m; sourceTree = "<group>"; };
-		4BDE7D631B135ACB00073E12 /* RCOneAlbum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCOneAlbum.h; sourceTree = "<group>"; };
-		4BDE7D641B135ACB00073E12 /* RCOneAlbum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCOneAlbum.m; sourceTree = "<group>"; };
 		4BDE7D661B135ADC00073E12 /* RCTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCTrack.h; sourceTree = "<group>"; };
 		4BDE7D671B135ADC00073E12 /* RCTrack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCTrack.m; sourceTree = "<group>"; };
 		4BDE7D691B135CB600073E12 /* RCTrackList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCTrackList.h; sourceTree = "<group>"; };
@@ -1554,8 +1551,6 @@
 			children = (
 				4BDE7D601B135AB100073E12 /* RCAlbumTrack.h */,
 				4BDE7D611B135AB100073E12 /* RCAlbumTrack.m */,
-				4BDE7D631B135ACB00073E12 /* RCOneAlbum.h */,
-				4BDE7D641B135ACB00073E12 /* RCOneAlbum.m */,
 				4BDE7D661B135ADC00073E12 /* RCTrack.h */,
 				4BDE7D671B135ADC00073E12 /* RCTrack.m */,
 				4BDE7D691B135CB600073E12 /* RCTrackList.h */,
@@ -2052,7 +2047,6 @@
 				4B912E171B0EEB73007B64DD /* RCHotActivityViewCell.m in Sources */,
 				4B1D81C11B0C967300B7C9DC /* RCCategoryListViewCell.m in Sources */,
 				4B1D827B1B0C982900B7C9DC /* SDWebImageManager.m in Sources */,
-				4BDE7D651B135ACB00073E12 /* RCOneAlbum.m in Sources */,
 				4B1D82281B0C977400B7C9DC /* AFSecurityPolicy.m in Sources */,
 				4BF9A1431B12B485003FD44E /* HWEmotion.m in Sources */,
 				4BF9A3321B12C3DD003FD44E /* RCGroupEmoticon.m in Sources */,

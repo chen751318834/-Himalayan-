@@ -34,7 +34,7 @@
                             <constraint firstAttribute="height" constant="19" id="adO-EY-CUr"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                        <state key="normal" title="播放数">
+                        <state key="normal" title="播放数" image="sound_playtimes">
                             <color key="titleColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
@@ -68,4 +68,7 @@
             <point key="canvasLocation" x="388" y="287.5"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="sound_playtimes" width="6" height="8"/>
+    </resources>
 </document>

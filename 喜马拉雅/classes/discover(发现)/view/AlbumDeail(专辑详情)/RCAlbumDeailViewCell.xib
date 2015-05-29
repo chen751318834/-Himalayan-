@@ -53,10 +53,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2xN-5g-iya">
-                                <rect key="frame" x="76" y="76" width="40" height="11"/>
+                                <rect key="frame" x="76" y="76" width="0.0" height="11"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="11" id="AcW-7q-3dX"/>
-                                    <constraint firstAttribute="width" constant="40" id="f0O-m2-JRl"/>
+                                    <constraint firstAttribute="width" id="f0O-m2-JRl"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                 <inset key="titleEdgeInsets" minX="3" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -66,10 +66,10 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yib-es-z02">
-                                <rect key="frame" x="156" y="76" width="40" height="11"/>
+                                <rect key="frame" x="76" y="76" width="0.0" height="11"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="11" id="5bi-sT-lsB"/>
-                                    <constraint firstAttribute="width" constant="40" id="fFj-bd-sCA"/>
+                                    <constraint firstAttribute="width" id="fFj-bd-sCA"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                 <inset key="titleEdgeInsets" minX="3" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -79,7 +79,7 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Prp-rU-xF6">
-                                <rect key="frame" x="196" y="76" width="40" height="11"/>
+                                <rect key="frame" x="76" y="76" width="40" height="11"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="11" id="Ucx-5W-TG2"/>
                                     <constraint firstAttribute="width" constant="40" id="fmA-QG-sr2"/>
@@ -103,9 +103,9 @@
                                 <state key="selected" image="cell_downloaded"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n7R-64-z4e">
-                                <rect key="frame" x="116" y="76" width="40" height="11"/>
+                                <rect key="frame" x="76" y="76" width="0.0" height="11"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="40" id="TQr-i7-DbK"/>
+                                    <constraint firstAttribute="width" id="TQr-i7-DbK"/>
                                     <constraint firstAttribute="height" constant="11" id="VmE-GJ-uEc"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="9"/>

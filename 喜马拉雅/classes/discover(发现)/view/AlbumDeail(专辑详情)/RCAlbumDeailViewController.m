@@ -10,10 +10,12 @@
 #import "CSStickyHeaderFlowLayout.h"
 #import "RCAlbumViewModel.h"
 #import "RCSegementControl.h"
+#import "RCAlbumTool.h"
 #import "RCAlbumSectionHeaderView.h"
 #import "MJRefresh.h"
 #import "Toast+UIView.h"
 #import "RCHotAudioViewCell.h"
+#import "RCConst.h"
 #import "RCDiscoverViewController.h"
 #import "RCAlbumViewController.h"
 #import "RCConst.h"
@@ -188,14 +190,29 @@
         headerView.ID = self.ID;
         headerView.albumId = self.viewModel.album.albumId;
         [headerView.back addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
-        [[headerView.saveButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(UIButton * button) {
-            button.selected = YES;
-        }];      
+        [headerView.saveButton addTarget:self action:@selector(sendData:) forControlEvents:UIControlEventTouchUpInside ];
         return headerView;
     }
     return nil;
 }
+- (void)sendData:(UIButton *)button{
+    NSMutableDictionary * info = [NSMutableDictionary dictionary];
+    if (self.viewModel.album) {
+        info[albumNotificationName] = self.viewModel.album;
+    }
+    if (button.isSelected) {
+        info[isCollectedAlbumNotificationName] = @NO;
+    }else{
+        info[isCollectedAlbumNotificationName] = @YES;
+    }
+    button.selected = !button.isSelected;
+    [RCNotificationCenter postNotificationName:savedAlbumNotification object:nil userInfo:info];
 
+}
+- (void)dealloc{
+
+    [RCNotificationCenter removeObserver:self];
+}
 - (void)back{
     [self.navigationController popViewControllerAnimated:YES];
 

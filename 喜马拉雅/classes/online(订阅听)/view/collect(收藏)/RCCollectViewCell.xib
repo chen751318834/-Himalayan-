@@ -31,8 +31,11 @@
                                     <constraint firstAttribute="height" constant="20" id="eaV-3B-TNE"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="标题" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="og7-Xw-f7p">
-                                <rect key="frame" x="110" y="12" width="202" height="16"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="标题" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="og7-Xw-f7p">
+                                <rect key="frame" x="110" y="-1" width="202" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="cYp-L3-XiK"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -88,6 +91,7 @@
                             <constraint firstItem="QeT-DA-PyH" firstAttribute="leading" secondItem="Qoh-ht-oGP" secondAttribute="trailing" constant="8" id="2UL-pe-ibt"/>
                             <constraint firstItem="og7-Xw-f7p" firstAttribute="centerY" secondItem="VAY-Se-MYd" secondAttribute="centerY" id="3Ye-EN-kSx"/>
                             <constraint firstAttribute="trailing" secondItem="Ea6-Em-THc" secondAttribute="trailing" constant="8" id="F6H-qR-jqq"/>
+                            <constraint firstItem="HCi-9I-Vf7" firstAttribute="top" secondItem="og7-Xw-f7p" secondAttribute="bottom" constant="10" id="IRj-E9-Fec"/>
                             <constraint firstItem="Qoh-ht-oGP" firstAttribute="top" secondItem="XC8-pM-ion" secondAttribute="top" id="OoC-lU-iYJ"/>
                             <constraint firstItem="VAY-Se-MYd" firstAttribute="leading" secondItem="Qoh-ht-oGP" secondAttribute="trailing" constant="8" id="Rve-fe-p8M"/>
                             <constraint firstAttribute="bottom" secondItem="QeT-DA-PyH" secondAttribute="bottom" id="Uey-vD-hJH"/>

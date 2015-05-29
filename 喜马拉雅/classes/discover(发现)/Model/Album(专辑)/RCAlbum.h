@@ -27,6 +27,7 @@
 @property(nonatomic,strong) NSNumber  *serialState;
 @property(nonatomic,copy) NSString  *title;
 @property(nonatomic,copy) NSString  *albumCoverUrl290;
+@property(nonatomic,copy) NSString  *coverSmall;
 
 @property(nonatomic,assign,getter=isCollect) BOOL collect;
 
@@ -35,6 +36,26 @@
 @property(nonatomic,copy) NSString  *updateTime;
 
 @property(nonatomic,strong) NSNumber  *tracks;
-@property(nonatomic,copy) NSString  *coverSmall;
+@property(nonatomic,strong) NSNumber  *categoryId;
+@property(nonatomic,strong) NSNumber  *createdAt;
 
+@property(nonatomic,strong) NSNumber  *uid;
+@property(nonatomic,strong) NSNumber  *zoneId;
+@property(nonatomic,strong) NSNumber  *shares;
+@property(nonatomic,strong) NSNumber  *playTimes;
+@property(nonatomic,copy) NSString  *categoryName;
+@property(nonatomic,copy) NSString  *coverLarge;
+@property(nonatomic,copy) NSString  *coverWebLarge;
+@property(nonatomic,copy) NSString  *nickname;
+@property(nonatomic,copy) NSString  *avatarPath;
+@property(nonatomic,copy) NSString  *intro;
+@property(nonatomic,copy) NSString  *introRich;
+@property(nonatomic,copy) NSString  *tags;
+@property(nonatomic,copy) NSString  *coverOrigin;
+
+@property(nonatomic,assign) BOOL isVerified;
+@property(nonatomic,assign) BOOL hasNew;
+@property(nonatomic,assign) BOOL isFavorite;
+@property(nonatomic,strong) NSNumber  *status;
+@property(nonatomic,assign,getter=isCollected) BOOL collected;
 @end

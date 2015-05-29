@@ -7,13 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "RCOneAlbum.h"
+#import "RCAlbum.h"
 @interface RCAlbumHeaderView : UICollectionReusableView
 + (instancetype)headerView;
 @property (weak, nonatomic) IBOutlet UIButton *back;
 @property (weak, nonatomic) IBOutlet UIButton *saveButton;
 @property(nonatomic,strong) NSNumber  *ID;
-@property(nonatomic,strong) RCOneAlbum  *album;
+@property(nonatomic,strong) RCAlbum  *album;
 @property(nonatomic,strong) NSArray  *tracklist;
 @property(nonatomic,strong) NSNumber  *albumId;
 @end

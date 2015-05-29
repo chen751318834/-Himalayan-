@@ -29,9 +29,10 @@
     [self.iconView sd_setImageWithURL:[NSURL URLWithString:album.albumCoverUrl290] placeholderImage:[UIImage imageNamed:@"sound_albumcover"]];
     self.titlelabel.text = album.title;
     if (album.updatedAt) {
-        self.updataTimelabel.text = album.updateTime;
+        self.updataTimelabel.text = [NSString stringWithFormat:@"最后更新 %@",album.updateTime];
+
     }else if ( album.lastUptrackAt){
-        self.updataTimelabel.text = album.lastUptrackTime;
+        self.updataTimelabel.text = [NSString stringWithFormat:@"最后更新 %@",album.lastUptrackTime];
 
     }
     if (album.playsCounts) {

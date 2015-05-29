@@ -24,15 +24,13 @@
     return [[[NSBundle mainBundle]loadNibNamed:@"RCAlbumViewCell" owner:nil options:nil] lastObject];
 }
 - (void)setAlbum:(RCAlbum *)album{
-
     _album = album;
     [self.iconView sd_setImageWithURL:[NSURL URLWithString:album.albumCoverUrl290] placeholderImage:[UIImage imageNamed:@"sound_albumcover"]];
     self.titlelabel.text = album.title;
     if (album.updatedAt) {
-        self.updataTimelabel.text = album.updateTime;
+        self.updataTimelabel.text = [NSString stringWithFormat:@"最后更新 %@",album.updateTime];
     }else if ( album.lastUptrackAt){
-        self.updataTimelabel.text = album.lastUptrackTime;
-
+        self.updataTimelabel.text = [NSString stringWithFormat:@"最后更新 %@",album.lastUptrackTime];
     }
     if (album.playsCounts) {
         [self setUpWithButton:self.playCountLabel count:[album.playsCounts intValue]
@@ -55,7 +53,7 @@
         self.audioCountLabel.hidden = YES;
     }
 
-    self.saveButton.selected = [RCAlbumTool isCollectAlbum:album];
+    self.saveButton.enabled = ![RCAlbumTool isCollectAlbum:album];
 
 
 }

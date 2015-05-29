@@ -49,7 +49,12 @@
     [[cell.saveButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(UIButton * butotn) {
         album.collect = YES;
         [RCAlbumTool saveAlbum:album];
-        [RCNotificationCenter postNotificationName:savedAlbumNotification object:nil userInfo:@{savedAlbumNotificationName:album}];
+        NSMutableDictionary * info = [NSMutableDictionary dictionary];
+        if (album) {
+            info[albumNotificationName] = album;
+            info[isCollectedAlbumNotificationName] = @YES;
+        }
+        [RCNotificationCenter postNotificationName:savedAlbumNotification object:nil userInfo:info];
         [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
     }];
     return cell;

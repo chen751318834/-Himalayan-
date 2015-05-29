@@ -24,6 +24,22 @@
     _list = list;
     [self.icoView sd_setImageWithURL:[NSURL URLWithString:list.coverSmall] placeholderImage:[UIImage imageNamed:@"findsubject_large_bg"]];
     self.titleLabel.text = list.title;
-    [self.playCountLabel setTitle:[NSString stringWithFormat:@"%@",list.playsCounts] forState:UIControlStateNormal];
+    [self setUpWithButton:self.playCountLabel count:[list.playsCounts intValue]
+  title:nil];
+}
+- (void)setUpWithButton:(UIButton *)button count:(int)count title:(NSString *)title {
+    if (count ==0) {
+        [button setTitle:title forState:UIControlStateNormal];
+    }else{
+        //小于1000
+        if (count <10000) {  //小于1000
+            title = [NSString stringWithFormat:@"%d",count];
+        }else if(count >10000){    //大于一万
+            title = [NSString stringWithFormat:@"%.1f万",count/10000.0];
+            title = [title stringByReplacingOccurrencesOfString:@".0" withString:@""];
+        }
+        [button setTitle:title forState:UIControlStateNormal];
+    }
+
 }
 @end
