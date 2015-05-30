@@ -45,7 +45,7 @@
                     <constraint firstItem="PMv-qa-ARa" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="oeh-6a-2ke"/>
                 </constraints>
             </tableViewCellContentView>
-            <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="0.059999999999999998" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="0.95294117649999999" green="0.96862745100000003" blue="1" alpha="0.059999999999999998" colorSpace="calibratedRGB"/>
             <connections>
                 <outlet property="icon1View" destination="Ghs-Ce-0o5" id="PR6-xC-cVy"/>
                 <outlet property="icon2View" destination="W3l-6f-ha1" id="oLl-Xb-2fZ"/>

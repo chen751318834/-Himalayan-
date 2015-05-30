@@ -66,8 +66,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSLog(@"%@",self.navigationController.viewControllers);
-
+    self.collectionView.frame = [UIScreen mainScreen].bounds;
     [self.viewModel fetchNewAlbumDeailDataWithSuccess:^{
         [self.collectionView reloadData];
     } failure:^{

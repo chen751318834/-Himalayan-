@@ -58,7 +58,7 @@
 - (void)layoutSubviews{
     [super layoutSubviews];
     //布局加号按钮
-    [self layoutPlusButton];
+//    [self layoutPlusButton];
 
     //布局所有的子控件
     //        NSLog(@"%@", self.subviews );

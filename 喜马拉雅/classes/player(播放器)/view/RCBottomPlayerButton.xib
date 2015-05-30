@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14E26a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="RCBottomPlayerButton">
+            <rect key="frame" x="0.0" y="0.0" width="76" height="71.5"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tabbar_np_icon" translatesAutoresizingMaskIntoConstraints="NO" id="cXS-cQ-8KQ">
+                    <rect key="frame" x="8" y="13.5" width="60" height="50.5"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50.5" id="8Na-qx-igS"/>
+                        <constraint firstAttribute="width" constant="60" id="EJZ-48-7B6"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2aT-KY-P5G">
+                    <rect key="frame" x="0.0" y="0.0" width="76" height="72"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <inset key="imageEdgeInsets" minX="5" minY="5" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" backgroundImage="tabbar_np_default">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="selected" image="tabbar_np_play"/>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="2aT-KY-P5G" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="A5Y-w4-pp5"/>
+                <constraint firstItem="cXS-cQ-8KQ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="FX7-MH-SnR"/>
+                <constraint firstItem="2aT-KY-P5G" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="JL6-UC-8lm"/>
+                <constraint firstAttribute="bottom" secondItem="2aT-KY-P5G" secondAttribute="bottom" id="Phm-sb-9xE"/>
+                <constraint firstAttribute="trailing" secondItem="2aT-KY-P5G" secondAttribute="trailing" id="VGs-fu-47c"/>
+                <constraint firstItem="cXS-cQ-8KQ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="13.5" id="xBV-So-B7d"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="button" destination="2aT-KY-P5G" id="hK9-71-fYA"/>
+                <outlet property="playingIconView" destination="cXS-cQ-8KQ" id="sJW-xU-Ils"/>
+            </connections>
+            <point key="canvasLocation" x="255" y="272.75"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="tabbar_np_default" width="76" height="71"/>
+        <image name="tabbar_np_icon" width="52" height="51"/>
+        <image name="tabbar_np_play" width="19" height="20"/>
+    </resources>
+</document>

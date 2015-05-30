@@ -30,6 +30,11 @@ static NSString * albumNotificationName = @"albumNotificationName";
 static NSString * isCollectedAlbumNotificationName = @"isCollectedAlbumNotificationName";
 
 
+static NSString * backHomeNotification = @"backHomeNotification";
+
+static NSString * selectedSegmentControlIndexNotification = @"selectedSegmentControlIndexNotification";
+static NSString * selectedSegmentControlIndexNotificationName = @"selectedSegmentControlIndexNotificationName";
+
 #define RCNotificationCenter  [NSNotificationCenter defaultCenter]
 
 #endif

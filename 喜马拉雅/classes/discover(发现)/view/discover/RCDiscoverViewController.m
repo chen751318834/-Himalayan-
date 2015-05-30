@@ -23,12 +23,15 @@
 #import "RCSectionheaderView.h"
 #import "RCAlbumViewController.h"
 #import "RCCatrgory.h"
+#import "RCBottomPlayerButton.h"
 #import "RCCategoryListViewModel.h"
+#import "RCPlayerView.h"
 #import "RCDisCoverViewModel.h"
 #import "RCLatestSpecial.h"
 #import "RCLatestActivity.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #import "MJExtension.h"
+
 static NSString * const categoryID = @"categoryCell";
 static NSString * const imgID = @"imgCell";
 static NSString * const img2CellID = @"img2CellID";
@@ -47,6 +50,8 @@ static const NSUInteger sectionCount = 100;
 @property(nonatomic,strong) RCCategoryListViewModel  *categoryViewModel;
 @property(nonatomic,weak) UIPageControl   *pageControl;
 @property(nonatomic,weak) UIImageView   *coverView;
+@property(nonatomic,weak) RCPlayerView   *playerView;
+@property(nonatomic,weak) RCBottomPlayerButton   *playButton;
 
 @end
 
@@ -83,7 +88,9 @@ static const NSUInteger sectionCount = 100;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    self.tableView.allowsSelection = NO;
+    [self addplayButton];
+
+    [RCNotificationCenter addObserver:self selector:@selector(back) name:backHomeNotification object:nil];
     self.tableView.separatorStyle = UITableViewCellSelectionStyleNone;
     self.tableView.tableFooterView = [[UIView alloc]init];
     [self.tableView registerNib:[UINib nibWithNibName:@"RCDiscoverItemViewCell" bundle:nil] forCellReuseIdentifier:itemCellID];
@@ -105,6 +112,62 @@ static const NSUInteger sectionCount = 100;
         self.coverView.hidden = YES;
 
     }];
+
+}
+
+- (void)back{
+    [UIView animateWithDuration:1 animations:^{
+        self.playButton.userInteractionEnabled = NO;
+        self.playerView.transform = CGAffineTransformMakeTranslation(0, [UIScreen mainScreen].bounds.size.height);
+    }completion:^(BOOL finished) {
+        self.playerView.hidden = YES;
+        self.playButton.userInteractionEnabled = YES;
+
+    }];
+
+
+}
+- (void)dealloc{
+    [RCNotificationCenter removeObserver:self];
+}
+- (void)addplayButton{
+    UIWindow * window = [UIApplication sharedApplication].keyWindow;
+
+    RCPlayerView * playerView = [RCPlayerView playerView];
+    [window addSubview:playerView];
+        playerView.hidden = YES;
+    self.playerView= playerView;
+    playerView.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
+    RCBottomPlayerButton * playButton = [RCBottomPlayerButton playerButton];
+    [playButton.button addTarget:self action:@selector(enterPlayerView:) forControlEvents:UIControlEventTouchUpInside];
+         [window addSubview:playButton];
+    self.playButton = playButton;
+     [playButton autoPinEdge:ALEdgeLeft toEdge:ALEdgeLeft ofView:window withOffset:([UIScreen mainScreen].bounds.size.width - 76)*0.5];
+    [playButton autoPinEdge:ALEdgeBottom toEdge:ALEdgeBottom ofView:window withOffset:0];
+    [playButton autoSetDimension:ALDimensionWidth toSize:76];
+    [playButton autoSetDimension:ALDimensionHeight toSize:71.5];
+//    [playButton addTarget:self action:@selector(enterPlayerView:) forControlEvents:UIControlEventTouchUpInside];
+
+}
+- (void)enterPlayerView:(UIButton *)button{
+//    if (button.isSelected) {
+//        [UIView animateWithDuration:1 animations:^{
+//            self.playerView.transform = CGAffineTransformMakeTranslation(0, [UIScreen mainScreen].bounds.size.height);
+//            button.userInteractionEnabled = NO;
+//        }completion:^(BOOL finished) {
+//            self.playerView.hidden = YES;
+//            button.userInteractionEnabled = YES;
+//        }];
+//    }else{
+        self.playerView.hidden = NO;
+        [UIView animateWithDuration:1 animations:^{
+            button.userInteractionEnabled = NO;
+            self.playerView.transform = CGAffineTransformMakeTranslation(0, -[UIScreen mainScreen].bounds.size.height);
+        }completion:^(BOOL finished) {
+            button.userInteractionEnabled = YES;
+        }];
+//    }
+//    button.selected = !button.isSelected;
 
 }
 - (void)setUpPageControl{

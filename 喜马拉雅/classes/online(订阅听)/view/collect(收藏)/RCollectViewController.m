@@ -29,6 +29,7 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.tableView.backgroundColor = [UIColor colorWithRed:0.953 green:0.969 blue:1.000 alpha:1.000];
 
     [self setUpHeaderView];
     self.tableView.gifHeader.hidden = YES;
@@ -68,6 +69,7 @@
            [self.viewModel.saveAlbumlists removeAllObjects];
            [RCAlbumTool removeAllAlbum];
            [self.tableView reloadData];
+           [self.tableView removeFooter];
        };
 
    }];

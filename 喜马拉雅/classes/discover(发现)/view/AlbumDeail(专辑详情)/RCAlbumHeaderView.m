@@ -17,6 +17,7 @@
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #import "RCNavigationController.h"
 #import "RCAlbumTool.h"
+#import "RCAlbumViewController.h"
 #import "RCAlbumDownLoadViewController.h"
 #import "RCAboutAlbumViewController.h"
 @interface RCAlbumHeaderView ()

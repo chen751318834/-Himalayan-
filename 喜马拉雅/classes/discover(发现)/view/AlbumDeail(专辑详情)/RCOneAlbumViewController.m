@@ -9,6 +9,8 @@
 #import "RCOneAlbumViewController.h"
 #import "RCAlbumViewModel.h"
 #import "RCAlbumViewCell.h"
+#import "RCConst.h"
+#import "RCAlbumTool.h"
 @interface RCOneAlbumViewController ()
 @property(nonatomic,strong) RCAlbumViewModel  *viewModel;
 
@@ -56,7 +58,21 @@
 #pragma mark - UITableViewDelegate
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     RCAlbumViewCell * cell = [RCAlbumViewCell cell];
-    cell.album = self.contents[indexPath.row];
+    RCAlbum * album = self.contents[indexPath.row];
+    album.albumId = @(indexPath.row);
+    cell.album = album;
+    [[cell.saveButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(UIButton * butotn) {
+        album.collect = YES;
+        [RCAlbumTool saveAlbum:album];
+        NSMutableDictionary * info = [NSMutableDictionary dictionary];
+        if (album) {
+            info[albumNotificationName] = album;
+            info[isCollectedAlbumNotificationName] = @YES;
+        }
+        [RCNotificationCenter postNotificationName:savedAlbumNotification object:nil userInfo:info];
+
+        [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+    }];
     return cell;
 
 }
