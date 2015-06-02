@@ -9,5 +9,7 @@
 #import <Foundation/Foundation.h>
 //#import "DOUAudioFile.h"
 @interface RCPlaylist : NSObject
-
+/**
+ *  <#Description#>
+ */
 @end

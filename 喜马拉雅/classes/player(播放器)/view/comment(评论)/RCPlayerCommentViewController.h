@@ -7,7 +7,7 @@
 //
 
 #import "RCbasePageViewController.h"
-
-@interface RCPlayerCommentViewController : RCbasePageViewController
+#import "ARSegmentPageController.h"
+@interface RCPlayerCommentViewController : UITableViewController <ARSegmentControllerDelegate>
 
 @end

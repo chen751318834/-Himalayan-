@@ -9,14 +9,25 @@
 #import "RCPlayerAlbumViewController.h"
 
 @interface RCPlayerAlbumViewController ()
+@property(nonatomic,weak) UIButton   *button;
 
 @end
 
 @implementation RCPlayerAlbumViewController
 
+//- (UIButton *)button
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.tableView.backgroundColor = [UIColor redColor];
+    self.view.backgroundColor = [UIColor redColor];
+}
+-(NSString *)segmentTitle{
+
+    return @"相关专辑";
 }
 
+
+-(UIScrollView *)streachScrollView{
+
+    return self.tableView;
+}
 @end

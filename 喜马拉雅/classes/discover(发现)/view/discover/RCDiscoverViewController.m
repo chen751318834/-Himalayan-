@@ -20,18 +20,19 @@
 #import "RCHotActivityViewController.h"
 #import "RCAlbumDeailViewController.h"
 #import "RCDiscoverItemViewCell.h"
+#import "RCPlayerVIewModel.h"
 #import "RCSectionheaderView.h"
 #import "RCAlbumViewController.h"
 #import "RCCatrgory.h"
+#import "RCPlayerViewController.h"
 #import "RCBottomPlayerButton.h"
 #import "RCCategoryListViewModel.h"
-#import "RCPlayerView.h"
 #import "RCDisCoverViewModel.h"
 #import "RCLatestSpecial.h"
 #import "RCLatestActivity.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #import "MJExtension.h"
-
+#import "RCPlayerViewController.h"
 static NSString * const categoryID = @"categoryCell";
 static NSString * const imgID = @"imgCell";
 static NSString * const img2CellID = @"img2CellID";
@@ -50,9 +51,7 @@ static const NSUInteger sectionCount = 100;
 @property(nonatomic,strong) RCCategoryListViewModel  *categoryViewModel;
 @property(nonatomic,weak) UIPageControl   *pageControl;
 @property(nonatomic,weak) UIImageView   *coverView;
-@property(nonatomic,weak) RCPlayerView   *playerView;
 @property(nonatomic,weak) RCBottomPlayerButton   *playButton;
-
 @end
 
 @implementation RCDiscoverViewController
@@ -116,29 +115,21 @@ static const NSUInteger sectionCount = 100;
 }
 
 - (void)back{
-    [UIView animateWithDuration:1 animations:^{
-        self.playButton.userInteractionEnabled = NO;
-        self.playerView.transform = CGAffineTransformMakeTranslation(0, [UIScreen mainScreen].bounds.size.height);
-    }completion:^(BOOL finished) {
-        self.playerView.hidden = YES;
-        self.playButton.userInteractionEnabled = YES;
+    [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        self.playButton.transform = CGAffineTransformMakeTranslation(0, 0);
+
+    } completion:nil];
+    [self dismissViewControllerAnimated:YES completion:^{
+
 
     }];
-
-
-}
+    }
 - (void)dealloc{
     [RCNotificationCenter removeObserver:self];
 }
 - (void)addplayButton{
     UIWindow * window = [UIApplication sharedApplication].keyWindow;
-
-    RCPlayerView * playerView = [RCPlayerView playerView];
-    [window addSubview:playerView];
-        playerView.hidden = YES;
-    self.playerView= playerView;
-    playerView.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
-    RCBottomPlayerButton * playButton = [RCBottomPlayerButton playerButton];
+       RCBottomPlayerButton * playButton = [RCBottomPlayerButton playerButton];
     [playButton.button addTarget:self action:@selector(enterPlayerView:) forControlEvents:UIControlEventTouchUpInside];
          [window addSubview:playButton];
     self.playButton = playButton;
@@ -159,15 +150,17 @@ static const NSUInteger sectionCount = 100;
 //            button.userInteractionEnabled = YES;
 //        }];
 //    }else{
-        self.playerView.hidden = NO;
-        [UIView animateWithDuration:1 animations:^{
-            button.userInteractionEnabled = NO;
-            self.playerView.transform = CGAffineTransformMakeTranslation(0, -[UIScreen mainScreen].bounds.size.height);
-        }completion:^(BOOL finished) {
-            button.userInteractionEnabled = YES;
-        }];
-//    }
+       //    }
 //    button.selected = !button.isSelected;
+    RCPlayerViewController * playVC = [[RCPlayerViewController alloc]init];
+    [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        self.playButton.transform = CGAffineTransformMakeTranslation(0, 70);
+
+    } completion:nil];
+
+    [self presentViewController:playVC animated:YES completion:^{
+
+    }];
 
 }
 - (void)setUpPageControl{
@@ -301,6 +294,7 @@ static const NSUInteger sectionCount = 100;
             self.popButton.hidden = NO;
 
         }else{
+//
             RCCatrgory * catrgory = [self.viewModel categoryAtIndexPathInCollectionView:indexPath];
             RCCateroryListViewController * categoryListVC = [[RCCateroryListViewController alloc]init];
             categoryListVC.category = catrgory;
@@ -310,6 +304,19 @@ static const NSUInteger sectionCount = 100;
         
 
     }
+    RCList * list = [self.viewModel imgAtIndexPathInCollectionView:indexPath];
+    RCPlayerViewController * playVC = [[RCPlayerViewController alloc]init];
+    playVC.trackId = list.trackId;
+    [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        self.playButton.transform = CGAffineTransformMakeTranslation(0, 70);
+
+    } completion:nil];
+
+    [self presentViewController:playVC animated:YES completion:^{
+
+        
+    }];
+    RCLog(@"%@",list);
     }
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
@@ -505,11 +512,7 @@ static const NSUInteger sectionCount = 100;
 }
 - (NSIndexPath *)resetedIndexPath{
     if ( self.viewModel.focusImages.count  >=2) {
-
-
-        //    RCLog(@"resetedIndexPath-----%ld",(long)self.pageControl.numberOfPages);
         NSIndexPath * currentIndexPath = [[self.scrollCollectionView indexPathsForVisibleItems] firstObject];
-
         //滚动到最中间
         NSIndexPath * currentReSetIndexPath = [NSIndexPath indexPathForItem:currentIndexPath.item inSection:sectionCount*0.5];
 

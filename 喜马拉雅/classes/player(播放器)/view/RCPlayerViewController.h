@@ -2,12 +2,13 @@
 //  RCPlayerViewController.h
 //  喜马拉雅
 //
-//  Created by Raychen on 15/5/30.
+//  Created by Raychen on 15/5/31.
 //  Copyright (c) 2015年 raychen. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-
-@interface RCPlayerViewController : UIViewController
+#import "ARSegmentPageController.h"
+@interface RCPlayerViewController : ARSegmentPageController
+@property(nonatomic,strong) NSNumber  *trackId;
 
 @end

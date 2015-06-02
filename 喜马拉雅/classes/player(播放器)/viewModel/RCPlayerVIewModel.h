@@ -7,6 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "RCPlayerInfo.h"
 @interface RCPlayerVIewModel : NSObject
+- ( void)fetchplayerInfoWithSuccess:(void (^)(void ))success failure:(void (^)(void ))failure;
+@property(nonatomic,strong) RCPlayerInfo  *playerInfo;
+@property(nonatomic,strong) NSNumber  *trackId;
 @end

@@ -2,97 +2,96 @@
 //  RCPlayerViewController.m
 //  喜马拉雅
 //
-//  Created by Raychen on 15/5/30.
+//  Created by Raychen on 15/5/31.
 //  Copyright (c) 2015年 raychen. All rights reserved.
 //
 
 #import "RCPlayerViewController.h"
-
+#import "CSStickyHeaderFlowLayout.h"
+#import "RCConst.h"
+#import "RCPlayerHeaderView.h"
+#import "RCPlayerCommentViewController.h"
+#import "RCPlayerDeialViewController.h"
+#import "RCPlayerAlbumViewController.h"
+#import "RCContentViewCell.h"
+#import "RCPlayerVIewModel.h"
 @interface RCPlayerViewController ()
+@property(nonatomic,weak) RCPlayerCommentViewController   *commentVC;
+@property(nonatomic,weak) RCPlayerDeialViewController   *deailVC;
+@property(nonatomic,weak) RCPlayerAlbumViewController   *albumVC;
+@property(nonatomic,weak) UIViewController   *displayingController;
+@property(nonatomic,assign) NSUInteger lastSelectedIndex;
+@property(nonatomic,weak) RCPlayerHeaderView   *headerView;
+@property(nonatomic,strong) RCPlayerVIewModel  *viewmodel;
 
 @end
 
 @implementation RCPlayerViewController
+-  (RCPlayerVIewModel *)viewmodel{
+    if (!_viewmodel) {
+         self.viewmodel = [[RCPlayerVIewModel alloc]init];
+        self.viewmodel.trackId = self.trackId;
+    }
+    return _viewmodel;
+}
+-  (RCPlayerCommentViewController *)commentVC{
+    if (!_commentVC) {
+        RCPlayerCommentViewController * commentVC = [[RCPlayerCommentViewController alloc]init];
+        self.commentVC = commentVC;
+        [self addChildViewController:commentVC];
+    }
+    return _commentVC;
+}
+-  (RCPlayerDeialViewController *)deailVC{
+    if (!_deailVC) {
+        RCPlayerDeialViewController * deailVC = [[RCPlayerDeialViewController alloc]init];
+        self.deailVC = deailVC;
+        [self addChildViewController:deailVC];
 
-//static NSString * const reuseIdentifier = @"Cell";
-//
+    }
+    return _deailVC;
+}
+-  (RCPlayerAlbumViewController *)albumVC{
+    if (!_albumVC) {
+        RCPlayerAlbumViewController * albumVC = [[RCPlayerAlbumViewController alloc]init];
+        self.albumVC = albumVC;
+        [self addChildViewController:albumVC];
+
+    }
+    return _albumVC;
+}
+-(instancetype)init
+{
+    self = [super initWithControllers:self.commentVC  ,self.deailVC,self.albumVC, nil];
+    if (self) {
+        // your code
+        self.headerHeight = [UIScreen mainScreen].bounds.size.height - 100;
+        self.segmentMiniTopInset = 70;
+    }
+
+    return self;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor redColor];
-    // Uncomment the following line to preserve selection between presentations
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Register cell classes
-//    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
+    [self.viewmodel fetchplayerInfoWithSuccess:^{
+        self.headerView.playerInfo = self.viewmodel.playerInfo;
+    } failure:^{
 
-    // Do any additional setup after loading the view.
+    }];
+   }
+-(UIView<ARSegmentPageControllerHeaderProtocol> *)customHeaderView{
+    RCPlayerHeaderView * headerView = [RCPlayerHeaderView headerView];
+    self.headerView = headerView;
+    return headerView;
 }
-//
-//- (void)didReceiveMemoryWarning {
-//    [super didReceiveMemoryWarning];
-//    // Dispose of any resources that can be recreated.
-//}
-//
-///*
-//#pragma mark - Navigation
-//
-//// In a storyboard-based application, you will often want to do a little preparation before navigation
-//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-//    // Get the new view controller using [segue destinationViewController].
-//    // Pass the selected object to the new view controller.
-//}
-//*/
-//
-//#pragma mark <UICollectionViewDataSource>
-//
-//- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-//#warning Incomplete method implementation -- Return the number of sections
-//    return 0;
-//}
-//
-//
-//- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-//#warning Incomplete method implementation -- Return the number of items in the section
-//    return 0;
-//}
-//
-//- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-//    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
-//    
-//    // Configure the cell
-//    
-//    return cell;
-//}
-//
-//#pragma mark <UICollectionViewDelegate>
-//
-///*
-//// Uncomment this method to specify if the specified item should be highlighted during tracking
-//- (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
-//	return YES;
-//}
-//*/
-//
-///*
-//// Uncomment this method to specify if the specified item should be selected
-//- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-//    return YES;
-//}
-//*/
-//
-///*
-//// Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-//- (BOOL)collectionView:(UICollectionView *)collectionView shouldShowMenuForItemAtIndexPath:(NSIndexPath *)indexPath {
-//	return NO;
-//}
-//
-//- (BOOL)collectionView:(UICollectionView *)collectionView canPerformAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
-//	return NO;
-//}
-//
-//- (void)collectionView:(UICollectionView *)collectionView performAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
-//	
-//}
-//*/
+
+
+
+-(void)backHome{
+    [RCNotificationCenter postNotificationName:backHomeNotification object:nil];
+}
+
+
+
 
 @end

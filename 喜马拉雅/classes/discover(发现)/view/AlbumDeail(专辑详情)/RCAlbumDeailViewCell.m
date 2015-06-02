@@ -45,6 +45,8 @@
     self.downloadButton.selected = trackList.isDownloaded;
     self.createTImeLabel.text = trackList.created_at;
 }
+
+
 - (void)setUpWithButton:(UIButton *)button count:(int)count title:(NSString *)title {
     if (count ==0) {
         [button setTitle:title forState:UIControlStateNormal];

@@ -35,6 +35,9 @@ static NSString * backHomeNotification = @"backHomeNotification";
 static NSString * selectedSegmentControlIndexNotification = @"selectedSegmentControlIndexNotification";
 static NSString * selectedSegmentControlIndexNotificationName = @"selectedSegmentControlIndexNotificationName";
 
+
+static NSString * changePlayerChildControllerNotification = @"changePlayerChildControllerNotification";
+static NSString * changePlayerChildControllerOfSelectedindex = @"changePlayerChildControllerOfSelectedindex";
 #define RCNotificationCenter  [NSNotificationCenter defaultCenter]
 
 #endif

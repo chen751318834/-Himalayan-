@@ -16,7 +16,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.tableView.backgroundColor = [UIColor yellowColor];
+    self.view.backgroundColor = [UIColor yellowColor];
+}
+-(NSString *)segmentTitle{
+
+    return @"详情";
 }
 
+
+-(UIScrollView *)streachScrollView{
+
+    return self.tableView;
+}
 @end
