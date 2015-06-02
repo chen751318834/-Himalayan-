@@ -29,17 +29,13 @@
 @property (weak, nonatomic) IBOutlet UIImageView *currentprogressImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *bufferProgressImageView;
 @property (weak, nonatomic) IBOutlet UIButton *progressButton;
+@property (weak, nonatomic) IBOutlet UIView *pregressView;
 
 @property (weak, nonatomic) IBOutlet UILabel *playProgressLabel;
 @property(nonatomic,strong) NSTimer  *timer;
 @end
 @implementation RCPlayerHeaderView
-- (void)panPregoressButton:(UIPanGestureRecognizer *)recognizer {
-   CGPoint point = [recognizer translationInView:self.progressButton];
-    self.progressButton.transform = CGAffineTransformTranslate(self.progressButton.transform,point.x, 0);
-    [recognizer setTranslation:CGPointZero inView:self.progressButton];
 
-}
 //-  (RCPlayerVIewModel *)viewmodel{
 //    if (!_viewmodel) {
 //        self.viewmodel = [[RCPlayerVIewModel alloc]init];
@@ -48,20 +44,13 @@
 //    return _viewmodel;
 //}
 - (void)awakeFromNib{
-
     [super awakeFromNib];
-    NSTimer * timer  = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(update) userInfo:nil repeats:YES];
-    [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
-    self.timer = timer;
-    UIPanGestureRecognizer * pan = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(panPregoressButton:)];
+        UIPanGestureRecognizer * pan = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(panPregoressButton:)];
     [self.progressButton addGestureRecognizer:pan];
+    UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapProgressView:)];
+    [self.pregressView  addGestureRecognizer:tap];
 }
--(void)update{
-    [UIView animateWithDuration:1 animations:^{
-        self.progressButton.transform = CGAffineTransformMakeTranslation(2, 0);
-    }];
 
-}
 + (instancetype)headerView{
     return [[[NSBundle mainBundle] loadNibNamed:@"RCPlayerHeaderView" owner:nil options:nil]lastObject];
 
@@ -127,6 +116,7 @@
     }
     
 }
+
 - (IBAction)back:(id)sender {
     [RCNotificationCenter postNotificationName:backHomeNotification object:nil];
 }
@@ -176,6 +166,67 @@
 }
 
 #pragma mark - 播放本地音频
+
+#pragma mark - 播放网络音频
+- (void)playRemoteAudio:(NSString *)urlStr{
+    [[AFSoundManager sharedManager] startStreamingRemoteAudioFromURL:urlStr andBlock:^(int percentage, CGFloat elapsedTime, CGFloat timeRemaining, NSError *error, BOOL finished) {
+        if (!error) {
+
+            NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+            [formatter setDateFormat:@"mm:ss"];
+            NSDate *elapsedTimeDate = [NSDate dateWithTimeIntervalSince1970:elapsedTime];
+//            NSDate *timeRemainingDate = [NSDate dateWithTimeIntervalSince1970:timeRemaining];
+            NSDate *totalTimeDate = [NSDate dateWithTimeIntervalSince1970:timeRemaining+elapsedTime];
+
+//        NSString *  elapsedTimeDateStr=   [formatter  stringFromDate:elapsedTimeDate];
+            NSString *  totalTimeDateStr=   [formatter  stringFromDate:totalTimeDate];
+            NSString *  elapsedTimeDateStr=   [formatter  stringFromDate:elapsedTimeDate];
+          
+
+            self.playProgressLabel.text = [NSString stringWithFormat:@"%@/%@",elapsedTimeDateStr,totalTimeDateStr];
+            [self.progressButton setTitle:[NSString stringWithFormat:@"%@",elapsedTimeDateStr] forState:UIControlStateNormal];
+            if (percentage >0) {
+                    self.progressButton.x = percentage * 0.01* [UIScreen mainScreen].bounds.size.width  - self.progressButton.width;
+                    self.currentprogressImageView.width = self.progressButton.centerX ;
+     
+
+            }
+        } else {
+
+            NSLog(@"There has been an error playing the remote file: %@", [error description]);
+        }
+
+    }];
+
+}
+#pragma mark - 进度条
+- (void)tapProgressView:(UITapGestureRecognizer *)sender {
+    CGPoint point = [sender locationInView:sender.view];
+    self.progressButton.x = point.x;
+    double progress = point.x/(self.bounds.size.width - self.progressButton.width);
+    self.currentprogressImageView.width = self.progressButton.centerX;
+    [[AFSoundManager sharedManager] moveToSection:0];
+    [[AFSoundManager sharedManager]moveToSection:progress];
+
+}
+- (void)panPregoressButton:(UIPanGestureRecognizer *)recognizer {
+    CGPoint point = [recognizer translationInView:recognizer.view];
+    [recognizer setTranslation:CGPointZero inView:recognizer.view];
+    self.progressButton.x += point.x;
+    self.currentprogressImageView.width = self.progressButton.centerX;
+    double progress = self.progressButton.x/(self.bounds.size.width - self.progressButton.width);
+    [[AFSoundManager sharedManager]moveToSection:progress];
+}
+- (CABasicAnimation *)animation{
+    CABasicAnimation * transformAnim = [CABasicAnimation animationWithKeyPath:@"transform.rotation"];
+    transformAnim.fromValue          = @(0);
+    transformAnim.toValue            = @(360 * M_PI/180);
+    transformAnim.duration           = 10;
+    transformAnim.repeatCount        = INFINITY;
+    transformAnim.fillMode = kCAFillModeForwards;
+    transformAnim.removedOnCompletion = NO;
+    return transformAnim;
+}
 //- (void)playLoacalAudio:(RCPlayingAudio *)playingAudio{
 //    [[AFSoundManager sharedManager] startPlayingLocalFileWithName:[NSString stringWithFormat:@"%@.mp3",playingAudio.alt] andBlock:^(int percentage, CGFloat elapsedTime, CGFloat timeRemaining, NSError *error, BOOL finished) {
 //        if (!error) {
@@ -197,44 +248,6 @@
 //    }];
 //
 //}
-//#pragma mark - 播放网络音频
-- (void)playRemoteAudio:(NSString *)urlStr{
-    [[AFSoundManager sharedManager] startStreamingRemoteAudioFromURL:urlStr andBlock:^(int percentage, CGFloat elapsedTime, CGFloat timeRemaining, NSError *error, BOOL finished) {
-        if (!error) {
-
-            NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
-            [formatter setDateFormat:@"mm:ss"];
-            NSDate *elapsedTimeDate = [NSDate dateWithTimeIntervalSince1970:elapsedTime];
-            NSDate *timeRemainingDate = [NSDate dateWithTimeIntervalSince1970:timeRemaining];
-            NSDate *totalTimeDate = [NSDate dateWithTimeIntervalSince1970:timeRemaining+elapsedTime];
-
-//        NSString *  elapsedTimeDateStr=   [formatter  stringFromDate:elapsedTimeDate];
-            NSString *  totalTimeDateStr=   [formatter  stringFromDate:totalTimeDate];
-            NSString *  timeRemainingDateStr=   [formatter  stringFromDate:timeRemainingDate];
-            NSString *  elapsedTimeDateStr=   [formatter  stringFromDate:elapsedTimeDate];
-          
-
-            self.playProgressLabel.text = [NSString stringWithFormat:@"%@/%@",elapsedTimeDateStr,totalTimeDateStr];
-            [self.progressButton setTitle:[NSString stringWithFormat:@"%@",elapsedTimeDateStr] forState:UIControlStateNormal];
-            self.pgogressView.value = percentage * 0.01;
-        } else {
-
-            NSLog(@"There has been an error playing the remote file: %@", [error description]);
-        }
-
-    }];
-}
-- (CABasicAnimation *)animation{
-    CABasicAnimation * transformAnim = [CABasicAnimation animationWithKeyPath:@"transform.rotation"];
-    transformAnim.fromValue          = @(0);
-    transformAnim.toValue            = @(360 * M_PI/180);
-    transformAnim.duration           = 10;
-    transformAnim.repeatCount        = INFINITY;
-    transformAnim.fillMode = kCAFillModeForwards;
-    transformAnim.removedOnCompletion = NO;
-    return transformAnim;
-}
-
 -(UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event
 {
     UIView *view = [super hitTest:point withEvent:event];

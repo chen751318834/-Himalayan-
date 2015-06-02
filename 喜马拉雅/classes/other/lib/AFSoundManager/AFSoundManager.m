@@ -57,6 +57,7 @@
             [_timer invalidate];
         }
     } repeats:YES];
+//    [[NSRunLoop mainRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
 }
 
 -(void)startStreamingRemoteAudioFromURL:(NSString *)url andBlock:(progressBlock)block {
