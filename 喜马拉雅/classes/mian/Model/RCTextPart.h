@@ -22,6 +22,7 @@
  */
 @property (nonatomic, assign,getter=isEmotion)BOOL emotion;
 
+@property(nonatomic,assign,getter=isSpecialText) BOOL specialText;
 
 
 

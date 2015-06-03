@@ -12,6 +12,8 @@
 #import "Toast+UIView.h"
 #import "RCHotAudioViewCell.h"
 #import "RCConst.h"
+#import "RCBottomPlayerButton.h"
+#import "RCPlayerViewController.h"
 @interface RCHotAudioViewController ()
 @property(nonatomic,strong) RCHotAudioVIewModel  *viewModel;
 @property(nonatomic,weak) UISegmentedControl   *segmentControl;
@@ -168,8 +170,14 @@
 
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    RCOnneHotAudio * audio = self.contents[indexPath.row];
     [super tableView:tableView didSelectRowAtIndexPath:indexPath];
-    
+    RCPlayerViewController * playVC = [[RCPlayerViewController alloc]init];
+    playVC.trackId = audio.ID;
+    [[RCBottomPlayerButton playerButton] startAnimation];
+
+
+    [self presentViewController:playVC animated:YES completion:nil];
 }
 #pragma mark - 事件处理
 @end

@@ -3,7 +3,7 @@
 //  MJExtension
 //
 //  Created by mj on 13-8-24.
-//  Copyright (c) 2013年 itcast. All rights reserved.
+//  Copyright (c) 2013年 小码哥. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -15,6 +15,11 @@
  */
 @protocol MJKeyValue <NSObject>
 @optional
+/**
+ *  只有这个数组中的属性名才允许进行字典和模型的转换
+ */
++ (NSArray *)allowedPropertyNames;
+
 /**
  *  这个数组中的属性名将会被忽略：不进行字典和模型的转换
  */
@@ -66,7 +71,11 @@
  *  @return 字典
  */
 - (NSDictionary *)keyValues;
+- (NSDictionary *)keyValuesWithKeys:(NSArray *)keys;
+- (NSDictionary *)keyValuesWithIgnoredKeys:(NSArray *)ignoredKeys;
 - (NSDictionary *)keyValuesWithError:(NSError **)error;
+- (NSDictionary *)keyValuesWithKeys:(NSArray *)keys error:(NSError **)error;
+- (NSDictionary *)keyValuesWithIgnoredKeys:(NSArray *)ignoredKeys error:(NSError **)error;
 
 /**
  *  通过模型数组来创建一个字典数组
@@ -74,7 +83,11 @@
  *  @return 字典数组
  */
 + (NSArray *)keyValuesArrayWithObjectArray:(NSArray *)objectArray;
++ (NSArray *)keyValuesArrayWithObjectArray:(NSArray *)objectArray keys:(NSArray *)keys;
++ (NSArray *)keyValuesArrayWithObjectArray:(NSArray *)objectArray ignoredKeys:(NSArray *)ignoredKeys;
 + (NSArray *)keyValuesArrayWithObjectArray:(NSArray *)objectArray error:(NSError **)error;
++ (NSArray *)keyValuesArrayWithObjectArray:(NSArray *)objectArray keys:(NSArray *)keys error:(NSError **)error;
++ (NSArray *)keyValuesArrayWithObjectArray:(NSArray *)objectArray ignoredKeys:(NSArray *)ignoredKeys error:(NSError **)error;
 
 #pragma mark - 字典转模型
 /**

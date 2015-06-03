@@ -25,7 +25,6 @@
 @property(nonatomic,strong) RCPlayerVIewModel  *viewmodel;
 
 @end
-
 @implementation RCPlayerViewController
 -  (RCPlayerVIewModel *)viewmodel{
     if (!_viewmodel) {
@@ -34,39 +33,21 @@
     }
     return _viewmodel;
 }
--  (RCPlayerCommentViewController *)commentVC{
-    if (!_commentVC) {
-        RCPlayerCommentViewController * commentVC = [[RCPlayerCommentViewController alloc]init];
-        self.commentVC = commentVC;
-        [self addChildViewController:commentVC];
-    }
-    return _commentVC;
-}
--  (RCPlayerDeialViewController *)deailVC{
-    if (!_deailVC) {
-        RCPlayerDeialViewController * deailVC = [[RCPlayerDeialViewController alloc]init];
-        self.deailVC = deailVC;
-        [self addChildViewController:deailVC];
 
-    }
-    return _deailVC;
-}
--  (RCPlayerAlbumViewController *)albumVC{
-    if (!_albumVC) {
-        RCPlayerAlbumViewController * albumVC = [[RCPlayerAlbumViewController alloc]init];
-        self.albumVC = albumVC;
-        [self addChildViewController:albumVC];
-
-    }
-    return _albumVC;
-}
 -(instancetype)init
 {
+    RCPlayerCommentViewController * commentVC = [[RCPlayerCommentViewController alloc]init];
+    self.commentVC = commentVC;
+    RCPlayerDeialViewController * deailVC = [[RCPlayerDeialViewController alloc]init];
+    self.deailVC = deailVC;
+    RCPlayerAlbumViewController * albumVC = [[RCPlayerAlbumViewController alloc]init];
+    self.albumVC = albumVC;
     self = [super initWithControllers:self.commentVC  ,self.deailVC,self.albumVC, nil];
     if (self) {
         // your code
         self.headerHeight = [UIScreen mainScreen].bounds.size.height - 100;
         self.segmentMiniTopInset = 70;
+
     }
 
     return self;
@@ -75,10 +56,19 @@
     [super viewDidLoad];
     [self.viewmodel fetchplayerInfoWithSuccess:^{
         self.headerView.playerInfo = self.viewmodel.playerInfo;
+        self.deailVC.trackId = self.viewmodel.playerInfo.trackId;
+
     } failure:^{
 
     }];
+    if (self.trackId) {
+    [RCNotificationCenter postNotificationName:sendTrackIdNotification object:nil userInfo:@{trackIdNotificationName:self.trackId}];
+    }
    }
+- (void)dealloc{
+
+    [RCNotificationCenter removeObserver:self];
+}
 -(UIView<ARSegmentPageControllerHeaderProtocol> *)customHeaderView{
     RCPlayerHeaderView * headerView = [RCPlayerHeaderView headerView];
     self.headerView = headerView;
@@ -86,10 +76,6 @@
 }
 
 
-
--(void)backHome{
-    [RCNotificationCenter postNotificationName:backHomeNotification object:nil];
-}
 
 
 

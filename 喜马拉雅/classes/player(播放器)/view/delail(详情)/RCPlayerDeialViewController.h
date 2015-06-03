@@ -9,5 +9,6 @@
 #import "RCBaseViewController.h"
 #import "ARSegmentPageController.h"
 @interface RCPlayerDeialViewController : UITableViewController <ARSegmentControllerDelegate>
+@property(nonatomic,strong) NSNumber  *trackId;
 
 @end

@@ -7,38 +7,84 @@
 //
 
 #import "RCPlayerCommentViewController.h"
-
+#import "RCConst.h"
+#import "RCPlayerVIewModel.h"
+#import "UITableView+FDTemplateLayoutCell.h"
+#import "RCPlayerCommentViewCell.h"
+static NSString * const ID = @"playerCommentCell";
 @interface RCPlayerCommentViewController ()
+@property(nonatomic,strong) RCPlayerVIewModel  *viewmodel;
 
 @end
 
 @implementation RCPlayerCommentViewController
-
+-  (RCPlayerVIewModel *)viewmodel{
+    if (!_viewmodel) {
+        self.viewmodel = [[RCPlayerVIewModel alloc]init];
+    }
+    return _viewmodel;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.tableView registerNib:[UINib nibWithNibName:@"RCPlayerCommentViewCell" bundle:nil] forCellReuseIdentifier:ID];
+
+    [RCNotificationCenter addObserver:self selector:@selector(getTrackID:) name:sendTrackIdNotification object:nil];
+    [self.tableView.gifHeader setHidden:YES];
+
+
+
+}
+- (void)getTrackID:(NSNotification *)note{
+    self.viewmodel.trackId = note.userInfo[trackIdNotificationName];
+
+        [self.viewmodel fetchNewPlayerCommnetWithSuccess:^{
+            [self.tableView reloadData];
+        } failure:^{
+    
+        }];
+}
+- (void)loadMoreData{
+    [self.viewmodel fetchMorePlayerCommnetWithSuccess:^{
+        [self.tableView reloadData];
+        [self.tableView.gifFooter endRefreshing];
+    } failure:^{
+        [self.tableView.gifFooter endRefreshing];
+
+    } completion:^{
+        [self.tableView.gifFooter endRefreshing];
+        [self.tableView.gifFooter setHidden:YES];
+
+    }];
+
 }
 #pragma mark - UITableViewDelegate
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSString   *ID =@"cell";
-    UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:ID];
-    if (!cell) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];;
-    }
-    cell.textLabel.text = @"commment";
+    RCPlayerCommentViewCell * cell = [tableView dequeueReusableCellWithIdentifier:ID forIndexPath:indexPath];
+    cell.list = self.viewmodel.comments[indexPath.row];
     return cell;
 
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
 
-    return 30;
+    return self.viewmodel.comments.count;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+
+    return [tableView fd_heightForCellWithIdentifier:ID cacheByIndexPath:indexPath configuration:^(RCPlayerCommentViewCell * cell) {
+        cell.list = self.viewmodel.comments[indexPath.row];
+
+    }];
 }
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     
 }
+- (void)dealloc{
 
+    [RCNotificationCenter removeObserver:self];
+}
 -(NSString *)segmentTitle{
 
 return @"评论";
@@ -49,4 +95,5 @@ return @"评论";
 
     return self.tableView;
 }
+
 @end

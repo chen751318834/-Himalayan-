@@ -24,15 +24,20 @@
 @property (weak, nonatomic) IBOutlet UILabel *descLabel;
 @property (weak, nonatomic) IBOutlet UIButton *careButton;
 @property(nonatomic,assign) NSUInteger currentIndex;
-@property (weak, nonatomic) IBOutlet UISlider *pgogressView;
 @property(nonatomic,strong) RCPlayerVIewModel  *viewmodel;
 @property (weak, nonatomic) IBOutlet UIImageView *currentprogressImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *bufferProgressImageView;
 @property (weak, nonatomic) IBOutlet UIButton *progressButton;
 @property (weak, nonatomic) IBOutlet UIView *pregressView;
+@property (weak, nonatomic) IBOutlet UIView *timeView;
+@property (weak, nonatomic) IBOutlet UIButton *playAndPauseButtton;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *juhua;
+@property (weak, nonatomic) IBOutlet UIScrollView *labelScrollView;
 
 @property (weak, nonatomic) IBOutlet UILabel *playProgressLabel;
 @property(nonatomic,strong) NSTimer  *timer;
+@property(nonatomic,assign) CGFloat currnetProgressButtonX;
+
 @end
 @implementation RCPlayerHeaderView
 
@@ -45,12 +50,27 @@
 //}
 - (void)awakeFromNib{
     [super awakeFromNib];
+
         UIPanGestureRecognizer * pan = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(panPregoressButton:)];
     [self.progressButton addGestureRecognizer:pan];
     UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapProgressView:)];
     [self.pregressView  addGestureRecognizer:tap];
+    [UIView animateKeyframesWithDuration:10
+                                   delay:7
+                                 options:UIViewKeyframeAnimationOptionAllowUserInteraction
+                              animations:^{
+                                  // 计算移动的距离
+                                  CGPoint point = self.labelScrollView.contentOffset;
+                                  point.x = self.width - self.labelScrollView.width;
+                                  self.labelScrollView.contentOffset = point;
+                              }
+                              completion:nil];
 }
+- (void)layoutSubviews{
 
+    [super layoutSubviews];
+    self.timeView.frame = CGRectMake(10, CGRectGetMaxY(self.smallIconVIew.frame) +60, 72, 26);
+}
 + (instancetype)headerView{
     return [[[NSBundle mainBundle] loadNibNamed:@"RCPlayerHeaderView" owner:nil options:nil]lastObject];
 
@@ -74,6 +94,12 @@
     self.countLabel.text = [NSString stringWithFormat:@"声音 %@ 粉丝 %@",[self countStr:[playerInfo.userInfo.tracks intValue]],[self countStr:[playerInfo.userInfo.followers intValue]]];
     self.descLabel.text =  playerInfo.userInfo.personDescribe;
     [self playRemoteAudio:playerInfo.playUrl64];
+//    if ([AFSoundManager sharedManager].audioPlayer.playing) {
+//        self.playAndPauseButtton.selected = YES;
+//    }else{
+//        self.playAndPauseButtton.selected = NO;
+//
+//    }
 }
 - (NSString *)countStr:(int)count {
     NSString * str = nil;
@@ -185,14 +211,16 @@
 
             self.playProgressLabel.text = [NSString stringWithFormat:@"%@/%@",elapsedTimeDateStr,totalTimeDateStr];
             [self.progressButton setTitle:[NSString stringWithFormat:@"%@",elapsedTimeDateStr] forState:UIControlStateNormal];
-            if (percentage >0) {
-                    self.progressButton.x = percentage * 0.01* [UIScreen mainScreen].bounds.size.width  - self.progressButton.width;
-                    self.currentprogressImageView.width = self.progressButton.centerX ;
-     
-
+            [self.juhua stopAnimating];
+            self.playAndPauseButtton.selected = YES;
+            if (percentage < 0) {
+                percentage = 0;
             }
-        } else {
+                self.progressButton.x = percentage * 0.01* (self.pregressView.bounds.size.width  - self.progressButton.width);;
+                self.currentprogressImageView.width = self.progressButton.centerX;
 
+        } else {
+            self.playAndPauseButtton.selected = NO;
             NSLog(@"There has been an error playing the remote file: %@", [error description]);
         }
 
@@ -203,7 +231,7 @@
 - (void)tapProgressView:(UITapGestureRecognizer *)sender {
     CGPoint point = [sender locationInView:sender.view];
     self.progressButton.x = point.x;
-    double progress = point.x/(self.bounds.size.width - self.progressButton.width);
+    double progress = point.x/(self.pregressView.bounds.size.width - self.progressButton.width);
     self.currentprogressImageView.width = self.progressButton.centerX;
     [[AFSoundManager sharedManager] moveToSection:0];
     [[AFSoundManager sharedManager]moveToSection:progress];
@@ -213,9 +241,28 @@
     CGPoint point = [recognizer translationInView:recognizer.view];
     [recognizer setTranslation:CGPointZero inView:recognizer.view];
     self.progressButton.x += point.x;
+    self.timeView.centerX =self.progressButton.centerX;
     self.currentprogressImageView.width = self.progressButton.centerX;
-    double progress = self.progressButton.x/(self.bounds.size.width - self.progressButton.width);
+    CGFloat progress = self.progressButton.x/(self.pregressView.bounds.size.width - self.progressButton.width);
     [[AFSoundManager sharedManager]moveToSection:progress];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+    [formatter setDateFormat:@"mm:ss"];
+    long long currentTime = progress* ([AFSoundManager sharedManager].player.currentItem.duration.value);
+    NSDate *currentTimeDate = [NSDate dateWithTimeIntervalSince1970:currentTime];
+    NSString * currentTimeDateStr = [formatter stringFromDate:currentTimeDate];
+    CGFloat durationTime =  ([AFSoundManager sharedManager].player.currentItem.duration.value);
+    NSDate *durationTimeData = [NSDate dateWithTimeIntervalSince1970:durationTime];
+    NSString * durationTimeDataStr = [formatter stringFromDate:durationTimeData];
+    self.playProgressLabel.text = [NSString stringWithFormat:@"%@/%@",currentTimeDateStr,durationTimeDataStr];
+    if (recognizer.state == UIGestureRecognizerStateBegan) {
+        [[AFSoundManager sharedManager]pause];
+        self.timeView.hidden = NO;
+    }else if (recognizer.state == UIGestureRecognizerStateEnded|| recognizer.state == UIGestureRecognizerStateCancelled){
+        [[AFSoundManager sharedManager]resume];
+        self.timeView.hidden = YES;
+
+    }
+
 }
 - (CABasicAnimation *)animation{
     CABasicAnimation * transformAnim = [CABasicAnimation animationWithKeyPath:@"transform.rotation"];

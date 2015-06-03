@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ARSegmentPageController.h"
 #import "RCPlayerInfo.h"
-@interface RCPlayerHeaderView : UIView
+@interface RCPlayerHeaderView : UIView <ARSegmentPageControllerHeaderProtocol>
 @property(nonatomic,strong) NSArray  *audios;
 @property(nonatomic,strong) RCPlayerInfo  *playerInfo;
 + (instancetype)headerView;

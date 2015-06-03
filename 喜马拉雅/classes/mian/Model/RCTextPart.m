@@ -11,7 +11,7 @@
 @implementation RCTextPart
 MJCodingImplementation
 - (NSString *)description{
-    return [NSString stringWithFormat:@"%@----%@",self.text,NSStringFromRange(self.range)];
+    return [NSString stringWithFormat:@"%@----%@----%d",self.text,NSStringFromRange(self.range),self.isEmotion];
 
 }
 @end

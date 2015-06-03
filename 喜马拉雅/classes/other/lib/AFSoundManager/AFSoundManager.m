@@ -40,7 +40,7 @@
     
     __block int percentage = 0;
     
-    _timer = [NSTimer scheduledTimerWithTimeInterval:1 block:^{
+    NSTimer * timer  = [NSTimer scheduledTimerWithTimeInterval:1 block:^{
         
         if (percentage != 100) {
             
@@ -54,10 +54,12 @@
 
             block(100, _audioPlayer.currentTime, timeRemaining, error, YES);
             
-            [_timer invalidate];
+            [self.timer invalidate];
         }
     } repeats:YES];
-//    [[NSRunLoop mainRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
+    [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+    self.timer = timer;
+
 }
 
 -(void)startStreamingRemoteAudioFromURL:(NSString *)url andBlock:(progressBlock)block {
@@ -72,7 +74,7 @@
     
         __block int percentage = 0;
         
-        _timer = [NSTimer scheduledTimerWithTimeInterval:1 block:^{
+        NSTimer * timer = [NSTimer scheduledTimerWithTimeInterval:1 block:^{
             
             if (percentage != 100) {
                 
@@ -86,15 +88,19 @@
                 
                 block(100, CMTimeGetSeconds(_player.currentItem.currentTime), timeRemaining, error, YES);
                 
-                [_timer invalidate];
+                [self.timer invalidate];
             }
         } repeats:YES];
+        [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+        self.timer = timer;
+
     } else {
         
         block(0, 0, 0, error, YES);
         [_audioPlayer stop];
     }
-    
+
+
 }
 
 -(NSDictionary *)retrieveInfoForCurrentPlaying {
@@ -115,19 +121,19 @@
 -(void)pause {
     [_audioPlayer pause];
     [_player pause];
-    [_timer pauseTimer];
+    [self.timer pauseTimer];
 }
 
 -(void)resume {
     [_audioPlayer play];
     [_player play];
-    [_timer resumeTimer];
+    [self.timer resumeTimer];
 }
 
 -(void)stop {
     [_audioPlayer stop];
     _player = nil;
-    [_timer pauseTimer];
+    [self.timer pauseTimer];
 }
 
 -(void)restart {

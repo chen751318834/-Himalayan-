@@ -6,8 +6,7 @@
 //  Copyright (c) 2015年 raychen. All rights reserved.
 //
 
-#import "RCbasePageViewController.h"
+#import "RCBaseViewController.h"
 #import "ARSegmentPageController.h"
-@interface RCPlayerCommentViewController : UITableViewController <ARSegmentControllerDelegate>
-
+@interface RCPlayerCommentViewController : RCBaseViewController <ARSegmentControllerDelegate>
 @end

@@ -38,6 +38,9 @@ static NSString * selectedSegmentControlIndexNotificationName = @"selectedSegmen
 
 static NSString * changePlayerChildControllerNotification = @"changePlayerChildControllerNotification";
 static NSString * changePlayerChildControllerOfSelectedindex = @"changePlayerChildControllerOfSelectedindex";
+
+static NSString * sendTrackIdNotification = @"sendTrackIdNotification";
+static NSString * trackIdNotificationName = @"trackIdNotificationName";
 #define RCNotificationCenter  [NSNotificationCenter defaultCenter]
 
 #endif

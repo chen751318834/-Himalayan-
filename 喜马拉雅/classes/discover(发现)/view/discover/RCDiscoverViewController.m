@@ -307,16 +307,8 @@ static const NSUInteger sectionCount = 100;
     RCList * list = [self.viewModel imgAtIndexPathInCollectionView:indexPath];
     RCPlayerViewController * playVC = [[RCPlayerViewController alloc]init];
     playVC.trackId = list.trackId;
-    [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-        self.playButton.transform = CGAffineTransformMakeTranslation(0, 70);
-
-    } completion:nil];
-
-    [self presentViewController:playVC animated:YES completion:^{
-
-        
-    }];
-    RCLog(@"%@",list);
+    [self.playButton startAnimation];
+    [self presentViewController:playVC animated:YES completion:nil];
     }
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{

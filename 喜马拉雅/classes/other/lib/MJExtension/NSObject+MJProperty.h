@@ -3,7 +3,7 @@
 //  MJExtensionExample
 //
 //  Created by MJ Lee on 15/4/17.
-//  Copyright (c) 2015年 itcast. All rights reserved.
+//  Copyright (c) 2015年 小码哥. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -27,6 +27,12 @@ typedef void (^MJPropertiesBlock)(MJProperty *property, BOOL *stop);
 typedef NSDictionary * (^ReplacedKeyFromPropertyName)();
 /** 数组中需要转换的模型类 */
 typedef NSDictionary * (^ObjectClassInArray)();
+
+
+/** 这个数组中的属性名才会进行字典和模型的转换 */
+typedef NSArray * (^AllowedPropertyNames)();
+/** 这个数组中的属性名才会进行归档 */
+typedef NSArray * (^AllowedCodingPropertyNames)();
 
 /** 这个数组中的属性名将会被忽略：不进行字典和模型的转换 */
 typedef NSArray * (^IgnoredPropertyNames)();
@@ -66,6 +72,30 @@ typedef NSArray * (^IgnoredCodingPropertyNames)();
  *  @param objectClassInArray          数组中需要转换的模型类
  */
 + (void)setupObjectClassInArray:(ObjectClassInArray)objectClassInArray;
+
+/**
+ *  配置模型属性
+ *
+ *  @param allowedPropertyNames          这个数组中的属性名才会进行字典和模型的转换
+ */
++ (void)setupAllowedPropertyNames:(AllowedPropertyNames)allowedPropertyNames;
+
+/**
+ *  这个数组中的属性名才会进行字典和模型的转换
+ */
++ (NSArray *)totalAllowedPropertyNames;
+
+/**
+ *  配置模型属性
+ *
+ *  @param allowedCodingPropertyNames          这个数组中的属性名才会进行归档
+ */
++ (void)setupAllowedCodingPropertyNames:(AllowedCodingPropertyNames)allowedCodingPropertyNames;
+
+/**
+ *  这个数组中的属性名才会进行字典和模型的转换
+ */
++ (NSArray *)totalAllowedCodingPropertyNames;
 
 /**
  *  配置模型属性

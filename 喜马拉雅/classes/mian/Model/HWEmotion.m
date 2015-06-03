@@ -14,9 +14,9 @@
 
 @implementation HWEmotion
 
-- (BOOL)isEqual:(HWEmotion *)other
-{
-    return [self.chs isEqualToString:other.chs] || [self.cht isEqualToString:other.cht];
-}
+//- (BOOL)isEqual:(HWEmotion *)other
+//{
+//    return [self.chs isEqualToString:other.chs] || [self.cht isEqualToString:other.cht];
+//}
 
 @end

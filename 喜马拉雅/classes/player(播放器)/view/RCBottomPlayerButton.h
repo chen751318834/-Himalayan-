@@ -12,4 +12,5 @@
 @property (weak, nonatomic) IBOutlet UIButton *button;
 @property (weak, nonatomic) IBOutlet UIImageView *playingIconView;
 + (instancetype)playerButton;
+- (void)startAnimation;
 @end
