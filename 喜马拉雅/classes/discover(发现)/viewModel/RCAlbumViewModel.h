@@ -12,6 +12,9 @@
 #import "RCAboutAlbum.h"
 #import "RCTrackList.h"
 @interface RCAlbumViewModel : RCBaseViewModel
+@property(nonatomic,copy) NSString  *tag_name;
+@property(nonatomic,copy) NSString  *category_name;
+
 /**
  *  网络请求
  */

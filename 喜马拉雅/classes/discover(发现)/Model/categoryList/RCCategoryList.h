@@ -17,5 +17,6 @@
 @property(nonatomic,copy) NSString  *category_id;
 @property(nonatomic,copy) NSString  *tname;
 @property(nonatomic,copy) NSString  *cover_path;
+@property(nonatomic,copy) NSString  *category_name;
 
 @end

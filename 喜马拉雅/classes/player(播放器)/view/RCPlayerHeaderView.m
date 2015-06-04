@@ -209,7 +209,9 @@ completion:^(BOOL finished) {
 #pragma mark - 播放网络音频
 - (void)playRemoteAudio:(NSString *)urlStr{
     [RCplayerStatus sharedplayerStatus].playing =  YES;
-    [self.smallIconVIew.layer addAnimation:[self animation] forKey:nil];
+    if ([RCplayerStatus sharedplayerStatus].isPlaying) {
+        [self.smallIconVIew.layer addAnimation:[self animation] forKey:nil];
+    }
     [[AFSoundManager sharedManager] startStreamingRemoteAudioFromURL:urlStr andBlock:^(int percentage, CGFloat elapsedTime, CGFloat timeRemaining, NSError *error, BOOL finished) {
         if (!error) {
             NSDateFormatter *formatter = [[NSDateFormatter alloc]init];

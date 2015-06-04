@@ -19,9 +19,9 @@
 @property(nonatomic,strong) NSMutableArray  *focusImages;
 @property(nonatomic,strong) NSMutableArray  *recommendAlbums;
 @property(strong,nonatomic) NSTimer * timer;
-
 @end
 @implementation RCDisCoverViewModel
+
 /**
  *  分类数据
  *
@@ -49,6 +49,7 @@
     return _recommendAlbums;
 }
 - (void)fetchDiscoverDataWithSuccess:(void (^)(void))success failure:(void (^)(void))failure{
+
     [RCNetWorkingTool get:@"http://mobile.ximalaya.com/m/super_explore_index2?device=android&channel=and-c57&includeActivity=true&picVersion=5&scale=2&version=3.25.7.1" params:nil success:^(id json) {
         RCDiscoverData * discoverData = [RCDiscoverData objectWithKeyValues:json];
         self.discoverData = discoverData;

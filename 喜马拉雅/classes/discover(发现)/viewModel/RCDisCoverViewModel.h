@@ -13,6 +13,7 @@
 #import "RCDiscoverData.h"
 #import "ReactiveCocoa.h"
 @interface RCDisCoverViewModel : NSObject
+
 /**
  *  collectionView
  *

@@ -37,8 +37,22 @@
     return _downloadLists;
 }
 - ( void)fetchNewHotAlbumDataWithSuccess:(void (^)(void ))success failure:(void (^)(void ))failure{
+    NSMutableDictionary * params = [NSMutableDictionary dictionary];
+    params[@"condition"] = @"hot";
+    params[@"device"] = @"android";
+    params[@"page"] = @1;
+    params[@"per_page"] = @20;
+    params[@"status"] = @0;
+    if (self.tag_name) {
+        params[@"category_name"] = self.category_name;
+        params[@"tag_name"] = self.tag_name;
+    }else{
+        params[@"category_name"] = @"all";
+        params[@"tag_name"] = @"";
 
-    [RCNetWorkingTool get:[NSString stringWithFormat:@"http://mobile.ximalaya.com/m/explore_album_list?category_name=all&condition=hot&device=android&page=1&per_page=20&status=0&tag_name="] params:nil success:^(id json) {
+ }
+    NSLog(@"%@-----%@",self.category_name,self.tag_name);
+    [RCNetWorkingTool get:@"http://mobile.ximalaya.com/m/explore_album_list" params:params success:^(id json) {
         [self.models removeAllObjects];
         NSArray * newAudios = [RCAlbum objectArrayWithKeyValuesArray:json[@"list"]];
         [self.models addObjectsFromArray:newAudios];
@@ -48,15 +62,29 @@
     } failure:^(NSError *error) {
         if (failure) {
             failure();
+            NSLog(@"%@",error);
         }
     }];
 
 }
 - ( void)fetchMoreHotAlbumDataWithSuccess:(void (^)(void ))success failure:(void (^)(void ))failure completion:(void (^)(void))completion{
-
-
     self.currrentPage ++;
-    [RCNetWorkingTool get:[NSString stringWithFormat:@"http://mobile.ximalaya.com/m/explore_album_list?category_name=all&condition=hot&device=android&page=%ld&per_page=20&status=0&tag_name=",self.currrentPage] params:nil success:^(id json) {
+    NSMutableDictionary * params = [NSMutableDictionary dictionary];
+    params[@"condition"] = @"hot";
+    params[@"device"] = @"android";
+    params[@"page"] = @(self.currrentPage);
+    params[@"per_page"] = @20;
+    params[@"status"] = @0;
+    if (self.tag_name) {
+        params[@"category_name"] = self.category_name;
+        params[@"tag_name"] = self.tag_name;
+    }else{
+        params[@"category_name"] = @"all";
+        params[@"tag_name"] = @"";
+
+    }
+
+    [RCNetWorkingTool get:@"http://mobile.ximalaya.com/m/explore_album_list" params:params success:^(id json) {
         NSArray * newAudios = [RCAlbum objectArrayWithKeyValuesArray:json[@"list"]];
         NSNumber *  maxPageID = (NSNumber *)json[@"maxPageId"];
         if (self.currrentPage  > [maxPageID integerValue]) {
@@ -79,9 +107,22 @@
 }
 
 - ( void)fetchNewReccentAlbumDataWithSuccess:(void (^)(void ))success failure:(void (^)(void ))failure{
+    NSMutableDictionary * params = [NSMutableDictionary dictionary];
+    params[@"condition"] = @"recent";
+    params[@"device"] = @"android";
+    params[@"page"] = @1;
+    params[@"per_page"] = @20;
+    params[@"status"] = @0;
+    if (self.tag_name) {
+        params[@"category_name"] = self.category_name;
+        params[@"tag_name"] = self.tag_name;
+    }else{
+        params[@"category_name"] = @"all";
+        params[@"tag_name"] = @"";
 
+    }
 
-    [RCNetWorkingTool get:[NSString stringWithFormat:@"http://mobile.ximalaya.com/m/explore_album_list?category_name=all&condition=recent&device=android&page=1&per_page=20&status=0&tag_name="] params:nil success:^(id json) {
+    [RCNetWorkingTool get:@"http://mobile.ximalaya.com/m/explore_album_list" params:params success:^(id json) {
         [self.models removeAllObjects];
         NSArray * newAudios = [RCAlbum objectArrayWithKeyValuesArray:json[@"list"]];
         
@@ -96,9 +137,24 @@
     }];
 }
 - ( void)fetchMoreReccentAlbumDataWithSuccess:(void (^)(void ))success failure:(void (^)(void ))failure completion:(void (^)(void))completion{
-
     self.currrentPage ++;
-    [RCNetWorkingTool get:[NSString stringWithFormat:@"http://mobile.ximalaya.com/m/explore_album_list?category_name=all&condition=recent&device=android&page=%ld&per_page=20&status=0&tag_name=",self.currrentPage] params:nil success:^(id json) {
+    NSMutableDictionary * params = [NSMutableDictionary dictionary];
+    params[@"condition"] = @"recent";
+    params[@"device"] = @"android";
+    params[@"page"] = @(self.currrentPage);
+    params[@"per_page"] = @20;
+    params[@"status"] = @0;
+    if (self.tag_name) {
+        params[@"category_name"] = self.category_name;
+        params[@"tag_name"] = self.tag_name;
+    }else{
+        params[@"category_name"] = @"all";
+        params[@"tag_name"] = @"";
+
+    }
+
+
+    [RCNetWorkingTool get:@"http://mobile.ximalaya.com/m/explore_album_list" params:params success:^(id json) {
         NSArray * newAudios = [RCAlbum objectArrayWithKeyValuesArray:json[@"list"]];
         NSNumber *  maxPageID = (NSNumber *)json[@"maxPageId"];
         if (self.currrentPage  > [maxPageID integerValue]) {
@@ -119,8 +175,23 @@
 }
 
 - ( void)fetchNewClassicsDataWithSuccess:(void (^)(void ))success failure:(void (^)(void ))failure{
+    NSMutableDictionary * params = [NSMutableDictionary dictionary];
+    params[@"condition"] = @"classic";
+    params[@"device"] = @"android";
+    params[@"page"] = @1;
+    params[@"per_page"] = @20;
+    params[@"status"] = @0;
+    if (self.tag_name) {
+        params[@"category_name"] = self.category_name;
+        params[@"tag_name"] = self.tag_name;
+    }else{
+        params[@"category_name"] = @"all";
+        params[@"tag_name"] = @"";
 
-    [RCNetWorkingTool get:[NSString stringWithFormat:@"http://mobile.ximalaya.com/m/explore_album_list?category_name=all&condition=classic&device=android&page=1&per_page=20&status=0&tag_name="] params:nil success:^(id json) {
+    }
+
+
+    [RCNetWorkingTool get:@"http://mobile.ximalaya.com/m/explore_album_list" params:params success:^(id json) {
         [self.models removeAllObjects];
         NSArray * newAudios = [RCAlbum objectArrayWithKeyValuesArray:json[@"list"]];
         [self.models addObjectsFromArray:newAudios];
@@ -134,9 +205,23 @@
     }];
 }
 - ( void)fetchMoreClassicsDataWithSuccess:(void (^)(void ))success failure:(void (^)(void ))failure completion:(void (^)(void))completion{
-
     self.currrentPage ++;
-    [RCNetWorkingTool get:[NSString stringWithFormat:@"http://mobile.ximalaya.com/m/explore_album_list?category_name=all&condition=classic&device=android&page=%ld&per_page=20&status=0&tag_name=",self.currrentPage] params:nil success:^(id json) {
+
+    NSMutableDictionary * params = [NSMutableDictionary dictionary];
+    params[@"condition"] = @"classic";
+    params[@"device"] = @"android";
+    params[@"page"] = @(self.currrentPage);
+    params[@"per_page"] = @20;
+    params[@"status"] = @0;
+    if (self.tag_name) {
+        params[@"category_name"] = self.category_name;
+        params[@"tag_name"] = self.tag_name;
+    }else{
+        params[@"category_name"] = @"all";
+        params[@"tag_name"] = @"";
+
+    }
+    [RCNetWorkingTool get:@"http://mobile.ximalaya.com/m/explore_album_list" params:params success:^(id json) {
         NSArray * newAudios = [RCAlbum objectArrayWithKeyValuesArray:json[@"list"]];
         NSNumber *  maxPageID = (NSNumber *)json[@"maxPageId"];
         if (self.currrentPage  > [maxPageID integerValue]) {

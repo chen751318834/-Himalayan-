@@ -44,6 +44,7 @@
     param.page = @1;
     param.type = @"album";
     [RCDiscoverDataTool categoryListWithParam:param success:^(RCCategoryListResult *result) {
+        [self.categoryLists removeAllObjects];
         [self.categoryLists addObjectsFromArray:result.list];
         success();
     } failure:^(NSError *error) {
@@ -60,6 +61,7 @@
     param.device = @"android";
     [RCDiscoverDataTool categoryFocusImageWithParam:param
       success:^(RCCategoryFocusImageResult *result) {
+          [self.categoryFocusImages removeAllObjects];
           [self.categoryFocusImages addObjectsFromArray:result.list];
           success();
     } failure:^(NSError *error) {

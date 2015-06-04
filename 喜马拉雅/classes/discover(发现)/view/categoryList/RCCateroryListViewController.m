@@ -10,7 +10,9 @@
 #import "RCConst.h"
 #import "RCCategoryList.h"
 #import "RCDiscoverDataTool.h"
+#import "RCAlbumViewController.h"
 #import "RCCategoryListViewModel.h"
+#import "RCPlayerView.h"
 #import "RCCollectionHeaderReusableView.h"
 #import "RCCategoryListResult.h"
 #import "RCCategryListParam.h"
@@ -148,7 +150,24 @@ static const NSUInteger sectionCount = 100;
 
 
 #pragma mark <UICollectionViewDelegate>
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    if (collectionView == self.scrollCollectionView) {
+        RCList  *list = [self.viewModel categoryFocusImageAtIndexPathInCollectionView:indexPath];
+        [[RCPlayerView playerView] showAnimationing:^{
+            //           self.playerView.trackId = list.trackId;
+            [RCNotificationCenter postNotificationName:sendNetWorkingNotification object:nil userInfo:@{netWorkingParamNotification:list.trackId}];
+        } completion:^{
+        }];
+    }else{
+        RCCategoryList *list = [self.viewModel categoryListAtIndexPathInCollectionView:indexPath];
 
+      RCAlbumViewController* albumVC =  [[RCAlbumViewController alloc]init];
+        albumVC.category = self.category;
+        albumVC.tag_name = list.tname;
+        [self.navigationController pushViewController:albumVC animated:YES];
+    }
+
+}
 
 #pragma mark - 处理屏幕旋转
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration{

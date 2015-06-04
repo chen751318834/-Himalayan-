@@ -24,6 +24,7 @@ static NSString * const ID = @"playerCommentCell";
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.tableView.gifFooter.hidden = NO;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     [self.tableView registerNib:[UINib nibWithNibName:@"RCPlayerCommentViewCell" bundle:nil] forCellReuseIdentifier:ID];
     [self.tableView removeHeader];

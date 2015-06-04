@@ -7,7 +7,11 @@
 //
 
 #import "RCBaseViewController.h"
+#import "RCCatrgory.h"
 
 @interface RCAlbumViewController : RCBaseViewController
+@property(nonatomic,strong) RCCatrgory  *category;
+@property(nonatomic,copy) NSString  *tag_name;
+
 
 @end

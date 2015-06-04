@@ -25,15 +25,15 @@
     if (!_viewModel) {
         self.viewModel = [[RCAlbumViewModel alloc]init];
         self.contents = self.viewModel.models;
-
-
+        self.viewModel.tag_name = self.tag_name;
+        self.viewModel.category_name = self.category.itemName;
     }
     return _viewModel;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    self.title = @"推荐专辑";
+    self.title = self.tag_name ?self.tag_name: @"推荐专辑";
 }
 #pragma mark - 网络请求
 - (void)loadNewData{

@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-@class RCCatrgory,RCFocusImage,RCLatestSpecial,RCLatestActivity,RCRecommendAlbums;
+@class RCCatrgory,RCFocusImage,RCLatestSpecial,RCLatestActivity,RCRecommendAlbums,RCTopCategory;
 @interface RCDiscoverData : NSObject
 /**
  *  "ret": 0,
@@ -20,9 +20,10 @@
  */
 @property(nonatomic,assign) int ret;
 @property(nonatomic,copy) NSString  *latest_xzone_post;
-@property(nonatomic,strong) RCCatrgory  *categories;
+@property(nonatomic,strong) RCTopCategory  *categories;
 @property(nonatomic,strong) RCFocusImage  *focusImages;
 @property(nonatomic,strong) RCLatestSpecial  *latest_special;
 @property(nonatomic,strong) RCLatestActivity  *latest_activity;
 @property(nonatomic,strong) RCRecommendAlbums  *recommendAlbums;
+
 @end

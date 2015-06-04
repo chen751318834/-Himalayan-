@@ -277,7 +277,10 @@ static const NSUInteger sectionCount = 100;
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     if (collectionView == self.categoryCollectionView) {
         RCPlayListViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:categoryID forIndexPath:indexPath];
-        cell.caterory = [self.viewModel categoryAtIndexPathInCollectionView:indexPath];
+//        RCTopCategory * topCategory = self.viewModel.categorieslists[indexPath.item];
+        RCCatrgory * caterory = [self.viewModel categoryAtIndexPathInCollectionView:indexPath];
+//        caterory.category_name = topCategory.name;
+        cell.caterory = caterory;
         return cell;
     }
     RCFocusImageViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:imgID forIndexPath:indexPath];

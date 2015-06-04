@@ -13,4 +13,5 @@
 @property(nonatomic,copy) NSString  *itemName;
 @property(nonatomic,copy) NSString  *itemTitle;
 @property(nonatomic,strong) NSNumber  *itemKey;
+
 @end
