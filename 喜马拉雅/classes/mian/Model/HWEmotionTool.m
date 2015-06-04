@@ -25,11 +25,11 @@ static NSArray *_defaultEmotions;
 
 + (HWEmotion *)emotionWithChs:(NSString *)chs
 {
-    for (HWEmotion *emotion in [self defaultEmotions]) {
-        if ([emotion.chs isEqualToString:chs]) {
-            return emotion;
-        }
-    }
+//    for (HWEmotion *emotion in [self defaultEmotions]) {
+//        if ([emotion.chs isEqualToString:chs]) {
+//            return emotion;
+//        }
+//    }
     return nil;
 }
 @end

@@ -117,12 +117,8 @@ static const NSUInteger sectionCount = 100;
 - (void)back{
     [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         self.playButton.transform = CGAffineTransformMakeTranslation(0, 0);
-
     } completion:nil];
-    [self dismissViewControllerAnimated:YES completion:^{
-
-
-    }];
+        [self.navigationController popViewControllerAnimated:YES];
     }
 - (void)dealloc{
     [RCNotificationCenter removeObserver:self];
@@ -141,26 +137,14 @@ static const NSUInteger sectionCount = 100;
 
 }
 - (void)enterPlayerView:(UIButton *)button{
-//    if (button.isSelected) {
-//        [UIView animateWithDuration:1 animations:^{
-//            self.playerView.transform = CGAffineTransformMakeTranslation(0, [UIScreen mainScreen].bounds.size.height);
-//            button.userInteractionEnabled = NO;
-//        }completion:^(BOOL finished) {
-//            self.playerView.hidden = YES;
-//            button.userInteractionEnabled = YES;
-//        }];
-//    }else{
-       //    }
-//    button.selected = !button.isSelected;
+
     RCPlayerViewController * playVC = [[RCPlayerViewController alloc]init];
     [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         self.playButton.transform = CGAffineTransformMakeTranslation(0, 70);
 
     } completion:nil];
 
-    [self presentViewController:playVC animated:YES completion:^{
-
-    }];
+    [self.navigationController pushViewController:playVC animated:YES];
 
 }
 - (void)setUpPageControl{
@@ -294,21 +278,20 @@ static const NSUInteger sectionCount = 100;
             self.popButton.hidden = NO;
 
         }else{
-//
             RCCatrgory * catrgory = [self.viewModel categoryAtIndexPathInCollectionView:indexPath];
             RCCateroryListViewController * categoryListVC = [[RCCateroryListViewController alloc]init];
             categoryListVC.category = catrgory;
             [self.navigationController pushViewController:categoryListVC animated:YES];
-            
         }
-        
+    }else{
+        RCList * list = [self.viewModel imgAtIndexPathInCollectionView:indexPath];
+        RCPlayerViewController * playVC = [[RCPlayerViewController alloc]init];
+        playVC.trackId = list.trackId;
+        [self.playButton startAnimation];
+        [self.navigationController pushViewController:playVC animated:YES];
 
     }
-    RCList * list = [self.viewModel imgAtIndexPathInCollectionView:indexPath];
-    RCPlayerViewController * playVC = [[RCPlayerViewController alloc]init];
-    playVC.trackId = list.trackId;
-    [self.playButton startAnimation];
-    [self presentViewController:playVC animated:YES completion:nil];
+
     }
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
@@ -472,7 +455,8 @@ static const NSUInteger sectionCount = 100;
 
         RCAlbumDeailViewController * albumDeailVC = [[RCAlbumDeailViewController alloc]init];
         albumDeailVC.ID = list.ID;
-        albumDeailVC.fromHomeController = YES;
+        albumDeailVC.willAppearShowNav = NO;
+        albumDeailVC.willDisappearShowNav = YES;
         [self.navigationController pushViewController:albumDeailVC animated:YES];
     }
 }

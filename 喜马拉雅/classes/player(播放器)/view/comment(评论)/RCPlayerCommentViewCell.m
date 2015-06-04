@@ -31,6 +31,7 @@
 //    self.floorLabel.text  = list.parentId;
     self.contentTextView.text = list.content;
     self.contentTextViewH.constant = [list.content boundingRectWithSize:CGSizeMake(self.bounds.size.width, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:15]} context:nil].size.height+5;
+    self.floorLabel.text = [NSString stringWithFormat:@"%@楼",list.follor];
 }
 
 @end

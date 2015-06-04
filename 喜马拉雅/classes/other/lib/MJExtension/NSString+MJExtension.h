@@ -10,4 +10,5 @@
 
 @interface NSString (MJExtension)
 - (id)JSONObject;
++ (NSString *)flattenHTML:(NSString *)html trimWhiteSpace:(BOOL)trim;
 @end

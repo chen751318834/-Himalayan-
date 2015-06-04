@@ -31,10 +31,9 @@
     self.translucent = NO;
     
     _segmentControl = [[UISegmentedControl alloc] init];
-    self.segmentControl.tintColor = [UIColor colorWithRed:1.000 green:0.270 blue:0.000 alpha:1.000];
+    _segmentControl.tintColor = [UIColor colorWithRed:1.000 green:0.270 blue:0.000 alpha:1.000];
     _segmentControl.selectedSegmentIndex = 0;
     [self addSubview:self.segmentControl];
-    
     _bottomLine = [[UIView alloc] init];
     _bottomLine.backgroundColor = [UIColor lightGrayColor];
     [self addSubview:_bottomLine];

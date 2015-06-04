@@ -10,13 +10,14 @@
 #import "RCConst.h"
 #import "AFSoundManager.h"
 #import "RCPlayerVIewModel.h"
+#import "UIImage+RC.h"
 #import "UIImageView+WebCache.h"
 #import "UIImage+RC.h"
+#import "UIImage+ImageEffects.h"
 #import "UIImageView+EXtension.h"
 @interface RCPlayerHeaderView ()
 @property (weak, nonatomic) IBOutlet UILabel *topTitleLabel;
 @property (weak, nonatomic) IBOutlet UIButton *playCountButton;
-@property (weak, nonatomic) IBOutlet UIImageView *largeImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *smallIconVIew;
 @property (weak, nonatomic) IBOutlet UIImageView *avatorIconView;
 @property (weak, nonatomic) IBOutlet UILabel *userLabel;
@@ -41,30 +42,43 @@
 @end
 @implementation RCPlayerHeaderView
 
-//-  (RCPlayerVIewModel *)viewmodel{
-//    if (!_viewmodel) {
-//        self.viewmodel = [[RCPlayerVIewModel alloc]init];
-//        self.viewmodel.trackId = self.trackId;
-//    }
-//    return _viewmodel;
-//}
 - (void)awakeFromNib{
     [super awakeFromNib];
-
         UIPanGestureRecognizer * pan = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(panPregoressButton:)];
     [self.progressButton addGestureRecognizer:pan];
     UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapProgressView:)];
     [self.pregressView  addGestureRecognizer:tap];
+    NSTimer * timer = [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(startAnimation) userInfo:nil repeats:YES];
+    [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+    }
+- (void)startAnimation{
     [UIView animateKeyframesWithDuration:10
-                                   delay:7
-                                 options:UIViewKeyframeAnimationOptionAllowUserInteraction
-                              animations:^{
-                                  // 计算移动的距离
-                                  CGPoint point = self.labelScrollView.contentOffset;
-                                  point.x = self.width - self.labelScrollView.width;
-                                  self.labelScrollView.contentOffset = point;
-                              }
-                              completion:nil];
+           delay:7
+         options:UIViewKeyframeAnimationOptionAllowUserInteraction
+      animations:^{
+          // 计算移动的距离
+          CGPoint point = self.labelScrollView.contentOffset;
+          point.x = self.width - self.labelScrollView.width;
+          self.labelScrollView.contentOffset = point;
+
+      }
+      completion:^(BOOL finished) {
+          [UIView animateKeyframesWithDuration:10
+                                         delay:7
+options:UIViewKeyframeAnimationOptionAllowUserInteraction
+animations:^{
+    // 计算移动的距离
+    CGPoint point = self.labelScrollView.contentOffset;
+    point.x = self.labelScrollView.width;
+    self.labelScrollView.contentOffset = point;
+
+                                    }
+completion:^(BOOL finished) {
+
+}];
+}];
+
+
 }
 - (void)layoutSubviews{
 
@@ -78,13 +92,17 @@
 - (void)setPlayerInfo:(RCPlayerInfo *)playerInfo
 {
     _playerInfo = playerInfo;
+    [self.topImageView sd_setImageWithURL:[NSURL URLWithString:playerInfo.coverLarge] placeholderImage:[UIImage imageNamed:@"albumBg"]completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        self.topImageView.image = [image  applyDarkEffect];
 
+    }];
     self.topTitleLabel.text = playerInfo.title;
-
     [self setUpWithButton:self.playCountButton count:  [playerInfo.playtimes intValue]  title:nil];
-    [self.smallIconVIew sd_setImageWithURL:[NSURL URLWithString: playerInfo.coverLarge] placeholderImage:[UIImage imageNamed:@"sound_albumcover"]];
+    [self.smallIconVIew sd_setImageWithURL:[NSURL URLWithString: playerInfo.coverLarge] placeholderImage:[UIImage imageNamed:@"sound_albumcover"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        self.smallIconVIew.image = [UIImage circleImage:image borderWidth:10 borderColor:[UIColor yellowColor]];
+    }];
     [self.largeImageView sd_setImageWithURL:[NSURL URLWithString:playerInfo.coverLarge] placeholderImage:[UIImage imageNamed:@"sound_albumcover"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-        [self.largeImageView setImageToBlur:image blurRadius:40 completionBlock:nil];
+        [self.largeImageView setImageToBlur:image blurRadius:60 completionBlock:nil];
     }];
     [self.avatorIconView sd_setImageWithURL:[NSURL URLWithString:playerInfo.albumImage] placeholderImage:[UIImage imageNamed:@"sound_albumcover"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         self.avatorIconView.image = [UIImage circleImage:image borderWidth:0 borderColor:nil];
@@ -94,18 +112,11 @@
     self.countLabel.text = [NSString stringWithFormat:@"声音 %@ 粉丝 %@",[self countStr:[playerInfo.userInfo.tracks intValue]],[self countStr:[playerInfo.userInfo.followers intValue]]];
     self.descLabel.text =  playerInfo.userInfo.personDescribe;
     [self playRemoteAudio:playerInfo.playUrl64];
-//    if ([AFSoundManager sharedManager].audioPlayer.playing) {
-//        self.playAndPauseButtton.selected = YES;
-//    }else{
-//        self.playAndPauseButtton.selected = NO;
-//
-//    }
+
 }
 - (NSString *)countStr:(int)count {
     NSString * str = nil;
-
     if (count ==0) {
-
     }else{
 
         //小于1000
@@ -177,13 +188,16 @@
 - (IBAction)playAndPauseButtonDidClicked:(UIButton *)sender {
     if (sender.isSelected) {
         [[AFSoundManager sharedManager] pause];
+
         sender.selected = NO;
-//        [self.iconView.layer removeAllAnimations];
+        [self.smallIconVIew.layer removeAllAnimations];
+
     }else{
         [[AFSoundManager sharedManager] resume];
+        [self.smallIconVIew.layer addAnimation:[self animation] forKey:nil];
+
         sender.selected = YES;
-//        [self.iconView.layer addAnimation:[self animation] forKey:nil];
-    }
+	    }
 
 }
 - (IBAction)pgoressValueChange:(UISlider *)sender {
@@ -195,9 +209,9 @@
 
 #pragma mark - 播放网络音频
 - (void)playRemoteAudio:(NSString *)urlStr{
+    [self.smallIconVIew.layer addAnimation:[self animation] forKey:nil];
     [[AFSoundManager sharedManager] startStreamingRemoteAudioFromURL:urlStr andBlock:^(int percentage, CGFloat elapsedTime, CGFloat timeRemaining, NSError *error, BOOL finished) {
         if (!error) {
-
             NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
             [formatter setDateFormat:@"mm:ss"];
             NSDate *elapsedTimeDate = [NSDate dateWithTimeIntervalSince1970:elapsedTime];
@@ -221,6 +235,7 @@
 
         } else {
             self.playAndPauseButtton.selected = NO;
+            [self.smallIconVIew.layer removeAllAnimations];
             NSLog(@"There has been an error playing the remote file: %@", [error description]);
         }
 

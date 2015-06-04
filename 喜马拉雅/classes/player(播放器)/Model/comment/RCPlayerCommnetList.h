@@ -30,5 +30,5 @@
 @property(nonatomic,copy) NSAttributedString  *AttributedContent;
 
 @property(nonatomic,copy) NSString  *createTime;
-
+@property(nonatomic,strong) NSNumber* follor;
 @end

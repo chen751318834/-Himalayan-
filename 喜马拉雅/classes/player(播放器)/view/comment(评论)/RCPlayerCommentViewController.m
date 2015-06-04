@@ -14,9 +14,7 @@
 static NSString * const ID = @"playerCommentCell";
 @interface RCPlayerCommentViewController ()
 @property(nonatomic,strong) RCPlayerVIewModel  *viewmodel;
-
 @end
-
 @implementation RCPlayerCommentViewController
 -  (RCPlayerVIewModel *)viewmodel{
     if (!_viewmodel) {
@@ -26,10 +24,10 @@ static NSString * const ID = @"playerCommentCell";
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     [self.tableView registerNib:[UINib nibWithNibName:@"RCPlayerCommentViewCell" bundle:nil] forCellReuseIdentifier:ID];
-
     [RCNotificationCenter addObserver:self selector:@selector(getTrackID:) name:sendTrackIdNotification object:nil];
-    [self.tableView.gifHeader setHidden:YES];
+    [self.tableView removeHeader];
 
 
 
@@ -39,6 +37,8 @@ static NSString * const ID = @"playerCommentCell";
 
         [self.viewmodel fetchNewPlayerCommnetWithSuccess:^{
             [self.tableView reloadData];
+
+
         } failure:^{
     
         }];
@@ -60,7 +60,9 @@ static NSString * const ID = @"playerCommentCell";
 #pragma mark - UITableViewDelegate
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     RCPlayerCommentViewCell * cell = [tableView dequeueReusableCellWithIdentifier:ID forIndexPath:indexPath];
-    cell.list = self.viewmodel.comments[indexPath.row];
+    RCPlayerCommnetList * commentList = self.viewmodel.comments[indexPath.row];
+    commentList.follor = @(indexPath.row+1);
+    cell.list = commentList;
     return cell;
 
 }

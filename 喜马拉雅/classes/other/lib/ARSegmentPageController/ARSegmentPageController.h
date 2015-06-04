@@ -10,7 +10,7 @@
 #import "ARSegmentControllerDelegate.h"
 #import "ARSegmentPageHeader.h"
 #import "ARSegmentPageControllerHeaderProtocol.h"
-#import "ARSegmentView.h"
+
 @interface ARSegmentPageController : UIViewController
 
 @property (nonatomic, assign) CGFloat segmentHeight;

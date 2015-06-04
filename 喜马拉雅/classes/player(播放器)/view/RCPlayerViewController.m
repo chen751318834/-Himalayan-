@@ -9,14 +9,20 @@
 #import "RCPlayerViewController.h"
 #import "CSStickyHeaderFlowLayout.h"
 #import "RCConst.h"
+#import "UIImageView+WebCache.h"
 #import "RCPlayerHeaderView.h"
 #import "RCPlayerCommentViewController.h"
 #import "RCPlayerDeialViewController.h"
 #import "RCPlayerAlbumViewController.h"
+#import "UIImage+RC.h"
 #import "RCContentViewCell.h"
 #import "RCPlayerVIewModel.h"
+#import "UIImage+ImageEffects.h"
+#import "UIImageView+EXtension.h"
+void *CusomHeaderInsetObserver = &CusomHeaderInsetObserver;
+
 @interface RCPlayerViewController ()
-@property(nonatomic,weak) RCPlayerCommentViewController   *commentVC;
+@property(nonatomic,weak) RCPlayerCommentViewController *commentVC;
 @property(nonatomic,weak) RCPlayerDeialViewController   *deailVC;
 @property(nonatomic,weak) RCPlayerAlbumViewController   *albumVC;
 @property(nonatomic,weak) UIViewController   *displayingController;
@@ -42,21 +48,32 @@
     self.deailVC = deailVC;
     RCPlayerAlbumViewController * albumVC = [[RCPlayerAlbumViewController alloc]init];
     self.albumVC = albumVC;
-    self = [super initWithControllers:self.commentVC  ,self.deailVC,self.albumVC, nil];
+    self = [super initWithControllers:commentVC,deailVC,albumVC, nil];
     if (self) {
-        // your code
-        self.headerHeight = [UIScreen mainScreen].bounds.size.height - 100;
-        self.segmentMiniTopInset = 70;
-
+        self.headerHeight = [UIScreen mainScreen].bounds.size.height- self.segmentHeight;
+        self.segmentMiniTopInset = 66;
     }
-
     return self;
 }
+- (void)viewWillDisappear:(BOOL)animated{
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+    [super viewWillDisappear:animated];
+
+}
+- (void)viewWillAppear:(BOOL)animated{
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
+    [super viewWillAppear:animated];
+    
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self addObserver:self forKeyPath:@"segmentToInset" options:NSKeyValueObservingOptionNew context:CusomHeaderInsetObserver];
+
     [self.viewmodel fetchplayerInfoWithSuccess:^{
         self.headerView.playerInfo = self.viewmodel.playerInfo;
         self.deailVC.trackId = self.viewmodel.playerInfo.trackId;
+        self.albumVC.playerInfo = self.viewmodel.playerInfo;
 
     } failure:^{
 
@@ -66,6 +83,7 @@
     }
    }
 - (void)dealloc{
+    [self removeObserver:self forKeyPath:@"segmentToInset"];
 
     [RCNotificationCenter removeObserver:self];
 }
@@ -75,9 +93,25 @@
     return headerView;
 }
 
+-(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+    if (context == CusomHeaderInsetObserver) {
+        CGFloat inset = [change[NSKeyValueChangeNewKey] floatValue];
+        if (inset <= self.segmentMiniTopInset + 30) {
+            self.headerView.topImageView.hidden = NO;
 
+        }else{
+            self.headerView.topImageView.hidden = YES;
 
+        }
 
+    }
+   }
 
+-(UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
+}
 
 @end

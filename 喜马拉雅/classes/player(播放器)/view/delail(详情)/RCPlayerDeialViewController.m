@@ -27,13 +27,13 @@ static NSString * const ID = @"playerDeailCell";
     return _viewmodel;
 }
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+
     self.tableView.allowsSelection = NO;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.tableView registerNib:[UINib nibWithNibName:@"RCPlayerDeialViewCell" bundle:nil] forCellReuseIdentifier:ID];
-
-
     [self.viewmodel fetchPlayerTrackDeailWithSuccess:^{
         [self.tableView reloadData];
     } failure:^{

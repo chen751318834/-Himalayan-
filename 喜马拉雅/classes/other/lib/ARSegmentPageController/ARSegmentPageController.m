@@ -92,7 +92,7 @@ const void* _ARSEGMENTPAGE_CURRNTPAGE_SCROLLVIEWOFFSET = &_ARSEGMENTPAGE_CURRNTP
 
 -(void)_setUp
 {
-    self.headerHeight = 200;
+    self.headerHeight =  [UIScreen mainScreen].bounds.size.height - 100;
     self.segmentHeight = 44;
     self.segmentToInset = 200;
     self.segmentMiniTopInset = 0;
@@ -112,7 +112,6 @@ const void* _ARSEGMENTPAGE_CURRNTPAGE_SCROLLVIEWOFFSET = &_ARSEGMENTPAGE_CURRNTP
     
     
     self.segmentView = [[ARSegmentView alloc] init];
-
     [self.segmentView.segmentControl addTarget:self action:@selector(segmentControlDidChangedValue:) forControlEvents:UIControlEventValueChanged];
     [self.view addSubview:self.segmentView];
     

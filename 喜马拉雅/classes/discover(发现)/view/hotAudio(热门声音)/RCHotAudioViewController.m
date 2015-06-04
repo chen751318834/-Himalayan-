@@ -175,9 +175,7 @@
     RCPlayerViewController * playVC = [[RCPlayerViewController alloc]init];
     playVC.trackId = audio.ID;
     [[RCBottomPlayerButton playerButton] startAnimation];
-
-
-    [self presentViewController:playVC animated:YES completion:nil];
+    [self.navigationController pushViewController:playVC animated:YES];
 }
 #pragma mark - 事件处理
 @end

@@ -16,7 +16,7 @@
 @property(nonatomic,strong) NSMutableArray  *comments;
 @property(nonatomic,strong) NSMutableArray  *deails;
 @property(nonatomic,strong) NSMutableArray  *albums;
-
+@property(nonatomic,strong) RCPlayerCommnet * comment;
 - ( void)fetchplayerInfoWithSuccess:(void (^)(void ))success failure:(void (^)(void ))failure;
 @property(nonatomic,strong) RCPlayerInfo  *playerInfo;
 @property(nonatomic,strong) NSNumber  *trackId;

@@ -46,6 +46,7 @@
     }
     return _playerlists;
 }
+
 - ( void)fetchplayerInfoWithSuccess:(void (^)(void ))success failure:(void (^)(void ))failure{
     NSLog(@"%@",[NSString stringWithFormat:@"http://mobile.ximalaya.com/mobile/track/detail?device=android&trackId=%@",self.trackId]);
     [RCNetWorkingTool get:[NSString stringWithFormat:@"http://mobile.ximalaya.com/mobile/track/detail?device=android&trackId=%@",self.trackId] params:nil success:^(id json) {
@@ -71,6 +72,7 @@
     params[@"trackId"] =  self.trackId;
     [RCNetWorkingTool get:@"http://mobile.ximalaya.com/mobile/track/comment" params:params success:^(id json) {
         RCPlayerCommnet * comment = [RCPlayerCommnet objectWithKeyValues:json];
+        self.comment = comment;
         NSArray * newAudios = comment.list;
         [self.comments addObjectsFromArray:newAudios];
         if (success) {

@@ -8,6 +8,7 @@
 
 #import "RCBaseViewController.h"
 #import "ARSegmentPageController.h"
+#import "RCPlayerInfo.h"
 @interface RCPlayerAlbumViewController : UITableViewController <ARSegmentControllerDelegate>
-
+@property(nonatomic,strong) RCPlayerInfo  *playerInfo;
 @end

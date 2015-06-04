@@ -20,6 +20,7 @@
 #import "RCAlbumViewController.h"
 #import "RCConst.h"
 #import "RCAlbumDeailViewCell.h"
+#import "RCPlayerAlbumViewController.h"
 #import "RCAlbumHeaderView.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>
 @interface RCAlbumDeailViewController () <RCSegementControlDelegate>
@@ -51,21 +52,32 @@
 
     return [super initWithCollectionViewLayout:layout];
 }
+- (void)viewWillAppear:(BOOL)animated{
+    if (self.willAppearShowNav) {
+        [self.navigationController setNavigationBarHidden:NO animated:NO];
+    }else{
+        [self.navigationController setNavigationBarHidden:YES animated:NO];
+    }
+    [super viewWillAppear:animated];
+
+
+}
 - (void)viewWillDisappear:(BOOL)animated{
-    [self.navigationController setNavigationBarHidden:NO animated:YES];
+    if (self.willDisappearShowNav) {
+        [self.navigationController setNavigationBarHidden:NO animated:YES];
+    }else{
+        [self.navigationController setNavigationBarHidden:YES animated:YES];
+    }
     [super viewWillDisappear:animated];
 
 }
-- (void)viewWillAppear:(BOOL)animated{
-    [self.navigationController setNavigationBarHidden:YES animated:YES];
-    [super viewWillAppear:animated];
 
-}
 
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
     self.collectionView.frame = [UIScreen mainScreen].bounds;
     [self.viewModel fetchNewAlbumDeailDataWithSuccess:^{
         [self.collectionView reloadData];
