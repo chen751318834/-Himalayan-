@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14E26a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E26a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -10,14 +10,7 @@
             <rect key="frame" x="0.0" y="0.0" width="76" height="71.5"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tabbar_np_icon" translatesAutoresizingMaskIntoConstraints="NO" id="cXS-cQ-8KQ">
-                    <rect key="frame" x="8" y="13.5" width="60" height="50.5"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="50.5" id="8Na-qx-igS"/>
-                        <constraint firstAttribute="width" constant="60" id="EJZ-48-7B6"/>
-                    </constraints>
-                </imageView>
-                <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2aT-KY-P5G">
+                <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2aT-KY-P5G">
                     <rect key="frame" x="0.0" y="0.0" width="76" height="72"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <inset key="imageEdgeInsets" minX="5" minY="5" maxX="0.0" maxY="0.0"/>
@@ -26,15 +19,22 @@
                     </state>
                     <state key="selected" image="tabbar_np_play"/>
                 </button>
+                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tabbar_np_icon" translatesAutoresizingMaskIntoConstraints="NO" id="cXS-cQ-8KQ">
+                    <rect key="frame" x="13" y="14" width="50" height="50.5"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="50" id="BYL-rd-a0u"/>
+                        <constraint firstAttribute="height" constant="50" id="fsz-jc-Ynf"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="2aT-KY-P5G" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="A5Y-w4-pp5"/>
-                <constraint firstItem="cXS-cQ-8KQ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="FX7-MH-SnR"/>
+                <constraint firstItem="cXS-cQ-8KQ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="13" id="B9T-iM-Ham"/>
                 <constraint firstItem="2aT-KY-P5G" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="JL6-UC-8lm"/>
+                <constraint firstItem="cXS-cQ-8KQ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="14" id="MT5-eg-gbZ"/>
                 <constraint firstAttribute="bottom" secondItem="2aT-KY-P5G" secondAttribute="bottom" id="Phm-sb-9xE"/>
                 <constraint firstAttribute="trailing" secondItem="2aT-KY-P5G" secondAttribute="trailing" id="VGs-fu-47c"/>
-                <constraint firstItem="cXS-cQ-8KQ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="13.5" id="xBV-So-B7d"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

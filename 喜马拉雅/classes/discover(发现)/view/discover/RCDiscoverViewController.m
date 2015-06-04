@@ -13,6 +13,7 @@
 #import "RCDiscover2IMGViewCell.h"
 #import "RCSubjectViewController.h"
 #import "RCCircleViewController.h"
+#import "RCPlayerView.h"
 #import "RCConst.h"
 #import "UIImageView+WebCache.h"
 #import "RCFocusImageViewCell.h"
@@ -33,6 +34,7 @@
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #import "MJExtension.h"
 #import "RCPlayerViewController.h"
+#import "RCplayerStatus.h"
 static NSString * const categoryID = @"categoryCell";
 static NSString * const imgID = @"imgCell";
 static NSString * const img2CellID = @"img2CellID";
@@ -52,10 +54,13 @@ static const NSUInteger sectionCount = 100;
 @property(nonatomic,weak) UIPageControl   *pageControl;
 @property(nonatomic,weak) UIImageView   *coverView;
 @property(nonatomic,weak) RCBottomPlayerButton   *playButton;
+@property(nonatomic,weak) RCPlayerView   *playerView;
+
 @end
 
 @implementation RCDiscoverViewController
 #pragma mark - 懒加载
+
 -  (UIImageView *)coverView{
     if (!_coverView) {
         UIImageView * coverView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"LaunchImage"]];
@@ -88,7 +93,7 @@ static const NSUInteger sectionCount = 100;
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self addplayButton];
-
+    RCLog(@"%s ---- %@",__func__,[UIApplication sharedApplication].keyWindow.subviews);
     [RCNotificationCenter addObserver:self selector:@selector(back) name:backHomeNotification object:nil];
     self.tableView.separatorStyle = UITableViewCellSelectionStyleNone;
     self.tableView.tableFooterView = [[UIView alloc]init];
@@ -115,14 +120,21 @@ static const NSUInteger sectionCount = 100;
 }
 
 - (void)back{
-    [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-        self.playButton.transform = CGAffineTransformMakeTranslation(0, 0);
-    } completion:nil];
-        [self.navigationController popViewControllerAnimated:YES];
+
+    [self.playerView dismissAnimationing:^{
+        [UIApplication sharedApplication].keyWindow.userInteractionEnabled  = NO;
+    } completion:^{
+        [UIApplication sharedApplication].keyWindow.userInteractionEnabled  = YES;
+
+    }];
+//        [self.navigationController popViewControllerAnimated:YES];
+
     }
 - (void)dealloc{
     [RCNotificationCenter removeObserver:self];
 }
+
+
 - (void)addplayButton{
     UIWindow * window = [UIApplication sharedApplication].keyWindow;
        RCBottomPlayerButton * playButton = [RCBottomPlayerButton playerButton];
@@ -134,17 +146,25 @@ static const NSUInteger sectionCount = 100;
     [playButton autoSetDimension:ALDimensionWidth toSize:76];
     [playButton autoSetDimension:ALDimensionHeight toSize:71.5];
 //    [playButton addTarget:self action:@selector(enterPlayerView:) forControlEvents:UIControlEventTouchUpInside];
+    RCPlayerView * playerView = [[RCPlayerView alloc]init];
+    [[UIApplication sharedApplication].keyWindow addSubview:playerView];
+    playerView.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height,[UIScreen mainScreen].bounds.size.width , [UIScreen mainScreen].bounds.size.height);
+    self.playerView = playerView;
+
 
 }
 - (void)enterPlayerView:(UIButton *)button{
+    if ([RCplayerStatus sharedplayerStatus].isPlaying) {
+//        RCPlayerViewController * playVC = [[RCPlayerViewController alloc]init];
+//        [self.playButton moveToBottom];
+//        [self.navigationController pushViewController:playVC animated:YES];
+         [self.playerView  showAnimationing:^{
+             [UIApplication sharedApplication].keyWindow.userInteractionEnabled  = NO;
+         } completion:^{
+             [UIApplication sharedApplication].keyWindow.userInteractionEnabled  = YES;
+         }];
+    }
 
-    RCPlayerViewController * playVC = [[RCPlayerViewController alloc]init];
-    [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-        self.playButton.transform = CGAffineTransformMakeTranslation(0, 70);
-
-    } completion:nil];
-
-    [self.navigationController pushViewController:playVC animated:YES];
 
 }
 - (void)setUpPageControl{
@@ -285,11 +305,15 @@ static const NSUInteger sectionCount = 100;
         }
     }else{
         RCList * list = [self.viewModel imgAtIndexPathInCollectionView:indexPath];
-        RCPlayerViewController * playVC = [[RCPlayerViewController alloc]init];
-        playVC.trackId = list.trackId;
-        [self.playButton startAnimation];
-        [self.navigationController pushViewController:playVC animated:YES];
+//        RCPlayerViewController * playVC = [[RCPlayerViewController alloc]init];
+//        playVC.trackId = list.trackId;
+//        [self.navigationController pushViewController:playVC animated:YES];
+       [self.playerView showAnimationing:^{
+//           self.playerView.trackId = list.trackId;
+           [RCNotificationCenter postNotificationName:sendNetWorkingNotification object:nil userInfo:@{netWorkingParamNotification:list.trackId}];
 
+       } completion:^{
+       }];
     }
 
     }
@@ -455,8 +479,6 @@ static const NSUInteger sectionCount = 100;
 
         RCAlbumDeailViewController * albumDeailVC = [[RCAlbumDeailViewController alloc]init];
         albumDeailVC.ID = list.ID;
-        albumDeailVC.willAppearShowNav = NO;
-        albumDeailVC.willDisappearShowNav = YES;
         [self.navigationController pushViewController:albumDeailVC animated:YES];
     }
 }

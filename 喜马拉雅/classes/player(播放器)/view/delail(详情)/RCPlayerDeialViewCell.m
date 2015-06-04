@@ -10,6 +10,7 @@
 #import "RegexKitLite.h"
 #import "UIView+Extension.h"
 #import "RCTabBarViewController.h"
+#import "RCPlayerView.h"
 #import "RCNavigationController.h"
 #import "RCOneAlbumViewController.h"
 #import "UIView+AutoLayout.h"
@@ -61,11 +62,9 @@ static const CGFloat margin = 10;
 }
 - (void)tagsControl:(TLTagsControl *)tagsControl tappedAtIndex:(NSInteger)index{
     NSString * tag = tagsControl.tags[index];
-    RCTabBarViewController * tabBarVC =(RCTabBarViewController *)   [UIApplication sharedApplication].keyWindow.rootViewController;
-    RCNavigationController * navVC = ( RCNavigationController *)tabBarVC.selectedViewController;
     RCOneAlbumViewController * albumVc = [[RCOneAlbumViewController alloc]init];
     albumVc.tag = tag;
-    [navVC pushViewController:albumVc animated:YES];
+    [RCPlayerView pushViewController:albumVc];
 
 }
 @end

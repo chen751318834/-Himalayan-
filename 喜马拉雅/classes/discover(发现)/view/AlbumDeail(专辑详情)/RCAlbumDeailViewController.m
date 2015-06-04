@@ -10,6 +10,7 @@
 #import "CSStickyHeaderFlowLayout.h"
 #import "RCAlbumViewModel.h"
 #import "RCSegementControl.h"
+#import "RCPlayerView.h"
 #import "RCAlbumTool.h"
 #import "RCAlbumSectionHeaderView.h"
 #import "MJRefresh.h"
@@ -53,27 +54,13 @@
     return [super initWithCollectionViewLayout:layout];
 }
 - (void)viewWillAppear:(BOOL)animated{
-    if (self.willAppearShowNav) {
-        [self.navigationController setNavigationBarHidden:NO animated:NO];
-    }else{
-        [self.navigationController setNavigationBarHidden:YES animated:NO];
-    }
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
     [super viewWillAppear:animated];
-
-
 }
 - (void)viewWillDisappear:(BOOL)animated{
-    if (self.willDisappearShowNav) {
-        [self.navigationController setNavigationBarHidden:NO animated:YES];
-    }else{
-        [self.navigationController setNavigationBarHidden:YES animated:YES];
-    }
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
     [super viewWillDisappear:animated];
-
 }
-
-
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -82,9 +69,7 @@
     [self.viewModel fetchNewAlbumDeailDataWithSuccess:^{
         [self.collectionView reloadData];
     } failure:^{
-
     }];
-
     [self setRefresh];
     if([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0)
     {
@@ -205,6 +190,16 @@
         return headerView;
     }
     return nil;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    RCTrackList * trackList = [self.viewModel trackListAtIndexPath:indexPath];
+    [[RCPlayerView playerView] showAnimationing:^{
+        [RCNotificationCenter postNotificationName:sendNetWorkingNotification object:nil userInfo:@{netWorkingParamNotification:trackList.trackId}];
+
+    } completion:^{
+    }];
+
 }
 - (void)sendData:(UIButton *)button{
     NSMutableDictionary * info = [NSMutableDictionary dictionary];

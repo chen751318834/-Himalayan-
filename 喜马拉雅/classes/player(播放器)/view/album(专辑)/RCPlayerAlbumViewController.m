@@ -11,7 +11,10 @@
 #import "RCPlayerVIewModel.h"
 #import "UIImageView+WebCache.h"
 #import "RCPlayerAlbumViewCell.h"
+#import "RCPlayerView.h"
 #import "RCAlbumDeailViewController.h"
+#import "RCNavigationController.h"
+#import "RCTabBarViewController.h"
 #import "UITableView+FDTemplateLayoutCell.h"
 @interface RCPlayerAlbumViewController ()
 @property(nonatomic,weak) UIButton   *button;
@@ -72,13 +75,10 @@
 }
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     RCPlayerAlbum *album = self.viewmodel.albums[indexPath.row];
     RCAlbumDeailViewController * albumDeailVC = [[RCAlbumDeailViewController alloc]init];
     albumDeailVC.ID = album.albumId;
-    albumDeailVC.willAppearShowNav = NO;
-    albumDeailVC.willDisappearShowNav = NO;
-    [self.navigationController pushViewController:albumDeailVC animated:YES];
-
-
+    [RCPlayerView pushViewController:albumDeailVC];
 }
 @end

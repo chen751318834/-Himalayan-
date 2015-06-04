@@ -59,6 +59,20 @@
     }
     return _coverButton;
 }
+
+- (void)viewWillAppear:(BOOL)animated{
+        [self.navigationController setNavigationBarHidden:NO animated:YES];
+    [super viewWillAppear:animated];
+
+
+}
+- (void)viewWillDisappear:(BOOL)animated{
+        [self.navigationController setNavigationBarHidden:YES animated:YES];
+    [super viewWillDisappear:animated];
+    for (RCTrackList * list in self.viewModel.downloadLists) {
+        list.check  = NO;
+    }
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
 
@@ -78,12 +92,7 @@
 
 
 }
-- (void)viewWillDisappear:(BOOL)animated{
-    [super viewWillDisappear:animated];
-    for (RCTrackList * list in self.viewModel.downloadLists) {
-        list.check  = NO;
-    }
-}
+
 - (void)setUpToolbar{
     [self setUpTopToolBar];
 

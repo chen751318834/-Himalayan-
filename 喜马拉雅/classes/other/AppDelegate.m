@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import "RCTabBarViewController.h"
+#import "RCConst.h"
+#import "RCplayerStatus.h"
 @interface AppDelegate ()
 
 @end
@@ -23,5 +25,12 @@
     return YES;
 }
 
+- (void)applicationDidEnterBackground:(UIApplication *)application
+{
+    [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
+    [self becomeFirstResponder];
+    [RCplayerStatus sharedplayerStatus].applicationEnterBackground = YES;
+    [[NSNotificationCenter defaultCenter] postNotificationName:RCPlayerViewSetSongInformationNotification object:nil userInfo:nil];
+}
 
 @end

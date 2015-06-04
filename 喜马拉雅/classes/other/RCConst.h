@@ -41,6 +41,13 @@ static NSString * changePlayerChildControllerOfSelectedindex = @"changePlayerChi
 
 static NSString * sendTrackIdNotification = @"sendTrackIdNotification";
 static NSString * trackIdNotificationName = @"trackIdNotificationName";
+
+
+static NSString * RCPlayerViewSetSongInformationNotification = @"RCPlayerViewSetSongInformationNotification";
+
+static NSString * sendNetWorkingNotification = @"sendNetWorkingNotification";
+static NSString * netWorkingParamNotification = @"netWorkingparamNotification";
+
 #define RCNotificationCenter  [NSNotificationCenter defaultCenter]
 
 #endif

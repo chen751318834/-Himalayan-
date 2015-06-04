@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface RCNavigationController : UINavigationController
-
++ (instancetype)navigationController;
 @end

@@ -11,6 +11,7 @@
 #import "AFSoundManager.h"
 #import "RCPlayerVIewModel.h"
 #import "UIImage+RC.h"
+#import "RCplayerStatus.h"
 #import "UIImageView+WebCache.h"
 #import "UIImage+RC.h"
 #import "UIImage+ImageEffects.h"
@@ -38,7 +39,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *playProgressLabel;
 @property(nonatomic,strong) NSTimer  *timer;
 @property(nonatomic,assign) CGFloat currnetProgressButtonX;
-
 @end
 @implementation RCPlayerHeaderView
 
@@ -188,14 +188,13 @@ completion:^(BOOL finished) {
 - (IBAction)playAndPauseButtonDidClicked:(UIButton *)sender {
     if (sender.isSelected) {
         [[AFSoundManager sharedManager] pause];
-
+        [RCplayerStatus sharedplayerStatus].playing =  NO;
         sender.selected = NO;
         [self.smallIconVIew.layer removeAllAnimations];
-
     }else{
         [[AFSoundManager sharedManager] resume];
         [self.smallIconVIew.layer addAnimation:[self animation] forKey:nil];
-
+        [RCplayerStatus sharedplayerStatus].playing =  YES;
         sender.selected = YES;
 	    }
 
@@ -209,6 +208,7 @@ completion:^(BOOL finished) {
 
 #pragma mark - 播放网络音频
 - (void)playRemoteAudio:(NSString *)urlStr{
+    [RCplayerStatus sharedplayerStatus].playing =  YES;
     [self.smallIconVIew.layer addAnimation:[self animation] forKey:nil];
     [[AFSoundManager sharedManager] startStreamingRemoteAudioFromURL:urlStr andBlock:^(int percentage, CGFloat elapsedTime, CGFloat timeRemaining, NSError *error, BOOL finished) {
         if (!error) {
@@ -234,6 +234,8 @@ completion:^(BOOL finished) {
                 self.currentprogressImageView.width = self.progressButton.centerX;
 
         } else {
+            [RCplayerStatus sharedplayerStatus].playing =  NO;
+
             self.playAndPauseButtton.selected = NO;
             [self.smallIconVIew.layer removeAllAnimations];
             NSLog(@"There has been an error playing the remote file: %@", [error description]);

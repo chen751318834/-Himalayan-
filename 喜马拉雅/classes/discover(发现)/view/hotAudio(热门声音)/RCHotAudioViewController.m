@@ -11,6 +11,7 @@
 #import "RCHotAudioVIewModel.h"
 #import "Toast+UIView.h"
 #import "RCHotAudioViewCell.h"
+#import "RCPlayerView.h"
 #import "RCConst.h"
 #import "RCBottomPlayerButton.h"
 #import "RCPlayerViewController.h"
@@ -172,10 +173,11 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     RCOnneHotAudio * audio = self.contents[indexPath.row];
     [super tableView:tableView didSelectRowAtIndexPath:indexPath];
-    RCPlayerViewController * playVC = [[RCPlayerViewController alloc]init];
-    playVC.trackId = audio.ID;
-    [[RCBottomPlayerButton playerButton] startAnimation];
-    [self.navigationController pushViewController:playVC animated:YES];
+    [[RCPlayerView playerView] showAnimationing:^{
+        [RCNotificationCenter postNotificationName:sendNetWorkingNotification object:nil userInfo:@{netWorkingParamNotification:audio.ID}];
+
+    } completion:^{
+    }];
 }
 #pragma mark - 事件处理
 @end

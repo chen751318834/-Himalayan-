@@ -10,7 +10,10 @@
 
 @interface RCBottomPlayerButton : UIView
 @property (weak, nonatomic) IBOutlet UIButton *button;
-@property (weak, nonatomic) IBOutlet UIImageView *playingIconView;
 + (instancetype)playerButton;
-- (void)startAnimation;
+- (void)moveToBottom;
+- (void)moveToTop;
+
+@property(nonatomic,copy) NSString  *imgSrc;
+
 @end

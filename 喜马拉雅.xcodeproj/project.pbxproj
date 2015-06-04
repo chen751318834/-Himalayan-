@@ -124,6 +124,8 @@
 		4B7A339B1B187F480042E0EF /* RCAtentionTopViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B7A33991B187F480042E0EF /* RCAtentionTopViewCell.xib */; };
 		4B7A339F1B187F580042E0EF /* RCAttentionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B7A339D1B187F580042E0EF /* RCAttentionViewCell.m */; };
 		4B7A33A01B187F580042E0EF /* RCAttentionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B7A339E1B187F580042E0EF /* RCAttentionViewCell.xib */; };
+		4B8BFFBC1B1FEC36009B0017 /* RCPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8BFFBB1B1FEC36009B0017 /* RCPlayerView.m */; };
+		4B8BFFBF1B1FFCD6009B0017 /* RCplayerStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8BFFBE1B1FFCD6009B0017 /* RCplayerStatus.m */; };
 		4B912DED1B0EBEB4007B64DD /* RCSubject.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B912DEC1B0EBEB4007B64DD /* RCSubject.m */; };
 		4B912DF01B0EBF02007B64DD /* RCSubjectList.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B912DEF1B0EBF02007B64DD /* RCSubjectList.m */; };
 		4B912DF31B0EBFAD007B64DD /* RCSubjectViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B912DF21B0EBFAD007B64DD /* RCSubjectViewModel.m */; };
@@ -507,6 +509,10 @@
 		4B7A339C1B187F580042E0EF /* RCAttentionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCAttentionViewCell.h; sourceTree = "<group>"; };
 		4B7A339D1B187F580042E0EF /* RCAttentionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCAttentionViewCell.m; sourceTree = "<group>"; };
 		4B7A339E1B187F580042E0EF /* RCAttentionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RCAttentionViewCell.xib; sourceTree = "<group>"; };
+		4B8BFFBA1B1FEC36009B0017 /* RCPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCPlayerView.h; sourceTree = "<group>"; };
+		4B8BFFBB1B1FEC36009B0017 /* RCPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCPlayerView.m; sourceTree = "<group>"; };
+		4B8BFFBD1B1FFCD6009B0017 /* RCplayerStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCplayerStatus.h; sourceTree = "<group>"; };
+		4B8BFFBE1B1FFCD6009B0017 /* RCplayerStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCplayerStatus.m; sourceTree = "<group>"; };
 		4B912DEB1B0EBEB4007B64DD /* RCSubject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCSubject.h; sourceTree = "<group>"; };
 		4B912DEC1B0EBEB4007B64DD /* RCSubject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCSubject.m; sourceTree = "<group>"; };
 		4B912DEE1B0EBF02007B64DD /* RCSubjectList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCSubjectList.h; sourceTree = "<group>"; };
@@ -851,6 +857,8 @@
 				4B116C741B198FFF007792F4 /* RCPlayerHeaderView.h */,
 				4B116C751B198FFF007792F4 /* RCPlayerHeaderView.m */,
 				4B116C761B198FFF007792F4 /* RCPlayerHeaderView.xib */,
+				4B8BFFBA1B1FEC36009B0017 /* RCPlayerView.h */,
+				4B8BFFBB1B1FEC36009B0017 /* RCPlayerView.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -1713,6 +1721,8 @@
 				4BBAC2481B1EA3D7006ED9A1 /* RCPlayerCommnet.m */,
 				4BBAC24A1B1EA417006ED9A1 /* RCPlayerCommnetList.h */,
 				4BBAC24B1B1EA417006ED9A1 /* RCPlayerCommnetList.m */,
+				4B8BFFBD1B1FFCD6009B0017 /* RCplayerStatus.h */,
+				4B8BFFBE1B1FFCD6009B0017 /* RCplayerStatus.m */,
 			);
 			path = comment;
 			sourceTree = "<group>";
@@ -2233,6 +2243,7 @@
 				4B1D827E1B0C982900B7C9DC /* UIImage+GIF.m in Sources */,
 				4B1D82A01B0C9E3300B7C9DC /* RCTabBar.m in Sources */,
 				4BF788101B0DBD970002704A /* UIView+MJExtension.m in Sources */,
+				4B8BFFBC1B1FEC36009B0017 /* RCPlayerView.m in Sources */,
 				4B1D81931B0C958D00B7C9DC /* RCCategoryFocusImageResult.m in Sources */,
 				4B1D82761B0C982900B7C9DC /* SDImageCache.m in Sources */,
 				4BF7883F1B0E14AF0002704A /* Toast+UIView.m in Sources */,
@@ -2419,6 +2430,7 @@
 				4B1D82781B0C982900B7C9DC /* SDWebImageDecoder.m in Sources */,
 				4B1D81941B0C958D00B7C9DC /* RCCategoryList.m in Sources */,
 				4BBAC25C1B1EC795006ED9A1 /* RCCommnetTextView.m in Sources */,
+				4B8BFFBF1B1FFCD6009B0017 /* RCplayerStatus.m in Sources */,
 				4BF787CC1B0DBA600002704A /* RCCategoryFocusImageViewCell.m in Sources */,
 				4B1D829D1B0C9E2700B7C9DC /* RCSearchBar.m in Sources */,
 				4B912E171B0EEB73007B64DD /* RCHotActivityViewCell.m in Sources */,

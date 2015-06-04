@@ -8,6 +8,8 @@
 
 #import "RCPlayerViewController.h"
 #import "CSStickyHeaderFlowLayout.h"
+#import <MediaPlayer/MediaPlayer.h>
+
 #import "RCConst.h"
 #import "UIImageView+WebCache.h"
 #import "RCPlayerHeaderView.h"
@@ -16,6 +18,8 @@
 #import "RCPlayerAlbumViewController.h"
 #import "UIImage+RC.h"
 #import "RCContentViewCell.h"
+#import "RCBottomPlayerButton.h"
+#import "RCConst.h"
 #import "RCPlayerVIewModel.h"
 #import "UIImage+ImageEffects.h"
 #import "UIImageView+EXtension.h"
@@ -28,6 +32,8 @@ void *CusomHeaderInsetObserver = &CusomHeaderInsetObserver;
 @property(nonatomic,weak) UIViewController   *displayingController;
 @property(nonatomic,assign) NSUInteger lastSelectedIndex;
 @property(nonatomic,weak) RCPlayerHeaderView   *headerView;
+@property(nonatomic,weak) RCBottomPlayerButton * button;
+
 @property(nonatomic,strong) RCPlayerVIewModel  *viewmodel;
 
 @end
@@ -35,7 +41,7 @@ void *CusomHeaderInsetObserver = &CusomHeaderInsetObserver;
 -  (RCPlayerVIewModel *)viewmodel{
     if (!_viewmodel) {
          self.viewmodel = [[RCPlayerVIewModel alloc]init];
-        self.viewmodel.trackId = self.trackId;
+//        self.viewmodel.trackId = self.trackId;
     }
     return _viewmodel;
 }
@@ -55,33 +61,30 @@ void *CusomHeaderInsetObserver = &CusomHeaderInsetObserver;
     }
     return self;
 }
-- (void)viewWillDisappear:(BOOL)animated{
-    [self.navigationController setNavigationBarHidden:NO animated:YES];
-    [super viewWillDisappear:animated];
-
-}
-- (void)viewWillAppear:(BOOL)animated{
-    [self.navigationController setNavigationBarHidden:YES animated:YES];
-    [super viewWillAppear:animated];
-    
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self addObserver:self forKeyPath:@"segmentToInset" options:NSKeyValueObservingOptionNew context:CusomHeaderInsetObserver];
+    [RCNotificationCenter addObserver:self selector:@selector(fecthData:) name:sendNetWorkingNotification object:nil];
+    if (self.trackId) {
+    [RCNotificationCenter postNotificationName:sendTrackIdNotification object:nil userInfo:@{trackIdNotificationName:self.trackId}];
+    }
+    [RCNotificationCenter addObserver:self selector:@selector(applicationDidEnterBackgroundSetSongInformation:) name:RCPlayerViewSetSongInformationNotification object:nil];
 
+   }
+- (void)fecthData:(NSNotification *)note{
+    NSMutableArray * childViews = [[UIApplication sharedApplication].keyWindow valueForKeyPath:@"subviews"];
+    RCBottomPlayerButton * button = (RCBottomPlayerButton *)[childViews objectAtIndex:1];
+    self.viewmodel.trackId = note.userInfo[netWorkingParamNotification];
     [self.viewmodel fetchplayerInfoWithSuccess:^{
         self.headerView.playerInfo = self.viewmodel.playerInfo;
         self.deailVC.trackId = self.viewmodel.playerInfo.trackId;
         self.albumVC.playerInfo = self.viewmodel.playerInfo;
+        button.imgSrc = self.viewmodel.playerInfo.coverLarge;
 
     } failure:^{
-
+        
     }];
-    if (self.trackId) {
-    [RCNotificationCenter postNotificationName:sendTrackIdNotification object:nil userInfo:@{trackIdNotificationName:self.trackId}];
-    }
-   }
+}
 - (void)dealloc{
     [self removeObserver:self forKeyPath:@"segmentToInset"];
 
@@ -108,6 +111,18 @@ void *CusomHeaderInsetObserver = &CusomHeaderInsetObserver;
 
     }
    }
+-(void)applicationDidEnterBackgroundSetSongInformation:(NSNotification *)notification
+{
+
+    if (NSClassFromString(@"MPNowPlayingInfoCenter")) {
+        NSMutableDictionary * dict = [[NSMutableDictionary alloc] init];
+        [dict setObject:self.viewmodel.playerInfo.title forKey:MPMediaItemPropertyTitle];
+        [dict setObject:self.viewmodel.playerInfo.albumTitle  forKey:MPMediaItemPropertyArtist];
+        [[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:nil];
+        [[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:dict];
+    }
+}
+
 
 -(UIStatusBarStyle)preferredStatusBarStyle
 {

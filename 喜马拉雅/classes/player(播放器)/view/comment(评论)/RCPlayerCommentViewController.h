@@ -9,4 +9,6 @@
 #import "RCBaseViewController.h"
 #import "ARSegmentPageController.h"
 @interface RCPlayerCommentViewController : RCBaseViewController <ARSegmentControllerDelegate>
+@property(nonatomic,strong) NSNumber  *trackId;
+
 @end

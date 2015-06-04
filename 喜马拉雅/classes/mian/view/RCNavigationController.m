@@ -10,7 +10,10 @@
 #import "RCMeViewController.h"
 #import "RCDiscoverViewController.h"
 #import "RCDownloadViewController.h"
+#import "RCBottomPlayerButton.h"
+#import "RCPlayerView.h"
 #import "UIBarButtonItem+MJ.h"
+#import "RCTabBarViewController.h"
 @interface RCNavigationController ()
 
 @end
@@ -34,10 +37,20 @@
         viewController.hidesBottomBarWhenPushed = YES;
         viewController.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithImage:@"btn_back_h" highImage:@"btn_back_n" target:self action:@selector(back)];
     }
-    [super pushViewController:viewController animated:animated];
+[super pushViewController:viewController animated:animated];
+
+
 }
+
+
 - (void)back{
 
     [self popViewControllerAnimated:YES];
 }
++ (instancetype)navigationController{
+    RCTabBarViewController * tabBarVC =(RCTabBarViewController *)   [UIApplication sharedApplication].keyWindow.rootViewController;
+    RCNavigationController * navVC = ( RCNavigationController *)tabBarVC.selectedViewController;
+    return navVC;
+}
+
 @end

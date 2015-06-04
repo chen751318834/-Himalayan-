@@ -26,22 +26,16 @@ static NSString * const ID = @"playerCommentCell";
     [super viewDidLoad];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     [self.tableView registerNib:[UINib nibWithNibName:@"RCPlayerCommentViewCell" bundle:nil] forCellReuseIdentifier:ID];
-    [RCNotificationCenter addObserver:self selector:@selector(getTrackID:) name:sendTrackIdNotification object:nil];
     [self.tableView removeHeader];
-
-
+    [RCNotificationCenter addObserver:self selector:@selector(fecthData:) name:sendNetWorkingNotification object:nil];
 
 }
-- (void)getTrackID:(NSNotification *)note{
-    self.viewmodel.trackId = note.userInfo[trackIdNotificationName];
-
-        [self.viewmodel fetchNewPlayerCommnetWithSuccess:^{
-            [self.tableView reloadData];
-
-
-        } failure:^{
-    
-        }];
+- (void)fecthData:(NSNotification *)note{
+    self.viewmodel.trackId = note.userInfo[netWorkingParamNotification];
+    [self.viewmodel fetchNewPlayerCommnetWithSuccess:^{
+        [self.tableView reloadData];
+    } failure:^{
+    }];
 }
 - (void)loadMoreData{
     [self.viewmodel fetchMorePlayerCommnetWithSuccess:^{
@@ -80,8 +74,9 @@ static NSString * const ID = @"playerCommentCell";
 }
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+
+
 }
 - (void)dealloc{
 
