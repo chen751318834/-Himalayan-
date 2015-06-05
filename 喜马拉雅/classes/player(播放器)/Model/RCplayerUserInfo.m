@@ -7,7 +7,7 @@
 //
 
 #import "RCplayerUserInfo.h"
-
+#import "MJExtension.h"
 @implementation RCplayerUserInfo
-
+MJCodingImplementation
 @end

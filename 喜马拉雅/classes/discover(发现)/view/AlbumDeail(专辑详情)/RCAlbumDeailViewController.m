@@ -137,7 +137,6 @@
     RCAlbumDeailViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"AlbumDeailCell" forIndexPath:indexPath];
     RCTrackList * trackList = [self.viewModel trackListAtIndexPath:indexPath];
     cell.trackList = trackList;
-    cell.downloadButton.tag = indexPath.row;
     @weakify(self);
     [[cell.downloadButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         @strongify(self);

@@ -265,6 +265,8 @@
 		4BF563841B2182940012619B /* RCPlayListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF563831B2182940012619B /* RCPlayListViewController.m */; };
 		4BF563881B2184270012619B /* RCPlayingListViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF563861B2184270012619B /* RCPlayingListViewCell.m */; };
 		4BF563891B2184270012619B /* RCPlayingListViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BF563871B2184270012619B /* RCPlayingListViewCell.xib */; };
+		4BF5638D1B219B0A0012619B /* RCPlayHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF5638C1B219B0A0012619B /* RCPlayHistoryViewController.m */; };
+		4BF563911B219B610012619B /* RCPlayerTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF563901B219B610012619B /* RCPlayerTool.m */; };
 		4BF787AE1B0DB7700002704A /* RCHotAnchorVIewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF787AD1B0DB7700002704A /* RCHotAnchorVIewModel.m */; };
 		4BF787C51B0DB8F20002704A /* RCAnchorList.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF787C41B0DB8F20002704A /* RCAnchorList.m */; };
 		4BF787C81B0DB9770002704A /* RCOneAnchorList.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF787C71B0DB9770002704A /* RCOneAnchorList.m */; };
@@ -794,6 +796,10 @@
 		4BF563851B2184270012619B /* RCPlayingListViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCPlayingListViewCell.h; sourceTree = "<group>"; };
 		4BF563861B2184270012619B /* RCPlayingListViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCPlayingListViewCell.m; sourceTree = "<group>"; };
 		4BF563871B2184270012619B /* RCPlayingListViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RCPlayingListViewCell.xib; sourceTree = "<group>"; };
+		4BF5638B1B219B0A0012619B /* RCPlayHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCPlayHistoryViewController.h; sourceTree = "<group>"; };
+		4BF5638C1B219B0A0012619B /* RCPlayHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCPlayHistoryViewController.m; sourceTree = "<group>"; };
+		4BF5638F1B219B610012619B /* RCPlayerTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCPlayerTool.h; sourceTree = "<group>"; };
+		4BF563901B219B610012619B /* RCPlayerTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCPlayerTool.m; sourceTree = "<group>"; };
 		4BF787AC1B0DB7700002704A /* RCHotAnchorVIewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCHotAnchorVIewModel.h; sourceTree = "<group>"; };
 		4BF787AD1B0DB7700002704A /* RCHotAnchorVIewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCHotAnchorVIewModel.m; sourceTree = "<group>"; };
 		4BF787C31B0DB8F20002704A /* RCAnchorList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCAnchorList.h; sourceTree = "<group>"; };
@@ -913,6 +919,7 @@
 		4B116C5C1B195FAC007792F4 /* player(播放器) */ = {
 			isa = PBXGroup;
 			children = (
+				4BF5638E1B219B490012619B /* tool */,
 				4B116C5D1B195FAC007792F4 /* Model */,
 				4B116C5E1B195FAC007792F4 /* view */,
 				4B116C5F1B195FAC007792F4 /* viewModel */,
@@ -939,6 +946,7 @@
 		4B116C5E1B195FAC007792F4 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				4BF5638A1B219AF20012619B /* 播放历史 */,
 				4BF563811B2182750012619B /* 播放列表 */,
 				4B116C7E1B19C878007792F4 /* album(专辑) */,
 				4B116C7F1B19C878007792F4 /* comment(评论) */,
@@ -2110,6 +2118,24 @@
 			path = "播放列表";
 			sourceTree = "<group>";
 		};
+		4BF5638A1B219AF20012619B /* 播放历史 */ = {
+			isa = PBXGroup;
+			children = (
+				4BF5638B1B219B0A0012619B /* RCPlayHistoryViewController.h */,
+				4BF5638C1B219B0A0012619B /* RCPlayHistoryViewController.m */,
+			);
+			path = "播放历史";
+			sourceTree = "<group>";
+		};
+		4BF5638E1B219B490012619B /* tool */ = {
+			isa = PBXGroup;
+			children = (
+				4BF5638F1B219B610012619B /* RCPlayerTool.h */,
+				4BF563901B219B610012619B /* RCPlayerTool.m */,
+			);
+			path = tool;
+			sourceTree = "<group>";
+		};
 		4BF787C21B0DB8DF0002704A /* Hot Anchor(最火主播) */ = {
 			isa = PBXGroup;
 			children = (
@@ -2633,6 +2659,7 @@
 				4BF9A1401B12B447003FD44E /* RCTextPart.m in Sources */,
 				4BF788071B0DBD970002704A /* MJRefreshConst.m in Sources */,
 				4BBAC2581B1EC159006ED9A1 /* RCPlayerCommentViewCell.m in Sources */,
+				4BF5638D1B219B0A0012619B /* RCPlayHistoryViewController.m in Sources */,
 				4B1D81461B0C935D00B7C9DC /* AppDelegate.mm in Sources */,
 				4B8BFFFD1B2056C6009B0017 /* FeLoadingIcon.m in Sources */,
 				4B9210FE1B10254B0004DB2A /* RCZonePost.m in Sources */,
@@ -2654,6 +2681,7 @@
 				4BF9A3321B12C3DD003FD44E /* RCGroupEmoticon.m in Sources */,
 				4B4F461A1B143FCF00284DAB /* UIImageView+EXtension.m in Sources */,
 				4BDE7D351B130F1700073E12 /* RCSegementControl.m in Sources */,
+				4BF563911B219B610012619B /* RCPlayerTool.m in Sources */,
 				4B1D82251B0C977400B7C9DC /* AFHTTPRequestOperationManager.m in Sources */,
 				4B912E0D1B0EE8DB007B64DD /* RCHotActivityViewModel.m in Sources */,
 				4B912E101B0EE95A007B64DD /* RCHotActivity.m in Sources */,

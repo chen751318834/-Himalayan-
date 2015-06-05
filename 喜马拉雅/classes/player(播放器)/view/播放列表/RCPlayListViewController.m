@@ -11,6 +11,7 @@
 #import "RCPlayerViewController.h"
 #import "RCPlayingListViewCell.h"
 #import "RCPlayerView.h"
+#import <ReactiveCocoa/ReactiveCocoa.h>
 #import "RCConst.h"
 @interface RCPlayListViewController ()
 
@@ -20,6 +21,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.tableView setContentInset:UIEdgeInsetsMake(0, 0, 70, 0)];
 }
 - (void)dealloc{
     [RCNotificationCenter removeObserver:self];
@@ -40,6 +42,14 @@
         }
     }
     cell.list = list;
+    @weakify(self);
+    [[cell.downloadButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+        @strongify(self);
+        list.downloaded = YES;
+        [[UIApplication sharedApplication].keyWindow makeToast:@"加入下载队列成功" duration:1 position:@"bottom"];
+        [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+
+    }];
     return cell;
 
 }

@@ -8,8 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "RCplayerUserInfo.h"
-#import <DOUAudioStreamer/DOUAudioFile.h>
-@interface RCPlayerInfo : NSObject <DOUAudioFile>
+@interface RCPlayerInfo : NSObject
 /**
  *     "uid": 1412917,
  "downloadSize": 12946933,

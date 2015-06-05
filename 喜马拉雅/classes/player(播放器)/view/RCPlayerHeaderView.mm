@@ -12,6 +12,7 @@
 #import "RCAudioTool.h"
 #import "RCPlayerVIewModel.h"
 #import "RCPlayerView.h"
+#import "RCPlayerTool.h"
 #import "RCPlayListViewController.h"
 #import "UIImage+RC.h"
 #import "RCplayerStatus.h"
@@ -19,6 +20,7 @@
 #import "RCPlaylist.h"
 #import "UIImageView+WebCache.h"
 #import "UIImage+RC.h"
+#import "RCPlayHistoryViewController.h"
 #import "UIImage+ImageEffects.h"
 #import "UIImageView+EXtension.h"
 @interface RCPlayerHeaderView ()
@@ -113,7 +115,7 @@ completion:^(BOOL finished) {
     }];
     self.topTitleLabel.text = playerInfo.title;
     [self setUpWithButton:self.playCountButton count:  [playerInfo.playtimes intValue]  title:nil];
-    [self.smallIconVIew sd_setImageWithURL:[NSURL URLWithString: playerInfo.coverLarge] placeholderImage:[UIImage imageNamed:@"sound_albumcover"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+    [self.smallIconVIew sd_setImageWithURL:[NSURL URLWithString: playerInfo.coverLarge] placeholderImage:[UIImage imageNamed:@"findCategory_default"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         self.smallIconVIew.image = [UIImage circleImage:image borderWidth:10 borderColor:[UIColor blackColor]];
     }];
     [self.largeImageView sd_setImageWithURL:[NSURL URLWithString:playerInfo.coverLarge] placeholderImage:[UIImage imageNamed:@"sound_albumcover"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
@@ -185,6 +187,9 @@ completion:^(BOOL finished) {
     [RCPlayerView pushViewController:listVC];
 }
 - (IBAction)playHistoryButtonDidClicked:(UIButton *)sender {
+    RCPlayHistoryViewController * listVC = [[RCPlayHistoryViewController alloc]init];
+    listVC.title = @"播放历史";
+    [RCPlayerView pushViewController:listVC];
 
 }
 - (IBAction)preButtonDidClicked:(UIButton *)sender {
@@ -236,7 +241,7 @@ completion:^(BOOL finished) {
 
 #pragma mark - 播放网络音频
 - (void)playRemoteAudio:(NSString *)urlStr{
-
+    [RCPlayerTool savePlayedAudio:self.playerInfo];
     [self.smallIconVIew.layer addAnimation:[self animation] forKey:nil];
     self.playAndPauseButtton.selected = YES;
     [[AFSoundManager sharedManager] startStreamingRemoteAudioFromURL:urlStr andBlock:^(int percentage, CGFloat elapsedTime, CGFloat timeRemaining, NSError *error, BOOL finished) {

@@ -57,10 +57,9 @@
     [deleteButton setImage:[UIImage imageNamed:@"btn_downloadsound_clear_n"] forState:UIControlStateNormal];
     [deleteButton setImage:[UIImage imageNamed:@"btn_downloadsound_clear_h"] forState:UIControlStateHighlighted];
     self.deleteButton = deleteButton;
+    [deleteButton addTarget:self action:@selector(delete:) forControlEvents:UIControlEventTouchUpInside];
     deleteButton.frame = CGRectMake(0, 0, self.view.bounds.size.width, 30);
     self.tableView.tableHeaderView = deleteButton;
-
-
 }
 - (void)delete:(UIButton *)button{
     DXAlertView * alertView = [[DXAlertView alloc]initWithTitle:@"温馨提示" contentText:@"确定要取消收藏？" leftButtonTitle:@"确定" rightButtonTitle:@"取消"];

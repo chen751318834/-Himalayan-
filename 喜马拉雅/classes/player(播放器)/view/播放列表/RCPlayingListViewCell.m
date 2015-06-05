@@ -28,7 +28,7 @@
     }else{
         self.titleLabel.textColor = [UIColor blackColor];
         self.playingImageView.hidden = YES;
-
     }
+    self.downloadButton.selected = list.isDownloaded;
 }
 @end

@@ -26,5 +26,6 @@
 @property(nonatomic,copy) NSString  *playPathAacv224;
 @property(nonatomic,copy) NSString  *title;
 @property(nonatomic,assign,getter=isPlaying) BOOL playing;
+@property(nonatomic,assign,getter=isDownloaded) BOOL downloaded;
 
 @end
