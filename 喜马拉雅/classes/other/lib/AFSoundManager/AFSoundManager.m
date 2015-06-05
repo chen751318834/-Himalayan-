@@ -142,10 +142,7 @@
 }
 
 -(void)restart {
-    self.playing = YES;
-
     [_audioPlayer setCurrentTime:0];
-    
     int32_t timeScale = _player.currentItem.asset.duration.timescale;
     [_player seekToTime:CMTimeMake(0.000000, timeScale)];
 }

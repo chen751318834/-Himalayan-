@@ -14,6 +14,7 @@
 @property(nonatomic,strong) NSArray  *audios;
 @property (weak, nonatomic) IBOutlet UIImageView *largeImageView;
 @property(nonatomic,strong) RCPlayerInfo  *playerInfo;
+@property(nonatomic,strong) NSArray  *playLists;
 + (instancetype)headerView;
 
 @end

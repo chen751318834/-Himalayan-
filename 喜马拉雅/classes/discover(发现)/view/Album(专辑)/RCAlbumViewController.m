@@ -133,7 +133,9 @@
     RCAlbumViewCell * cell = [RCAlbumViewCell cell];
     RCAlbum * album = self.contents[indexPath.row];
     cell.album = album;
+    @weakify(self);
     [[cell.saveButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(UIButton * butotn) {
+        @strongify(self);
         album.collect = YES;
         [RCAlbumTool saveAlbum:album];
         NSMutableDictionary * info = [NSMutableDictionary dictionary];

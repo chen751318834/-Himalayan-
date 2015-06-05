@@ -308,7 +308,7 @@ static const NSUInteger sectionCount = 100;
         RCList * list = [self.viewModel imgAtIndexPathInCollectionView:indexPath];
 
        [self.playerView showAnimationing:^{
-           [RCNotificationCenter postNotificationName:sendNetWorkingNotification object:nil userInfo:@{netWorkingParamNotification:list.trackId}];
+           [RCNotificationCenter postNotificationName:sendNetWorkingNotification object:nil userInfo:@{netWorkingTrackIdNotificationName:list.trackId,netWorkingAlbumIdNotificationName:list.uid}];
 
        } completion:^{
        }];

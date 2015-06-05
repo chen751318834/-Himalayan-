@@ -141,4 +141,21 @@
     }];
 
 }
+- ( void)fetchPlayListWithSuccess:(void (^)(void ))success failure:(void (^)(void ))failure{
+
+    [RCNetWorkingTool get:[NSString stringWithFormat:@"http://mobile.ximalaya.com/mobile/playlist/album?device=android&albumId=%@&trackId=%@",self.playerInfo.albumId,self.trackId] params:nil success:^(id json) {
+        NSArray * list = [RCPlaylist objectArrayWithKeyValuesArray:json[@"data"]];
+        [self.playerlists removeAllObjects];
+        [self.playerlists addObjectsFromArray:list];
+        if (success) {
+            success();
+        }
+    } failure:^(NSError *error) {
+        if (failure) {
+            failure();
+        }
+    }];
+
+
+}
 @end

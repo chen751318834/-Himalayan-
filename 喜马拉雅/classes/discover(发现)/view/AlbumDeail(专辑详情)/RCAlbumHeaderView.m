@@ -82,11 +82,7 @@
     }
 
 }
-- (void)clicked:(UIButton *)button{
 
-
-
-}
 - (void)layoutSubviews{
 
     [super layoutSubviews];

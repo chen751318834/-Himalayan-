@@ -79,7 +79,6 @@
     NSMutableArray * childViews = [[UIApplication sharedApplication].keyWindow valueForKeyPath:@"subviews"];
     for (id childView in childViews) {
         if ([childView isKindOfClass:[RCPlayerView class]]) {
-            NSLog(@"%@",childView);
             return childView;
         }
     }

@@ -11,9 +11,12 @@
 #import "AFSoundManager.h"
 #import "RCAudioTool.h"
 #import "RCPlayerVIewModel.h"
+#import "RCPlayerView.h"
+#import "RCPlayListViewController.h"
 #import "UIImage+RC.h"
 #import "RCplayerStatus.h"
 #import "Novocaine.h"
+#import "RCPlaylist.h"
 #import "UIImageView+WebCache.h"
 #import "UIImage+RC.h"
 #import "UIImage+ImageEffects.h"
@@ -111,7 +114,7 @@ completion:^(BOOL finished) {
     self.topTitleLabel.text = playerInfo.title;
     [self setUpWithButton:self.playCountButton count:  [playerInfo.playtimes intValue]  title:nil];
     [self.smallIconVIew sd_setImageWithURL:[NSURL URLWithString: playerInfo.coverLarge] placeholderImage:[UIImage imageNamed:@"sound_albumcover"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-        self.smallIconVIew.image = [UIImage circleImage:image borderWidth:10 borderColor:[UIColor yellowColor]];
+        self.smallIconVIew.image = [UIImage circleImage:image borderWidth:10 borderColor:[UIColor blackColor]];
     }];
     [self.largeImageView sd_setImageWithURL:[NSURL URLWithString:playerInfo.coverLarge] placeholderImage:[UIImage imageNamed:@"sound_albumcover"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         [self.largeImageView setImageToBlur:image blurRadius:60 completionBlock:nil];
@@ -123,6 +126,7 @@ completion:^(BOOL finished) {
     self.userLabel.text = playerInfo.userInfo.nickname;
     self.countLabel.text = [NSString stringWithFormat:@"声音 %@ 粉丝 %@",[self countStr:[playerInfo.userInfo.tracks intValue]],[self countStr:[playerInfo.userInfo.followers intValue]]];
     self.descLabel.text =  playerInfo.userInfo.personDescribe;
+    [[AFSoundManager sharedManager] restart];
     [self playRemoteAudio:playerInfo.playUrl64];
 
 }
@@ -174,7 +178,11 @@ completion:^(BOOL finished) {
     [RCNotificationCenter removeObserver:self];
 }
 - (IBAction)playListButtonDidClicked:(UIButton *)sender {
-
+    RCPlayListViewController * listVC = [[RCPlayListViewController alloc]init];
+    listVC.title = @"播放列表";
+    listVC.playLists = self.playLists;
+    listVC.playingInfo = self.playerInfo;
+    [RCPlayerView pushViewController:listVC];
 }
 - (IBAction)playHistoryButtonDidClicked:(UIButton *)sender {
 
@@ -198,17 +206,17 @@ completion:^(BOOL finished) {
 //    [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:self.currentIndex inSection:0] atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
 }
 - (IBAction)playAndPauseButtonDidClicked:(UIButton *)sender {
-    if (sender.isSelected) {
+    if ([AFSoundManager sharedManager].isPlaying) {
+        sender.selected = NO;
         [self.smallIconVIew.layer removeAllAnimations];
         [[AFSoundManager sharedManager] pause];
-        sender.selected = NO;
     }else{
-        [self.smallIconVIew.layer addAnimation:[self animation] forKey:nil];
-         [RCplayerStatus sharedplayerStatus].playing =  YES;
-        [[AFSoundManager sharedManager] resume];
         sender.selected = YES;
+        [self.smallIconVIew.layer addAnimation:[self animation] forKey:nil];
+        [[AFSoundManager sharedManager] resume];
 
 	    }
+//    sender.selected = !sender.isSelected;
 //    BOOL isPlaying =  [AFSoundManager sharedManager].isPlaying;
 //    if (isPlaying) {
 //        NSLog(@"playAndPauseButtonDidClicked--正在播放.....");
@@ -230,6 +238,7 @@ completion:^(BOOL finished) {
 - (void)playRemoteAudio:(NSString *)urlStr{
 
     [self.smallIconVIew.layer addAnimation:[self animation] forKey:nil];
+    self.playAndPauseButtton.selected = YES;
     [[AFSoundManager sharedManager] startStreamingRemoteAudioFromURL:urlStr andBlock:^(int percentage, CGFloat elapsedTime, CGFloat timeRemaining, NSError *error, BOOL finished) {
         if (!error) {
             NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
@@ -246,7 +255,6 @@ completion:^(BOOL finished) {
             self.playProgressLabel.text = [NSString stringWithFormat:@"%@/%@",elapsedTimeDateStr,totalTimeDateStr];
             [self.progressButton setTitle:[NSString stringWithFormat:@"%@",elapsedTimeDateStr] forState:UIControlStateNormal];
             [self.juhua stopAnimating];
-            self.playAndPauseButtton.selected = YES;
             if (percentage < 0) {
                 percentage = 0;
             }

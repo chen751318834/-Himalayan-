@@ -38,7 +38,7 @@ static NSString * const ID = @"playerCommentCell";
 
 - (void)fecthData:(NSNotification *)note{
     [KVNProgress showWithParameters:@{KVNProgressViewParameterStatus:@"正在加载..."}];
-    self.viewmodel.trackId = note.userInfo[netWorkingParamNotification];
+    self.viewmodel.trackId = note.userInfo[netWorkingTrackIdNotificationName];
     [self.viewmodel fetchNewPlayerCommnetWithSuccess:^{
         [self.tableView reloadData];
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{

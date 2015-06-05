@@ -86,17 +86,24 @@ void *CusomHeaderInsetObserver = &CusomHeaderInsetObserver;
 - (void)fecthData:(NSNotification *)note{
     NSMutableArray * childViews = [[UIApplication sharedApplication].keyWindow valueForKeyPath:@"subviews"];
     RCBottomPlayerButton * button = (RCBottomPlayerButton *)[childViews objectAtIndex:1];
-    self.viewmodel.trackId = note.userInfo[netWorkingParamNotification];
+    self.viewmodel.trackId = note.userInfo[netWorkingTrackIdNotificationName];
+//    self.viewmodel.albumId = note.userInfo[netWorkingAlbumIdNotificationName];
+    RCLog(@"%@----%@", note.userInfo[netWorkingAlbumIdNotificationName],note.userInfo[netWorkingTrackIdNotificationName]);
     [self.viewmodel fetchplayerInfoWithSuccess:^{
         self.headerView.playerInfo = self.viewmodel.playerInfo;
         self.commentVC.trackId = self.viewmodel.playerInfo.trackId;
         self.deailVC.trackId = self.viewmodel.playerInfo.trackId;
         self.albumVC.playerInfo = self.viewmodel.playerInfo;
         button.imgSrc = self.viewmodel.playerInfo.coverLarge;
+        [self.viewmodel fetchPlayListWithSuccess:^{
+            self.headerView.playLists = self.viewmodel.playerlists;
+        } failure:^{
 
+        }];
     } failure:^{
         
     }];
+
 }
 - (void)dealloc{
     [self removeObserver:self forKeyPath:@"segmentToInset"];

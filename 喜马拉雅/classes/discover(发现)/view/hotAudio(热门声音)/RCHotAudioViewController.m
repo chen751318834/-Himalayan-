@@ -179,7 +179,7 @@
     RCOnneHotAudio * audio = self.contents[indexPath.row];
     [super tableView:tableView didSelectRowAtIndexPath:indexPath];
     [[RCPlayerView playerView] showAnimationing:^{
-        [RCNotificationCenter postNotificationName:sendNetWorkingNotification object:nil userInfo:@{netWorkingParamNotification:audio.ID}];
+        [RCNotificationCenter postNotificationName:sendNetWorkingNotification object:nil userInfo:@{netWorkingTrackIdNotificationName:audio.ID,netWorkingAlbumIdNotificationName:audio.uid}];
 
     } completion:^{
     }];

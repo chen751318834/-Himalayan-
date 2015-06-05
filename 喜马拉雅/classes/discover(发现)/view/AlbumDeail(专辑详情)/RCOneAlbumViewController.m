@@ -9,6 +9,7 @@
 #import "RCOneAlbumViewController.h"
 #import "RCAlbumViewModel.h"
 #import "RCAlbumViewCell.h"
+#import <ReactiveCocoa/ReactiveCocoa.h>
 #import "RCConst.h"
 #import "RCAlbumTool.h"
 @interface RCOneAlbumViewController ()
@@ -61,26 +62,26 @@
     RCAlbum * album = self.contents[indexPath.row];
     album.albumId = @(indexPath.row);
     cell.album = album;
-    cell.saveButton.tag = indexPath.row;
-    [cell.saveButton addTarget:self action:@selector(save:) forControlEvents:UIControlEventTouchUpInside];
-    [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+    @weakify(self);
+    [[cell.saveButton rac_signalForControlEvents:UIControlEventTouchUpInside]subscribeNext:^(id x) {
+        @strongify(self);
+        album.collect = YES;
+        [RCAlbumTool saveAlbum:album];
+        NSMutableDictionary * info = [NSMutableDictionary dictionary];
+        if (album) {
+            info[albumNotificationName] = album;
+            info[isCollectedAlbumNotificationName] = @YES;
+        }
+        [RCNotificationCenter postNotificationName:savedAlbumNotification object:nil userInfo:info];
+        [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+
+
+    }];
 
     return cell;
 
 }
-- (void)save:(UIButton *)button{
-    RCAlbum * album = self.contents[button.tag];
-    album.collect = YES;
-    [RCAlbumTool saveAlbum:album];
-    NSMutableDictionary * info = [NSMutableDictionary dictionary];
-    if (album) {
-        info[albumNotificationName] = album;
-        info[isCollectedAlbumNotificationName] = @YES;
-    }
-    [RCNotificationCenter postNotificationName:savedAlbumNotification object:nil userInfo:info];
 
-
-}
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 90;
 }

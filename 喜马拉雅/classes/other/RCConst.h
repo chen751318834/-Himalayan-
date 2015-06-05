@@ -46,9 +46,12 @@ static NSString * trackIdNotificationName = @"trackIdNotificationName";
 static NSString * RCPlayerViewSetSongInformationNotification = @"RCPlayerViewSetSongInformationNotification";
 
 static NSString * sendNetWorkingNotification = @"sendNetWorkingNotification";
-static NSString * netWorkingParamNotification = @"netWorkingparamNotification";
+static NSString * netWorkingTrackIdNotificationName = @"netWorkingTrackIdNotificationName";
+static NSString * netWorkingAlbumIdNotificationName = @"netWorkingAlbumIdNotificationName";
 
 static NSString * playingNotification = @"playingNotification";
+
+
 
 #define RCNotificationCenter  [NSNotificationCenter defaultCenter]
 

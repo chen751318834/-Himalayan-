@@ -20,10 +20,16 @@
 - ( void)fetchplayerInfoWithSuccess:(void (^)(void ))success failure:(void (^)(void ))failure;
 @property(nonatomic,strong) RCPlayerInfo  *playerInfo;
 @property(nonatomic,strong) NSNumber  *trackId;
+@property(nonatomic,strong) NSNumber  *albumId;
+
 - ( void)fetchNewPlayerCommnetWithSuccess:(void (^)(void ))success failure:(void (^)(void ))failure;
 - ( void)fetchMorePlayerCommnetWithSuccess:(void (^)(void ))success failure:(void (^)(void ))failure completion:(void (^)(void))completion;
 
 - ( void)fetchPlayerTrackDeailWithSuccess:(void (^)(void ))success failure:(void (^)(void ))failure;
 - ( void)fetchPlayerAlbumWithSuccess:(void (^)(void ))success failure:(void (^)(void ))failure;
+/**
+ *  播放列表
+ */
+- ( void)fetchPlayListWithSuccess:(void (^)(void ))success failure:(void (^)(void ))failure;
 
 @end

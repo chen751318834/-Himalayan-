@@ -10,5 +10,5 @@
 #import "ARSegmentPageController.h"
 @interface RCPlayerViewController : ARSegmentPageController
 @property(nonatomic,strong) NSNumber  *trackId;
-
+@property(nonatomic,strong) NSNumber  *albumId;
 @end

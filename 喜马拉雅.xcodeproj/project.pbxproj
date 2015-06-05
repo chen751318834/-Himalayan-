@@ -262,6 +262,9 @@
 		4BEE609B1B1DD9870036A089 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BEE609A1B1DD9870036A089 /* QuartzCore.framework */; };
 		4BEE609D1B1DD9910036A089 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BEE609C1B1DD9910036A089 /* CoreGraphics.framework */; };
 		4BEE609F1B1DD9AF0036A089 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BEE609E1B1DD9AF0036A089 /* MobileCoreServices.framework */; };
+		4BF563841B2182940012619B /* RCPlayListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF563831B2182940012619B /* RCPlayListViewController.m */; };
+		4BF563881B2184270012619B /* RCPlayingListViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF563861B2184270012619B /* RCPlayingListViewCell.m */; };
+		4BF563891B2184270012619B /* RCPlayingListViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BF563871B2184270012619B /* RCPlayingListViewCell.xib */; };
 		4BF787AE1B0DB7700002704A /* RCHotAnchorVIewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF787AD1B0DB7700002704A /* RCHotAnchorVIewModel.m */; };
 		4BF787C51B0DB8F20002704A /* RCAnchorList.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF787C41B0DB8F20002704A /* RCAnchorList.m */; };
 		4BF787C81B0DB9770002704A /* RCOneAnchorList.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF787C71B0DB9770002704A /* RCOneAnchorList.m */; };
@@ -786,6 +789,11 @@
 		4BEE609A1B1DD9870036A089 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		4BEE609C1B1DD9910036A089 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		4BEE609E1B1DD9AF0036A089 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		4BF563821B2182940012619B /* RCPlayListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCPlayListViewController.h; sourceTree = "<group>"; };
+		4BF563831B2182940012619B /* RCPlayListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCPlayListViewController.m; sourceTree = "<group>"; };
+		4BF563851B2184270012619B /* RCPlayingListViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCPlayingListViewCell.h; sourceTree = "<group>"; };
+		4BF563861B2184270012619B /* RCPlayingListViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCPlayingListViewCell.m; sourceTree = "<group>"; };
+		4BF563871B2184270012619B /* RCPlayingListViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RCPlayingListViewCell.xib; sourceTree = "<group>"; };
 		4BF787AC1B0DB7700002704A /* RCHotAnchorVIewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCHotAnchorVIewModel.h; sourceTree = "<group>"; };
 		4BF787AD1B0DB7700002704A /* RCHotAnchorVIewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCHotAnchorVIewModel.m; sourceTree = "<group>"; };
 		4BF787C31B0DB8F20002704A /* RCAnchorList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCAnchorList.h; sourceTree = "<group>"; };
@@ -931,6 +939,7 @@
 		4B116C5E1B195FAC007792F4 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				4BF563811B2182750012619B /* 播放列表 */,
 				4B116C7E1B19C878007792F4 /* album(专辑) */,
 				4B116C7F1B19C878007792F4 /* comment(评论) */,
 				4B116C801B19C878007792F4 /* delail(详情) */,
@@ -2089,6 +2098,18 @@
 			path = "AlbumDeail(专辑详情)";
 			sourceTree = "<group>";
 		};
+		4BF563811B2182750012619B /* 播放列表 */ = {
+			isa = PBXGroup;
+			children = (
+				4BF563821B2182940012619B /* RCPlayListViewController.h */,
+				4BF563831B2182940012619B /* RCPlayListViewController.m */,
+				4BF563851B2184270012619B /* RCPlayingListViewCell.h */,
+				4BF563861B2184270012619B /* RCPlayingListViewCell.m */,
+				4BF563871B2184270012619B /* RCPlayingListViewCell.xib */,
+			);
+			path = "播放列表";
+			sourceTree = "<group>";
+		};
 		4BF787C21B0DB8DF0002704A /* Hot Anchor(最火主播) */ = {
 			isa = PBXGroup;
 			children = (
@@ -2348,6 +2369,7 @@
 				4B912E021B0EC443007B64DD /* RCSubjectSectionHeaderView.xib in Resources */,
 				4B1D82851B0C998200B7C9DC /* Category.plist in Resources */,
 				4BF788151B0DBF8E0002704A /* RCAnthorViewCell.xib in Resources */,
+				4BF563891B2184270012619B /* RCPlayingListViewCell.xib in Resources */,
 				4B1D81111B0C91C000B7C9DC /* Images.xcassets in Resources */,
 				4B8BFFF81B2056C6009B0017 /* CabinCondensed-Bold.ttf in Resources */,
 				4BF788051B0DBD970002704A /* MJRefresh.bundle in Resources */,
@@ -2537,6 +2559,7 @@
 				4B9211241B105EFC0004DB2A /* RCOneParentComment.m in Sources */,
 				4BC647951B1701EC00661DB0 /* RCAlbumDownLoadSectionHeaderView.m in Sources */,
 				4BBAC2F21B1ED3C8006ED9A1 /* MJProperty.m in Sources */,
+				4BF563881B2184270012619B /* RCPlayingListViewCell.m in Sources */,
 				4B912DF61B0EC090007B64DD /* RCSubjectViewController.m in Sources */,
 				4BDE7D5C1B13335B00073E12 /* RCAlbumHeaderView.m in Sources */,
 				4B7A338A1B18327A0042E0EF /* DXAlertView.m in Sources */,
@@ -2570,6 +2593,7 @@
 				4B7A33811B180B6A0042E0EF /* RCAlbumTool.m in Sources */,
 				4BF9A3341B12CC02003FD44E /* Foundation+Log.m in Sources */,
 				4B7A33851B182CF80042E0EF /* RCCollectViewCell.m in Sources */,
+				4BF563841B2182940012619B /* RCPlayListViewController.m in Sources */,
 				4BC647D61B1735A600661DB0 /* RCHistoryViewController.m in Sources */,
 				4B9210F61B10241F0004DB2A /* RCCircleDeailViewController.m in Sources */,
 				4BF9A12A1B12AD3B003FD44E /* RCStatusTextView.m in Sources */,

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E26a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="RCPlayingListViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dm_navBar" translatesAutoresizingMaskIntoConstraints="NO" id="pOW-Z0-1Uv">
+                        <rect key="frame" x="-8" y="-1" width="5" height="43.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="5" id="hzg-Yz-puq"/>
+                        </constraints>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yzx-p2-3ok">
+                        <rect key="frame" x="288" y="10" width="24" height="24"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="24" id="ZBX-t2-TGd"/>
+                            <constraint firstAttribute="width" constant="24" id="aqZ-bf-XFX"/>
+                        </constraints>
+                        <state key="normal" image="cell_download">
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <state key="selected" image="cell_downloaded"/>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6t6-vg-aMD">
+                        <rect key="frame" x="7" y="11" width="273" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="evK-mr-fdj"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="pOW-Z0-1Uv" firstAttribute="centerY" secondItem="6t6-vg-aMD" secondAttribute="centerY" constant="-0.75" id="1iD-hb-3kR"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="pOW-Z0-1Uv" secondAttribute="bottom" constant="-7" id="ASN-9l-gVV"/>
+                    <constraint firstItem="6t6-vg-aMD" firstAttribute="leading" secondItem="pOW-Z0-1Uv" secondAttribute="trailing" constant="10" id="VSk-rp-zL1"/>
+                    <constraint firstItem="Yzx-p2-3ok" firstAttribute="leading" secondItem="6t6-vg-aMD" secondAttribute="trailing" constant="8" id="eco-41-5oh"/>
+                    <constraint firstItem="pOW-Z0-1Uv" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-9" id="j04-nP-i3L"/>
+                    <constraint firstItem="pOW-Z0-1Uv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-16" id="qhd-a8-JgT"/>
+                    <constraint firstItem="Yzx-p2-3ok" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="xDy-vz-ogd"/>
+                    <constraint firstItem="6t6-vg-aMD" firstAttribute="centerY" secondItem="Yzx-p2-3ok" secondAttribute="centerY" constant="-0.5" id="zD0-7e-hJo"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="downloadButton" destination="Yzx-p2-3ok" id="9Ns-sG-th1"/>
+                <outlet property="playingImageView" destination="pOW-Z0-1Uv" id="ST1-BM-QRj"/>
+                <outlet property="titleLabel" destination="6t6-vg-aMD" id="9aP-kV-0Cz"/>
+            </connections>
+            <point key="canvasLocation" x="398" y="316"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="cell_download" width="24" height="24"/>
+        <image name="cell_downloaded" width="24" height="24"/>
+        <image name="dm_navBar" width="1" height="2"/>
+    </resources>
+</document>

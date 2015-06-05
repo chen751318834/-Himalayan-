@@ -200,7 +200,7 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     RCTrackList * trackList = [self.viewModel trackListAtIndexPath:indexPath];
     [[RCPlayerView playerView] showAnimationing:^{
-        [RCNotificationCenter postNotificationName:sendNetWorkingNotification object:nil userInfo:@{netWorkingParamNotification:trackList.trackId}];
+        [RCNotificationCenter postNotificationName:sendNetWorkingNotification object:nil userInfo:@{netWorkingTrackIdNotificationName:trackList.trackId,netWorkingAlbumIdNotificationName:trackList.albumId}];
 
     } completion:^{
     }];

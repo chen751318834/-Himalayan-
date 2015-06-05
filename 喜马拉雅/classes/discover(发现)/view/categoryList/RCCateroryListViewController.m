@@ -156,8 +156,7 @@ static const NSUInteger sectionCount = 100;
         if (list.trackId) {
 
         [[RCPlayerView playerView] showAnimationing:^{
-            //           self.playerView.trackId = list.trackId;
-         [RCNotificationCenter postNotificationName:sendNetWorkingNotification object:nil userInfo:@{netWorkingParamNotification:list.trackId}];
+            [RCNotificationCenter postNotificationName:sendNetWorkingNotification object:nil userInfo:@{netWorkingTrackIdNotificationName:list.trackId,netWorkingAlbumIdNotificationName:list.ID}];
 
 
         } completion:^{
