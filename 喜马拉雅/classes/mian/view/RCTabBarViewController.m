@@ -12,7 +12,6 @@
 #import "RCTabBar.h"
 #import "UIView+AutoLayout.h"
 #import "RCDiscoverViewController.h"
-#import "ReactiveCocoa/ReactiveCocoa.h"
 #import "RCTabBar.h"
 #import "RCDownloadViewController.h"
 #import "RCollectViewController.h"

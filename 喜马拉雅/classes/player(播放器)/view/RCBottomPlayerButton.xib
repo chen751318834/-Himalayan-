@@ -10,22 +10,25 @@
             <rect key="frame" x="0.0" y="0.0" width="76" height="71.5"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2aT-KY-P5G">
-                    <rect key="frame" x="0.0" y="0.0" width="76" height="72"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    <inset key="imageEdgeInsets" minX="5" minY="5" maxX="0.0" maxY="0.0"/>
-                    <state key="normal" backgroundImage="tabbar_np_default">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <state key="selected" image="tabbar_np_play"/>
-                </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tabbar_np_default" translatesAutoresizingMaskIntoConstraints="NO" id="x4a-Lm-hIJ">
+                    <rect key="frame" x="0.0" y="0.0" width="76" height="71.5"/>
+                </imageView>
                 <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tabbar_np_icon" translatesAutoresizingMaskIntoConstraints="NO" id="cXS-cQ-8KQ">
-                    <rect key="frame" x="13" y="14" width="50" height="50.5"/>
+                    <rect key="frame" x="13" y="14.5" width="50" height="50.5"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="50" id="BYL-rd-a0u"/>
                         <constraint firstAttribute="height" constant="50" id="fsz-jc-Ynf"/>
                     </constraints>
                 </imageView>
+                <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2aT-KY-P5G">
+                    <rect key="frame" x="0.0" y="0.0" width="76" height="72"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <inset key="imageEdgeInsets" minX="5" minY="5" maxX="0.0" maxY="0.0"/>
+                    <state key="normal">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="selected" image="tabbar_np_play"/>
+                </button>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
@@ -34,7 +37,11 @@
                 <constraint firstItem="2aT-KY-P5G" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="JL6-UC-8lm"/>
                 <constraint firstItem="cXS-cQ-8KQ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="14" id="MT5-eg-gbZ"/>
                 <constraint firstAttribute="bottom" secondItem="2aT-KY-P5G" secondAttribute="bottom" id="Phm-sb-9xE"/>
+                <constraint firstItem="x4a-Lm-hIJ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="U6A-50-y0k"/>
                 <constraint firstAttribute="trailing" secondItem="2aT-KY-P5G" secondAttribute="trailing" id="VGs-fu-47c"/>
+                <constraint firstItem="x4a-Lm-hIJ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="cmh-W0-TcA"/>
+                <constraint firstAttribute="trailing" secondItem="x4a-Lm-hIJ" secondAttribute="trailing" id="klf-OK-QXl"/>
+                <constraint firstAttribute="bottom" secondItem="x4a-Lm-hIJ" secondAttribute="bottom" id="vhG-VB-pM3"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

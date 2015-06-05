@@ -10,6 +10,7 @@
 #import "RCTabBarViewController.h"
 #import "RCConst.h"
 #import "RCplayerStatus.h"
+#import "AFSoundManager.h"
 @interface AppDelegate ()
 
 @end
@@ -22,6 +23,7 @@
     self.window.backgroundColor = [UIColor whiteColor];
     self.window.rootViewController = [[RCTabBarViewController alloc]init];
     [self.window makeKeyAndVisible];
+
     return YES;
 }
 

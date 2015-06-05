@@ -13,10 +13,11 @@
 #import "UIView+AutoLayout.h"
 #import "RCConst.h"
 #import "RCTitleButton.h"
+#import "RCBottomPlayerButton.h"
 #import "RCAlbumDownloadBottomToolBar.h"
+#import <ReactiveCocoa/ReactiveCocoa.h>
 #import "UIBarButtonItem+MJ.h"
 #import "RCSegementControl.h"
-#import <ReactiveCocoa/ReactiveCocoa.h>
 #import "RCAlbumViewModel.h"
 
 @interface RCAlbumDownLoadViewController () <UITableViewDataSource,UITableViewDelegate,RCSegementControlDelegate>
@@ -72,10 +73,12 @@
     for (RCTrackList * list in self.viewModel.downloadLists) {
         list.check  = NO;
     }
+    [[RCBottomPlayerButton playingAudioButton] moveToTop];
+
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    [[RCBottomPlayerButton playingAudioButton] moveToBottom];
     UITableView * tableView = [[UITableView alloc]init];
     [self.view addSubview:tableView];
     tableView.tableFooterView = [[UIView alloc]init];
@@ -139,31 +142,32 @@
     [topToolBar autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsMake(62, 0, 0, 0)excludingEdge:ALEdgeBottom];
     [topToolBar autoSetDimension:ALDimensionHeight toSize:44];
 
-
-   [[topToolBar.currentRangeButton rac_signalForControlEvents:UIControlEventTouchUpInside]subscribeNext:^(UIButton * button) {
-       if (button.isSelected) {
-           [UIView animateWithDuration:0.25f animations:^{
-               segementControl.transform = CGAffineTransformIdentity;
-           }];
-       }else{
-           [UIView animateWithDuration:0.25f animations:^{
-               segementControl.transform = CGAffineTransformMakeTranslation(0, 44);
-               for (RCTrackList * list in self.viewModel.downloadLists) {
-                   list.check = NO;
-                   self.bottomToolBar.seleectedAllButton.selected = NO;
-                   self.bottomToolBar.nowDownloaduButton.enabled = NO;
-                   [self setUpBottomToolBarLabel:self.bottomInfolabel selectedCount:0 size:0];
-
-               }
-
-           }];
-       }
-           button.selected = !button.isSelected;
-       [self.tableView reloadData];
+    [topToolBar.currentRangeButton addTarget:self action:@selector(buttonDidClicked:) forControlEvents:UIControlEventTouchUpInside];
 
 
+}
+- (void)buttonDidClicked:(UIButton *)button{
 
-   }];
+    if (button.isSelected) {
+        [UIView animateWithDuration:0.25f animations:^{
+            self.segementControl.transform = CGAffineTransformIdentity;
+        }];
+    }else{
+        [UIView animateWithDuration:0.25f animations:^{
+            self.segementControl.transform = CGAffineTransformMakeTranslation(0, 44);
+            for (RCTrackList * list in self.viewModel.downloadLists) {
+                list.check = NO;
+                self.bottomToolBar.seleectedAllButton.selected = NO;
+                self.bottomToolBar.nowDownloaduButton.enabled = NO;
+                [self setUpBottomToolBarLabel:self.bottomInfolabel selectedCount:0 size:0];
+
+            }
+
+        }];
+    }
+    button.selected = !button.isSelected;
+    [self.tableView reloadData];
+
 }
 #pragma mark - 设置底部的工具条
 
@@ -174,11 +178,11 @@
     [self.view addSubview:bottomToolBar];
     [bottomToolBar autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsMake(0, 0, 0, 0)excludingEdge:ALEdgeTop];
     [bottomToolBar autoSetDimension:ALDimensionHeight toSize:44];
-    [[bottomToolBar.nowDownloaduButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(UIButton * button) {
-        //下载
-    }];
+//    [[bottomToolBar.nowDownloaduButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(UIButton * button) {
+//        //下载
+//    }];
 
-
+#warning 下载音频.................
     UILabel * poperLabel = [[UILabel alloc] init];
     poperLabel.backgroundColor = [UIColor colorWithWhite:0.811 alpha:1.000];
     [self.view addSubview:poperLabel];
@@ -191,26 +195,27 @@
     [poperLabel autoSetDimension:ALDimensionHeight toSize:20];
     [poperLabel autoPinEdge:ALEdgeBottom toEdge:ALEdgeTop ofView:bottomToolBar];
     [poperLabel autoPinEdge:ALEdgeLeft toEdge:ALEdgeLeft ofView:bottomToolBar];
-    [[bottomToolBar.seleectedAllButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(UIButton * button) {
-        [self cancleChangeERangeView];
-        button.selected = !button.isSelected;
-        NSUInteger selectedCount = 0;
-        NSUInteger   size = 0 ;
-        for (RCTrackList * list in self.viewModel.downloadLists) {
-            list.check = button.isSelected;
-            if (list.isCheck) {
-                bottomToolBar.nowDownloaduButton.enabled = YES;
-                selectedCount ++;
-                size += [list.downloadSize intValue];
-            }else{
-                bottomToolBar.nowDownloaduButton.enabled = NO;
-            }
+    [bottomToolBar.seleectedAllButton addTarget:self action:@selector(seleectedAll:) forControlEvents:UIControlEventTouchUpInside];
+
+
+}
+- (void)seleectedAll:(UIButton *)button{
+    [self cancleChangeERangeView];
+    button.selected = !button.isSelected;
+    NSUInteger selectedCount = 0;
+    NSUInteger   size = 0 ;
+    for (RCTrackList * list in self.viewModel.downloadLists) {
+        list.check = button.isSelected;
+        if (list.isCheck) {
+            self.bottomToolBar.nowDownloaduButton.enabled = YES;
+            selectedCount ++;
+            size += [list.downloadSize intValue];
+        }else{
+            self.bottomToolBar.nowDownloaduButton.enabled = NO;
         }
+    }
+    [self setUpBottomToolBarLabel:self.bottomInfolabel selectedCount:selectedCount size:size];
 
-
-        [self setUpBottomToolBarLabel:poperLabel selectedCount:selectedCount size:size];
-
-    }];
 
 }
 - (void)setUpBottomToolBarLabel:(UILabel *)label selectedCount:(NSUInteger )selectedCount size:(NSUInteger)size{
@@ -232,7 +237,9 @@
     RCAlbumDownloadViewCell  *  cell = [RCAlbumDownloadViewCell cell];
     RCTrackList * list = self.viewModel.downloadLists[indexPath.row];
     cell.list = list;
-    [[cell.selectedButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(UIButton * button) {
+    @weakify(self);
+    [[cell.selectedButton rac_signalForControlEvents:UIControlEventTouchUpInside]subscribeNext:^(id x) {
+        @strongify(self);
         [self cancleChangeERangeView];
 
         list.check = !list.isCheck;
@@ -243,19 +250,20 @@
             if (list.isCheck) {
                 selectedCount ++;
                 size += [list.downloadSize intValue];
-
                 nowDownloadButtonEnable = YES;
             }
             self.bottomToolBar.nowDownloaduButton.enabled = nowDownloadButtonEnable;
             [self setUpBottomToolBarLabel:self.bottomInfolabel selectedCount:selectedCount size:size];
-
-
+            
+            
         }
         [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+
     }];
     return cell;
 
 }
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
 
     return 50;

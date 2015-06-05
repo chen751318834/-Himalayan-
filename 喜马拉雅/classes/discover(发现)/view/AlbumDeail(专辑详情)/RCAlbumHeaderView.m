@@ -14,9 +14,9 @@
 #import "UIImage+RC.h"
 #import "RCTabBarViewController.h"
 #import "RCOneAlbumViewController.h"
-#import <ReactiveCocoa/ReactiveCocoa.h>
 #import "RCNavigationController.h"
 #import "RCAlbumTool.h"
+#import <ReactiveCocoa/ReactiveCocoa.h>
 #import "RCAlbumViewController.h"
 #import "RCAlbumDownLoadViewController.h"
 #import "RCAboutAlbumViewController.h"
@@ -70,18 +70,21 @@
         [button  setFont:[UIFont systemFontOfSize:11]];
         [button setTitle:tag forState:UIControlStateNormal];
         [self.buttons addObject:button];
-        [[button rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(UIButton * button) {
-
-
+        [[button rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
             RCTabBarViewController * tabBarVC =(RCTabBarViewController *)   [UIApplication sharedApplication].keyWindow.rootViewController;
             RCNavigationController * navVC = ( RCNavigationController *)tabBarVC.selectedViewController;
             RCOneAlbumViewController * albumVc = [[RCOneAlbumViewController alloc]init];
             albumVc.tag = button.currentTitle;
             [navVC pushViewController:albumVc animated:YES];
-
         }];
 
+
     }
+
+}
+- (void)clicked:(UIButton *)button{
+
+
 
 }
 - (void)layoutSubviews{

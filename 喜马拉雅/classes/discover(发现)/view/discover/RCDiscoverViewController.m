@@ -11,11 +11,14 @@
 #import "RCRecommendAlbumViewCell.h"
 #import "RCPlayListViewCell.h"
 #import "RCDiscover2IMGViewCell.h"
+#import "RCAudioTool.h"
 #import "RCSubjectViewController.h"
 #import "RCCircleViewController.h"
 #import "RCPlayerView.h"
+#import <ReactiveCocoa/ReactiveCocoa.h>
 #import "RCConst.h"
 #import "UIImageView+WebCache.h"
+#import "AFSoundManager.h"
 #import "RCFocusImageViewCell.h"
 #import "RCCateroryListViewController.h"
 #import "RCHotActivityViewController.h"
@@ -31,7 +34,6 @@
 #import "RCDisCoverViewModel.h"
 #import "RCLatestSpecial.h"
 #import "RCLatestActivity.h"
-#import <ReactiveCocoa/ReactiveCocoa.h>
 #import "MJExtension.h"
 #import "RCPlayerViewController.h"
 #import "RCplayerStatus.h"
@@ -55,6 +57,7 @@ static const NSUInteger sectionCount = 100;
 @property(nonatomic,weak) UIImageView   *coverView;
 @property(nonatomic,weak) RCBottomPlayerButton   *playButton;
 @property(nonatomic,weak) RCPlayerView   *playerView;
+@property(nonatomic,assign)  BOOL isPlaying ;
 
 @end
 
@@ -93,7 +96,6 @@ static const NSUInteger sectionCount = 100;
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self addplayButton];
-    RCLog(@"%s ---- %@",__func__,[UIApplication sharedApplication].keyWindow.subviews);
     [RCNotificationCenter addObserver:self selector:@selector(back) name:backHomeNotification object:nil];
     self.tableView.separatorStyle = UITableViewCellSelectionStyleNone;
     self.tableView.tableFooterView = [[UIView alloc]init];
@@ -127,7 +129,6 @@ static const NSUInteger sectionCount = 100;
         [UIApplication sharedApplication].keyWindow.userInteractionEnabled  = YES;
 
     }];
-//        [self.navigationController popViewControllerAnimated:YES];
 
     }
 - (void)dealloc{
@@ -145,7 +146,6 @@ static const NSUInteger sectionCount = 100;
     [playButton autoPinEdge:ALEdgeBottom toEdge:ALEdgeBottom ofView:window withOffset:0];
     [playButton autoSetDimension:ALDimensionWidth toSize:76];
     [playButton autoSetDimension:ALDimensionHeight toSize:71.5];
-//    [playButton addTarget:self action:@selector(enterPlayerView:) forControlEvents:UIControlEventTouchUpInside];
     RCPlayerView * playerView = [[RCPlayerView alloc]init];
     [[UIApplication sharedApplication].keyWindow addSubview:playerView];
     playerView.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height,[UIScreen mainScreen].bounds.size.width , [UIScreen mainScreen].bounds.size.height);
@@ -153,22 +153,20 @@ static const NSUInteger sectionCount = 100;
 
 
 }
-- (void)enterPlayerView:(UIButton *)button{
-    if ([RCplayerStatus sharedplayerStatus].isPlaying) {
-//        RCPlayerViewController * playVC = [[RCPlayerViewController alloc]init];
-//        [self.playButton moveToBottom];
-//        [self.navigationController pushViewController:playVC animated:YES];
-         [self.playerView  showAnimationing:^{
-             [UIApplication sharedApplication].keyWindow.userInteractionEnabled  = NO;
-         } completion:^{
-             [UIApplication sharedApplication].keyWindow.userInteractionEnabled  = YES;
-         }];
-    }
 
+- (void)enterPlayerView:(UIButton *)button{
+     [self.playerView  showAnimationing:^{
+         if ([AFSoundManager sharedManager].isPlaying) {
+         }else{
+             [[AFSoundManager sharedManager] resume];
+
+         }
+        } completion:^{
+        }];
+    [RCNotificationCenter  postNotificationName:playingNotification object:nil];
 
 }
 - (void)setUpPageControl{
-
     UIPageControl * pageControl = [[UIPageControl alloc]init];
     pageControl.userInteractionEnabled = NO;
     [self.headerView addSubview:pageControl];
@@ -183,11 +181,12 @@ static const NSUInteger sectionCount = 100;
     RCSearchBar * searchBar = [RCSearchBar searchBar];
     searchBar.frame = CGRectMake(0, 5, self.view.bounds.size.width, 29);
     self.navigationItem.titleView = searchBar;
-    [[searchBar rac_signalForControlEvents:UIControlEventEditingDidBegin] subscribeNext:^(RCSearchBar * searchBar) {
+[[searchBar rac_signalForControlEvents:UIControlEventEditingDidEnd] subscribeNext:^(RCSearchBar * seachBar) {
+    [seachBar setBackground:[UIImage imageNamed:@"find_searchbar"]];
+
+}];
+    [[searchBar rac_signalForControlEvents:UIControlEventEditingDidBegin] subscribeNext:^(RCSearchBar * seachBar) {
         [searchBar setBackground:[UIImage imageNamed:@"netsound_search"]];
-    }];
-    [[searchBar rac_signalForControlEvents:UIControlEventEditingDidEnd] subscribeNext:^(RCSearchBar * searchBar) {
-        [searchBar setBackground:[UIImage imageNamed:@"find_searchbar"]];
 
     }];
     self.searchBar = searchBar;
@@ -243,20 +242,19 @@ static const NSUInteger sectionCount = 100;
     [scrollCollectionView autoPinEdge:ALEdgeBottom toEdge:ALEdgeBottom ofView:headerView];
     [scrollCollectionView autoSetDimension:ALDimensionHeight toSize:170];
     self.tableView.tableHeaderView.height = 324;
-    @weakify(self);
-    [[popButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(UIButton * button) {
-        @strongify(self);
-        CGRect newFrame = headerView.frame;
-        newFrame.size.height = 570;
-        headerView.frame = newFrame;
-        [self.tableView beginUpdates];
-        [self.tableView setTableHeaderView:headerView];
-        [self.tableView endUpdates];
-        button.hidden = YES;
+    [popButton addTarget:self action:@selector(openMenu:) forControlEvents:UIControlEventTouchUpInside];
 
-    }];
 }
+- (void)openMenu:(UIButton *)button{
+    CGRect newFrame = self.headerView.frame;
+    newFrame.size.height = 570;
+    self.headerView.frame = newFrame;
+    [self.tableView beginUpdates];
+    [self.tableView setTableHeaderView:self.headerView];
+    [self.tableView endUpdates];
+    button.hidden = YES;
 
+}
 #pragma mark - UICollectionViewDelegate,UICollectionViewDelegate
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
     if (collectionView == self.scrollCollectionView) {
@@ -308,11 +306,8 @@ static const NSUInteger sectionCount = 100;
         }
     }else{
         RCList * list = [self.viewModel imgAtIndexPathInCollectionView:indexPath];
-//        RCPlayerViewController * playVC = [[RCPlayerViewController alloc]init];
-//        playVC.trackId = list.trackId;
-//        [self.navigationController pushViewController:playVC animated:YES];
+
        [self.playerView showAnimationing:^{
-//           self.playerView.trackId = list.trackId;
            [RCNotificationCenter postNotificationName:sendNetWorkingNotification object:nil userInfo:@{netWorkingParamNotification:list.trackId}];
 
        } completion:^{
@@ -452,13 +447,16 @@ static const NSUInteger sectionCount = 100;
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     if (section == 5) {
         RCSectionheaderView * headerView = [RCSectionheaderView headerView];
-        [[headerView.titleButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
-            [self.navigationController pushViewController:[[RCAlbumViewController alloc]init] animated:YES];
-        }];
+        [headerView.titleButton addTarget:self action:@selector(headerTitleDidClicked:) forControlEvents:UIControlEventTouchUpInside];
         return headerView;
     }
     return nil;
     
+}
+- (void)headerTitleDidClicked:(UIButton *)button{
+    [self.navigationController pushViewController:[[RCAlbumViewController alloc]init] animated:YES];
+
+
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
 
@@ -528,7 +526,6 @@ static const NSUInteger sectionCount = 100;
     NSIndexPath * currentIndexPath = [self resetedIndexPath];
     NSInteger nextItem = currentIndexPath.item +1;
     NSInteger nextSection = currentIndexPath.section;
-
     //滚动到下一页
     if (nextItem == self.viewModel.focusImages.count ) {
         nextItem = 0;

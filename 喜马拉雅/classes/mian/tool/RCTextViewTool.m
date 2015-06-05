@@ -74,7 +74,6 @@
      */
     NSMutableArray * specials = [NSMutableArray array];
     for (RCTextPart * part in  textParts) {
-        NSLog(@"%@",part);
 
         NSAttributedString * subText               = nil;
         if (part.isEmotion) {

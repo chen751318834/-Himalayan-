@@ -153,11 +153,18 @@ static const NSUInteger sectionCount = 100;
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     if (collectionView == self.scrollCollectionView) {
         RCList  *list = [self.viewModel categoryFocusImageAtIndexPathInCollectionView:indexPath];
+        if (list.trackId) {
+
         [[RCPlayerView playerView] showAnimationing:^{
             //           self.playerView.trackId = list.trackId;
-            [RCNotificationCenter postNotificationName:sendNetWorkingNotification object:nil userInfo:@{netWorkingParamNotification:list.trackId}];
+         [RCNotificationCenter postNotificationName:sendNetWorkingNotification object:nil userInfo:@{netWorkingParamNotification:list.trackId}];
+
+
         } completion:^{
         }];
+        }else{
+            [KVNProgress showErrorWithStatus:@"没有数据..."];
+        }
     }else{
         RCCategoryList *list = [self.viewModel categoryListAtIndexPathInCollectionView:indexPath];
 

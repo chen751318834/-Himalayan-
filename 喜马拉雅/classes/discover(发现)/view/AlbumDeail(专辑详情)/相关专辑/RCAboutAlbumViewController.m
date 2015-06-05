@@ -8,11 +8,11 @@
 
 #import "RCAboutAlbumViewController.h"
 #import "RCAlbumViewModel.h"
+#import <ReactiveCocoa/ReactiveCocoa.h>
 #import "RCAlbumTool.h"
 #import "KVNProgress.h"
 #import "RCAlbumViewCell.h"
 #import "RCConst.h"
-#import <ReactiveCocoa/ReactiveCocoa.h>
 @interface RCAboutAlbumViewController ()
 @property(nonatomic,strong) RCAlbumViewModel  *viewModel;
 
@@ -55,7 +55,9 @@
     RCAlbumViewCell * cell = [RCAlbumViewCell cell];
     RCAlbum * album = [self.viewModel aboutAlbumListAtIndexPath:indexPath];
     cell.album = album;
-    [[cell.saveButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(UIButton * butotn) {
+    @weakify(self);
+    [[cell.saveButton rac_signalForControlEvents:UIControlEventTouchUpInside]subscribeNext:^(UIButton *button) {
+        @strongify(self);
         album.collect = YES;
         [RCAlbumTool saveAlbum:album];
         NSMutableDictionary * info = [NSMutableDictionary dictionary];
@@ -65,10 +67,12 @@
         }
         [RCNotificationCenter postNotificationName:savedAlbumNotification object:nil userInfo:info];
         [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+
     }];
     return cell;
 
 }
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
 
     return [self.viewModel numberOfRowOfAboutAlbumlistInSection:section];

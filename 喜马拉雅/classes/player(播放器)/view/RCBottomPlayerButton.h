@@ -11,6 +11,7 @@
 @interface RCBottomPlayerButton : UIView
 @property (weak, nonatomic) IBOutlet UIButton *button;
 + (instancetype)playerButton;
++ (instancetype)playingAudioButton;
 - (void)moveToBottom;
 - (void)moveToTop;
 

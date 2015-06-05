@@ -9,9 +9,11 @@
 #import "RCPlayerHeaderView.h"
 #import "RCConst.h"
 #import "AFSoundManager.h"
+#import "RCAudioTool.h"
 #import "RCPlayerVIewModel.h"
 #import "UIImage+RC.h"
 #import "RCplayerStatus.h"
+#import "Novocaine.h"
 #import "UIImageView+WebCache.h"
 #import "UIImage+RC.h"
 #import "UIImage+ImageEffects.h"
@@ -39,12 +41,14 @@
 @property (weak, nonatomic) IBOutlet UILabel *playProgressLabel;
 @property(nonatomic,strong) NSTimer  *timer;
 @property(nonatomic,assign) CGFloat currnetProgressButtonX;
+
 @end
 @implementation RCPlayerHeaderView
 
 - (void)awakeFromNib{
     [super awakeFromNib];
-        UIPanGestureRecognizer * pan = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(panPregoressButton:)];
+    [RCNotificationCenter addObserver:self selector:@selector(changePlayerStatus) name:playingNotification object:nil];
+          UIPanGestureRecognizer * pan = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(panPregoressButton:)];
     [self.progressButton addGestureRecognizer:pan];
     UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapProgressView:)];
     [self.pregressView  addGestureRecognizer:tap];
@@ -78,6 +82,14 @@ completion:^(BOOL finished) {
 }];
 }];
 
+
+}
+- (void)changePlayerStatus{
+    if ([AFSoundManager sharedManager].isPlaying) {
+        [self.smallIconVIew.layer addAnimation:[self animation] forKey:nil];
+    }else{
+        [self.smallIconVIew.layer removeAllAnimations];
+    }
 
 }
 - (void)layoutSubviews{
@@ -187,18 +199,26 @@ completion:^(BOOL finished) {
 }
 - (IBAction)playAndPauseButtonDidClicked:(UIButton *)sender {
     if (sender.isSelected) {
-        [[AFSoundManager sharedManager] pause];
-        [RCplayerStatus sharedplayerStatus].playing =  NO;
-        sender.selected = NO;
         [self.smallIconVIew.layer removeAllAnimations];
+        [[AFSoundManager sharedManager] pause];
+        sender.selected = NO;
     }else{
-        [[AFSoundManager sharedManager] resume];
         [self.smallIconVIew.layer addAnimation:[self animation] forKey:nil];
-        [RCplayerStatus sharedplayerStatus].playing =  YES;
+         [RCplayerStatus sharedplayerStatus].playing =  YES;
+        [[AFSoundManager sharedManager] resume];
         sender.selected = YES;
-	    }
 
-}
+	    }
+//    BOOL isPlaying =  [AFSoundManager sharedManager].isPlaying;
+//    if (isPlaying) {
+//        NSLog(@"playAndPauseButtonDidClicked--正在播放.....");
+//    }else{
+//        NSLog(@"playAndPauseButtonDidClicked---停止播放.....");
+//
+//    }
+    [RCNotificationCenter postNotificationName:playingNotification object:nil];
+
+     }
 - (IBAction)pgoressValueChange:(UISlider *)sender {
     [[AFSoundManager sharedManager]moveToSection:sender.value];
 
@@ -208,10 +228,8 @@ completion:^(BOOL finished) {
 
 #pragma mark - 播放网络音频
 - (void)playRemoteAudio:(NSString *)urlStr{
-    [RCplayerStatus sharedplayerStatus].playing =  YES;
-    if ([RCplayerStatus sharedplayerStatus].isPlaying) {
-        [self.smallIconVIew.layer addAnimation:[self animation] forKey:nil];
-    }
+
+    [self.smallIconVIew.layer addAnimation:[self animation] forKey:nil];
     [[AFSoundManager sharedManager] startStreamingRemoteAudioFromURL:urlStr andBlock:^(int percentage, CGFloat elapsedTime, CGFloat timeRemaining, NSError *error, BOOL finished) {
         if (!error) {
             NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
@@ -236,16 +254,24 @@ completion:^(BOOL finished) {
                 self.currentprogressImageView.width = self.progressButton.centerX;
 
         } else {
-            [RCplayerStatus sharedplayerStatus].playing =  NO;
-
             self.playAndPauseButtton.selected = NO;
             [self.smallIconVIew.layer removeAllAnimations];
             NSLog(@"There has been an error playing the remote file: %@", [error description]);
         }
 
     }];
+//    BOOL isPlaying =  [AFSoundManager sharedManager].isPlaying;
+//    if (isPlaying) {
+//        NSLog(@"playRemoteAudio--正在播放.....");
+//    }else{
+//        NSLog(@"playRemoteAudio---停止播放.....");
+//
+//    }
+    [RCNotificationCenter postNotificationName:playingNotification object:nil];
 
 }
+
+
 #pragma mark - 进度条
 - (void)tapProgressView:(UITapGestureRecognizer *)sender {
     CGPoint point = [sender locationInView:sender.view];

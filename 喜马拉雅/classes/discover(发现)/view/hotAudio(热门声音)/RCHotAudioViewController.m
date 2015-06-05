@@ -7,11 +7,11 @@
 //
 
 #import "RCHotAudioViewController.h"
-#import <ReactiveCocoa/metamacros.h>
 #import "RCHotAudioVIewModel.h"
 #import "Toast+UIView.h"
 #import "RCHotAudioViewCell.h"
 #import "RCPlayerView.h"
+#import <ReactiveCocoa/ReactiveCocoa.h>
 #import "RCConst.h"
 #import "RCBottomPlayerButton.h"
 #import "RCPlayerViewController.h"
@@ -131,14 +131,18 @@
     RCOnneHotAudio * audio = self.contents[indexPath.row];
     cell.audio = audio;
     @weakify(self);
-    [[cell.downloadButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(UIButton * button) {
+    [[cell.downloadButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         @strongify(self);
         audio.downloading = YES;
-        [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
         [[UIApplication sharedApplication].keyWindow makeToast:@"加入下载队列成功" duration:1 position:@"bottom"];
+        [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+
+
     }];
+
     return cell;
 }
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 105;
 }
@@ -151,18 +155,19 @@
     segmentControl.backgroundColor = [UIColor whiteColor];
     segmentControl.tintColor = [UIColor colorWithRed:1.000 green:0.270 blue:0.000 alpha:1.000];
     @weakify(self);
-    [[segmentControl rac_signalForControlEvents:UIControlEventValueChanged] subscribeNext:^(id x) {
-        @strongify(self);
-        if (self.contents.count != 0) {
+     [[segmentControl rac_signalForControlEvents:UIControlEventValueChanged] subscribeNext:^(UISegmentedControl * control) {
+    @strongify(self);
+         if (self.contents.count != 0) {
 
-        [tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:section] atScrollPosition:UITableViewScrollPositionTop animated:NO];
-        }
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [self.tableView.gifHeader beginRefreshing];
+             [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:NO];
+         }
+         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+             [self.tableView.gifHeader beginRefreshing];
 
-        });
-        self.courrentIndex = segmentControl.selectedSegmentIndex;
-    }];
+         });
+         self.courrentIndex = control.selectedSegmentIndex;
+
+     }];
     self.segmentControl = segmentControl;
 
 

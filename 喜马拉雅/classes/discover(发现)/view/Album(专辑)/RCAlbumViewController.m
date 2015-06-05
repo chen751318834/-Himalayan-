@@ -9,6 +9,7 @@
 #import "RCAlbumViewController.h"
 #import "RCAlbumViewCell.h"
 #import "Toast+UIView.h"
+#import <ReactiveCocoa/ReactiveCocoa.h>
 #import "RCAlbumDeailViewController.h"
 #import "RCAlbumTool.h"
 #import "RCConst.h"

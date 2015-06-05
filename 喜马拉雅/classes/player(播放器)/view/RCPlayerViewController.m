@@ -61,8 +61,20 @@ void *CusomHeaderInsetObserver = &CusomHeaderInsetObserver;
     }
     return self;
 }
+- (void)viewWillDisappear:(BOOL)animated{
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+    [super viewWillDisappear:animated];
+
+}
+- (void)viewWillAppear:(BOOL)animated{
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
+    [super viewWillAppear:animated];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+
     [self addObserver:self forKeyPath:@"segmentToInset" options:NSKeyValueObservingOptionNew context:CusomHeaderInsetObserver];
     [RCNotificationCenter addObserver:self selector:@selector(fecthData:) name:sendNetWorkingNotification object:nil];
     if (self.trackId) {
@@ -77,6 +89,7 @@ void *CusomHeaderInsetObserver = &CusomHeaderInsetObserver;
     self.viewmodel.trackId = note.userInfo[netWorkingParamNotification];
     [self.viewmodel fetchplayerInfoWithSuccess:^{
         self.headerView.playerInfo = self.viewmodel.playerInfo;
+        self.commentVC.trackId = self.viewmodel.playerInfo.trackId;
         self.deailVC.trackId = self.viewmodel.playerInfo.trackId;
         self.albumVC.playerInfo = self.viewmodel.playerInfo;
         button.imgSrc = self.viewmodel.playerInfo.coverLarge;

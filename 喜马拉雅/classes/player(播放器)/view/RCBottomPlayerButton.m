@@ -7,8 +7,12 @@
 //
 
 #import "RCBottomPlayerButton.h"
+#import "RCConst.h"
 #import "UIImageView+WebCache.h"
 #import "UIImage+RC.h"
+#import "RCAudioTool.h"
+#import "RCplayerStatus.h"
+#import "AFSoundManager.h"
 @interface RCBottomPlayerButton ()
 @property (weak, nonatomic) IBOutlet UIImageView *playingIconView;
 
@@ -20,7 +24,7 @@
 }
 - (void)awakeFromNib{
     [super awakeFromNib];
-
+    [RCNotificationCenter addObserver:self selector:@selector(changeplayerStatus:) name:playingNotification object:nil];
 }
 
 - (void)setImgSrc:(NSString *)imgSrc{
@@ -32,12 +36,20 @@
         }];
     }else{
         self.playingIconView.hidden = YES;
-
     }
-    [self.playingIconView.layer addAnimation:[self animation] forKey:nil];
 
 }
+-(void)changeplayerStatus:(NSNotification *)note{
+    if ([AFSoundManager sharedManager].isPlaying) {
+        [self.playingIconView.layer addAnimation:[self animation] forKey:nil];
+        self.button.selected = NO;
+    }else{
+        [self.playingIconView.layer removeAllAnimations];
+        self.button.selected = YES;
 
+    }
+
+}
 - (CABasicAnimation *)animation{
     CABasicAnimation * transformAnim = [CABasicAnimation animationWithKeyPath:@"transform.rotation"];
     transformAnim.fromValue          = @(0);
@@ -60,5 +72,15 @@
         self.transform = CGAffineTransformMakeTranslation(0, 70);
     } completion:nil];
 
+}
++ (instancetype)playingAudioButton{
+    NSMutableArray * childViews = [[UIApplication sharedApplication].keyWindow valueForKeyPath:@"subviews"];
+    for (id childView in childViews) {
+        if ([childView isKindOfClass:[RCBottomPlayerButton class]]) {
+            NSLog(@"%@",childView);
+            return childView;
+        }
+    }
+    return nil;
 }
 @end

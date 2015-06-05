@@ -71,9 +71,9 @@
     [_player play];
     
     if (!error) {
-    
+        self.playing = YES;
         __block int percentage = 0;
-        
+
         NSTimer * timer = [NSTimer scheduledTimerWithTimeInterval:1 block:^{
             
             if (percentage != 100) {
@@ -95,7 +95,7 @@
         self.timer = timer;
 
     } else {
-        
+        self.playing = NO;
         block(0, 0, 0, error, YES);
         [_audioPlayer stop];
     }
@@ -122,21 +122,28 @@
     [_audioPlayer pause];
     [_player pause];
     [self.timer pauseTimer];
+    self.playing = NO;
 }
 
 -(void)resume {
     [_audioPlayer play];
     [_player play];
     [self.timer resumeTimer];
+    self.playing = YES;
+
 }
 
 -(void)stop {
     [_audioPlayer stop];
     _player = nil;
     [self.timer pauseTimer];
+    self.playing = NO;
+
 }
 
 -(void)restart {
+    self.playing = YES;
+
     [_audioPlayer setCurrentTime:0];
     
     int32_t timeScale = _player.currentItem.asset.duration.timescale;

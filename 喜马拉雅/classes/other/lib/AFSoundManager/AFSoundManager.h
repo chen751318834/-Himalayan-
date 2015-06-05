@@ -22,6 +22,7 @@ typedef void (^progressBlock)(int percentage, CGFloat elapsedTime, CGFloat timeR
 @property (nonatomic, strong) AVAudioPlayer *audioPlayer;
 @property (nonatomic, strong) AVPlayer *player;
 @property (nonatomic, strong) AVAudioRecorder *recorder;
+@property(nonatomic,assign,getter=isPlaying) BOOL playing;
 
 -(void)startPlayingLocalFileWithName:(NSString *)name andBlock:(progressBlock)block;
 -(void)startStreamingRemoteAudioFromURL:(NSString *)url andBlock:(progressBlock)block;

@@ -12,6 +12,7 @@
 #import "RCSegementControl.h"
 #import "RCPlayerView.h"
 #import "RCAlbumTool.h"
+#import <ReactiveCocoa/ReactiveCocoa.h>
 #import "RCAlbumSectionHeaderView.h"
 #import "MJRefresh.h"
 #import "Toast+UIView.h"
@@ -23,7 +24,6 @@
 #import "RCAlbumDeailViewCell.h"
 #import "RCPlayerAlbumViewController.h"
 #import "RCAlbumHeaderView.h"
-#import <ReactiveCocoa/ReactiveCocoa.h>
 @interface RCAlbumDeailViewController () <RCSegementControlDelegate>
 @property (nonatomic, strong) NSArray *sections;
 @property(nonatomic,strong) RCAlbumViewModel  *viewModel;
@@ -137,16 +137,18 @@
     RCAlbumDeailViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"AlbumDeailCell" forIndexPath:indexPath];
     RCTrackList * trackList = [self.viewModel trackListAtIndexPath:indexPath];
     cell.trackList = trackList;
+    cell.downloadButton.tag = indexPath.row;
     @weakify(self);
-    [[cell.downloadButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(UIButton * button) {
+    [[cell.downloadButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         @strongify(self);
         trackList.downloaded = YES;
-        [self.collectionView reloadItemsAtIndexPaths:@[indexPath]];
         [[UIApplication sharedApplication].keyWindow makeToast:@"加入下载队列成功" duration:1 position:@"bottom"];
+        [self.collectionView reloadItemsAtIndexPaths:@[indexPath]];
+
     }];
+
     return cell;
 }
-
 
 
 
@@ -154,16 +156,16 @@
     if ([kind  isEqualToString:UICollectionElementKindSectionHeader]) {
         RCAlbumSectionHeaderView * sectionheaderView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"sectionheaderView" forIndexPath:indexPath];
         sectionheaderView.albumCountlabel.text = [NSString stringWithFormat:@"声音(%@)",self.viewModel.totalCount];
-        [[sectionheaderView.sortButton rac_signalForControlEvents:UIControlEventTouchDown] subscribeNext:^(UIButton * sortButton) {
-            sortButton.selected = !sortButton.isSelected;
-
-            if (sortButton.isSelected) {
-            [self.viewModel.trarkLists sortUsingComparator:^NSComparisonResult(RCTrackList * obj1, RCTrackList * obj2) {
-                if (obj1.createdAt > obj2.createdAt) {
-                    return NSOrderedDescending;
-                }
-                return NSOrderedAscending;
-            }];
+        @weakify(self);
+        [[sectionheaderView.sortButton rac_signalForControlEvents:UIControlEventTouchUpInside]subscribeNext:^( UIButton * button) {
+            @strongify(self);
+            if (button.isSelected) {
+                [self.viewModel.trarkLists sortUsingComparator:^NSComparisonResult(RCTrackList * obj1, RCTrackList * obj2) {
+                    if (obj1.createdAt > obj2.createdAt) {
+                        return NSOrderedDescending;
+                    }
+                    return NSOrderedAscending;
+                }];
             }else{
                 [self.viewModel.trarkLists sortUsingComparator:^NSComparisonResult(RCTrackList * obj1, RCTrackList * obj2) {
                     if (obj1.createdAt > obj2.createdAt) {
@@ -172,10 +174,12 @@
                     return NSOrderedDescending;
                 }];
             }
-
+            button.selected = !button.isSelected;
+            
             [self.collectionView reloadData];
 
         }];
+
         return sectionheaderView;
     }else if ([kind isEqualToString:CSStickyHeaderParallaxHeader]) {
         RCAlbumHeaderView *headerView = [collectionView
@@ -191,6 +195,7 @@
     }
     return nil;
 }
+
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     RCTrackList * trackList = [self.viewModel trackListAtIndexPath:indexPath];

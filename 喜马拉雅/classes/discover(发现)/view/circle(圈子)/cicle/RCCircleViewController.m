@@ -9,6 +9,7 @@
 #import "RCCircleViewController.h"
 #import "RCCircleViewModel.h"
 #import "RCRecommendPostViewCell.h"
+#import <ReactiveCocoa/ReactiveCocoa.h>
 #import "RCPostDeailViewController.h"
 #import "RCRecommendZoneViewCell.h"
 #import "RCCircleDeailViewController.h"
@@ -65,18 +66,25 @@ static NSString * const postID = @"postCell";
         RCRecommendZoneViewCell * cell = [tableView dequeueReusableCellWithIdentifier:zoneID forIndexPath:indexPath];
        RCRecommendedZones * zone = [self.viewModel zoneAtIndexPath:indexPath];
         cell.zone  = zone;
+        cell.joinButon.tag = indexPath.row;
         @weakify(self);
-        [[cell.joinButon rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(UIButton * button) {
+        [[cell.joinButon rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
             @strongify(self);
-            zone.join = YES;
+              zone.join = YES;
             [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
 
         }];
+
         return cell;
     }
     RCRecommendPostViewCell * cell = [tableView dequeueReusableCellWithIdentifier:postID forIndexPath:indexPath];
     cell.post = [self.viewModel postAtIndexPath:indexPath];
     return cell;
+
+}
+- (void)join:(UIButton *)button{
+
+
 
 }
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{

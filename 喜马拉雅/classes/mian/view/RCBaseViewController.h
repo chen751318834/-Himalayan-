@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "MJRefresh.h"
-#import <ReactiveCocoa/ReactiveCocoa.h>
 @interface RCBaseViewController : UITableViewController
 - (void)loadNewData;
 - (void)loadMoreData;

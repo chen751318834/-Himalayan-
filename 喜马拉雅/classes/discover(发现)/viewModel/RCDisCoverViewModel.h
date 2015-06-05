@@ -11,7 +11,6 @@
 #import "RCList.h"
 #import "RCCatrgory.h"
 #import "RCDiscoverData.h"
-#import "ReactiveCocoa.h"
 @interface RCDisCoverViewModel : NSObject
 
 /**

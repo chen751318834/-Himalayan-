@@ -59,20 +59,19 @@
     self.deleteButton = deleteButton;
     deleteButton.frame = CGRectMake(0, 0, self.view.bounds.size.width, 30);
     self.tableView.tableHeaderView = deleteButton;
-    @weakify(self);
 
-   [[deleteButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
-       @strongify(self);
-       DXAlertView * alertView = [[DXAlertView alloc]initWithTitle:@"温馨提示" contentText:@"确定要取消收藏？" leftButtonTitle:@"确定" rightButtonTitle:@"取消"];
-       [alertView show];
-       alertView.leftBlock = ^{
-           [self.viewModel.saveAlbumlists removeAllObjects];
-           [RCAlbumTool removeAllAlbum];
-           [self.tableView reloadData];
-           [self.tableView removeFooter];
-       };
 
-   }];
+}
+- (void)delete:(UIButton *)button{
+    DXAlertView * alertView = [[DXAlertView alloc]initWithTitle:@"温馨提示" contentText:@"确定要取消收藏？" leftButtonTitle:@"确定" rightButtonTitle:@"取消"];
+    [alertView show];
+    alertView.leftBlock = ^{
+        [self.viewModel.saveAlbumlists removeAllObjects];
+        [RCAlbumTool removeAllAlbum];
+        [self.tableView reloadData];
+        [self.tableView removeFooter];
+    };
+
 
 }
 - (void)loadMoreData{
@@ -84,20 +83,21 @@
 #pragma mark - UITableViewDelegate
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     RCCollectViewCell * cell = [RCCollectViewCell cell];
-    RCAlbum * album = [self.viewModel AlbumListAtIndexPath:indexPath];
-    cell.album = album;
-    @weakify(self);
-    [[cell.deleteButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(UIButton * butotn) {
-        @strongify(self);
-        DXAlertView * alertView = [[DXAlertView alloc]initWithTitle:@"温馨提示" contentText:@"确定要取消收藏？" leftButtonTitle:@"确定" rightButtonTitle:@"取消"];
-        [alertView show];
-        alertView.leftBlock = ^{
-            [self.viewModel.saveAlbumlists removeObject:album];
-            [RCAlbumTool removealbum:album];
-            [self.tableView reloadData];
-        };
-    }];
+    cell.album = [self.viewModel AlbumListAtIndexPath:indexPath];
+    cell.deleteButton.tag = indexPath.row;
+    [cell.deleteButton addTarget:self action:@selector(deleteOneAlbum:) forControlEvents:UIControlEventTouchUpInside];
     return cell;
+}
+- (void)deleteOneAlbum:(UIButton *)button{
+    RCAlbum * album = [self.viewModel AlbumListAtIndexPath:[NSIndexPath indexPathForRow:button.tag inSection:0]];
+    DXAlertView * alertView = [[DXAlertView alloc]initWithTitle:@"温馨提示" contentText:@"确定要取消收藏？" leftButtonTitle:@"确定" rightButtonTitle:@"取消"];
+    [alertView show];
+    alertView.leftBlock = ^{
+        [self.viewModel.saveAlbumlists removeObject:album];
+        [RCAlbumTool removealbum:album];
+        [self.tableView reloadData];
+    };
+
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     self.tableView.gifFooter.hidden = self.viewModel.saveAlbumlists.count == [self.viewModel albumCount];

@@ -48,6 +48,8 @@ static NSString * RCPlayerViewSetSongInformationNotification = @"RCPlayerViewSet
 static NSString * sendNetWorkingNotification = @"sendNetWorkingNotification";
 static NSString * netWorkingParamNotification = @"netWorkingparamNotification";
 
+static NSString * playingNotification = @"playingNotification";
+
 #define RCNotificationCenter  [NSNotificationCenter defaultCenter]
 
 #endif

@@ -14,8 +14,10 @@
 static NSString * const ID = @"playerCommentCell";
 @interface RCPlayerCommentViewController ()
 @property(nonatomic,strong) RCPlayerVIewModel  *viewmodel;
+
 @end
 @implementation RCPlayerCommentViewController
+
 -  (RCPlayerVIewModel *)viewmodel{
     if (!_viewmodel) {
         self.viewmodel = [[RCPlayerVIewModel alloc]init];
@@ -25,17 +27,27 @@ static NSString * const ID = @"playerCommentCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.tableView.gifFooter.hidden = NO;
+    [RCNotificationCenter addObserver:self selector:@selector(fecthData:) name:sendNetWorkingNotification object:nil];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     [self.tableView registerNib:[UINib nibWithNibName:@"RCPlayerCommentViewCell" bundle:nil] forCellReuseIdentifier:ID];
     [self.tableView removeHeader];
-    [RCNotificationCenter addObserver:self selector:@selector(fecthData:) name:sendNetWorkingNotification object:nil];
 
 }
+
+
+
 - (void)fecthData:(NSNotification *)note{
+    [KVNProgress showWithParameters:@{KVNProgressViewParameterStatus:@"正在加载..."}];
     self.viewmodel.trackId = note.userInfo[netWorkingParamNotification];
     [self.viewmodel fetchNewPlayerCommnetWithSuccess:^{
         [self.tableView reloadData];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [KVNProgress dismiss];
+
+        });
     } failure:^{
+        [KVNProgress dismiss];
+        [KVNProgress showErrorWithStatus:@"播放的音频不存在..."];
     }];
 }
 - (void)loadMoreData{
@@ -79,6 +91,7 @@ static NSString * const ID = @"playerCommentCell";
 
 
 }
+#pragma mark - FeSpinnerTenDotDelegate
 - (void)dealloc{
 
     [RCNotificationCenter removeObserver:self];
