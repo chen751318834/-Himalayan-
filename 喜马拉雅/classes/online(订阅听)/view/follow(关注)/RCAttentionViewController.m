@@ -7,6 +7,7 @@
 //
 
 #import "RCAttentionViewController.h"
+#import "RCConst.h"
 #import "RCAttentionViewModel.h"
 #import "RCAttentionViewCell.h"
 #import "RCAtentionTopViewCell.h"
@@ -24,7 +25,8 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.tableView.backgroundColor = [UIColor colorWithRed:0.941 green:0.969 blue:1.000 alpha:1.000];
+    self.tableView.contentInset = RCGlobalTableViewUIEdgeInsets;
+    self.tableView.backgroundColor = RCGlobalBg;
     [self.tableView removeHeader];
     [self.tableView removeFooter];
     [self.viewModel fetchAttentionDataWithSuccess:^{

@@ -231,7 +231,7 @@ static CGFloat	kDeviationFactor		= 0.5f;
 	}
 	_navigationBar.frame = navigationBarFrame;
 	_scrollView.frame = scrollViewFrame;
-	_scrollView.contentSize = CGSizeMake( _controllers.count*CGRectGetWidth(self.view.frame), 0);
+	_scrollView.contentSize = CGSizeMake( _controllers.count*CGRectGetWidth(self.view.frame), CGRectGetHeight(scrollViewFrame));
 }
 
 #pragma mark - ScrollView Events -
@@ -289,6 +289,3 @@ static CGFloat	kDeviationFactor		= 0.5f;
 }
 
 @end
-// 版权属于原作者
-// http://code4app.com (cn) http://code4app.net (en)
-// 发布代码于最专业的源码分享网站: Code4App.com

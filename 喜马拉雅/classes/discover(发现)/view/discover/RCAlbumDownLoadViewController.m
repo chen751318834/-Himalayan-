@@ -106,6 +106,7 @@
 - (void)setUpTopToolBar{
     RCSegementControl * segementControl = [[ RCSegementControl alloc]init];
     segementControl.backgroundColor = [UIColor whiteColor];
+    
     self.segementControl = segementControl
     ;
     segementControl.delegate = self;
@@ -117,6 +118,10 @@
 
         for (int i = 0; i<[self.viewModel.totalCount intValue]/50+1; i++) {
             UIButton * button = [UIButton buttonWithType:UIButtonTypeCustom];
+            button.font = [UIFont systemFontOfSize:11];
+            [button setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+
+            [button setTitleColor:[UIColor orangeColor] forState:UIControlStateSelected];
             if (i == [self.viewModel.totalCount intValue]/50) {
         [button setTitle:[NSString stringWithFormat:@"选集(%d~%d)",i*50+1,[self.viewModel.totalCount intValue]] forState:UIControlStateNormal];
             }else{

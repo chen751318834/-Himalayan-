@@ -42,6 +42,7 @@
 
     self.titleLabel.text = audio.title;
     self.subTitleLabel.text = [NSString stringWithFormat:@"by %@",audio.nickname];
+    
     [self.titleLeghtLabel setTitle:[NSString stringWithFormat:@"%.2ld:%.2ld", [audio.duration integerValue]/60,[audio.duration integerValue]%60] forState:UIControlStateNormal];
     [self setUpWithButton:self.playCountLabel count:[audio.playsCounts intValue] title:nil];
     [self setUpWithButton:self.saveCountLabel count:[audio.sharesCounts intValue] title:nil];

@@ -39,6 +39,8 @@
 }
 - (instancetype)init
 {
+    self.hidesBottomBarWhenPushed = YES;
+
     CSStickyHeaderFlowLayout *layout = [[CSStickyHeaderFlowLayout alloc]init];
 
     if ([layout isKindOfClass:[CSStickyHeaderFlowLayout class]]) {
@@ -53,6 +55,7 @@
 
     return [super initWithCollectionViewLayout:layout];
 }
+
 - (void)viewWillAppear:(BOOL)animated{
     [self.navigationController setNavigationBarHidden:YES animated:NO];
     [super viewWillAppear:animated];

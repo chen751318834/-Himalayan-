@@ -34,7 +34,7 @@
     NSUInteger count = items.count;
     for (NSUInteger i =0; i<count; i++) {
         UIButton *button =items[i];
-        button.font = [UIFont systemFontOfSize:11];
+//        button.font = [UIFont systemFontOfSize:11];
         button.tag = i ;
         if (button.isSelected) {
             [button setImage:button.imageView.image forState:UIControlStateSelected];
@@ -78,8 +78,8 @@
     if ([self.delegate respondsToSelector:@selector(segementControl:button:from:to:)]) {
         [self.delegate segementControl:self button:button from:button.tag to:self.selectedButton.tag];
     }
-    button.backgroundColor = [UIColor colorWithRed:0.973 green:0.392 blue:0.259 alpha:1.000];
-    self.selectedButton.backgroundColor = [UIColor whiteColor];
+//    button.backgroundColor = [UIColor colorWithRed:0.973 green:0.392 blue:0.259 alpha:1.000];
+//    self.selectedButton.backgroundColor = [UIColor whiteColor];
     self.selectedButton.selected =NO;
     button.selected = YES;
     self.selectedButton =button;

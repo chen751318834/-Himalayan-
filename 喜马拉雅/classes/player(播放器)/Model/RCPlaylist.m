@@ -7,7 +7,7 @@
 //
 
 #import "RCPlaylist.h"
-
+#import "MJExtension.h"
 @implementation RCPlaylist
-
+MJCodingImplementation
 @end

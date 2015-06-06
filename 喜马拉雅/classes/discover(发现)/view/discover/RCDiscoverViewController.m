@@ -154,7 +154,7 @@ static const NSUInteger sectionCount = 100;
     playerView.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height,[UIScreen mainScreen].bounds.size.width , [UIScreen mainScreen].bounds.size.height);
     self.playerView = playerView;
 
-    RCPlayerInfo * lastPlayInfo = [[RCPlayerTool playedAudios] firstObject];
+    RCPlaylist * lastPlayInfo = [[RCPlayerTool playedAudios] firstObject];
     UILabel * lastPlayLabel = [[UILabel alloc]init];
     lastPlayLabel.backgroundColor= [UIColor orangeColor];
     lastPlayLabel.font = [UIFont systemFontOfSize:12];
@@ -168,6 +168,7 @@ static const NSUInteger sectionCount = 100;
     [lastPlayLabel autoSetDimension:ALDimensionWidth toSize:labelW];
     [lastPlayLabel autoSetDimension:ALDimensionHeight toSize:20];
     self.lastPlayLabel = lastPlayLabel;
+    lastPlayLabel.hidden = lastPlayInfo == nil;
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [UIView animateWithDuration:2 animations:^{
             lastPlayLabel.alpha = 0;
@@ -178,16 +179,30 @@ static const NSUInteger sectionCount = 100;
 
 - (void)enterPlayerView:(UIButton *)button{
     [self.lastPlayLabel removeFromSuperview];
-    RCPlayerInfo * lastPlayInfo = [[RCPlayerTool playedAudios] firstObject];
-    [RCNotificationCenter postNotificationName:sendNetWorkingNotification object:nil userInfo:@{netWorkingTrackIdNotificationName:lastPlayInfo.trackId}];
-     [self.playerView  showAnimationing:^{
-         if ([AFSoundManager sharedManager].isPlaying) {
-         }else{
-             [[AFSoundManager sharedManager] resume];
+    RCPlaylist * lastPlayInfo = [[RCPlayerTool playedAudios] firstObject];
 
-         }
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        if (![AFSoundManager sharedManager].isPlaying) {
+            if (lastPlayInfo) {
+                [RCNotificationCenter postNotificationName:sendNetWorkingNotification object:nil userInfo:@{netWorkingTrackIdNotificationName:lastPlayInfo.trackId}];
+            }
+        }
+        NSLog(@"dispatch_once");
+    });
+    if (!lastPlayInfo) {
+        [KVNProgress showErrorWithStatus:@"你还没有播放过的声音，请选择一个声音播放..."];
+        return ;
+    }else{
+        [self.playerView  showAnimationing:^{
+            if ([AFSoundManager sharedManager].isPlaying) {
+            }else{
+                [[AFSoundManager sharedManager] resume];
+            }
         } completion:^{
         }];
+    }
+
     [RCNotificationCenter  postNotificationName:playingNotification object:nil];
 
 }

@@ -50,7 +50,7 @@
 - ( void)fetchplayerInfoWithSuccess:(void (^)(void ))success failure:(void (^)(void ))failure{
     NSLog(@"%@",[NSString stringWithFormat:@"http://mobile.ximalaya.com/mobile/track/detail?device=android&trackId=%@",self.trackId]);
     [RCNetWorkingTool get:[NSString stringWithFormat:@"http://mobile.ximalaya.com/mobile/track/detail?device=android&trackId=%@",self.trackId] params:nil success:^(id json) {
-       RCPlayerInfo * playInfo = [RCPlayerInfo objectWithKeyValues:json];
+       RCPlaylist * playInfo = [RCPlaylist objectWithKeyValues:json];
         self.playerInfo = playInfo;
         if (success) {
             success();

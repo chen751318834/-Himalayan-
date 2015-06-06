@@ -33,7 +33,6 @@
 		4B1D81611B0C949300B7C9DC /* RCDiscoverDataTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B1D81601B0C949300B7C9DC /* RCDiscoverDataTool.m */; };
 		4B1D816E1B0C94D100B7C9DC /* RCCategoryListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B1D816D1B0C94D100B7C9DC /* RCCategoryListViewModel.m */; };
 		4B1D81811B0C952000B7C9DC /* RCMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B1D81801B0C952000B7C9DC /* RCMeViewController.m */; };
-		4B1D81841B0C953800B7C9DC /* RCDownloadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B1D81831B0C953800B7C9DC /* RCDownloadViewController.m */; };
 		4B1D81911B0C958D00B7C9DC /* RCCategoryFocusImageList.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B1D81881B0C958D00B7C9DC /* RCCategoryFocusImageList.m */; };
 		4B1D81921B0C958D00B7C9DC /* RCCategoryFocusImageParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B1D818A1B0C958D00B7C9DC /* RCCategoryFocusImageParam.m */; };
 		4B1D81931B0C958D00B7C9DC /* RCCategoryFocusImageResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B1D818C1B0C958D00B7C9DC /* RCCategoryFocusImageResult.m */; };
@@ -202,6 +201,15 @@
 		4B9510121B1F338600D5DBDD /* ARSegmentPageHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B95100E1B1F338600D5DBDD /* ARSegmentPageHeader.m */; };
 		4B9510131B1F338600D5DBDD /* ARSegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B9510101B1F338600D5DBDD /* ARSegmentView.m */; };
 		4B9510171B1F386200D5DBDD /* UINavigationController+FDFullscreenPopGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B9510161B1F386200D5DBDD /* UINavigationController+FDFullscreenPopGesture.m */; };
+		4BB20B1D1B22DF0500C5B508 /* DMPagerNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BB20B1A1B22DF0500C5B508 /* DMPagerNavigationBar.m */; };
+		4BB20B1E1B22DF0500C5B508 /* DMPagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BB20B1C1B22DF0500C5B508 /* DMPagerViewController.m */; };
+		4BB20B351B22E95900C5B508 /* JT3DScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BB20B341B22E95900C5B508 /* JT3DScrollView.m */; };
+		4BB20B381B22E98400C5B508 /* RCScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BB20B371B22E98400C5B508 /* RCScrollViewController.m */; };
+		4BB20BC81B230AA900C5B508 /* RCDownloadAudioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BB20BC71B230AA900C5B508 /* RCDownloadAudioViewController.m */; };
+		4BB20BCB1B230AC200C5B508 /* RCDownloadingAudioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BB20BCA1B230AC200C5B508 /* RCDownloadingAudioViewController.m */; };
+		4BB20BCE1B230AD600C5B508 /* RCDownloadAlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BB20BCD1B230AD600C5B508 /* RCDownloadAlbumViewController.m */; };
+		4BB20BD91B2325BE00C5B508 /* RCDownloadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BB20BD71B2325BE00C5B508 /* RCDownloadViewController.m */; };
+		4BB20BDA1B2325BE00C5B508 /* RCDownloadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BB20BD81B2325BE00C5B508 /* RCDownloadViewController.xib */; };
 		4BBAC2491B1EA3D7006ED9A1 /* RCPlayerCommnet.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BBAC2481B1EA3D7006ED9A1 /* RCPlayerCommnet.m */; };
 		4BBAC24C1B1EA417006ED9A1 /* RCPlayerCommnetList.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BBAC24B1B1EA417006ED9A1 /* RCPlayerCommnetList.m */; };
 		4BBAC2501B1EA51A006ED9A1 /* RCPlayerAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BBAC24F1B1EA51A006ED9A1 /* RCPlayerAlbum.m */; };
@@ -231,9 +239,6 @@
 		4BC647C61B1734B200661DB0 /* NTSlidingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC647C51B1734B200661DB0 /* NTSlidingViewController.m */; };
 		4BC647D01B17358200661DB0 /* RCollectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC647CF1B17358200661DB0 /* RCollectViewController.m */; };
 		4BC647D31B17359B00661DB0 /* RCAttentionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC647D21B17359B00661DB0 /* RCAttentionViewController.m */; };
-		4BC647D61B1735A600661DB0 /* RCHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC647D51B1735A600661DB0 /* RCHistoryViewController.m */; };
-		4BC647F01B1749C700661DB0 /* DMPagerNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC647ED1B1749C700661DB0 /* DMPagerNavigationBar.m */; };
-		4BC647F11B1749C700661DB0 /* DMPagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC647EF1B1749C700661DB0 /* DMPagerViewController.m */; };
 		4BC647F41B174B9000661DB0 /* RCbasePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC647F31B174B9000661DB0 /* RCbasePageViewController.m */; };
 		4BDE7D201B12F98800073E12 /* RCAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BDE7D1F1B12F98800073E12 /* RCAlbum.m */; };
 		4BDE7D231B12F9F700073E12 /* RCAlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BDE7D221B12F9F700073E12 /* RCAlbumViewController.m */; };
@@ -374,8 +379,6 @@
 		4B1D816D1B0C94D100B7C9DC /* RCCategoryListViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCCategoryListViewModel.m; sourceTree = "<group>"; };
 		4B1D817F1B0C952000B7C9DC /* RCMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCMeViewController.h; sourceTree = "<group>"; };
 		4B1D81801B0C952000B7C9DC /* RCMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCMeViewController.m; sourceTree = "<group>"; };
-		4B1D81821B0C953800B7C9DC /* RCDownloadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCDownloadViewController.h; sourceTree = "<group>"; };
-		4B1D81831B0C953800B7C9DC /* RCDownloadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCDownloadViewController.m; sourceTree = "<group>"; };
 		4B1D81871B0C958D00B7C9DC /* RCCategoryFocusImageList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCCategoryFocusImageList.h; sourceTree = "<group>"; };
 		4B1D81881B0C958D00B7C9DC /* RCCategoryFocusImageList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCCategoryFocusImageList.m; sourceTree = "<group>"; };
 		4B1D81891B0C958D00B7C9DC /* RCCategoryFocusImageParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCCategoryFocusImageParam.h; sourceTree = "<group>"; };
@@ -689,6 +692,23 @@
 		4B9510101B1F338600D5DBDD /* ARSegmentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARSegmentView.m; sourceTree = "<group>"; };
 		4B9510151B1F386200D5DBDD /* UINavigationController+FDFullscreenPopGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+FDFullscreenPopGesture.h"; sourceTree = "<group>"; };
 		4B9510161B1F386200D5DBDD /* UINavigationController+FDFullscreenPopGesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+FDFullscreenPopGesture.m"; sourceTree = "<group>"; };
+		4BB20B191B22DF0500C5B508 /* DMPagerNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMPagerNavigationBar.h; sourceTree = "<group>"; };
+		4BB20B1A1B22DF0500C5B508 /* DMPagerNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMPagerNavigationBar.m; sourceTree = "<group>"; };
+		4BB20B1B1B22DF0500C5B508 /* DMPagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMPagerViewController.h; sourceTree = "<group>"; };
+		4BB20B1C1B22DF0500C5B508 /* DMPagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMPagerViewController.m; sourceTree = "<group>"; };
+		4BB20B331B22E95900C5B508 /* JT3DScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JT3DScrollView.h; sourceTree = "<group>"; };
+		4BB20B341B22E95900C5B508 /* JT3DScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JT3DScrollView.m; sourceTree = "<group>"; };
+		4BB20B361B22E98400C5B508 /* RCScrollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCScrollViewController.h; sourceTree = "<group>"; };
+		4BB20B371B22E98400C5B508 /* RCScrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCScrollViewController.m; sourceTree = "<group>"; };
+		4BB20BC61B230AA900C5B508 /* RCDownloadAudioViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCDownloadAudioViewController.h; sourceTree = "<group>"; };
+		4BB20BC71B230AA900C5B508 /* RCDownloadAudioViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCDownloadAudioViewController.m; sourceTree = "<group>"; };
+		4BB20BC91B230AC200C5B508 /* RCDownloadingAudioViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCDownloadingAudioViewController.h; sourceTree = "<group>"; };
+		4BB20BCA1B230AC200C5B508 /* RCDownloadingAudioViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCDownloadingAudioViewController.m; sourceTree = "<group>"; };
+		4BB20BCC1B230AD600C5B508 /* RCDownloadAlbumViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCDownloadAlbumViewController.h; sourceTree = "<group>"; };
+		4BB20BCD1B230AD600C5B508 /* RCDownloadAlbumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCDownloadAlbumViewController.m; sourceTree = "<group>"; };
+		4BB20BD61B2325BE00C5B508 /* RCDownloadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCDownloadViewController.h; sourceTree = "<group>"; };
+		4BB20BD71B2325BE00C5B508 /* RCDownloadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCDownloadViewController.m; sourceTree = "<group>"; };
+		4BB20BD81B2325BE00C5B508 /* RCDownloadViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RCDownloadViewController.xib; sourceTree = "<group>"; };
 		4BBAC2471B1EA3D7006ED9A1 /* RCPlayerCommnet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCPlayerCommnet.h; sourceTree = "<group>"; };
 		4BBAC2481B1EA3D7006ED9A1 /* RCPlayerCommnet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCPlayerCommnet.m; sourceTree = "<group>"; };
 		4BBAC24A1B1EA417006ED9A1 /* RCPlayerCommnetList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCPlayerCommnetList.h; sourceTree = "<group>"; };
@@ -743,12 +763,6 @@
 		4BC647CF1B17358200661DB0 /* RCollectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCollectViewController.m; sourceTree = "<group>"; };
 		4BC647D11B17359B00661DB0 /* RCAttentionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCAttentionViewController.h; sourceTree = "<group>"; };
 		4BC647D21B17359B00661DB0 /* RCAttentionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCAttentionViewController.m; sourceTree = "<group>"; };
-		4BC647D41B1735A600661DB0 /* RCHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCHistoryViewController.h; sourceTree = "<group>"; };
-		4BC647D51B1735A600661DB0 /* RCHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCHistoryViewController.m; sourceTree = "<group>"; };
-		4BC647EC1B1749C700661DB0 /* DMPagerNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMPagerNavigationBar.h; sourceTree = "<group>"; };
-		4BC647ED1B1749C700661DB0 /* DMPagerNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMPagerNavigationBar.m; sourceTree = "<group>"; };
-		4BC647EE1B1749C700661DB0 /* DMPagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMPagerViewController.h; sourceTree = "<group>"; };
-		4BC647EF1B1749C700661DB0 /* DMPagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMPagerViewController.m; sourceTree = "<group>"; };
 		4BC647F21B174B9000661DB0 /* RCbasePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCbasePageViewController.h; sourceTree = "<group>"; };
 		4BC647F31B174B9000661DB0 /* RCbasePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCbasePageViewController.m; sourceTree = "<group>"; };
 		4BDE7D1E1B12F98800073E12 /* RCAlbum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCAlbum.h; sourceTree = "<group>"; };
@@ -1187,8 +1201,12 @@
 		4B1D81301B0C935D00B7C9DC /* view */ = {
 			isa = PBXGroup;
 			children = (
-				4B1D81821B0C953800B7C9DC /* RCDownloadViewController.h */,
-				4B1D81831B0C953800B7C9DC /* RCDownloadViewController.m */,
+				4BB20B3F1B230A7D00C5B508 /* 声音 */,
+				4BB20B401B230A7D00C5B508 /* 正在下载 */,
+				4BB20B411B230A7D00C5B508 /* 专辑 */,
+				4BB20BD61B2325BE00C5B508 /* RCDownloadViewController.h */,
+				4BB20BD71B2325BE00C5B508 /* RCDownloadViewController.m */,
+				4BB20BD81B2325BE00C5B508 /* RCDownloadViewController.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -1293,6 +1311,8 @@
 				4B1D82931B0C9DE500B7C9DC /* RCNavigationController.m */,
 				4BF787D01B0DBCBA0002704A /* RCBaseViewController.h */,
 				4BF787D11B0DBCBA0002704A /* RCBaseViewController.m */,
+				4BB20B361B22E98400C5B508 /* RCScrollViewController.h */,
+				4BB20B371B22E98400C5B508 /* RCScrollViewController.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -1383,6 +1403,8 @@
 		4B1D81441B0C935D00B7C9DC /* lib */ = {
 			isa = PBXGroup;
 			children = (
+				4BB20B321B22E95900C5B508 /* JT3DScrollView */,
+				4BB20B181B22DF0500C5B508 /* DMPagerViewController */,
 				4B7D70071B213AC700B0EA51 /* Novocaine */,
 				4B8BFFC91B2056C6009B0017 /* FeSpinner */,
 				4B9510141B1F386200D5DBDD /* FDFullscreenPopGesture */,
@@ -1392,7 +1414,6 @@
 				4B116D061B19D96A007792F4 /* AFSoundManager */,
 				4B7A33871B18327A0042E0EF /* DXAlertView */,
 				4B7A336A1B17FE980042E0EF /* fmdb */,
-				4BC647EB1B1749C700661DB0 /* DMPagerViewController */,
 				4BDE7D371B1319BF00073E12 /* CSStickyHeaderFlowLayout */,
 				4BF9A1321B12B310003FD44E /* RegexKitLite */,
 				4BF9A1241B12ABF4003FD44E /* TTTAttributedLabel */,
@@ -1894,6 +1915,53 @@
 			path = FDFullscreenPopGesture;
 			sourceTree = "<group>";
 		};
+		4BB20B181B22DF0500C5B508 /* DMPagerViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4BB20B191B22DF0500C5B508 /* DMPagerNavigationBar.h */,
+				4BB20B1A1B22DF0500C5B508 /* DMPagerNavigationBar.m */,
+				4BB20B1B1B22DF0500C5B508 /* DMPagerViewController.h */,
+				4BB20B1C1B22DF0500C5B508 /* DMPagerViewController.m */,
+			);
+			path = DMPagerViewController;
+			sourceTree = "<group>";
+		};
+		4BB20B321B22E95900C5B508 /* JT3DScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				4BB20B331B22E95900C5B508 /* JT3DScrollView.h */,
+				4BB20B341B22E95900C5B508 /* JT3DScrollView.m */,
+			);
+			path = JT3DScrollView;
+			sourceTree = "<group>";
+		};
+		4BB20B3F1B230A7D00C5B508 /* 声音 */ = {
+			isa = PBXGroup;
+			children = (
+				4BB20BC61B230AA900C5B508 /* RCDownloadAudioViewController.h */,
+				4BB20BC71B230AA900C5B508 /* RCDownloadAudioViewController.m */,
+			);
+			path = "声音";
+			sourceTree = "<group>";
+		};
+		4BB20B401B230A7D00C5B508 /* 正在下载 */ = {
+			isa = PBXGroup;
+			children = (
+				4BB20BC91B230AC200C5B508 /* RCDownloadingAudioViewController.h */,
+				4BB20BCA1B230AC200C5B508 /* RCDownloadingAudioViewController.m */,
+			);
+			path = "正在下载";
+			sourceTree = "<group>";
+		};
+		4BB20B411B230A7D00C5B508 /* 专辑 */ = {
+			isa = PBXGroup;
+			children = (
+				4BB20BCC1B230AD600C5B508 /* RCDownloadAlbumViewController.h */,
+				4BB20BCD1B230AD600C5B508 /* RCDownloadAlbumViewController.m */,
+			);
+			path = "专辑";
+			sourceTree = "<group>";
+		};
 		4BBAC2461B1EA3C7006ED9A1 /* comment */ = {
 			isa = PBXGroup;
 			children = (
@@ -2015,8 +2083,6 @@
 		4BC647C91B17352800661DB0 /* history(历史) */ = {
 			isa = PBXGroup;
 			children = (
-				4BC647D41B1735A600661DB0 /* RCHistoryViewController.h */,
-				4BC647D51B1735A600661DB0 /* RCHistoryViewController.m */,
 			);
 			path = "history(历史)";
 			sourceTree = "<group>";
@@ -2031,17 +2097,6 @@
 				4B7A33841B182CF80042E0EF /* RCCollectViewCell.xib */,
 			);
 			path = "collect(收藏)";
-			sourceTree = "<group>";
-		};
-		4BC647EB1B1749C700661DB0 /* DMPagerViewController */ = {
-			isa = PBXGroup;
-			children = (
-				4BC647EC1B1749C700661DB0 /* DMPagerNavigationBar.h */,
-				4BC647ED1B1749C700661DB0 /* DMPagerNavigationBar.m */,
-				4BC647EE1B1749C700661DB0 /* DMPagerViewController.h */,
-				4BC647EF1B1749C700661DB0 /* DMPagerViewController.m */,
-			);
-			path = DMPagerViewController;
 			sourceTree = "<group>";
 		};
 		4BDE7D1C1B12F97500073E12 /* Album(专辑) */ = {
@@ -2389,6 +2444,7 @@
 				4BC647981B1701EC00661DB0 /* RCAlbumDownloadViewCell.xib in Resources */,
 				4B7A33A01B187F580042E0EF /* RCAttentionViewCell.xib in Resources */,
 				4BF9A32F1B12C323003FD44E /* emoticon_default.plist in Resources */,
+				4BB20BDA1B2325BE00C5B508 /* RCDownloadViewController.xib in Resources */,
 				4B7A33861B182CF80042E0EF /* RCCollectViewCell.xib in Resources */,
 				4BDE7D2B1B12FE4400073E12 /* RCAlbumViewCell.xib in Resources */,
 				4B9210F91B10241F0004DB2A /* RCRecommendPostViewCell.xib in Resources */,
@@ -2491,6 +2547,7 @@
 				4B116D0B1B19D96A007792F4 /* AFAudioRouter.m in Sources */,
 				4B1D81E51B0C970B00B7C9DC /* RCRecommendAlbumViewCell.m in Sources */,
 				4BF787C51B0DB8F20002704A /* RCAnchorList.m in Sources */,
+				4BB20BD91B2325BE00C5B508 /* RCDownloadViewController.m in Sources */,
 				4B4F46131B141BA200284DAB /* RCAlbumSectionHeaderView.m in Sources */,
 				4BDE7D6B1B135CB600073E12 /* RCTrackList.m in Sources */,
 				4B1D81D81B0C96C400B7C9DC /* RCList.m in Sources */,
@@ -2532,13 +2589,11 @@
 				4BF788091B0DBD970002704A /* MJRefreshGifFooter.m in Sources */,
 				4B1D827C1B0C982900B7C9DC /* SDWebImagePrefetcher.m in Sources */,
 				4B1D82A91B0C9E7800B7C9DC /* RCTabBarViewController.m in Sources */,
-				4BC647F11B1749C700661DB0 /* DMPagerViewController.m in Sources */,
 				4BDE7D201B12F98800073E12 /* RCAlbum.m in Sources */,
 				4B912DFE1B0EC430007B64DD /* RCSubjectSectionHeaderView.m in Sources */,
 				4BF787D21B0DBCBA0002704A /* RCBaseViewController.m in Sources */,
 				4B1D81CF1B0C96B100B7C9DC /* RCFocusImageViewCell.m in Sources */,
 				4B1D82901B0C9C9200B7C9DC /* UIImage+KVNEmpty.m in Sources */,
-				4BC647F01B1749C700661DB0 /* DMPagerNavigationBar.m in Sources */,
 				4BBAC2FB1B1ED4B1006ED9A1 /* RCPlayerDeialViewCell.m in Sources */,
 				4BF9A1271B12ABF4003FD44E /* TTTAttributedLabel.m in Sources */,
 				4BC647F41B174B9000661DB0 /* RCbasePageViewController.m in Sources */,
@@ -2546,6 +2601,7 @@
 				4B116C891B19C8DB007792F4 /* RCPlayerDeialViewController.m in Sources */,
 				4B1D82981B0C9DE500B7C9DC /* RCNavigationController.m in Sources */,
 				4B7A33931B18667D0042E0EF /* RCAttentionOneData.m in Sources */,
+				4BB20BC81B230AA900C5B508 /* RCDownloadAudioViewController.m in Sources */,
 				4B9210E91B1023CF0004DB2A /* RCRecommendOwnerZone.m in Sources */,
 				4B8B00001B2056C6009B0017 /* FeSpinnerTenDot.m in Sources */,
 				4B1D81C61B0C967300B7C9DC /* RCDiscoverData.m in Sources */,
@@ -2558,6 +2614,7 @@
 				4B4F460E1B14113D00284DAB /* RCAlbumDeailViewCell.m in Sources */,
 				4B7D70101B213AC700B0EA51 /* AudioFileReader.mm in Sources */,
 				4B116C671B19874C007792F4 /* RCBottomPlayerButton.m in Sources */,
+				4BB20B351B22E95900C5B508 /* JT3DScrollView.m in Sources */,
 				4BBAC2F51B1ED3C8006ED9A1 /* NSObject+MJKeyValue.m in Sources */,
 				4B1D81F51B0C973800B7C9DC /* UIView+Extension.m in Sources */,
 				4B8B00031B2056C6009B0017 /* FeVietNamBar.m in Sources */,
@@ -2565,6 +2622,8 @@
 				4B1D81E11B0C970000B7C9DC /* RCRecommendAlbums.m in Sources */,
 				4B1D81611B0C949300B7C9DC /* RCDiscoverDataTool.m in Sources */,
 				4B912E201B0EF8B6007B64DD /* RCCircleViewModel.m in Sources */,
+				4BB20B1D1B22DF0500C5B508 /* DMPagerNavigationBar.m in Sources */,
+				4BB20B381B22E98400C5B508 /* RCScrollViewController.m in Sources */,
 				4B9210E71B1023CF0004DB2A /* RCRecommendedZones.m in Sources */,
 				4B1D4C9D1B1D84C100C90201 /* RCplayerUserInfo.m in Sources */,
 				4BF788081B0DBD970002704A /* MJRefreshFooter.m in Sources */,
@@ -2575,6 +2634,7 @@
 				4B8B000A1B2056C6009B0017 /* FXBlurView.m in Sources */,
 				4B0138D21B1074FA003422EC /* RCBuildingOnwerViewCell.m in Sources */,
 				4BED251B1B1B034400B8B843 /* RCPlayerViewController.m in Sources */,
+				4BB20B1E1B22DF0500C5B508 /* DMPagerViewController.m in Sources */,
 				4B8B00011B2056C6009B0017 /* FeTenDot.m in Sources */,
 				4B912DED1B0EBEB4007B64DD /* RCSubject.m in Sources */,
 				4B1D82801B0C982900B7C9DC /* UIImageView+HighlightedWebCache.m in Sources */,
@@ -2619,7 +2679,6 @@
 				4B1D81C31B0C967300B7C9DC /* RCCateroryListViewController.m in Sources */,
 				4B912E3A1B0EFA4F007B64DD /* RCRecommendedPost.m in Sources */,
 				4B7A337A1B17FE980042E0EF /* FMResultSet.m in Sources */,
-				4B1D81841B0C953800B7C9DC /* RCDownloadViewController.m in Sources */,
 				4B7A33691B17FCE20042E0EF /* RCCollectViewModel.m in Sources */,
 				4B1D81C91B0C967300B7C9DC /* RCDiscoverViewController.m in Sources */,
 				4BF7880D1B0DBD970002704A /* MJRefreshLegendHeader.m in Sources */,
@@ -2630,7 +2689,6 @@
 				4BF9A3341B12CC02003FD44E /* Foundation+Log.m in Sources */,
 				4B7A33851B182CF80042E0EF /* RCCollectViewCell.m in Sources */,
 				4BF563841B2182940012619B /* RCPlayListViewController.m in Sources */,
-				4BC647D61B1735A600661DB0 /* RCHistoryViewController.m in Sources */,
 				4B9210F61B10241F0004DB2A /* RCCircleDeailViewController.m in Sources */,
 				4BF9A12A1B12AD3B003FD44E /* RCStatusTextView.m in Sources */,
 				4BF9A13D1B12B42B003FD44E /* HWEmotionTool.m in Sources */,
@@ -2642,6 +2700,7 @@
 				4B912DF31B0EBFAD007B64DD /* RCSubjectViewModel.m in Sources */,
 				4BF787C81B0DB9770002704A /* RCOneAnchorList.m in Sources */,
 				4BBAC2491B1EA3D7006ED9A1 /* RCPlayerCommnet.m in Sources */,
+				4BB20BCE1B230AD600C5B508 /* RCDownloadAlbumViewController.m in Sources */,
 				4BC647A41B17084600661DB0 /* RCAboutAlbum.m in Sources */,
 				4BF788181B0DCE000002704A /* RCAnthorImgeView.m in Sources */,
 				4BDE7D621B135AB100073E12 /* RCAlbumTrack.m in Sources */,
@@ -2664,6 +2723,7 @@
 				4B1D81921B0C958D00B7C9DC /* RCCategoryFocusImageParam.m in Sources */,
 				4BDE7D261B12FA5D00073E12 /* RCAlbumViewModel.m in Sources */,
 				4B9211091B102D1B0004DB2A /* RCCicleDeailHeaderView.m in Sources */,
+				4BB20BCB1B230AC200C5B508 /* RCDownloadingAudioViewController.m in Sources */,
 				4B9210F81B10241F0004DB2A /* RCRecommendPostViewCell.m in Sources */,
 				4B9510111B1F338600D5DBDD /* ARSegmentPageController.m in Sources */,
 				4BF9A1401B12B447003FD44E /* RCTextPart.m in Sources */,

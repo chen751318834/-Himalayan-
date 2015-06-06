@@ -14,9 +14,10 @@
 #endif
 
 #define RCColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
-#define RCGlobalBg MTColor(230, 230, 230)
+#define RCGlobalBg RCColor(235, 245, 255)
 // 随机色
 #define RCRandomColor RCColor(arc4random_uniform(256), arc4random_uniform(256), arc4random_uniform(256))
+#define RCGlobalTableViewUIEdgeInsets UIEdgeInsetsMake(0, 0, 70, 0)
 #import <Foundation/Foundation.h>
 #import "UIView+Extension.h"
 #import "UIView+AutoLayout.h"

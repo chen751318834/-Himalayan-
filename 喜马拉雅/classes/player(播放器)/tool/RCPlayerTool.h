@@ -7,13 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "RCPlayerInfo.h"
+#import "RCPlaylist.h"
 @interface RCPlayerTool : NSObject
-+ (void)savePlayedAudio:(RCPlayerInfo *)playedAudio;
-+ (void)removePlayedAudio:(RCPlayerInfo *)playedAudio;
++ (void)savePlayedAudio:(RCPlaylist *)playedAudio;
++ (void)removePlayedAudio:(RCPlaylist *)playedAudio;
 + (void)removeAllPlayedAudio;
 + (NSArray *)playedAudiosWithPage:(NSUInteger )page;
 + (NSArray *)playedAudios;
 + (NSUInteger)playedAudioCount;
-+ (BOOL)isCollectPlayedAudio:(RCPlayerInfo *)album;
++ (BOOL)isCollectPlayedAudio:(RCPlaylist *)album;
 @end

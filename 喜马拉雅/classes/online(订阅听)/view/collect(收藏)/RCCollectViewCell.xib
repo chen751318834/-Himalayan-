@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14E17e" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E26a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
@@ -115,7 +115,7 @@
                     <constraint firstAttribute="trailingMargin" secondItem="XC8-pM-ion" secondAttribute="trailing" constant="-8" id="gmD-ND-b26"/>
                 </constraints>
             </tableViewCellContentView>
-            <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="0.059999999999999998" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="0.92156862745098034" green="0.96078431372549022" blue="1" alpha="0.029999999999999999" colorSpace="calibratedRGB"/>
             <connections>
                 <outlet property="audioCountLabel" destination="N1T-by-ubU" id="nfE-wG-x4x"/>
                 <outlet property="deleteButton" destination="Ea6-Em-THc" id="n1q-hG-f0W"/>

@@ -13,7 +13,7 @@ static FMDatabase * _db;
     NSString * path = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"audios.sqlite"];
     _db =  [FMDatabase databaseWithPath:path];
     [_db open];
-    [_db executeUpdate:@"CREATE TABLE IF NOT EXISTS t_playedAudio(id integer PRAMARY KEY  AUTO INCREMENT,playedAudio blob NOT NULL,albumId text NOT NULL );"];
+    [_db executeUpdate:@"CREATE TABLE IF NOT EXISTS t_playedAudio(id integer PRAMARY KEY  AUTO INCREMENT,playedAudio blob NOT NULL,trackId text NOT NULL );"];
 
 }
 + (NSArray *)playedAudios{
@@ -24,34 +24,34 @@ static FMDatabase * _db;
     FMResultSet * set = [_db executeQuery:sql];
     NSMutableArray * playedAudios = [NSMutableArray array];
     while (set.next) {
-        RCPlayerInfo * playedAudio = [NSKeyedUnarchiver unarchiveObjectWithData: [set dataForColumn:@"playedAudio"]];
+        RCPlaylist * playedAudio = [NSKeyedUnarchiver unarchiveObjectWithData: [set dataForColumn:@"playedAudio"]];
         [playedAudios addObject:playedAudio];
     }
     return playedAudios;
     
     
 }
-+ (void)savePlayedAudio:(RCPlayerInfo *)playedAudio{
-    for (RCPlayerInfo * savePlayedAudio in [self playedAudios]) {
-        if ([savePlayedAudio.albumId isEqual:playedAudio.albumId]) {
-            //            return;
-            [_db executeUpdateWithFormat:@"DELETE FROM t_playedAudio WHERE albumId = %@;", playedAudio.albumId];
-
++ (void)savePlayedAudio:(RCPlaylist *)playedAudio{
+    for (RCPlaylist * savePlayedAudio in [self playedAudios]) {
+        if ([savePlayedAudio.trackId isEqual:playedAudio.trackId]) {
+            [_db executeUpdateWithFormat:@"DELETE FROM t_playedAudio WHERE trackId = %@;", playedAudio.trackId];
         }
     }
 
     NSData * playedAudioData = [NSKeyedArchiver
                           archivedDataWithRootObject:playedAudio];
-    [_db executeUpdateWithFormat:@"INSERT INTO t_playedAudio(playedAudio ,albumId) VALUES (%@ ,%@)",playedAudioData,playedAudio.albumId];
+
+        [_db executeUpdateWithFormat:@"INSERT INTO t_playedAudio(playedAudio ,trackId) VALUES (%@ ,%@)",playedAudioData,playedAudio.trackId];
+
 
 }
-+ (void)removePlayedAudio:(RCPlayerInfo *)playedAudio{
-    [_db executeUpdateWithFormat:@"DELETE FROM t_playedAudio WHERE playedAudioId = %@;", playedAudio.albumId];
++ (void)removePlayedAudio:(RCPlaylist *)playedAudio{
+    [_db executeUpdateWithFormat:@"DELETE FROM t_playedAudio WHERE playedAudioId = %@;", playedAudio.trackId];
 
 }
 + (void)removeAllPlayedAudio{
-    for (RCPlayerInfo * playedAudio in [self playedAudios]) {
-        [_db executeUpdateWithFormat:@"DELETE FROM t_playedAudio WHERE albumId = %@;", playedAudio.albumId];
+    for (RCPlaylist * playedAudio in [self playedAudios]) {
+        [_db executeUpdateWithFormat:@"DELETE FROM t_playedAudio WHERE trackId = %@;", playedAudio.trackId];
     }
 }
 + (NSArray *)playedAudiosWithPage:(NSUInteger)page{
@@ -62,7 +62,7 @@ static FMDatabase * _db;
     FMResultSet * set = [_db executeQuery:sql];
     NSMutableArray * playedAudios = [NSMutableArray array];
     while (set.next) {
-        RCPlayerInfo * playedAudio = [NSKeyedUnarchiver unarchiveObjectWithData: [set dataForColumn:@"playedAudio"]];
+        RCPlaylist * playedAudio = [NSKeyedUnarchiver unarchiveObjectWithData: [set dataForColumn:@"playedAudio"]];
         [playedAudios addObject:playedAudio];
 
     }
@@ -73,8 +73,8 @@ static FMDatabase * _db;
     [set next];
     return [set intForColumn:@"playedAudio_count"];
 }
-+ (BOOL)isCollectPlayedAudio:(RCPlayerInfo *)playedAudio{
-    FMResultSet *set = [_db executeQueryWithFormat:@"SELECT count(*) AS playedAudio_count FROM t_playedAudio WHERE albumId = %@;", playedAudio.albumId];
++ (BOOL)isCollectPlayedAudio:(RCPlaylist *)playedAudio{
+    FMResultSet *set = [_db executeQueryWithFormat:@"SELECT count(*) AS playedAudio_count FROM t_playedAudio WHERE trackId = %@;", playedAudio.trackId];
     [set next];
     //#warning 索引从1开始
     return [set intForColumn:@"playedAudio_count"] == 1;

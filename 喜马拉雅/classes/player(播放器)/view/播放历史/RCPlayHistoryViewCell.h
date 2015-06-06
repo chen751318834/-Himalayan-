@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "RCPlayerInfo.h"
+#import "RCPlaylist.h"
 @interface RCPlayHistoryViewCell : UITableViewCell
-@property(nonatomic,strong) RCPlayerInfo  *info;
+@property(nonatomic,strong) RCPlaylist  *info;
 + (instancetype)cell;
 @end

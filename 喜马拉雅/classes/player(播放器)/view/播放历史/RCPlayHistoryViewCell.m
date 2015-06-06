@@ -20,11 +20,11 @@
 + (instancetype)cell {
     return [[[NSBundle mainBundle]loadNibNamed:@"RCPlayHistoryViewCell" owner:nil options:nil]lastObject];
 }
-- (void)setInfo:(RCPlayerInfo *)info{
+- (void)setInfo:(RCPlaylist *)info{
     _info = info;
     [self.iconView sd_setImageWithURL:[NSURL URLWithString:info.coverSmall] placeholderImage:[UIImage imageNamed:@"find_albumcell_cover_bg"]];
     self.titlelabel.text = info.albumTitle;
     self.authorLabel.text = [NSString stringWithFormat:@"by %@",info.userInfo.nickname];
-    self.desclabel.text = [NSString stringWithFormat:@"上传播放 %@",info.title];
+    self.desclabel.text = [NSString stringWithFormat:@"上次播放 %@",info.title];
 }
 @end

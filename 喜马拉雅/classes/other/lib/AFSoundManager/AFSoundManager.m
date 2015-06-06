@@ -76,18 +76,18 @@
 
         NSTimer * timer = [NSTimer scheduledTimerWithTimeInterval:1 block:^{
             
-            if (percentage != 100) {
+            if (percentage != 99) {
                 
                 percentage = (int)((CMTimeGetSeconds(_player.currentItem.currentTime) * 100)/CMTimeGetSeconds(_player.currentItem.duration));
                 int timeRemaining = CMTimeGetSeconds(_player.currentItem.duration) - CMTimeGetSeconds(_player.currentItem.currentTime);
                 
                 block(percentage, CMTimeGetSeconds(_player.currentItem.currentTime), timeRemaining, error, NO);
+
             } else {
-                
                 int timeRemaining = CMTimeGetSeconds(_player.currentItem.duration) - CMTimeGetSeconds(_player.currentItem.currentTime);
                 
                 block(100, CMTimeGetSeconds(_player.currentItem.currentTime), timeRemaining, error, YES);
-                
+
                 [self.timer invalidate];
             }
         } repeats:YES];

@@ -90,7 +90,7 @@ void *CusomHeaderInsetObserver = &CusomHeaderInsetObserver;
 //    self.viewmodel.albumId = note.userInfo[netWorkingAlbumIdNotificationName];
     RCLog(@"%@----%@", note.userInfo[netWorkingAlbumIdNotificationName],note.userInfo[netWorkingTrackIdNotificationName]);
     [self.viewmodel fetchplayerInfoWithSuccess:^{
-        self.headerView.playerInfo = self.viewmodel.playerInfo;
+        self.headerView.list = self.viewmodel.playerInfo;
         self.commentVC.trackId = self.viewmodel.playerInfo.trackId;
         self.deailVC.trackId = self.viewmodel.playerInfo.trackId;
         self.albumVC.playerInfo = self.viewmodel.playerInfo;

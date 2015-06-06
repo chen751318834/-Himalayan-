@@ -29,7 +29,8 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.tableView.backgroundColor = [UIColor colorWithRed:0.953 green:0.969 blue:1.000 alpha:1.000];
+    self.tableView.backgroundColor = RCGlobalBg;
+    self.tableView.contentInset = RCGlobalTableViewUIEdgeInsets;
 
     [self setUpHeaderView];
     self.tableView.gifHeader.hidden = YES;
@@ -53,7 +54,7 @@
 }
 - (void)setUpHeaderView{
     UIButton * deleteButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    deleteButton.backgroundColor = [UIColor colorWithWhite:0.722 alpha:0.530];
+    deleteButton.backgroundColor = [UIColor clearColor];
     [deleteButton setImage:[UIImage imageNamed:@"btn_downloadsound_clear_n"] forState:UIControlStateNormal];
     [deleteButton setImage:[UIImage imageNamed:@"btn_downloadsound_clear_h"] forState:UIControlStateHighlighted];
     self.deleteButton = deleteButton;

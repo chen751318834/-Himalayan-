@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "RCPlayerInfo.h"
+#import "RCPlaylist.h"
 @interface RCPlayListViewController : UITableViewController
 @property(nonatomic,strong) NSArray  *playLists;
-@property(nonatomic,strong) RCPlayerInfo  *playingInfo;
+@property(nonatomic,strong) RCPlaylist  *playingInfo;
 @property(nonatomic,strong) NSNumber  *trackId;
 @end

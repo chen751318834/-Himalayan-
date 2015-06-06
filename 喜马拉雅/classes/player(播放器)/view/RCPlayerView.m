@@ -78,11 +78,10 @@
 + (instancetype)playerView{
     NSMutableArray * childViews = [[UIApplication sharedApplication].keyWindow valueForKeyPath:@"subviews"];
     for (id childView in childViews) {
-        if ([childView isKindOfClass:[RCPlayerView class]]) {
+        if ([NSStringFromClass([childView class])isEqualToString:NSStringFromClass([RCPlayerView class]) ]) {
             return childView;
         }
     }
-
     return nil;
 }
 + (void)pushViewController:(UIViewController *)viewController{

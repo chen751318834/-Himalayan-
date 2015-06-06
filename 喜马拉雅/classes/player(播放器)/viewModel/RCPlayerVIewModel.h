@@ -6,7 +6,7 @@
 //  Copyright (c) 2015年 raychen. All rights reserved.
 //
 
-#import "RCPlayerInfo.h"
+#import "RCPlaylist.h"
 #import "RCPlayerCommnet.h"
 #import "RCPlayerTrackDeail.h"
 #import "RCBaseViewModel.h"
@@ -18,7 +18,7 @@
 @property(nonatomic,strong) NSMutableArray  *albums;
 @property(nonatomic,strong) RCPlayerCommnet * comment;
 - ( void)fetchplayerInfoWithSuccess:(void (^)(void ))success failure:(void (^)(void ))failure;
-@property(nonatomic,strong) RCPlayerInfo  *playerInfo;
+@property(nonatomic,strong) RCPlaylist  *playerInfo;
 @property(nonatomic,strong) NSNumber  *trackId;
 @property(nonatomic,strong) NSNumber  *albumId;
 

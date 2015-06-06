@@ -6,8 +6,7 @@
 //  Copyright (c) 2015年 raychen. All rights reserved.
 //
 
-#import "RCBaseViewController.h"
-
-@interface RCPlayHistoryViewController : RCBaseViewController
+#import "RCbasePageViewController.h"
+@interface RCPlayHistoryViewController : RCbasePageViewController
 
 @end

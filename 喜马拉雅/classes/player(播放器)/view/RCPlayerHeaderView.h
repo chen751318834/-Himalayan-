@@ -8,12 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "ARSegmentPageController.h"
-#import "RCPlayerInfo.h"
+#import "RCPlaylist.h"
+
+//#import "RCPlayerInfo.h"
 @interface RCPlayerHeaderView : UIView <ARSegmentPageControllerHeaderProtocol>
 @property (weak, nonatomic) IBOutlet UIImageView *topImageView;
 @property(nonatomic,strong) NSArray  *audios;
 @property (weak, nonatomic) IBOutlet UIImageView *largeImageView;
-@property(nonatomic,strong) RCPlayerInfo  *playerInfo;
+@property(nonatomic,strong) RCPlaylist  *list;
 @property(nonatomic,strong) NSArray  *playLists;
 + (instancetype)headerView;
 

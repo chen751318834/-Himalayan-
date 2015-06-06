@@ -7,8 +7,16 @@
 //
 
 #import "RCDownloadViewController.h"
-
-@interface RCDownloadViewController ()
+#import "RCDownloadAlbumViewController.h"
+#import "RCDownloadAudioViewController.h"
+#import "RCDownloadingAudioViewController.h"
+#import "RCNavigationController.h"
+#import "RCScrollViewController.h"
+#import "RCSegementControl.h"
+@interface RCDownloadViewController () <RCSegementControlDelegate,RCScrollViewControllerDelegate>
+@property(nonatomic,strong) RCScrollViewController  *downloadScrollViewController;
+@property (weak, nonatomic) IBOutlet RCSegementControl *downloadSegmentControl;
+@property (weak, nonatomic) IBOutlet UIView *contentView;
 
 @end
 
@@ -16,85 +24,54 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setUpDownloadViewController];
+}
+
+- (void)setUpDownloadViewController{
+
+
+    self.downloadSegmentControl.delegate = self;
+    UIButton * button1 = [UIButton buttonWithType:UIButtonTypeCustom];
+    [button1 setTitle:@"声音" forState:UIControlStateNormal];
+    [button1 setFont:[UIFont systemFontOfSize:18]];
+    [button1 setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
+    [button1 setTitleColor:[UIColor orangeColor] forState:UIControlStateSelected];
+    UIButton * button2 = [UIButton buttonWithType:UIButtonTypeCustom];
+    [button2 setTitle:@"专辑" forState:UIControlStateNormal];
+    [button2 setFont:[UIFont systemFontOfSize:18]];
+
+    [button2 setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
+    [button2 setTitleColor:[UIColor orangeColor] forState:UIControlStateSelected];
+    UIButton * button3 = [UIButton buttonWithType:UIButtonTypeCustom];
+    [button3 setTitle:@"正在下载" forState:UIControlStateNormal];
+    [button3 setFont:[UIFont systemFontOfSize:18]];
+
+    [button3 setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
+    [button3 setTitleColor:[UIColor orangeColor] forState:UIControlStateSelected];
+    self.downloadSegmentControl.items = @[button1,button2,button3];
+    self.downloadSegmentControl.backgroundColor = [UIColor clearColor];
+    self.downloadSegmentControl.selectedSegmentIndex = 0;
+    self.downloadSegmentControl.frame  = CGRectMake(0, 0, self.view.bounds.size.width, 44);
+
+    RCDownloadAudioViewController * audioVC = [[RCDownloadAudioViewController alloc]init];
+    RCDownloadAlbumViewController * albumVC = [[RCDownloadAlbumViewController alloc]init];
+    RCDownloadingAudioViewController * downloadingVC = [[RCDownloadingAudioViewController alloc]init];
+    RCScrollViewController * scrollviewVC = [[RCScrollViewController alloc]init];
+    scrollviewVC.viewControllers = @[audioVC,albumVC,downloadingVC];
+    self.downloadScrollViewController = scrollviewVC;
+    scrollviewVC.view.frame = self.contentView.bounds;
+    scrollviewVC.delegate = self;
+//    [scrollviewVC.tabBarItem setImage:[UIImage imageNamed:@"tabbar_download_n"]];
+//    [scrollviewVC.tabBarItem setSelectedImage:[UIImage imageNamed:@"tabbar_download_h"]];
+    [self addChildViewController:downloadingVC];
+    [self.contentView addSubview:downloadingVC.view];
+}
+- (void)segementControl:(RCSegementControl *)segement button:(UIButton *)button from:(NSUInteger)from to:(NSUInteger)to{
+    [self.downloadScrollViewController scrollToIndex:from animated:YES];
+}
+
+- (void)scrollViewController:(RCScrollViewController *)scrollViewController scrollToIndex:(NSUInteger)toIndex{
+    self.downloadSegmentControl.selectedSegmentIndex = toIndex;
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
-}
-
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
-    return cell;
-}
-*/
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 @end

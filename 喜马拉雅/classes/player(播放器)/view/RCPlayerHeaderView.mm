@@ -17,7 +17,6 @@
 #import "UIImage+RC.h"
 #import "RCplayerStatus.h"
 #import "Novocaine.h"
-#import "RCPlaylist.h"
 #import "UIImageView+WebCache.h"
 #import "UIImage+RC.h"
 #import "RCPlayHistoryViewController.h"
@@ -44,16 +43,14 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *labelScrollView;
 
 @property (weak, nonatomic) IBOutlet UILabel *playProgressLabel;
-@property(nonatomic,strong) NSTimer  *timer;
 @property(nonatomic,assign) CGFloat currnetProgressButtonX;
-@property(nonatomic,assign) NSUInteger time;
+
 
 @end
 @implementation RCPlayerHeaderView
 
 - (void)awakeFromNib{
     [super awakeFromNib];
-    [self setUpTimer];
     [RCNotificationCenter addObserver:self selector:@selector(changePlayerStatus) name:playingNotification object:nil];
           UIPanGestureRecognizer * pan = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(panPregoressButton:)];
     [self.progressButton addGestureRecognizer:pan];
@@ -91,31 +88,14 @@ completion:^(BOOL finished) {
 
 
 }
-- (void)setUpTimer{
-    NSTimer * timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateTime) userInfo:nil repeats:YES];
-    [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
-    self.timer = timer;
 
-
-}
-- (void)updateTime{
-//    self.time++;
-//
-//    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
-//    [formatter setDateFormat:@"mm:ss"];
-//    NSDate *timeDate = [NSDate dateWithTimeIntervalSince1970:self.time];
-//    NSString *  timeDateStr=   [formatter  stringFromDate:timeDate];
-//    if (self.timer.isValid) {
-//        self.playerInfo.playTime = timeDateStr;
-//        [RCPlayerTool savePlayedAudio:self.playerInfo];
-
-//    }
-}
 - (void)changePlayerStatus{
     if ([AFSoundManager sharedManager].isPlaying) {
+        self.playAndPauseButtton.selected = YES;
         [self.smallIconVIew.layer addAnimation:[self animation] forKey:nil];
     }else{
         [self.smallIconVIew.layer removeAllAnimations];
+        self.playAndPauseButtton.selected = NO;
     }
 
 }
@@ -128,30 +108,29 @@ completion:^(BOOL finished) {
     return [[[NSBundle mainBundle] loadNibNamed:@"RCPlayerHeaderView" owner:nil options:nil]lastObject];
 
 }
-- (void)setPlayerInfo:(RCPlayerInfo *)playerInfo
+- (void)setList:(RCPlaylist *)list
 {
-    _playerInfo = playerInfo;
-    [self.topImageView sd_setImageWithURL:[NSURL URLWithString:playerInfo.coverLarge] placeholderImage:[UIImage imageNamed:@"albumBg"]completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+    _list = list;
+    [self.topImageView sd_setImageWithURL:[NSURL URLWithString:list.coverLarge] placeholderImage:[UIImage imageNamed:@"albumBg"]completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         self.topImageView.image = [image  applyDarkEffect];
 
     }];
-    self.topTitleLabel.text = playerInfo.title;
-    [self setUpWithButton:self.playCountButton count:  [playerInfo.playtimes intValue]  title:nil];
-    [self.smallIconVIew sd_setImageWithURL:[NSURL URLWithString: playerInfo.coverLarge] placeholderImage:[UIImage imageNamed:@"findCategory_default"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+    self.topTitleLabel.text = list.title;
+    [self setUpWithButton:self.playCountButton count:  [list.playtimes intValue]  title:nil];
+    [self.smallIconVIew sd_setImageWithURL:[NSURL URLWithString: list.coverLarge] placeholderImage:[UIImage imageNamed:@"findCategory_default"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         self.smallIconVIew.image = [UIImage circleImage:image borderWidth:10 borderColor:[UIColor blackColor]];
     }];
-    [self.largeImageView sd_setImageWithURL:[NSURL URLWithString:playerInfo.coverLarge] placeholderImage:[UIImage imageNamed:@"sound_albumcover"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+    [self.largeImageView sd_setImageWithURL:[NSURL URLWithString:list.coverLarge] placeholderImage:[UIImage imageNamed:@"sound_albumcover"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         [self.largeImageView setImageToBlur:image blurRadius:60 completionBlock:nil];
     }];
-    [self.avatorIconView sd_setImageWithURL:[NSURL URLWithString:playerInfo.albumImage] placeholderImage:[UIImage imageNamed:@"sound_albumcover"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+    [self.avatorIconView sd_setImageWithURL:[NSURL URLWithString:list.albumImage] placeholderImage:[UIImage imageNamed:@"sound_albumcover"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         self.avatorIconView.image = [UIImage circleImage:image borderWidth:0 borderColor:nil];
     }];
 
-    self.userLabel.text = playerInfo.userInfo.nickname;
-    self.countLabel.text = [NSString stringWithFormat:@"声音 %@ 粉丝 %@",[self countStr:[playerInfo.userInfo.tracks intValue]],[self countStr:[playerInfo.userInfo.followers intValue]]];
-    self.descLabel.text =  playerInfo.userInfo.personDescribe;
-    [[AFSoundManager sharedManager] restart];
-    [self playRemoteAudio:playerInfo.playUrl64];
+    self.userLabel.text = list.userInfo.nickname;
+    self.countLabel.text = [NSString stringWithFormat:@"声音 %@ 粉丝 %@",[self countStr:[list.userInfo.tracks intValue]],[self countStr:[list.userInfo.followers intValue]]];
+    self.descLabel.text =  list.userInfo.personDescribe;
+    [self playRemoteAudio:list.playUrl64];
 
 }
 - (NSString *)countStr:(int)count {
@@ -197,16 +176,14 @@ completion:^(BOOL finished) {
 - (IBAction)back:(id)sender {
     [RCNotificationCenter postNotificationName:backHomeNotification object:nil];
 }
-- (void)dealloc{
-    [self.timer invalidate];
-    self.timer = nil;
+- (void)dealloc{ 
     [RCNotificationCenter removeObserver:self];
 }
 - (IBAction)playListButtonDidClicked:(UIButton *)sender {
     RCPlayListViewController * listVC = [[RCPlayListViewController alloc]init];
     listVC.title = @"播放列表";
     listVC.playLists = self.playLists;
-    listVC.playingInfo = self.playerInfo;
+    listVC.playingInfo = self.list;
     [RCPlayerView pushViewController:listVC];
 }
 - (IBAction)playHistoryButtonDidClicked:(UIButton *)sender {
@@ -217,21 +194,21 @@ completion:^(BOOL finished) {
 }
 - (IBAction)preButtonDidClicked:(UIButton *)sender {
     if (self.currentIndex <=0) {
-        self.currentIndex = self.audios.count;
+        self.currentIndex = self.playLists.count;
     }
     self.currentIndex --;
-//    [self tableView:self.tableView didSelectRowAtIndexPath:[NSIndexPath indexPathForRow:self.currentIndex inSection:0]];
-//    [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:self.currentIndex inSection:0] atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
-
+    RCPlaylist * info = self.playLists[self.currentIndex];
+    [RCNotificationCenter postNotificationName:sendNetWorkingNotification object:nil userInfo:@{netWorkingTrackIdNotificationName:info.trackId}];
 
 }
 - (IBAction)nextButtonDidClicked:(UIButton *)sender {
-    if (self.currentIndex >= self.audios.count-1) {
+    if (self.currentIndex >= self.playLists.count-1) {
         self.currentIndex = 0;
     }
     self.currentIndex ++;
-//    [self tableView:self.tableView didSelectRowAtIndexPath:[NSIndexPath indexPathForRow:self.currentIndex inSection:0]];
-//    [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:self.currentIndex inSection:0] atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
+    RCPlaylist * info = self.playLists[self.currentIndex];
+    [RCNotificationCenter postNotificationName:sendNetWorkingNotification object:nil userInfo:@{netWorkingTrackIdNotificationName:info.trackId}];
+
 }
 - (IBAction)playAndPauseButtonDidClicked:(UIButton *)sender {
     if ([AFSoundManager sharedManager].isPlaying) {
@@ -264,6 +241,7 @@ completion:^(BOOL finished) {
 
 #pragma mark - 播放网络音频
 - (void)playRemoteAudio:(NSString *)urlStr{
+    [RCPlayerTool savePlayedAudio:self.list];
     [self.smallIconVIew.layer addAnimation:[self animation] forKey:nil];
     self.playAndPauseButtton.selected = YES;
     [[AFSoundManager sharedManager] startStreamingRemoteAudioFromURL:urlStr andBlock:^(int percentage, CGFloat elapsedTime, CGFloat timeRemaining, NSError *error, BOOL finished) {
@@ -282,17 +260,17 @@ completion:^(BOOL finished) {
             }
                 self.progressButton.x = percentage * 0.01* (self.pregressView.bounds.size.width  - self.progressButton.width);;
                 self.currentprogressImageView.width = self.progressButton.centerX;
-            self.playerInfo.playTime = elapsedTimeDateStr;
+            self.list.playTime = elapsedTimeDateStr;
         } else {
             self.playAndPauseButtton.selected = NO;
             [self.smallIconVIew.layer removeAllAnimations];
             NSLog(@"There has been an error playing the remote file: %@", [error description]);
         }
+        if (finished) {
+            [self nextButtonDidClicked:nil];
 
+        }
     }];
-    [RCPlayerTool savePlayedAudio:self.playerInfo];
-
-
 //    BOOL isPlaying =  [AFSoundManager sharedManager].isPlaying;
 //    if (isPlaying) {
 //        NSLog(@"playRemoteAudio--正在播放.....");
