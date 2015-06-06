@@ -9,6 +9,8 @@
 #import "RCPlayHistoryViewController.h"
 #import "RCPlayerTool.h"
 #import "RCPlayerInfo.h"
+#import "UITableView+FDTemplateLayoutCell.h"
+#import "RCPlayHistoryViewCell.h"
 @interface RCPlayHistoryViewController ()
 @property(nonatomic,strong) NSMutableArray  * lists;
 @property(nonatomic,assign) NSUInteger page;
@@ -24,12 +26,15 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.tableView registerNib:[UINib nibWithNibName:@"RCPlayHistoryViewCell" bundle:nil] forCellReuseIdentifier:@"historyCell"];
 }
 
 - (void)loadNewData{
     [self.lists addObjectsFromArray:[RCPlayerTool playedAudiosWithPage:0]];
     [self.tableView reloadData];
     [self.tableView.gifHeader endRefreshing];
+    [self.tableView removeHeader];
+
 
 }
 
@@ -41,13 +46,9 @@
 }
 #pragma mark - UITableViewDelegate
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSString   *ID =@"";
-    UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:ID];
-    if (!cell) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];;
-    }
+    RCPlayHistoryViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"historyCell"];
     RCPlayerInfo *  info = self.lists[indexPath.row];
-    cell.textLabel.text =  info.title;
+    cell.info = info;
     return cell;
 
 }
@@ -56,9 +57,15 @@
 
     return self.lists.count;
 }
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return [tableView fd_heightForCellWithIdentifier:@"historyCell" cacheByIndexPath:indexPath configuration:^(RCPlayHistoryViewCell * cell) {
+        RCPlayerInfo *  info = self.lists[indexPath.row];
+        cell.info = info;
+    }];
+}
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
 }
 

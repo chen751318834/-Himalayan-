@@ -250,6 +250,8 @@
 		4BDE7D621B135AB100073E12 /* RCAlbumTrack.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BDE7D611B135AB100073E12 /* RCAlbumTrack.m */; };
 		4BDE7D681B135ADC00073E12 /* RCTrack.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BDE7D671B135ADC00073E12 /* RCTrack.m */; };
 		4BDE7D6B1B135CB600073E12 /* RCTrackList.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BDE7D6A1B135CB600073E12 /* RCTrackList.m */; };
+		4BEB3B4D1B228C07006C62F0 /* RCPlayHistoryViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BEB3B4B1B228C07006C62F0 /* RCPlayHistoryViewCell.m */; };
+		4BEB3B4E1B228C07006C62F0 /* RCPlayHistoryViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BEB3B4C1B228C07006C62F0 /* RCPlayHistoryViewCell.xib */; };
 		4BED251B1B1B034400B8B843 /* RCPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BED251A1B1B034400B8B843 /* RCPlayerViewController.m */; };
 		4BED251E1B1B1E3900B8B843 /* RCContentViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BED251D1B1B1E3900B8B843 /* RCContentViewCell.m */; };
 		4BEE608D1B1DD9310036A089 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BEE608C1B1DD9310036A089 /* AVFoundation.framework */; };
@@ -777,6 +779,9 @@
 		4BDE7D671B135ADC00073E12 /* RCTrack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCTrack.m; sourceTree = "<group>"; };
 		4BDE7D691B135CB600073E12 /* RCTrackList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCTrackList.h; sourceTree = "<group>"; };
 		4BDE7D6A1B135CB600073E12 /* RCTrackList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCTrackList.m; sourceTree = "<group>"; };
+		4BEB3B4A1B228C07006C62F0 /* RCPlayHistoryViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCPlayHistoryViewCell.h; sourceTree = "<group>"; };
+		4BEB3B4B1B228C07006C62F0 /* RCPlayHistoryViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCPlayHistoryViewCell.m; sourceTree = "<group>"; };
+		4BEB3B4C1B228C07006C62F0 /* RCPlayHistoryViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RCPlayHistoryViewCell.xib; sourceTree = "<group>"; };
 		4BED25191B1B034400B8B843 /* RCPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCPlayerViewController.h; sourceTree = "<group>"; };
 		4BED251A1B1B034400B8B843 /* RCPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCPlayerViewController.m; sourceTree = "<group>"; };
 		4BED251C1B1B1E3900B8B843 /* RCContentViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCContentViewCell.h; path = "delail(详情)/RCContentViewCell.h"; sourceTree = "<group>"; };
@@ -2123,6 +2128,9 @@
 			children = (
 				4BF5638B1B219B0A0012619B /* RCPlayHistoryViewController.h */,
 				4BF5638C1B219B0A0012619B /* RCPlayHistoryViewController.m */,
+				4BEB3B4A1B228C07006C62F0 /* RCPlayHistoryViewCell.h */,
+				4BEB3B4B1B228C07006C62F0 /* RCPlayHistoryViewCell.m */,
+				4BEB3B4C1B228C07006C62F0 /* RCPlayHistoryViewCell.xib */,
 			);
 			path = "播放历史";
 			sourceTree = "<group>";
@@ -2395,6 +2403,7 @@
 				4B912E021B0EC443007B64DD /* RCSubjectSectionHeaderView.xib in Resources */,
 				4B1D82851B0C998200B7C9DC /* Category.plist in Resources */,
 				4BF788151B0DBF8E0002704A /* RCAnthorViewCell.xib in Resources */,
+				4BEB3B4E1B228C07006C62F0 /* RCPlayHistoryViewCell.xib in Resources */,
 				4BF563891B2184270012619B /* RCPlayingListViewCell.xib in Resources */,
 				4B1D81111B0C91C000B7C9DC /* Images.xcassets in Resources */,
 				4B8BFFF81B2056C6009B0017 /* CabinCondensed-Bold.ttf in Resources */,
@@ -2572,6 +2581,7 @@
 				4BC647C61B1734B200661DB0 /* NTSlidingViewController.m in Sources */,
 				4B8BFFF91B2056C6009B0017 /* Feasd.m in Sources */,
 				4B1D81811B0C952000B7C9DC /* RCMeViewController.m in Sources */,
+				4BEB3B4D1B228C07006C62F0 /* RCPlayHistoryViewCell.m in Sources */,
 				4B1D81DE1B0C96F200B7C9DC /* RCPlayListViewCell.m in Sources */,
 				4BF7883A1B0DEE310002704A /* RCHotAudioViewCell.m in Sources */,
 				4BC6479B1B17023300661DB0 /* RCAboutAlbumViewController.m in Sources */,

@@ -198,11 +198,24 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     RCTrackList * trackList = [self.viewModel trackListAtIndexPath:indexPath];
-    [[RCPlayerView playerView] showAnimationing:^{
-        [RCNotificationCenter postNotificationName:sendNetWorkingNotification object:nil userInfo:@{netWorkingTrackIdNotificationName:trackList.trackId,netWorkingAlbumIdNotificationName:trackList.albumId}];
 
-    } completion:^{
-    }];
+    if (trackList.trackId) {
+        [[RCPlayerView playerView] showAnimationing:^{
+            [RCNotificationCenter postNotificationName:sendNetWorkingNotification object:nil userInfo:@{netWorkingTrackIdNotificationName:trackList.trackId,netWorkingAlbumIdNotificationName:trackList.albumId}];
+
+        } completion:^{
+        }];
+
+    }else{
+
+        [KVNProgress showWithParameters:@{KVNProgressViewParameterStatus:@"正在加载声音..."}];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [KVNProgress dismiss];
+            [KVNProgress showErrorWithStatus:@"无法播放当前声音..."];
+        });
+
+
+    }
 
 }
 - (void)sendData:(UIButton *)button{

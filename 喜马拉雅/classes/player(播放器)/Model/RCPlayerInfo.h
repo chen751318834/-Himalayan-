@@ -85,6 +85,6 @@
 @property(nonatomic,assign) BOOL isPublic;
 @property(nonatomic,strong) NSArray  *images;
 @property(nonatomic,strong) NSArray  *trackBlocks;
-
+@property(nonatomic,copy) NSString  *playTime;
 
 @end

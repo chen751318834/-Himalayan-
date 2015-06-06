@@ -14,6 +14,8 @@
 #import "RCAudioTool.h"
 #import "RCSubjectViewController.h"
 #import "RCCircleViewController.h"
+#import "RCPlayerInfo.h"
+#import "RCPlayerTool.h"
 #import "RCPlayerView.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #import "RCConst.h"
@@ -58,6 +60,8 @@ static const NSUInteger sectionCount = 100;
 @property(nonatomic,weak) RCBottomPlayerButton   *playButton;
 @property(nonatomic,weak) RCPlayerView   *playerView;
 @property(nonatomic,assign)  BOOL isPlaying ;
+@property(nonatomic,weak) UILabel   *lastPlayLabel;
+
 
 @end
 
@@ -122,7 +126,6 @@ static const NSUInteger sectionCount = 100;
 }
 
 - (void)back{
-
     [self.playerView dismissAnimationing:^{
         [UIApplication sharedApplication].keyWindow.userInteractionEnabled  = NO;
     } completion:^{
@@ -151,10 +154,32 @@ static const NSUInteger sectionCount = 100;
     playerView.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height,[UIScreen mainScreen].bounds.size.width , [UIScreen mainScreen].bounds.size.height);
     self.playerView = playerView;
 
-
+    RCPlayerInfo * lastPlayInfo = [[RCPlayerTool playedAudios] firstObject];
+    UILabel * lastPlayLabel = [[UILabel alloc]init];
+    lastPlayLabel.backgroundColor= [UIColor orangeColor];
+    lastPlayLabel.font = [UIFont systemFontOfSize:12];
+    lastPlayLabel.textColor = [UIColor whiteColor];
+    lastPlayLabel.textAlignment = NSTextAlignmentCenter;
+    lastPlayLabel.text = [NSString stringWithFormat:@"上次播放 %@",lastPlayInfo.albumTitle];
+    [window addSubview:lastPlayLabel];
+    CGFloat labelW = [lastPlayLabel.text boundingRectWithSize:CGSizeMake(MAXFLOAT, 20) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:12]} context:nil].size.width +20;
+    [lastPlayLabel autoPinEdge:ALEdgeLeft toEdge:ALEdgeLeft ofView:window withOffset:(self.view.bounds.size.width - labelW)/2];
+    [lastPlayLabel autoPinEdge:ALEdgeBottom toEdge:ALEdgeTop ofView:playButton withOffset:4];
+    [lastPlayLabel autoSetDimension:ALDimensionWidth toSize:labelW];
+    [lastPlayLabel autoSetDimension:ALDimensionHeight toSize:20];
+    self.lastPlayLabel = lastPlayLabel;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [UIView animateWithDuration:2 animations:^{
+            lastPlayLabel.alpha = 0;
+        }];
+    });
+    [playButton setImgSrc:lastPlayInfo.coverLarge];
 }
 
 - (void)enterPlayerView:(UIButton *)button{
+    [self.lastPlayLabel removeFromSuperview];
+    RCPlayerInfo * lastPlayInfo = [[RCPlayerTool playedAudios] firstObject];
+    [RCNotificationCenter postNotificationName:sendNetWorkingNotification object:nil userInfo:@{netWorkingTrackIdNotificationName:lastPlayInfo.trackId}];
      [self.playerView  showAnimationing:^{
          if ([AFSoundManager sharedManager].isPlaying) {
          }else{
@@ -306,13 +331,23 @@ static const NSUInteger sectionCount = 100;
         }
     }else{
         RCList * list = [self.viewModel imgAtIndexPathInCollectionView:indexPath];
+        if (list.trackId) {
+            [self.playerView showAnimationing:^{
+                [RCNotificationCenter postNotificationName:sendNetWorkingNotification object:nil userInfo:@{netWorkingTrackIdNotificationName:list.trackId,netWorkingAlbumIdNotificationName:list.uid}];
 
-       [self.playerView showAnimationing:^{
-           [RCNotificationCenter postNotificationName:sendNetWorkingNotification object:nil userInfo:@{netWorkingTrackIdNotificationName:list.trackId,netWorkingAlbumIdNotificationName:list.uid}];
+            } completion:^{
+            }];
 
-       } completion:^{
-       }];
-    }
+        }else{
+            [KVNProgress showWithParameters:@{KVNProgressViewParameterStatus:@"正在加载声音..."}];
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [KVNProgress dismiss];
+                [KVNProgress showErrorWithStatus:@"无法播放当前声音..."];
+            });
+
+
+        }
+          }
 
     }
 

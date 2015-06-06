@@ -13,6 +13,7 @@
 + (void)removePlayedAudio:(RCPlayerInfo *)playedAudio;
 + (void)removeAllPlayedAudio;
 + (NSArray *)playedAudiosWithPage:(NSUInteger )page;
++ (NSArray *)playedAudios;
 + (NSUInteger)playedAudioCount;
 + (BOOL)isCollectPlayedAudio:(RCPlayerInfo *)album;
 @end

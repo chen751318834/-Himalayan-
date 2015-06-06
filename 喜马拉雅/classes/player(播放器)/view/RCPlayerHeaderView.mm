@@ -46,12 +46,14 @@
 @property (weak, nonatomic) IBOutlet UILabel *playProgressLabel;
 @property(nonatomic,strong) NSTimer  *timer;
 @property(nonatomic,assign) CGFloat currnetProgressButtonX;
+@property(nonatomic,assign) NSUInteger time;
 
 @end
 @implementation RCPlayerHeaderView
 
 - (void)awakeFromNib{
     [super awakeFromNib];
+    [self setUpTimer];
     [RCNotificationCenter addObserver:self selector:@selector(changePlayerStatus) name:playingNotification object:nil];
           UIPanGestureRecognizer * pan = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(panPregoressButton:)];
     [self.progressButton addGestureRecognizer:pan];
@@ -88,6 +90,26 @@ completion:^(BOOL finished) {
 }];
 
 
+}
+- (void)setUpTimer{
+    NSTimer * timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateTime) userInfo:nil repeats:YES];
+    [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+    self.timer = timer;
+
+
+}
+- (void)updateTime{
+//    self.time++;
+//
+//    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+//    [formatter setDateFormat:@"mm:ss"];
+//    NSDate *timeDate = [NSDate dateWithTimeIntervalSince1970:self.time];
+//    NSString *  timeDateStr=   [formatter  stringFromDate:timeDate];
+//    if (self.timer.isValid) {
+//        self.playerInfo.playTime = timeDateStr;
+//        [RCPlayerTool savePlayedAudio:self.playerInfo];
+
+//    }
 }
 - (void)changePlayerStatus{
     if ([AFSoundManager sharedManager].isPlaying) {
@@ -176,7 +198,8 @@ completion:^(BOOL finished) {
     [RCNotificationCenter postNotificationName:backHomeNotification object:nil];
 }
 - (void)dealloc{
-
+    [self.timer invalidate];
+    self.timer = nil;
     [RCNotificationCenter removeObserver:self];
 }
 - (IBAction)playListButtonDidClicked:(UIButton *)sender {
@@ -241,7 +264,6 @@ completion:^(BOOL finished) {
 
 #pragma mark - 播放网络音频
 - (void)playRemoteAudio:(NSString *)urlStr{
-    [RCPlayerTool savePlayedAudio:self.playerInfo];
     [self.smallIconVIew.layer addAnimation:[self animation] forKey:nil];
     self.playAndPauseButtton.selected = YES;
     [[AFSoundManager sharedManager] startStreamingRemoteAudioFromURL:urlStr andBlock:^(int percentage, CGFloat elapsedTime, CGFloat timeRemaining, NSError *error, BOOL finished) {
@@ -249,14 +271,9 @@ completion:^(BOOL finished) {
             NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
             [formatter setDateFormat:@"mm:ss"];
             NSDate *elapsedTimeDate = [NSDate dateWithTimeIntervalSince1970:elapsedTime];
-//            NSDate *timeRemainingDate = [NSDate dateWithTimeIntervalSince1970:timeRemaining];
             NSDate *totalTimeDate = [NSDate dateWithTimeIntervalSince1970:timeRemaining+elapsedTime];
-
-//        NSString *  elapsedTimeDateStr=   [formatter  stringFromDate:elapsedTimeDate];
             NSString *  totalTimeDateStr=   [formatter  stringFromDate:totalTimeDate];
             NSString *  elapsedTimeDateStr=   [formatter  stringFromDate:elapsedTimeDate];
-          
-
             self.playProgressLabel.text = [NSString stringWithFormat:@"%@/%@",elapsedTimeDateStr,totalTimeDateStr];
             [self.progressButton setTitle:[NSString stringWithFormat:@"%@",elapsedTimeDateStr] forState:UIControlStateNormal];
             [self.juhua stopAnimating];
@@ -265,7 +282,7 @@ completion:^(BOOL finished) {
             }
                 self.progressButton.x = percentage * 0.01* (self.pregressView.bounds.size.width  - self.progressButton.width);;
                 self.currentprogressImageView.width = self.progressButton.centerX;
-
+            self.playerInfo.playTime = elapsedTimeDateStr;
         } else {
             self.playAndPauseButtton.selected = NO;
             [self.smallIconVIew.layer removeAllAnimations];
@@ -273,6 +290,9 @@ completion:^(BOOL finished) {
         }
 
     }];
+    [RCPlayerTool savePlayedAudio:self.playerInfo];
+
+
 //    BOOL isPlaying =  [AFSoundManager sharedManager].isPlaying;
 //    if (isPlaying) {
 //        NSLog(@"playRemoteAudio--正在播放.....");
