@@ -25,21 +25,21 @@
  "userSource": 2,
  "createdAt": 1366090550000
  */
-@property(nonatomic,copy) NSString  *title;
-@property(nonatomic,copy) NSString  *nickname;
-@property(nonatomic,copy) NSString  *playPath32;
-@property(nonatomic,copy) NSString  *coverSmall;
-@property(nonatomic,copy) NSString  *playPath64;
-@property(nonatomic,strong) NSNumber  *ID;
-@property(nonatomic,strong) NSNumber  *uid;
-@property(nonatomic,strong) NSNumber  *duration;
-@property(nonatomic,strong) NSNumber  *playsCounts;
-@property(nonatomic,strong) NSNumber  *commentsCounts;
-@property(nonatomic,strong) NSNumber  *sharesCounts;
-@property(nonatomic,strong) NSNumber  *favoritesCounts;
-@property(nonatomic,strong) NSNumber  *userSource;
-@property(nonatomic,strong) NSNumber  *createdAt;
-@property(nonatomic,assign,getter=isDownloading) BOOL downloading;
-@property(nonatomic,copy) NSString  *created_at;
+//@property(nonatomic,copy) NSString  *title;
+//@property(nonatomic,copy) NSString  *nickname;
+//@property(nonatomic,copy) NSString  *playPath32;
+//@property(nonatomic,copy) NSString  *coverSmall;
+//@property(nonatomic,copy) NSString  *playPath64;
+//@property(nonatomic,strong) NSNumber  *ID;
+//@property(nonatomic,strong) NSNumber  *uid;
+//@property(nonatomic,strong) NSNumber  *duration;
+//@property(nonatomic,strong) NSNumber  *playsCounts;
+//@property(nonatomic,strong) NSNumber  *commentsCounts;
+//@property(nonatomic,strong) NSNumber  *sharesCounts;
+//@property(nonatomic,strong) NSNumber  *favoritesCounts;
+//@property(nonatomic,strong) NSNumber  *userSource;
+//@property(nonatomic,strong) NSNumber  *createdAt;
+//@property(nonatomic,assign,getter=isDownloading) BOOL downloading;
+//@property(nonatomic,copy) NSString  *created_at;
 
 @end

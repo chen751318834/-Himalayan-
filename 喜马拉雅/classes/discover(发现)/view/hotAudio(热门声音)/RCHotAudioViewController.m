@@ -128,14 +128,15 @@
 #pragma mark - UITableViewDelegate
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     RCHotAudioViewCell * cell = [RCHotAudioViewCell cellWithTableView:tableView];
-    RCOnneHotAudio * audio = self.contents[indexPath.row];
+    RCTrackList * audio = self.contents[indexPath.row];
     cell.audio = audio;
     @weakify(self);
     [[cell.downloadButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         @strongify(self);
-        audio.downloading = YES;
-        [[UIApplication sharedApplication].keyWindow makeToast:@"加入下载队列成功" duration:1 position:@"bottom"];
+        audio.downloaded = YES;
+ [RCNotificationCenter postNotificationName:downlaodNotification object:nil userInfo:@{downlaodNotificationName:audio}];        [[UIApplication sharedApplication].keyWindow makeToast:@"加入下载队列成功" duration:1 position:@"bottom"];
         [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+
 
 
     }];
@@ -176,13 +177,16 @@
 
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    RCOnneHotAudio * audio = self.contents[indexPath.row];
+    RCTrackList * audio = self.contents[indexPath.row];
     [super tableView:tableView didSelectRowAtIndexPath:indexPath];
-    [[RCPlayerView playerView] showAnimationing:^{
-        [RCNotificationCenter postNotificationName:sendNetWorkingNotification object:nil userInfo:@{netWorkingTrackIdNotificationName:audio.ID,netWorkingAlbumIdNotificationName:audio.uid}];
+    if (audio.trackId) {
+        [[RCPlayerView playerView] showAnimationing:^{
+            [RCNotificationCenter postNotificationName:sendNetWorkingNotification object:nil userInfo:@{netWorkingTrackIdNotificationName:audio.trackId,isLocalAudioNotificationName:@(NO)}];
 
-    } completion:^{
-    }];
+        } completion:^{
+        }];
+    }
+
 }
 #pragma mark - 事件处理
 @end

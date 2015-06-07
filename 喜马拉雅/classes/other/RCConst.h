@@ -49,10 +49,14 @@ static NSString * RCPlayerViewSetSongInformationNotification = @"RCPlayerViewSet
 static NSString * sendNetWorkingNotification = @"sendNetWorkingNotification";
 static NSString * netWorkingTrackIdNotificationName = @"netWorkingTrackIdNotificationName";
 static NSString * netWorkingAlbumIdNotificationName = @"netWorkingAlbumIdNotificationName";
+static NSString * isLocalAudioNotificationName = @"isLocalAudioNotificationName";
 
 static NSString * playingNotification = @"playingNotification";
 
-
+static NSString * downlaodNotification = @"downlaodNotification";
+static NSString * downlaodNotificationName = @"downlaodNotificationName";
+static NSString * AudioDownloadFinishedNotification = @"AudioDownloadFinishedNotification";
+static NSString * AudioDownloadFinishedAudioNotificationName = @"AudioDownloadFinishedAudioNotificationName";
 
 #define RCNotificationCenter  [NSNotificationCenter defaultCenter]
 

@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "RCOnneHotAudio.h"
+#import "RCTrackList.h"
 @interface RCHotAudioViewCell : UITableViewCell
 + (instancetype)cellWithTableView:(UITableView *)tableView;
-@property(nonatomic,strong) RCOnneHotAudio  *audio;
+@property(nonatomic,strong) RCTrackList  *audio;
 @property (weak, nonatomic) IBOutlet UIButton *downloadButton;
 
 @end

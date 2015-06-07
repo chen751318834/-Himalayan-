@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E26a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="downloadedAudioCell" rowHeight="103" id="KGk-i7-Jjw" customClass="RCDownloadAudioViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="103"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="大小" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w0C-RQ-nuW">
+                        <rect key="frame" x="272" y="13" width="40" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="BR1-A0-Wwi"/>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="kpq-yP-dxl"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" white="0.5" alpha="0.93000000000000005" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LN8-oQ-LxG">
+                        <rect key="frame" x="8" y="13" width="60" height="60"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="60" id="I87-gr-vN0"/>
+                            <constraint firstAttribute="height" constant="60" id="O9Q-BV-kaZ"/>
+                        </constraints>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NIw-A3-JyG">
+                        <rect key="frame" x="288" y="71" width="24" height="19"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="19" id="3I0-ib-1uy"/>
+                            <constraint firstAttribute="width" constant="24" id="dIB-E4-USW"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <state key="normal" image="btn_downloadalbum_delete_n">
+                            <color key="titleColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ydr-xV-deW">
+                        <rect key="frame" x="124" y="75" width="40" height="11"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="1yp-Lz-ifx"/>
+                            <constraint firstAttribute="height" constant="11" id="vdD-01-8HI"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                        <inset key="titleEdgeInsets" minX="3" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <state key="normal" title="收藏数" image="sound_likes_n">
+                            <color key="titleColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="作者" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vi7-x5-7dN">
+                        <rect key="frame" x="76" y="39" width="26" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="jGP-kZ-r2R"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" white="0.5" alpha="0.93000000000000005" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fu6-ji-fDs">
+                        <rect key="frame" x="172" y="75" width="80" height="11"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="11" id="XzM-Ib-nBX"/>
+                            <constraint firstAttribute="width" constant="80" id="x4V-Yb-Wnr"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                        <inset key="titleEdgeInsets" minX="3" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <state key="normal" title="时长" image="sound_duration">
+                            <color key="titleColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="标题" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ihF-iC-3Kx">
+                        <rect key="frame" x="76" y="13" width="188" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qKJ-hG-imO">
+                        <rect key="frame" x="-8" y="0.0" width="336" height="5"/>
+                        <color key="backgroundColor" red="0.92156862750000001" green="0.96078431369999995" blue="1" alpha="0.96999999999999997" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="5" id="uv7-Ua-t5O"/>
+                        </constraints>
+                    </view>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DnN-bq-CPH">
+                        <rect key="frame" x="76" y="75" width="40" height="11"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="hu0-xt-Lqo"/>
+                            <constraint firstAttribute="height" constant="11" id="tbI-ei-f6x"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                        <inset key="titleEdgeInsets" minX="3" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <state key="normal" title="播放数" image="sound_playtimes">
+                            <color key="titleColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailingMargin" secondItem="qKJ-hG-imO" secondAttribute="trailing" constant="-16" id="1j0-sP-XgG"/>
+                    <constraint firstItem="Ydr-xV-deW" firstAttribute="leading" secondItem="DnN-bq-CPH" secondAttribute="trailing" constant="8" id="7YV-2V-XTg"/>
+                    <constraint firstItem="vi7-x5-7dN" firstAttribute="leading" secondItem="DnN-bq-CPH" secondAttribute="leading" id="8Nl-Cv-E0p"/>
+                    <constraint firstItem="vi7-x5-7dN" firstAttribute="top" secondItem="ihF-iC-3Kx" secondAttribute="bottom" constant="8" id="D3b-o7-CTf"/>
+                    <constraint firstItem="fu6-ji-fDs" firstAttribute="centerY" secondItem="NIw-A3-JyG" secondAttribute="centerY" id="D5D-9g-zsx"/>
+                    <constraint firstItem="qKJ-hG-imO" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-16" id="DlP-Oz-aat"/>
+                    <constraint firstItem="Ydr-xV-deW" firstAttribute="centerY" secondItem="DnN-bq-CPH" secondAttribute="centerY" id="G0w-ir-SgK"/>
+                    <constraint firstItem="qKJ-hG-imO" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="H9z-Yu-Cue"/>
+                    <constraint firstItem="w0C-RQ-nuW" firstAttribute="top" secondItem="LN8-oQ-LxG" secondAttribute="top" id="JNd-P4-I3C"/>
+                    <constraint firstItem="LN8-oQ-LxG" firstAttribute="top" secondItem="qKJ-hG-imO" secondAttribute="bottom" constant="8" id="Mok-vy-qpN"/>
+                    <constraint firstItem="vi7-x5-7dN" firstAttribute="top" secondItem="ihF-iC-3Kx" secondAttribute="bottom" constant="8" id="NOb-cU-7B3"/>
+                    <constraint firstItem="w0C-RQ-nuW" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="Ohh-uN-KpU"/>
+                    <constraint firstItem="fu6-ji-fDs" firstAttribute="leading" secondItem="Ydr-xV-deW" secondAttribute="trailing" constant="8" id="UZ1-fc-xza"/>
+                    <constraint firstItem="ihF-iC-3Kx" firstAttribute="leading" secondItem="LN8-oQ-LxG" secondAttribute="trailing" constant="8" id="Y1V-s4-Gi1"/>
+                    <constraint firstItem="DnN-bq-CPH" firstAttribute="top" secondItem="vi7-x5-7dN" secondAttribute="bottom" constant="15" id="Y7X-O9-nx9"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="DnN-bq-CPH" secondAttribute="bottom" constant="8.5" id="aCR-ag-xbe"/>
+                    <constraint firstItem="LN8-oQ-LxG" firstAttribute="top" secondItem="ihF-iC-3Kx" secondAttribute="top" id="bKl-ab-qWd"/>
+                    <constraint firstItem="NIw-A3-JyG" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="cpY-zz-KQy"/>
+                    <constraint firstItem="LN8-oQ-LxG" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="fsb-iX-FVL"/>
+                    <constraint firstItem="w0C-RQ-nuW" firstAttribute="leading" secondItem="ihF-iC-3Kx" secondAttribute="trailing" constant="8" id="p4s-GF-PsE"/>
+                    <constraint firstItem="ihF-iC-3Kx" firstAttribute="leading" secondItem="vi7-x5-7dN" secondAttribute="leading" id="pzl-cg-sKX"/>
+                    <constraint firstItem="fu6-ji-fDs" firstAttribute="centerY" secondItem="Ydr-xV-deW" secondAttribute="centerY" id="zol-SE-zBC"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <connections>
+                <outlet property="deleteButton" destination="NIw-A3-JyG" id="IO6-lX-pNx"/>
+                <outlet property="iconView" destination="LN8-oQ-LxG" id="LMQ-yQ-zG4"/>
+                <outlet property="playCountLabel" destination="DnN-bq-CPH" id="CFC-VA-Z2Y"/>
+                <outlet property="saveCountLabel" destination="Ydr-xV-deW" id="bqG-kW-roX"/>
+                <outlet property="sizelabel" destination="w0C-RQ-nuW" id="ofX-kp-81T"/>
+                <outlet property="sourelabel" destination="vi7-x5-7dN" id="l3a-jI-Igc"/>
+                <outlet property="timeLeghtLabel" destination="fu6-ji-fDs" id="fg3-BY-i3H"/>
+                <outlet property="titlelabel" destination="ihF-iC-3Kx" id="oFN-sN-ThP"/>
+            </connections>
+            <point key="canvasLocation" x="570" y="278.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="btn_downloadalbum_delete_n" width="10" height="14"/>
+        <image name="sound_duration" width="8" height="8"/>
+        <image name="sound_likes_n" width="9" height="8"/>
+        <image name="sound_playtimes" width="6" height="8"/>
+    </resources>
+</document>

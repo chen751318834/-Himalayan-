@@ -33,7 +33,6 @@ void *CusomHeaderInsetObserver = &CusomHeaderInsetObserver;
 @property(nonatomic,assign) NSUInteger lastSelectedIndex;
 @property(nonatomic,weak) RCPlayerHeaderView   *headerView;
 @property(nonatomic,weak) RCBottomPlayerButton * button;
-
 @property(nonatomic,strong) RCPlayerVIewModel  *viewmodel;
 
 @end
@@ -84,11 +83,14 @@ void *CusomHeaderInsetObserver = &CusomHeaderInsetObserver;
 
    }
 - (void)fecthData:(NSNotification *)note{
+    BOOL isLocalAudio = [note.userInfo[isLocalAudioNotificationName] boolValue];
+    self.headerView.isLocalAudio = isLocalAudio;
+
+    RCLog(@"%d-----%s",isLocalAudio,__func__);
     NSMutableArray * childViews = [[UIApplication sharedApplication].keyWindow valueForKeyPath:@"subviews"];
     RCBottomPlayerButton * button = (RCBottomPlayerButton *)[childViews objectAtIndex:1];
     self.viewmodel.trackId = note.userInfo[netWorkingTrackIdNotificationName];
 //    self.viewmodel.albumId = note.userInfo[netWorkingAlbumIdNotificationName];
-    RCLog(@"%@----%@", note.userInfo[netWorkingAlbumIdNotificationName],note.userInfo[netWorkingTrackIdNotificationName]);
     [self.viewmodel fetchplayerInfoWithSuccess:^{
         self.headerView.list = self.viewmodel.playerInfo;
         self.commentVC.trackId = self.viewmodel.playerInfo.trackId;

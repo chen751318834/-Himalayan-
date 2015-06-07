@@ -17,6 +17,8 @@
 @property (weak, nonatomic) IBOutlet UIImageView *largeImageView;
 @property(nonatomic,strong) RCPlaylist  *list;
 @property(nonatomic,strong) NSArray  *playLists;
+@property(nonatomic,assign) BOOL isLocalAudio;
+
 + (instancetype)headerView;
 
 @end

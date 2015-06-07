@@ -7,7 +7,8 @@
 //
 
 #import "RCDownloadAlbumViewController.h"
-
+#import "RCDownloadTool.h"
+#import "RCTrackList.h"
 @interface RCDownloadAlbumViewController ()
 
 @end
@@ -16,22 +17,34 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [self.tableView removeHeader];
+    [self.tableView removeFooter];
+    [self.contents addObjectsFromArray:[RCDownloadTool downloadAlbums]];
+    NSLog(@"%@",[RCDownloadTool downloadAlbums]);
+    [self.tableView reloadData];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
+#pragma mark - UITableViewDelegate
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSString   *ID =@"cell";
+    UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:ID];
+    if (!cell) {
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];;
+    }
+    RCTrackList * list = self.contents[indexPath.row];
+    cell.textLabel.text = list.albumTitle;
+    return cell;
+
 }
 
-/*
-#pragma mark - Navigation
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    return self.contents.count;
 }
-*/
-
+#pragma mark - UITableViewDelegate
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    
+}
 @end

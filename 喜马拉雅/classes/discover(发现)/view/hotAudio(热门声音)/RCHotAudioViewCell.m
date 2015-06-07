@@ -28,7 +28,7 @@
     return [[[NSBundle mainBundle]loadNibNamed:@"RCHotAudioViewCell" owner:nil options:nil] lastObject];
 }
 
-- (void)setAudio:(RCOnneHotAudio *)audio{
+- (void)setAudio:(RCTrackList *)audio{
     _audio= audio;
     [self.iconView sd_setImageWithURL:[NSURL URLWithString:audio.coverSmall] placeholderImage:[UIImage imageNamed:@"findsection_sound_bg"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         self.iconView.image = [UIImage circleImage:image borderWidth:0 borderColor:nil];
@@ -47,7 +47,7 @@
     [self setUpWithButton:self.playCountLabel count:[audio.playsCounts intValue] title:nil];
     [self setUpWithButton:self.saveCountLabel count:[audio.sharesCounts intValue] title:nil];
     [self setUpWithButton:self.sayCountLabel count:[audio.commentsCounts intValue] title:nil];
-    self.downloadButton.selected = audio.isDownloading;
+    self.downloadButton.selected = audio.isDownloaded;
     self.createTImeLabel.text = audio.created_at;
 }
 - (void)setUpWithButton:(UIButton *)button count:(int)count title:(NSString *)title {

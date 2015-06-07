@@ -62,5 +62,11 @@
 @property(nonatomic,copy) NSString  *created_at;
 @property(nonatomic,assign,getter=isDownloaded) BOOL downloaded;
 @property(nonatomic,assign,getter=isCheck) BOOL check;
-
+@property(nonatomic,copy) NSString  *playPath32;
+@property(nonatomic,copy) NSString  *playPath64;
+@property(nonatomic,strong) NSNumber  *ID;
+@property(nonatomic,strong) NSNumber  *playsCounts;
+@property(nonatomic,strong) NSNumber  *commentsCounts;
+@property(nonatomic,strong) NSNumber  *sharesCounts;
+@property(nonatomic,strong) NSNumber  *favoritesCounts;
 @end

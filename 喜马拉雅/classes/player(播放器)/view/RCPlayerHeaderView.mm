@@ -51,6 +51,7 @@
 
 - (void)awakeFromNib{
     [super awakeFromNib];
+
     [RCNotificationCenter addObserver:self selector:@selector(changePlayerStatus) name:playingNotification object:nil];
           UIPanGestureRecognizer * pan = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(panPregoressButton:)];
     [self.progressButton addGestureRecognizer:pan];
@@ -59,6 +60,7 @@
     NSTimer * timer = [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(startAnimation) userInfo:nil repeats:YES];
     [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
     }
+
 - (void)startAnimation{
     [UIView animateKeyframesWithDuration:10
            delay:7
@@ -130,7 +132,14 @@ completion:^(BOOL finished) {
     self.userLabel.text = list.userInfo.nickname;
     self.countLabel.text = [NSString stringWithFormat:@"声音 %@ 粉丝 %@",[self countStr:[list.userInfo.tracks intValue]],[self countStr:[list.userInfo.followers intValue]]];
     self.descLabel.text =  list.userInfo.personDescribe;
-    [self playRemoteAudio:list.playUrl64];
+    [self.progressButton setTitle:@"00:00" forState:UIControlStateNormal];
+    if (self.isLocalAudio) {
+        [self playLoacalAudio:list];
+    }else{
+        [self playRemoteAudio:list.playUrl64];
+
+    }
+    RCLog(@"%d-----%s",self.isLocalAudio,__func__);
 
 }
 - (NSString *)countStr:(int)count {
@@ -281,7 +290,45 @@ completion:^(BOOL finished) {
     [RCNotificationCenter postNotificationName:playingNotification object:nil];
 
 }
+- (void)playLoacalAudio:(RCPlaylist *)playingAudio{
+    [RCPlayerTool savePlayedAudio:playingAudio];
+    self.playAndPauseButtton.selected = YES;
+    NSLog(@"playLoacalAudio-----%d",self.playAndPauseButtton.selected);
+    [self.smallIconVIew.layer addAnimation:[self animation] forKey:nil];
+    [[AFSoundManager sharedManager] startPlayingLocalFileWithName:[NSString stringWithFormat:@"%@.mp3",playingAudio.title] andBlock:^(int percentage, CGFloat elapsedTime, CGFloat timeRemaining, NSError *error, BOOL finished) {
+        if (!error) {
+            NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+            [formatter setDateFormat:@"mm:ss"];
+            NSDate *elapsedTimeDate = [NSDate dateWithTimeIntervalSince1970:elapsedTime];
+            NSDate *totalTimeDate = [NSDate dateWithTimeIntervalSince1970:timeRemaining+elapsedTime];
+            NSString *  totalTimeDateStr=   [formatter  stringFromDate:totalTimeDate];
+            NSString *  elapsedTimeDateStr=   [formatter  stringFromDate:elapsedTimeDate];
+            self.playProgressLabel.text = [NSString stringWithFormat:@"%@/%@",elapsedTimeDateStr,totalTimeDateStr];
+            [self.progressButton setTitle:[NSString stringWithFormat:@"%@",elapsedTimeDateStr] forState:UIControlStateNormal];
+            [self.juhua stopAnimating];
+            if (percentage < 0) {
+                percentage = 0;
+            }
+            self.progressButton.x = percentage * 0.01* (self.pregressView.bounds.size.width  - self.progressButton.width);;
+            self.currentprogressImageView.width = self.progressButton.centerX;
+            self.list.playTime = elapsedTimeDateStr;
+            NSLog(@"isplaying =========== %d",percentage);
 
+        } else {
+//            self.playAndPauseButtton.selected = NO;
+//            [self.smallIconVIew.layer removeAllAnimations];
+
+            NSLog(@"There has been an error playing the remote file: %@", [error description]);
+        }
+        if (finished) {
+            [self nextButtonDidClicked:nil];
+
+        }
+    }];
+    
+    [RCNotificationCenter postNotificationName:playingNotification object:nil];
+
+}
 
 #pragma mark - 进度条
 - (void)tapProgressView:(UITapGestureRecognizer *)sender {
@@ -330,27 +377,7 @@ completion:^(BOOL finished) {
     transformAnim.removedOnCompletion = NO;
     return transformAnim;
 }
-//- (void)playLoacalAudio:(RCPlayingAudio *)playingAudio{
-//    [[AFSoundManager sharedManager] startPlayingLocalFileWithName:[NSString stringWithFormat:@"%@.mp3",playingAudio.alt] andBlock:^(int percentage, CGFloat elapsedTime, CGFloat timeRemaining, NSError *error, BOOL finished) {
-//        if (!error) {
-//
-//            NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
-//            [formatter setDateFormat:@"mm:ss"];
-//            NSDate *elapsedTimeDate = [NSDate dateWithTimeIntervalSince1970:elapsedTime];
-//            self.currentTimeLabel.text = [formatter stringFromDate:elapsedTimeDate];
-//
-//            NSDate *timeRemainingDate = [NSDate dateWithTimeIntervalSince1970:timeRemaining];
-//            self.totalTimeLabel.text = [formatter stringFromDate:timeRemainingDate];
-//
-//            self.progressView.value = percentage * 0.01;
-//        } else {
-//
-//            NSLog(@"There has been an error playing the remote file: %@", [error description]);
-//        }
-//
-//    }];
-//
-//}
+
 -(UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event
 {
     UIView *view = [super hitTest:point withEvent:event];

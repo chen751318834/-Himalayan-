@@ -8,7 +8,9 @@
 
 #import "RCTrackList.h"
 #import "NSDate+RC.h"
+#import "MJExtension.h"
 @implementation RCTrackList
+MJCodingImplementation
 - (NSString *)created_at{
     // _created_at == Fri May 09 16:30:34 +0800 2014
 

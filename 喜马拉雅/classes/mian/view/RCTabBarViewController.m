@@ -118,12 +118,12 @@
     self.downloadSegmentControl = downloadSegmentControl;
     downloadSegmentControl.delegate = self;
     UIButton * button1 = [UIButton buttonWithType:UIButtonTypeCustom];
-    [button1 setTitle:@"声音" forState:UIControlStateNormal];
+    [button1 setTitle:@"专辑" forState:UIControlStateNormal];
     [button1 setFont:[UIFont systemFontOfSize:18]];
     [button1 setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
     [button1 setTitleColor:[UIColor orangeColor] forState:UIControlStateSelected];
     UIButton * button2 = [UIButton buttonWithType:UIButtonTypeCustom];
-    [button2 setTitle:@"专辑" forState:UIControlStateNormal];
+    [button2 setTitle:@"声音" forState:UIControlStateNormal];
     [button2 setFont:[UIFont systemFontOfSize:18]];
 
     [button2 setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
@@ -143,7 +143,7 @@
     RCDownloadAlbumViewController * albumVC = [[RCDownloadAlbumViewController alloc]init];
     RCDownloadingAudioViewController * downloadingVC = [[RCDownloadingAudioViewController alloc]init];
     RCScrollViewController * scrollviewVC = [[RCScrollViewController alloc]init];
-    scrollviewVC.viewControllers = @[audioVC,albumVC,downloadingVC];
+    scrollviewVC.viewControllers = @[albumVC,audioVC,downloadingVC];
     RCNavigationController * downloadNavVC = [[RCNavigationController alloc]initWithRootViewController:scrollviewVC];
     self.downLoadScrollViewVC = scrollviewVC;
     [self addChildViewController:downloadNavVC];

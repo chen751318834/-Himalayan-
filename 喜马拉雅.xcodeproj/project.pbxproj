@@ -127,6 +127,11 @@
 		4B7D70111B213AC700B0EA51 /* AudioFileWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B7D700B1B213AC700B0EA51 /* AudioFileWriter.m */; };
 		4B7D70121B213AC700B0EA51 /* Novocaine.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B7D700D1B213AC700B0EA51 /* Novocaine.m */; };
 		4B7D70131B213AC700B0EA51 /* RingBuffer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4B7D700F1B213AC700B0EA51 /* RingBuffer.mm */; };
+		4B84F4531B24011300395351 /* RCDownloadTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B84F4521B24011300395351 /* RCDownloadTool.m */; };
+		4B84F4561B2408B600395351 /* AFDownloadRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B84F4551B2408B600395351 /* AFDownloadRequestOperation.m */; };
+		4B84F45D1B240FCA00395351 /* RCDownloadingViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B84F45B1B240FCA00395351 /* RCDownloadingViewCell.m */; };
+		4B84F45E1B240FCA00395351 /* RCDownloadingViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B84F45C1B240FCA00395351 /* RCDownloadingViewCell.xib */; };
+		4B84F46F1B24348A00395351 /* EAColourfulProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B84F46E1B24348A00395351 /* EAColourfulProgressView.m */; };
 		4B8B00001B2056C6009B0017 /* FeSpinnerTenDot.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8BFFDA1B2056C6009B0017 /* FeSpinnerTenDot.m */; };
 		4B8B00011B2056C6009B0017 /* FeTenDot.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8BFFDC1B2056C6009B0017 /* FeTenDot.m */; };
 		4B8B00021B2056C6009B0017 /* FeThreeDotGlow.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8BFFDE1B2056C6009B0017 /* FeThreeDotGlow.m */; };
@@ -201,6 +206,9 @@
 		4B9510121B1F338600D5DBDD /* ARSegmentPageHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B95100E1B1F338600D5DBDD /* ARSegmentPageHeader.m */; };
 		4B9510131B1F338600D5DBDD /* ARSegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B9510101B1F338600D5DBDD /* ARSegmentView.m */; };
 		4B9510171B1F386200D5DBDD /* UINavigationController+FDFullscreenPopGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B9510161B1F386200D5DBDD /* UINavigationController+FDFullscreenPopGesture.m */; };
+		4BAAF0A41B244168009D2874 /* RCDownloadAudioViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BAAF0A21B244168009D2874 /* RCDownloadAudioViewCell.m */; };
+		4BAAF0A51B244168009D2874 /* RCDownloadAudioViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BAAF0A31B244168009D2874 /* RCDownloadAudioViewCell.xib */; };
+		4BAAF0A91B247AFB009D2874 /* 复联2到底有多2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4BAAF0A81B247AFB009D2874 /* 复联2到底有多2.mp3 */; };
 		4BB20B1D1B22DF0500C5B508 /* DMPagerNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BB20B1A1B22DF0500C5B508 /* DMPagerNavigationBar.m */; };
 		4BB20B1E1B22DF0500C5B508 /* DMPagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BB20B1C1B22DF0500C5B508 /* DMPagerViewController.m */; };
 		4BB20B351B22E95900C5B508 /* JT3DScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BB20B341B22E95900C5B508 /* JT3DScrollView.m */; };
@@ -559,6 +567,15 @@
 		4B7D700D1B213AC700B0EA51 /* Novocaine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Novocaine.m; sourceTree = "<group>"; };
 		4B7D700E1B213AC700B0EA51 /* RingBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RingBuffer.h; sourceTree = "<group>"; };
 		4B7D700F1B213AC700B0EA51 /* RingBuffer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RingBuffer.mm; sourceTree = "<group>"; };
+		4B84F4511B24011300395351 /* RCDownloadTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCDownloadTool.h; sourceTree = "<group>"; };
+		4B84F4521B24011300395351 /* RCDownloadTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCDownloadTool.m; sourceTree = "<group>"; };
+		4B84F4541B2408B600395351 /* AFDownloadRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFDownloadRequestOperation.h; sourceTree = "<group>"; };
+		4B84F4551B2408B600395351 /* AFDownloadRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFDownloadRequestOperation.m; sourceTree = "<group>"; };
+		4B84F45A1B240FCA00395351 /* RCDownloadingViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCDownloadingViewCell.h; sourceTree = "<group>"; };
+		4B84F45B1B240FCA00395351 /* RCDownloadingViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCDownloadingViewCell.m; sourceTree = "<group>"; };
+		4B84F45C1B240FCA00395351 /* RCDownloadingViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RCDownloadingViewCell.xib; sourceTree = "<group>"; };
+		4B84F46D1B24348A00395351 /* EAColourfulProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAColourfulProgressView.h; sourceTree = "<group>"; };
+		4B84F46E1B24348A00395351 /* EAColourfulProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAColourfulProgressView.m; sourceTree = "<group>"; };
 		4B8B00171B207145009B0017 /* RCAudioTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCAudioTool.h; sourceTree = "<group>"; };
 		4B8B00181B207145009B0017 /* RCAudioTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCAudioTool.m; sourceTree = "<group>"; };
 		4B8BFFBA1B1FEC36009B0017 /* RCPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCPlayerView.h; sourceTree = "<group>"; };
@@ -692,6 +709,10 @@
 		4B9510101B1F338600D5DBDD /* ARSegmentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARSegmentView.m; sourceTree = "<group>"; };
 		4B9510151B1F386200D5DBDD /* UINavigationController+FDFullscreenPopGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+FDFullscreenPopGesture.h"; sourceTree = "<group>"; };
 		4B9510161B1F386200D5DBDD /* UINavigationController+FDFullscreenPopGesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+FDFullscreenPopGesture.m"; sourceTree = "<group>"; };
+		4BAAF0A11B244168009D2874 /* RCDownloadAudioViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCDownloadAudioViewCell.h; sourceTree = "<group>"; };
+		4BAAF0A21B244168009D2874 /* RCDownloadAudioViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCDownloadAudioViewCell.m; sourceTree = "<group>"; };
+		4BAAF0A31B244168009D2874 /* RCDownloadAudioViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RCDownloadAudioViewCell.xib; sourceTree = "<group>"; };
+		4BAAF0A81B247AFB009D2874 /* 复联2到底有多2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "复联2到底有多2.mp3"; sourceTree = "<group>"; };
 		4BB20B191B22DF0500C5B508 /* DMPagerNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMPagerNavigationBar.h; sourceTree = "<group>"; };
 		4BB20B1A1B22DF0500C5B508 /* DMPagerNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMPagerNavigationBar.m; sourceTree = "<group>"; };
 		4BB20B1B1B22DF0500C5B508 /* DMPagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMPagerViewController.h; sourceTree = "<group>"; };
@@ -1184,6 +1205,7 @@
 		4B1D812E1B0C935D00B7C9DC /* downlaod(下载听) */ = {
 			isa = PBXGroup;
 			children = (
+				4B84F4501B24010000395351 /* tool */,
 				4B1D812F1B0C935D00B7C9DC /* Model */,
 				4B1D81301B0C935D00B7C9DC /* view */,
 				4B1D81311B0C935D00B7C9DC /* viewModel */,
@@ -1362,6 +1384,7 @@
 		4B1D813F1B0C935D00B7C9DC /* other */ = {
 			isa = PBXGroup;
 			children = (
+				4BAAF0A81B247AFB009D2874 /* 复联2到底有多2.mp3 */,
 				4B1D81A41B0C95E300B7C9DC /* RCConst.h */,
 				4B1D81A51B0C95E300B7C9DC /* RCConst.m */,
 				4B1D81401B0C935D00B7C9DC /* AppDelegate.h */,
@@ -1403,6 +1426,7 @@
 		4B1D81441B0C935D00B7C9DC /* lib */ = {
 			isa = PBXGroup;
 			children = (
+				4B84F46C1B24348A00395351 /* EAColourfulProgressView */,
 				4BB20B321B22E95900C5B508 /* JT3DScrollView */,
 				4BB20B181B22DF0500C5B508 /* DMPagerViewController */,
 				4B7D70071B213AC700B0EA51 /* Novocaine */,
@@ -1522,6 +1546,8 @@
 		4B1D82101B0C977400B7C9DC /* AFNetworking */ = {
 			isa = PBXGroup;
 			children = (
+				4B84F4541B2408B600395351 /* AFDownloadRequestOperation.h */,
+				4B84F4551B2408B600395351 /* AFDownloadRequestOperation.m */,
 				4B1D82111B0C977400B7C9DC /* AFHTTPRequestOperation.h */,
 				4B1D82121B0C977400B7C9DC /* AFHTTPRequestOperation.m */,
 				4B1D82131B0C977400B7C9DC /* AFHTTPRequestOperationManager.h */,
@@ -1653,6 +1679,24 @@
 				4B7D700F1B213AC700B0EA51 /* RingBuffer.mm */,
 			);
 			path = Novocaine;
+			sourceTree = "<group>";
+		};
+		4B84F4501B24010000395351 /* tool */ = {
+			isa = PBXGroup;
+			children = (
+				4B84F4511B24011300395351 /* RCDownloadTool.h */,
+				4B84F4521B24011300395351 /* RCDownloadTool.m */,
+			);
+			path = tool;
+			sourceTree = "<group>";
+		};
+		4B84F46C1B24348A00395351 /* EAColourfulProgressView */ = {
+			isa = PBXGroup;
+			children = (
+				4B84F46D1B24348A00395351 /* EAColourfulProgressView.h */,
+				4B84F46E1B24348A00395351 /* EAColourfulProgressView.m */,
+			);
+			path = EAColourfulProgressView;
 			sourceTree = "<group>";
 		};
 		4B8BFFC91B2056C6009B0017 /* FeSpinner */ = {
@@ -1940,6 +1984,9 @@
 			children = (
 				4BB20BC61B230AA900C5B508 /* RCDownloadAudioViewController.h */,
 				4BB20BC71B230AA900C5B508 /* RCDownloadAudioViewController.m */,
+				4BAAF0A11B244168009D2874 /* RCDownloadAudioViewCell.h */,
+				4BAAF0A21B244168009D2874 /* RCDownloadAudioViewCell.m */,
+				4BAAF0A31B244168009D2874 /* RCDownloadAudioViewCell.xib */,
 			);
 			path = "声音";
 			sourceTree = "<group>";
@@ -1949,6 +1996,9 @@
 			children = (
 				4BB20BC91B230AC200C5B508 /* RCDownloadingAudioViewController.h */,
 				4BB20BCA1B230AC200C5B508 /* RCDownloadingAudioViewController.m */,
+				4B84F45A1B240FCA00395351 /* RCDownloadingViewCell.h */,
+				4B84F45B1B240FCA00395351 /* RCDownloadingViewCell.m */,
+				4B84F45C1B240FCA00395351 /* RCDownloadingViewCell.xib */,
 			);
 			path = "正在下载";
 			sourceTree = "<group>";
@@ -2427,6 +2477,7 @@
 				4B8B00111B2056C6009B0017 /* WifiMan_Sign_4@2x.png in Resources */,
 				4B8B00071B2056C6009B0017 /* FeWifiManHub.xib in Resources */,
 				4BBAC2FC1B1ED4B1006ED9A1 /* RCPlayerDeialViewCell.xib in Resources */,
+				4B84F45E1B240FCA00395351 /* RCDownloadingViewCell.xib in Resources */,
 				4B1D81471B0C935D00B7C9DC /* Info.plist in Resources */,
 				4B8B00131B2056C6009B0017 /* wifimanhub_grayscale@2x.png in Resources */,
 				4B116C691B198754007792F4 /* RCBottomPlayerButton.xib in Resources */,
@@ -2438,9 +2489,11 @@
 				4B912DFB1B0EC1A3007B64DD /* RCSubjectViewCell.xib in Resources */,
 				4BF7883B1B0DEE310002704A /* RCHotAudioViewCell.xib in Resources */,
 				4B1D81C21B0C967300B7C9DC /* RCCategoryListViewCell.xib in Resources */,
+				4BAAF0A51B244168009D2874 /* RCDownloadAudioViewCell.xib in Resources */,
 				4B9210FB1B10241F0004DB2A /* RCRecommendZoneViewCell.xib in Resources */,
 				4BC647961B1701EC00661DB0 /* RCAlbumDownLoadSectionHeaderView.xib in Resources */,
 				4B912E181B0EEB73007B64DD /* RCHotActivityViewCell.xib in Resources */,
+				4BAAF0A91B247AFB009D2874 /* 复联2到底有多2.mp3 in Resources */,
 				4BC647981B1701EC00661DB0 /* RCAlbumDownloadViewCell.xib in Resources */,
 				4B7A33A01B187F580042E0EF /* RCAttentionViewCell.xib in Resources */,
 				4BF9A32F1B12C323003FD44E /* emoticon_default.plist in Resources */,
@@ -2589,6 +2642,7 @@
 				4BF788091B0DBD970002704A /* MJRefreshGifFooter.m in Sources */,
 				4B1D827C1B0C982900B7C9DC /* SDWebImagePrefetcher.m in Sources */,
 				4B1D82A91B0C9E7800B7C9DC /* RCTabBarViewController.m in Sources */,
+				4B84F4561B2408B600395351 /* AFDownloadRequestOperation.m in Sources */,
 				4BDE7D201B12F98800073E12 /* RCAlbum.m in Sources */,
 				4B912DFE1B0EC430007B64DD /* RCSubjectSectionHeaderView.m in Sources */,
 				4BF787D21B0DBCBA0002704A /* RCBaseViewController.m in Sources */,
@@ -2676,6 +2730,7 @@
 				4BDE7D361B130F1700073E12 /* SegementButton.m in Sources */,
 				4BF7880F1B0DBD970002704A /* UIScrollView+MJRefresh.m in Sources */,
 				4B7A33771B17FE980042E0EF /* FMDatabaseAdditions.m in Sources */,
+				4B84F45D1B240FCA00395351 /* RCDownloadingViewCell.m in Sources */,
 				4B1D81C31B0C967300B7C9DC /* RCCateroryListViewController.m in Sources */,
 				4B912E3A1B0EFA4F007B64DD /* RCRecommendedPost.m in Sources */,
 				4B7A337A1B17FE980042E0EF /* FMResultSet.m in Sources */,
@@ -2725,6 +2780,7 @@
 				4B9211091B102D1B0004DB2A /* RCCicleDeailHeaderView.m in Sources */,
 				4BB20BCB1B230AC200C5B508 /* RCDownloadingAudioViewController.m in Sources */,
 				4B9210F81B10241F0004DB2A /* RCRecommendPostViewCell.m in Sources */,
+				4BAAF0A41B244168009D2874 /* RCDownloadAudioViewCell.m in Sources */,
 				4B9510111B1F338600D5DBDD /* ARSegmentPageController.m in Sources */,
 				4BF9A1401B12B447003FD44E /* RCTextPart.m in Sources */,
 				4BF788071B0DBD970002704A /* MJRefreshConst.m in Sources */,
@@ -2733,6 +2789,7 @@
 				4B1D81461B0C935D00B7C9DC /* AppDelegate.mm in Sources */,
 				4B8BFFFD1B2056C6009B0017 /* FeLoadingIcon.m in Sources */,
 				4B9210FE1B10254B0004DB2A /* RCZonePost.m in Sources */,
+				4B84F46F1B24348A00395351 /* EAColourfulProgressView.m in Sources */,
 				4BF7882C1B0DD2C60002704A /* RCBaseViewModel.m in Sources */,
 				4B1D82781B0C982900B7C9DC /* SDWebImageDecoder.m in Sources */,
 				4B8B00021B2056C6009B0017 /* FeThreeDotGlow.m in Sources */,
@@ -2755,6 +2812,7 @@
 				4B1D82251B0C977400B7C9DC /* AFHTTPRequestOperationManager.m in Sources */,
 				4B912E0D1B0EE8DB007B64DD /* RCHotActivityViewModel.m in Sources */,
 				4B912E101B0EE95A007B64DD /* RCHotActivity.m in Sources */,
+				4B84F4531B24011300395351 /* RCDownloadTool.m in Sources */,
 				4B4F461D1B145AB800284DAB /* RCOneAlbumViewController.m in Sources */,
 				4BF788261B0DD22B0002704A /* RCTitleButton.m in Sources */,
 				4B7A33791B17FE980042E0EF /* FMDatabaseQueue.m in Sources */,

@@ -160,7 +160,7 @@ static const NSUInteger sectionCount = 100;
     lastPlayLabel.font = [UIFont systemFontOfSize:12];
     lastPlayLabel.textColor = [UIColor whiteColor];
     lastPlayLabel.textAlignment = NSTextAlignmentCenter;
-    lastPlayLabel.text = [NSString stringWithFormat:@"上次播放 %@",lastPlayInfo.albumTitle];
+    lastPlayLabel.text = [NSString stringWithFormat:@"上次播放 %@",lastPlayInfo.title];
     [window addSubview:lastPlayLabel];
     CGFloat labelW = [lastPlayLabel.text boundingRectWithSize:CGSizeMake(MAXFLOAT, 20) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:12]} context:nil].size.width +20;
     [lastPlayLabel autoPinEdge:ALEdgeLeft toEdge:ALEdgeLeft ofView:window withOffset:(self.view.bounds.size.width - labelW)/2];
