@@ -39,4 +39,8 @@ MJCodingImplementation
     }
     
 }
+//- (BOOL)isEqual:(RCTrackList *)other{
+//    return [self.albumId isEqualToNumber:other.albumId] && [self.albumTitle isEqualToString:other.albumTitle];
+//
+//}
 @end

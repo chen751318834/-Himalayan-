@@ -58,6 +58,13 @@ static NSString * downlaodNotificationName = @"downlaodNotificationName";
 static NSString * AudioDownloadFinishedNotification = @"AudioDownloadFinishedNotification";
 static NSString * AudioDownloadFinishedAudioNotificationName = @"AudioDownloadFinishedAudioNotificationName";
 
+
+
+static NSString * deleteAudioOrAlbumNotification = @"deleteAudioOrAlbumNotification";
+static NSString * deleteOneAudioOrAlbumNotification = @"deleteOneAudioOrAlbumNotification";
+
+static NSString * deleteOneAudioOrAlbumNotificationName = @"deleteOneAudioOrAlbumNotificationName";
+
 #define RCNotificationCenter  [NSNotificationCenter defaultCenter]
 
 #endif

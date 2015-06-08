@@ -16,7 +16,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *playCountLabel;
 @property (weak, nonatomic) IBOutlet UIButton *saveCountLabel;
 @property (weak, nonatomic) IBOutlet UIButton *timeLeghtLabel;
-@property (weak, nonatomic) IBOutlet UIButton *deleteButton;
 @property (weak, nonatomic) IBOutlet UILabel *sizelabel;
 
 @end

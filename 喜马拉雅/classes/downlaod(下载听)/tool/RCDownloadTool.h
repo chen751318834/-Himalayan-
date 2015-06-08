@@ -14,15 +14,16 @@
  *  专辑
  *
  */
-+ (void)saveDownloadAlbum:(RCAlbum *)downloadAlbum;
-+ (void)removeDownloadAlbum:(RCAlbum *)downloadAlbum;
++ (void)saveDownloadAlbum:(RCTrackList *)downloadAlbum;
++ (void)removeDownloadAlbum:(RCTrackList *)downloadAlbum;
 + (void)removeAllDownloadAlbum;
 + (NSArray *)downloadAlbumsWithPage:(NSUInteger )page;
 + (NSArray *)downloadAlbums;
 + (NSUInteger)downloadAlbumCount;
-+ (BOOL)isDownloaddAlbum:(RCAlbum *)downloaddAlbum;
++ (NSArray *)downloadAudiosWithAlbumId:(NSNumber *)albumId;
+//+ (BOOL)isDownloaddAlbum:(RCAlbum *)downloaddAlbum;
 /**
- *  声音
+ *  已经下载的声音
  *
  */
 + (void)saveDownloadAudio:(RCTrackList *)downloadAudio;
@@ -32,5 +33,13 @@
 + (NSArray *)downloadAudios;
 + (NSUInteger)downloadAudioCount;
 + (BOOL)isDownloadAudio:(RCTrackList *)downloadAudio;
-
+/**
+ *  正在下载的声音
+ *
+ */
++ (void)saveDownloadingAudio:(RCTrackList *)downloadingAudio;
++ (void)removeDownloadingAudio:(RCTrackList *)downloadingAudio;
++ (void)removeAllDownloadingAudio;
++ (NSArray *)downloadingAudios;
++ (NSUInteger)downloadingAudioCount;
 @end

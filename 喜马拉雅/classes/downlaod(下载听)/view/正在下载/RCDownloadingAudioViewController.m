@@ -30,7 +30,10 @@
     [super viewDidLoad];
     [self.tableView removeFooter];
     [self.tableView removeHeader];
+    self.tableView.backgroundColor = RCGlobalBg;
     [RCNotificationCenter addObserver:self selector:@selector(download:) name:downlaodNotification object:nil];
+    [self.contents addObjectsFromArray:[RCDownloadTool downloadingAudios]];
+    [self.tableView reloadData];
     [self setUpHeaderView];
 }
 - (void)setUpHeaderView{
@@ -38,7 +41,7 @@
     deleteAllButton.backgroundColor = [UIColor clearColor];
     [deleteAllButton setImage:[UIImage imageNamed:@"btn_downloadsound_clear_n"] forState:UIControlStateNormal];
     [deleteAllButton setImage:[UIImage imageNamed:@"btn_downloadsound_clear_h"] forState:UIControlStateHighlighted];
-    [deleteAllButton addTarget:self action:@selector(delete:) forControlEvents:UIControlEventTouchUpInside];
+    [deleteAllButton addTarget:self action:@selector(deleteAll:) forControlEvents:UIControlEventTouchUpInside];
     deleteAllButton.frame = CGRectMake(self.view.bounds.size.width/2, 0, self.view.bounds.size.width/2, 44);
 
     UIButton * continueButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -57,9 +60,9 @@
     self.contentView = contentView;
     
 }
-- (void)delete:(UIButton *)button{
+- (void)deleteAll:(UIButton *)button{
 
-    DXAlertView * alertView = [[DXAlertView alloc]initWithTitle:@"温馨提示" contentText:@"确定要取消收藏？" leftButtonTitle:@"确定" rightButtonTitle:@"取消"];
+    DXAlertView * alertView = [[DXAlertView alloc]initWithTitle:@"温馨提示" contentText:@"确定要取删除下载？" leftButtonTitle:@"确定" rightButtonTitle:@"取消"];
     [alertView show];
     alertView.leftBlock = ^{
         [self.contents removeAllObjects];
@@ -76,17 +79,19 @@
 - (void)download:(NSNotification *)note{
 
     RCTrackList * tracklist = note.userInfo[downlaodNotificationName];
-//    [RCNotificationCenter postNotificationName:AudioDownloadFinishedNotification object:nil userInfo:@{AudioDownloadFinishedAudioNotificationName:tracklist}];
-//    [RCDownloadTool saveDownloadAudio:tracklist];
+    [RCNotificationCenter postNotificationName:AudioDownloadFinishedNotification object:nil userInfo:@{AudioDownloadFinishedAudioNotificationName:tracklist}];
+
 
     NSString * path = [[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.mp3",tracklist.title]];
     self.downloadManager = [[AFDownloadRequestOperation alloc] initWithRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:tracklist.playPath64]] fileIdentifier:@"download" targetPath:path shouldResume:YES];
     [self.downloadManager start];
+    [RCDownloadTool saveDownloadingAudio:tracklist];
+    [self.contents addObject:tracklist];
+    [self.tableView reloadData];
     __weak typeof(self) weakSelf = self;
     //创建多线程第六种方式
     dispatch_queue_t queue = dispatch_queue_create("name", NULL);
     dispatch_async(queue, ^{
-
         [self.downloadManager setProgressiveDownloadProgressBlock:^(AFDownloadRequestOperation *operation, NSInteger bytesRead, long long totalBytesRead, long long totalBytesExpected, long long totalBytesReadForFile, long long totalBytesExpectedToReadForFile) {
             float percentDone = totalBytesReadForFile/(float)totalBytesExpectedToReadForFile;
             weakSelf.percentDone = percentDone;
@@ -98,12 +103,12 @@
     [self.downloadManager setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         tracklist.downloadSize =@(weakSelf.totalBytesExpectedToReadForFile);
         [RCDownloadTool saveDownloadAudio:tracklist];
+        [RCDownloadTool saveDownloadAlbum:tracklist];
+        [RCDownloadTool removeDownloadingAudio:tracklist];
         [RCNotificationCenter postNotificationName:AudioDownloadFinishedNotification object:nil userInfo:@{AudioDownloadFinishedAudioNotificationName:tracklist}];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"%@",error);
     }];
-    [self.contents addObject:tracklist];
-    [self.tableView reloadData];
 }
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
 

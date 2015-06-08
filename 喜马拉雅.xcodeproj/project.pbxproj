@@ -206,6 +206,8 @@
 		4B9510121B1F338600D5DBDD /* ARSegmentPageHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B95100E1B1F338600D5DBDD /* ARSegmentPageHeader.m */; };
 		4B9510131B1F338600D5DBDD /* ARSegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B9510101B1F338600D5DBDD /* ARSegmentView.m */; };
 		4B9510171B1F386200D5DBDD /* UINavigationController+FDFullscreenPopGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B9510161B1F386200D5DBDD /* UINavigationController+FDFullscreenPopGesture.m */; };
+		4BA88D1E1B25301D0047A567 /* RCDownloadAlbumViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BA88D1C1B25301D0047A567 /* RCDownloadAlbumViewCell.m */; };
+		4BA88D1F1B25301D0047A567 /* RCDownloadAlbumViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BA88D1D1B25301D0047A567 /* RCDownloadAlbumViewCell.xib */; };
 		4BAAF0A41B244168009D2874 /* RCDownloadAudioViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BAAF0A21B244168009D2874 /* RCDownloadAudioViewCell.m */; };
 		4BAAF0A51B244168009D2874 /* RCDownloadAudioViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BAAF0A31B244168009D2874 /* RCDownloadAudioViewCell.xib */; };
 		4BAAF0A91B247AFB009D2874 /* 复联2到底有多2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4BAAF0A81B247AFB009D2874 /* 复联2到底有多2.mp3 */; };
@@ -709,6 +711,9 @@
 		4B9510101B1F338600D5DBDD /* ARSegmentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARSegmentView.m; sourceTree = "<group>"; };
 		4B9510151B1F386200D5DBDD /* UINavigationController+FDFullscreenPopGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+FDFullscreenPopGesture.h"; sourceTree = "<group>"; };
 		4B9510161B1F386200D5DBDD /* UINavigationController+FDFullscreenPopGesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+FDFullscreenPopGesture.m"; sourceTree = "<group>"; };
+		4BA88D1B1B25301D0047A567 /* RCDownloadAlbumViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCDownloadAlbumViewCell.h; sourceTree = "<group>"; };
+		4BA88D1C1B25301D0047A567 /* RCDownloadAlbumViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCDownloadAlbumViewCell.m; sourceTree = "<group>"; };
+		4BA88D1D1B25301D0047A567 /* RCDownloadAlbumViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RCDownloadAlbumViewCell.xib; sourceTree = "<group>"; };
 		4BAAF0A11B244168009D2874 /* RCDownloadAudioViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCDownloadAudioViewCell.h; sourceTree = "<group>"; };
 		4BAAF0A21B244168009D2874 /* RCDownloadAudioViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCDownloadAudioViewCell.m; sourceTree = "<group>"; };
 		4BAAF0A31B244168009D2874 /* RCDownloadAudioViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RCDownloadAudioViewCell.xib; sourceTree = "<group>"; };
@@ -2008,6 +2013,9 @@
 			children = (
 				4BB20BCC1B230AD600C5B508 /* RCDownloadAlbumViewController.h */,
 				4BB20BCD1B230AD600C5B508 /* RCDownloadAlbumViewController.m */,
+				4BA88D1B1B25301D0047A567 /* RCDownloadAlbumViewCell.h */,
+				4BA88D1C1B25301D0047A567 /* RCDownloadAlbumViewCell.m */,
+				4BA88D1D1B25301D0047A567 /* RCDownloadAlbumViewCell.xib */,
 			);
 			path = "专辑";
 			sourceTree = "<group>";
@@ -2502,6 +2510,7 @@
 				4BDE7D2B1B12FE4400073E12 /* RCAlbumViewCell.xib in Resources */,
 				4B9210F91B10241F0004DB2A /* RCRecommendPostViewCell.xib in Resources */,
 				4BDE7D5D1B13335B00073E12 /* RCAlbumHeaderView.xib in Resources */,
+				4BA88D1F1B25301D0047A567 /* RCDownloadAlbumViewCell.xib in Resources */,
 				4B8B000C1B2056C6009B0017 /* Neou-Thin.ttf in Resources */,
 				4BC647941B1701EC00661DB0 /* RCAlbumDownloadBottomToolBar.xib in Resources */,
 				4B1D81C81B0C967300B7C9DC /* RCDiscoverItemViewCell.xib in Resources */,
@@ -2724,6 +2733,7 @@
 				4B116CCA1B19D74D007792F4 /* RCPlaylist.m in Sources */,
 				4B1D82811B0C982900B7C9DC /* UIImageView+WebCache.m in Sources */,
 				4B9510071B1F2DD600D5DBDD /* UIImage+ImageEffects.m in Sources */,
+				4BA88D1E1B25301D0047A567 /* RCDownloadAlbumViewCell.m in Sources */,
 				4BC647971B1701EC00661DB0 /* RCAlbumDownloadViewCell.m in Sources */,
 				4B1D81911B0C958D00B7C9DC /* RCCategoryFocusImageList.m in Sources */,
 				4B9510031B1EFD3900D5DBDD /* RCPlayerAlbumViewCell.m in Sources */,

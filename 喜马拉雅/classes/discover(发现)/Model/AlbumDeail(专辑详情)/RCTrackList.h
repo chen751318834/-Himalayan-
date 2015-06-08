@@ -69,4 +69,6 @@
 @property(nonatomic,strong) NSNumber  *commentsCounts;
 @property(nonatomic,strong) NSNumber  *sharesCounts;
 @property(nonatomic,strong) NSNumber  *favoritesCounts;
+@property(nonatomic,assign) NSUInteger  audioCount;
+
 @end

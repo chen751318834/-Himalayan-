@@ -197,7 +197,7 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sIG-kT-WQB">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="5"/>
+                        <rect key="frame" x="-8" y="0.0" width="336" height="5"/>
                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="0.17000000000000001" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="5" id="9M7-Ud-7wZ"/>
@@ -206,7 +206,7 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="tLH-dy-O9h" firstAttribute="centerY" secondItem="sCv-9e-o6z" secondAttribute="centerY" id="1j0-lu-Kb0"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="sIG-kT-WQB" secondAttribute="trailing" constant="-8" id="2Yl-5I-yRt"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="sIG-kT-WQB" secondAttribute="trailing" constant="-16" id="2Yl-5I-yRt"/>
                     <constraint firstItem="BMP-O7-SX8" firstAttribute="leading" secondItem="ObS-rp-9Vd" secondAttribute="trailing" id="4LI-mr-aOv"/>
                     <constraint firstItem="sIG-kT-WQB" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="4na-ZI-5qg"/>
                     <constraint firstItem="9bf-DU-tdV" firstAttribute="centerY" secondItem="BMP-O7-SX8" secondAttribute="centerY" id="85z-lc-x2M"/>
@@ -222,7 +222,7 @@
                     <constraint firstItem="nWk-tC-K3u" firstAttribute="top" secondItem="XF5-Sq-BCd" secondAttribute="bottom" constant="5" id="aOI-Wh-Rb1"/>
                     <constraint firstItem="Yyh-7e-Lt1" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="bSe-ME-ywz"/>
                     <constraint firstItem="9bf-DU-tdV" firstAttribute="centerY" secondItem="vWH-v7-xsP" secondAttribute="centerY" id="df5-2W-vFc"/>
-                    <constraint firstItem="sIG-kT-WQB" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="giR-ZG-Wxr"/>
+                    <constraint firstItem="sIG-kT-WQB" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-16" id="giR-ZG-Wxr"/>
                     <constraint firstItem="XF5-Sq-BCd" firstAttribute="centerY" secondItem="vWH-v7-xsP" secondAttribute="centerY" constant="0.5" id="lHx-Cz-1ih"/>
                     <constraint firstItem="tLH-dy-O9h" firstAttribute="top" secondItem="nWk-tC-K3u" secondAttribute="bottom" constant="8" id="loK-kE-lU5"/>
                     <constraint firstItem="pUx-oP-p3m" firstAttribute="centerY" secondItem="tLH-dy-O9h" secondAttribute="centerY" constant="0.5" id="nHE-J0-8cO"/>

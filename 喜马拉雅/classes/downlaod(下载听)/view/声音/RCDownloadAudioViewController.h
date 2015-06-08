@@ -9,5 +9,5 @@
 #import "RCBaseViewController.h"
 
 @interface RCDownloadAudioViewController : RCBaseViewController
-
+@property(nonatomic,strong) NSArray  *downlaodAudios;
 @end

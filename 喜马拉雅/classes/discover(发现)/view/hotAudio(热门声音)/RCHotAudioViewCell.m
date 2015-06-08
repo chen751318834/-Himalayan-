@@ -10,6 +10,7 @@
 #import "NSDate+RC.h"
 #import "UIImageView+WebCache.h"
 #import "UIImage+RC.h"
+#import "RCDownloadTool.h"
 @interface  RCHotAudioViewCell ()
 @property (weak, nonatomic) IBOutlet UIImageView *iconView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
@@ -47,8 +48,8 @@
     [self setUpWithButton:self.playCountLabel count:[audio.playsCounts intValue] title:nil];
     [self setUpWithButton:self.saveCountLabel count:[audio.sharesCounts intValue] title:nil];
     [self setUpWithButton:self.sayCountLabel count:[audio.commentsCounts intValue] title:nil];
-    self.downloadButton.selected = audio.isDownloaded;
     self.createTImeLabel.text = audio.created_at;
+    self.downloadButton.selected = [RCDownloadTool isDownloadAudio:audio];
 }
 - (void)setUpWithButton:(UIButton *)button count:(int)count title:(NSString *)title {
     if (count ==0) {
