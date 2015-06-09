@@ -65,6 +65,13 @@ static FMDatabase * _db;
     [set next];
     return [set intForColumn:@"downloadingAudio_count"];
 }
++ (BOOL)isDownloadingAudio:(RCTrackList *)downloadingAudio{
+    FMResultSet *set = [_db executeQueryWithFormat:@"SELECT count(*) AS downloadingAudio_count FROM t_downloadingAudio WHERE trackId = %@;", downloadingAudio.trackId];
+    [set next];
+    //#warning 索引从1开始
+    return [set intForColumn:@"downloadingAudio_count"] == 1;
+
+}
 /**
  *  专辑
  *

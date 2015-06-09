@@ -20,6 +20,7 @@
 #import "RCConst.h"
 #import "RCDiscoverViewController.h"
 #import "RCAlbumViewController.h"
+#import "RCDownloadTool.h"
 #import "RCConst.h"
 #import "RCAlbumDeailViewCell.h"
 #import "RCPlayerAlbumViewController.h"
@@ -144,6 +145,8 @@
     [[cell.downloadButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         @strongify(self);
         trackList.downloaded = YES;
+        [RCDownloadTool saveDownloadingAudio:trackList];
+        [RCNotificationCenter postNotificationName:downlaodNotification object:nil userInfo:@{downlaodNotificationName:trackList}];
         [[UIApplication sharedApplication].keyWindow makeToast:@"加入下载队列成功" duration:1 position:@"bottom"];
         [self.collectionView reloadItemsAtIndexPaths:@[indexPath]];
 

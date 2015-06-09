@@ -42,4 +42,6 @@
 + (void)removeAllDownloadingAudio;
 + (NSArray *)downloadingAudios;
 + (NSUInteger)downloadingAudioCount;
++ (BOOL)isDownloadingAudio:(RCTrackList *)downloadingAudio;
+
 @end

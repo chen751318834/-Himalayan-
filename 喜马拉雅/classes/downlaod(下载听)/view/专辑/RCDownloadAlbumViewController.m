@@ -14,6 +14,7 @@
 #include "DXAlertView.h"
 #import "UITableView+FDTemplateLayoutCell.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>
+#import "RCAlbumViewController.h"
 #import "RCNavigationController.h"
 #import "RCConst.h"
 static NSString * const ID = @"downloadAlbumViewCell.h";
@@ -56,31 +57,41 @@ static NSString * const ID = @"downloadAlbumViewCell.h";
 
 #pragma mark - UITableViewDelegate
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    RCDownloadAlbumViewCell * cell = [tableView dequeueReusableCellWithIdentifier:ID forIndexPath:indexPath];
-    RCTrackList * list = self.contents[indexPath.row];
-    cell.list = list;
-    @weakify(self);
-    [[cell.deleteButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
-        @strongify(self);
-        [RCDownloadTool removeDownloadAlbum:list];
-        [self.contents removeObject:list];
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [RCNotificationCenter postNotificationName:deleteOneAudioOrAlbumNotification object:nil userInfo:@{deleteOneAudioOrAlbumNotificationName:list}];
-
-            [tableView reloadData];
-
-        });
-
-
-
-    }];
+    if (indexPath.section == 0) {
+        RCDownloadAlbumViewCell * cell = [tableView dequeueReusableCellWithIdentifier:ID forIndexPath:indexPath];
+        cell.lcoalAlbum = YES;
+        RCTrackList * list = self.contents[indexPath.row];
+        cell.list = list;
+        @weakify(self);
+        [[cell.deleteButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+            @strongify(self);
+            [RCDownloadTool removeDownloadAlbum:list];
+            [self.contents removeObject:list];
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [RCNotificationCenter postNotificationName:deleteOneAudioOrAlbumNotification object:nil userInfo:@{deleteOneAudioOrAlbumNotificationName:list}];
+                [tableView reloadData];
+            });
+        }];
+        return cell;
+    }
+    RCDownloadAlbumViewCell * cell = [RCDownloadAlbumViewCell cell];
+    cell.lcoalAlbum = NO;
+//    RCTrackList * list = self.contents[0];
+    cell.list = nil;
     return cell;
 
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     self.deleteAllButton.hidden = [RCDownloadTool downloadAlbumCount] == 0;
-    return self.contents.count;
+    if (section == 0) {
+        return self.contents.count;
+
+    }
+    return 1;
+}
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 2;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 60;
@@ -88,34 +99,38 @@ static NSString * const ID = @"downloadAlbumViewCell.h";
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [super tableView:tableView didSelectRowAtIndexPath:indexPath];
-    RCTrackList * list = self.contents[indexPath.row];
-    NSArray * albums = [RCDownloadTool downloadAudiosWithAlbumId:list.albumId];
-    RCDownloadAudioViewController * audioVC = [[RCDownloadAudioViewController alloc]init];
-    audioVC.downlaodAudios = albums;
-    audioVC.title = list.albumTitle;
-    [[RCNavigationController navigationController] pushViewController:audioVC animated:YES];
+    if (indexPath.section == 0) {
+        RCTrackList * list = self.contents[indexPath.row];
+        NSArray * albums = [RCDownloadTool downloadAudiosWithAlbumId:list.albumId];
+        RCDownloadAudioViewController * audioVC = [[RCDownloadAudioViewController alloc]init];
+        audioVC.downlaodAudios = albums;
+        audioVC.title = list.albumTitle;
+        [[RCNavigationController navigationController] pushViewController:audioVC animated:YES];
+    }else{
+        RCAlbumViewController * albumVC = [[RCAlbumViewController alloc]init];
+        [[RCNavigationController navigationController] pushViewController:albumVC animated:YES];
+    }
+
 }
 
 #pragma mark - 事件处理
 -(void)deletedAllToReload{
     [self.contents removeAllObjects];
     [self.tableView reloadData];
-
 }
 - (void)reload:(NSNotification *)note{
     RCTrackList * trackList = note.userInfo[AudioDownloadFinishedAudioNotificationName];
     for (RCTrackList * list in self.contents) {
         if ([trackList.albumId isEqualToNumber:list.albumId]) {
-            list.audioCount++;
-            trackList.audioCount = list.audioCount;
+//            list.audioCount++;
+//            trackList.audioCount = list.audioCount;
             [self.tableView reloadData];
             return;
-
         }
     }
 
     [self.contents insertObject:trackList atIndex:0];
-    [RCDownloadTool saveDownloadAlbum:trackList];
+//    [RCDownloadTool saveDownloadAlbum:trackList];
     [self.tableView reloadData];
 }
 - (void)deletedOneAlbumToReload:(NSNotification *)note{

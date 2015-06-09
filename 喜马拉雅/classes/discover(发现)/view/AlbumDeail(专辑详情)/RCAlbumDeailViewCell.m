@@ -10,7 +10,7 @@
 #import "NSDate+RC.h"
 #import "UIImageView+WebCache.h"
 #import "UIImage+RC.h"
-
+#import "RCDownloadTool.h"
 @interface RCAlbumDeailViewCell ()
 @property (weak, nonatomic) IBOutlet UIImageView *iconView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
@@ -42,7 +42,7 @@
     [self setUpWithButton:self.playCountLabel count:[trackList.playtimes intValue] title:nil];
     [self setUpWithButton:self.saveCountLabel count:[trackList.likes intValue] title:nil];
     [self setUpWithButton:self.sayCountLabel count:[trackList.comments intValue] title:nil];
-    self.downloadButton.selected = trackList.isDownloaded;
+        self.downloadButton.selected = [RCDownloadTool isDownloadingAudio:trackList]?[RCDownloadTool isDownloadingAudio:trackList]:[RCDownloadTool isDownloadAudio:trackList];
     self.createTImeLabel.text = trackList.created_at;
 }
 

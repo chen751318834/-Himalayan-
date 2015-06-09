@@ -7,7 +7,7 @@
 //
 
 #import "RCBaseViewController.h"
-@interface RCBaseViewController ()
+@interface RCBaseViewController () <UINavigationControllerDelegate>
 
 @end
 
@@ -24,6 +24,7 @@
     [self setUpRefreshView];
     self.tableView.tableFooterView = [[UIView alloc]init];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+
 }
 
 #pragma mark 集成刷新控件
@@ -71,6 +72,13 @@
     self.tableView.gifFooter.hidden = YES;
 
 }
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+}
+- (void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
+
+}
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
@@ -83,4 +91,10 @@
 - (void)loadNewData{}
 
 - (void)loadMoreData{}
+
+
+- (void)dealloc
+{
+}
+
 @end

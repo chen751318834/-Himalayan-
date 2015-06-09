@@ -11,5 +11,6 @@
 @interface RCDownloadAlbumViewCell : UITableViewCell
 @property(nonatomic,strong) RCTrackList  *list;
 @property (weak, nonatomic) IBOutlet UIButton *deleteButton;
-
-@end
+@property(nonatomic,assign,getter=isLcoalAlbum) BOOL lcoalAlbum;
++ (instancetype)cell;
+@end  

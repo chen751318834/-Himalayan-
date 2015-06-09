@@ -48,7 +48,7 @@
                                     <constraint firstAttribute="height" constant="40" id="lWP-av-jCG"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -166,36 +166,6 @@
                         <color key="textColor" white="0.5" alpha="0.93000000000000005" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sCv-9e-o6z" customClass="EAColourfulProgressView">
-                        <rect key="frame" x="67" y="120" width="157" height="9"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="9" id="f3S-3V-e2g"/>
-                        </constraints>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="color" keyPath="initialFillColor">
-                                <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </userDefinedRuntimeAttribute>
-                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                <real key="value" value="2.5"/>
-                            </userDefinedRuntimeAttribute>
-                            <userDefinedRuntimeAttribute type="color" keyPath="containerColor">
-                                <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </userDefinedRuntimeAttribute>
-                            <userDefinedRuntimeAttribute type="number" keyPath="currentValue">
-                                <integer key="value" value="0"/>
-                            </userDefinedRuntimeAttribute>
-                            <userDefinedRuntimeAttribute type="number" keyPath="borderLineWidth">
-                                <integer key="value" value="0"/>
-                            </userDefinedRuntimeAttribute>
-                            <userDefinedRuntimeAttribute type="number" keyPath="maximumValue">
-                                <integer key="value" value="1"/>
-                            </userDefinedRuntimeAttribute>
-                            <userDefinedRuntimeAttribute type="boolean" keyPath="showLabels" value="NO"/>
-                            <userDefinedRuntimeAttribute type="color" keyPath="oneThirdFillColor">
-                                <color key="value" red="1" green="0.3803921569" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
-                            </userDefinedRuntimeAttribute>
-                        </userDefinedRuntimeAttributes>
-                    </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sIG-kT-WQB">
                         <rect key="frame" x="-8" y="0.0" width="336" height="5"/>
                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="0.17000000000000001" colorSpace="calibratedRGB"/>
@@ -203,20 +173,36 @@
                             <constraint firstAttribute="height" constant="5" id="9M7-Ud-7wZ"/>
                         </constraints>
                     </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xTo-1o-2bm">
+                        <rect key="frame" x="64" y="120" width="160" height="10"/>
+                        <subviews>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qrR-WJ-5Qg">
+                                <rect key="frame" x="0.0" y="0.0" width="160" height="10"/>
+                                <color key="progressTintColor" red="1" green="0.3803921569" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="trackTintColor" red="0.92156862750000001" green="0.96078431369999995" blue="1" alpha="0.96999999999999997" colorSpace="calibratedRGB"/>
+                            </progressView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="qrR-WJ-5Qg" firstAttribute="top" secondItem="xTo-1o-2bm" secondAttribute="top" id="5Hb-AZ-vYW"/>
+                            <constraint firstAttribute="trailing" secondItem="qrR-WJ-5Qg" secondAttribute="trailing" id="ZDP-d0-71B"/>
+                            <constraint firstAttribute="height" constant="10" id="ciV-DL-W75"/>
+                            <constraint firstItem="qrR-WJ-5Qg" firstAttribute="leading" secondItem="xTo-1o-2bm" secondAttribute="leading" id="oYc-SK-nkN"/>
+                            <constraint firstAttribute="bottom" secondItem="qrR-WJ-5Qg" secondAttribute="bottom" id="scM-Yh-G7q"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="tLH-dy-O9h" firstAttribute="centerY" secondItem="sCv-9e-o6z" secondAttribute="centerY" id="1j0-lu-Kb0"/>
                     <constraint firstAttribute="trailingMargin" secondItem="sIG-kT-WQB" secondAttribute="trailing" constant="-16" id="2Yl-5I-yRt"/>
                     <constraint firstItem="BMP-O7-SX8" firstAttribute="leading" secondItem="ObS-rp-9Vd" secondAttribute="trailing" id="4LI-mr-aOv"/>
                     <constraint firstItem="sIG-kT-WQB" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="4na-ZI-5qg"/>
                     <constraint firstItem="9bf-DU-tdV" firstAttribute="centerY" secondItem="BMP-O7-SX8" secondAttribute="centerY" id="85z-lc-x2M"/>
-                    <constraint firstItem="pUx-oP-p3m" firstAttribute="leading" secondItem="sCv-9e-o6z" secondAttribute="trailing" constant="8" id="HhY-rM-mWq"/>
                     <constraint firstItem="Yyh-7e-Lt1" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="16" id="Hiz-ee-TbL"/>
-                    <constraint firstItem="sCv-9e-o6z" firstAttribute="leading" secondItem="tLH-dy-O9h" secondAttribute="trailing" constant="8" id="IhG-gN-43f"/>
                     <constraint firstItem="XF5-Sq-BCd" firstAttribute="leading" secondItem="vWH-v7-xsP" secondAttribute="trailing" id="Kvg-Xd-chD"/>
                     <constraint firstItem="ObS-rp-9Vd" firstAttribute="centerY" secondItem="BMP-O7-SX8" secondAttribute="centerY" id="Lfu-r2-ufF"/>
                     <constraint firstItem="nWk-tC-K3u" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="NR3-4I-zqk"/>
                     <constraint firstItem="9bf-DU-tdV" firstAttribute="leading" secondItem="BMP-O7-SX8" secondAttribute="trailing" id="Nmd-zJ-maG"/>
+                    <constraint firstItem="xTo-1o-2bm" firstAttribute="centerY" secondItem="tLH-dy-O9h" secondAttribute="centerY" constant="0.5" id="Sc5-5K-WZf"/>
                     <constraint firstItem="Yyh-7e-Lt1" firstAttribute="leading" secondItem="ObS-rp-9Vd" secondAttribute="leading" id="U0P-73-Wj1"/>
                     <constraint firstItem="ObS-rp-9Vd" firstAttribute="top" secondItem="Yyh-7e-Lt1" secondAttribute="bottom" constant="7.5" id="Yls-ii-RX7"/>
                     <constraint firstItem="nWk-tC-K3u" firstAttribute="top" secondItem="XF5-Sq-BCd" secondAttribute="bottom" constant="5" id="aOI-Wh-Rb1"/>
@@ -228,17 +214,19 @@
                     <constraint firstItem="pUx-oP-p3m" firstAttribute="centerY" secondItem="tLH-dy-O9h" secondAttribute="centerY" constant="0.5" id="nHE-J0-8cO"/>
                     <constraint firstItem="tLH-dy-O9h" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="p8J-Vn-I9N"/>
                     <constraint firstItem="pUx-oP-p3m" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="phk-tu-edZ"/>
+                    <constraint firstItem="pUx-oP-p3m" firstAttribute="leading" secondItem="xTo-1o-2bm" secondAttribute="trailing" constant="8" id="ryd-W0-OY3"/>
                     <constraint firstAttribute="trailingMargin" secondItem="nWk-tC-K3u" secondAttribute="trailing" constant="-8" id="ttH-CJ-l7q"/>
+                    <constraint firstItem="xTo-1o-2bm" firstAttribute="leading" secondItem="tLH-dy-O9h" secondAttribute="trailing" constant="5" id="usU-aF-12Y"/>
                     <constraint firstItem="Yyh-7e-Lt1" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="wD4-FF-ZfB"/>
                     <constraint firstItem="vWH-v7-xsP" firstAttribute="leading" secondItem="9bf-DU-tdV" secondAttribute="trailing" id="wcd-g6-Qjy"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="downloadProgressView" destination="sCv-9e-o6z" id="YXc-7F-ygL"/>
                 <outlet property="downloadProgresslabel" destination="pUx-oP-p3m" id="bwh-Hp-rUr"/>
                 <outlet property="downloadStateButton" destination="tLH-dy-O9h" id="STW-EK-oHl"/>
                 <outlet property="iconView" destination="1Hc-sa-izu" id="wiA-wL-ji7"/>
                 <outlet property="playCountLabel" destination="ObS-rp-9Vd" id="zOq-ZA-IM8"/>
+                <outlet property="progressView" destination="qrR-WJ-5Qg" id="wBQ-r1-Mz3"/>
                 <outlet property="saveCountLabel" destination="BMP-O7-SX8" id="qBE-8p-2ax"/>
                 <outlet property="sayCountLabel" destination="9bf-DU-tdV" id="y3m-Hr-dgQ"/>
                 <outlet property="sizeLabel" destination="XF5-Sq-BCd" id="zrb-vH-85t"/>

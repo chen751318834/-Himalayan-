@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import <UIKit/UIKit.h>
 @interface RCTrackList : NSObject
 /**
  *   "trackId": 6953023,
@@ -70,5 +70,7 @@
 @property(nonatomic,strong) NSNumber  *sharesCounts;
 @property(nonatomic,strong) NSNumber  *favoritesCounts;
 @property(nonatomic,assign) NSUInteger  audioCount;
-
+@property(nonatomic,assign) CGFloat percentDone;
+@property(nonatomic,assign) long long totalBytesReadForFile;
+@property(nonatomic,assign) long long totalBytesExpectedToReadForFile;
 @end

@@ -13,6 +13,7 @@
 #import "RCPlayerView.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #import "RCConst.h"
+#import "RCDownloadTool.h"
 #import "RCBottomPlayerButton.h"
 #import "RCPlayerViewController.h"
 @interface RCHotAudioViewController ()
@@ -133,12 +134,10 @@
     @weakify(self);
     [[cell.downloadButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         @strongify(self);
-        audio.downloaded = YES;
- [RCNotificationCenter postNotificationName:downlaodNotification object:nil userInfo:@{downlaodNotificationName:audio}];        [[UIApplication sharedApplication].keyWindow makeToast:@"加入下载队列成功" duration:1 position:@"bottom"];
+        [RCDownloadTool saveDownloadingAudio:audio];
+        [[UIApplication sharedApplication].keyWindow makeToast:@"加入下载队列成功" duration:1 position:@"bottom"];
+ [RCNotificationCenter postNotificationName:downlaodNotification object:nil userInfo:@{downlaodNotificationName:audio}];
         [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-
-
-
     }];
 
     return cell;

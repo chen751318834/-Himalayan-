@@ -9,6 +9,7 @@
 #import "RCDiscoverViewController.h"
 #import "RCSearchBar.h"
 #import "RCRecommendAlbumViewCell.h"
+#import "RCSearchViewController.h"
 #import "RCPlayListViewCell.h"
 #import "RCDiscover2IMGViewCell.h"
 #import "RCAudioTool.h"
@@ -95,7 +96,6 @@ static const NSUInteger sectionCount = 100;
 
     [super viewWillAppear:animated];
 
-
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -109,6 +109,7 @@ static const NSUInteger sectionCount = 100;
     [self.tableView registerNib:[UINib nibWithNibName:@"RCDiscover2IMGViewCell" bundle:nil] forCellReuseIdentifier:img2CellID];
 
     [self setUpSearchBar];
+    
     [self setUpHeaderView];
     [self setUpPageControl];
     self.coverView.hidden = NO;
@@ -217,21 +218,22 @@ static const NSUInteger sectionCount = 100;
 
 
 }
+
 - (void)setUpSearchBar{
-    RCSearchBar * searchBar = [RCSearchBar searchBar];
-    searchBar.frame = CGRectMake(0, 5, self.view.bounds.size.width, 29);
-    self.navigationItem.titleView = searchBar;
-[[searchBar rac_signalForControlEvents:UIControlEventEditingDidEnd] subscribeNext:^(RCSearchBar * seachBar) {
-    [seachBar setBackground:[UIImage imageNamed:@"find_searchbar"]];
+    UIButton * button = [UIButton buttonWithType:UIButtonTypeCustom];
+    button.adjustsImageWhenHighlighted  = NO;
+    button.frame = CGRectMake(0, 5, self.view.bounds.size.width, 29);
+    self.navigationItem.titleView = button;
 
-}];
-    [[searchBar rac_signalForControlEvents:UIControlEventEditingDidBegin] subscribeNext:^(RCSearchBar * seachBar) {
-        [searchBar setBackground:[UIImage imageNamed:@"netsound_search"]];
-
-    }];
-    self.searchBar = searchBar;
+    [button setBackgroundImage:[UIImage imageNamed:@"find_searchbar"] forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(enterSearchVC) forControlEvents:UIControlEventTouchDown];
+//    self.searchBar = searchBar;
 }
+- (void)enterSearchVC{
+    RCSearchViewController * searchVC = [[RCSearchViewController alloc]init];
+            [self.navigationController pushViewController:searchVC animated:YES];
 
+}
 - (void)setUpHeaderView{
     UICollectionViewFlowLayout * layout = [[UICollectionViewFlowLayout alloc]init];
     CGFloat margin = 7;

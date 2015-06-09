@@ -8,19 +8,27 @@
 
 #import <UIKit/UIKit.h>
 #import "RCTrackList.h"
-#import "EAColourfulProgressView.h"
+#import "LDProgressView.h"
+
 @class RCDownloadingViewCell;
 @protocol RCDownloadingViewCellDelegate <NSObject>
 - (void)downloadingViewCell:(RCDownloadingViewCell *)cell;
+- (void)downloadingViewCell:(RCDownloadingViewCell *)cell trackList:(RCTrackList *)trackList progress:(NSNumber *)progress currentDownloadSize:(NSNumber *)currentDownloadSize totalDownloadSize:(NSNumber *)totalDownloadSize;
+-(void)downloadFinished:(RCDownloadingViewCell *)downloadingViewCell trackList:(RCTrackList *)trackList;
+-(void)downloadFail:(RCDownloadingViewCell *)downloadingViewCell;
+
 @end
 @interface RCDownloadingViewCell : UITableViewCell
 
 @property(nonatomic,strong) RCTrackList  *list;
 + (instancetype)cell;
+@property (weak, nonatomic)IBOutlet  UIProgressView *progressView;
 
 @property(nonatomic,weak) id<RCDownloadingViewCellDelegate>  delegate;
 @property (weak, nonatomic) IBOutlet UILabel *sizeLabel;
-@property (weak, nonatomic) IBOutlet EAColourfulProgressView *downloadProgressView;
-@property (weak, nonatomic) IBOutlet UILabel *downloadProgresslabel;
+@property (strong, nonatomic) IBOutlet UILabel *downloadProgresslabel;
+@property(nonatomic,strong) NSURL  *url ;
+
+- (void)startDownloadWithTrackList:(RCTrackList *)trackList;
 
 @end
