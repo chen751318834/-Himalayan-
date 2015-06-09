@@ -12,28 +12,52 @@
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #import "RCBottomPlayerButton.h"
 #import "RCConst.h"
+#import "RCSearchViewModel.h"
+
 #import "UIImage+RC.h"
 #import "SKTagView.h"
+#import "RCSearchResultViewController.h"
 #import "HexColor.h"
 #define SCREEN_WIDTH    ([UIScreen mainScreen].bounds.size.width)
 
 static NSString * const ID = @"searchCell";
-@interface RCSearchViewController ()
-@property(nonatomic,weak) RCSearchBar   *searchBar;
+@interface RCSearchViewController () <UISearchBarDelegate>
+@property(nonatomic,weak) UISearchBar   *searchBar;
 @property(nonatomic,strong) NSMutableArray  *texts;
 @property (nonatomic, strong) NSArray *colorPool;
+@property(nonatomic,strong) RCSearchResultViewController   *resultVC;
+@property(nonatomic,strong) RCSearchViewModel  *viewModel;
 
 @end
 
 @implementation RCSearchViewController
+-  (RCSearchViewModel *)viewModel{
+    if (!_viewModel) {
+        self.viewModel = [[RCSearchViewModel alloc]init];
+
+    }
+    return _viewModel;
+}
+-  (RCSearchResultViewController *)resultVC{
+    if (!_resultVC) {
+        RCSearchResultViewController * resultVC = [[RCSearchResultViewController alloc]init];
+        resultVC.view.frame = CGRectMake(0, 0, self.view.bounds.size.width,self.view.bounds.size.height);
+        [self addChildViewController:resultVC];
+
+        resultVC.view.backgroundColor = [UIColor redColor];
+        self.resultVC = resultVC;
+    }
+    return _resultVC;
+}
 
 -  (NSMutableArray *)texts{
     if (!_texts) {
-        self.texts = [NSMutableArray array];
+         self.texts = [NSMutableArray array];
 
     }
     return _texts;
 }
+
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     [self.searchBar resignFirstResponder];
@@ -62,19 +86,50 @@ static NSString * const ID = @"searchCell";
 }
 
 - (void)setUpSearchBar{
-    RCSearchBar * searchBar = [RCSearchBar searchBar];
+    UISearchBar * searchBar = [[UISearchBar alloc]init];
+    searchBar.barStyle = UIBarStyleBlack;
+    searchBar.delegate = self;
+    searchBar.placeholder = @"搜索声音、专辑、人                                      ";
+    [searchBar setBackgroundImage:[UIImage imageNamed:@"sound_act"]];
     searchBar.frame = CGRectMake(10, 40, self.view.bounds.size.width - 40, 29);
-    searchBar.textColor = [UIColor blackColor];
-    [searchBar setBackground:[UIImage imageNamed:@"find_searchbar"]];
-
     self.navigationItem.titleView = searchBar;
-    [[searchBar rac_signalForControlEvents:UIControlEventEditingDidBegin] subscribeNext:^(RCSearchBar * seachBar) {
-        [searchBar setBackground:[UIImage imageNamed:@"netsound_search"]];
-    }];
-    [[searchBar rac_signalForControlEvents:UIControlEventEditingDidEnd] subscribeNext:^(RCSearchBar * seachBar) {
-        [seachBar setBackground:[UIImage imageNamed:@"find_searchbar"]];
-    }];
     self.searchBar = searchBar;
+
+}
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar{
+
+    [self.view addSubview:self.resultVC.view];
+}
+
+- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar{
+    [self.resultVC.view removeFromSuperview];
+
+}
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
+    if (searchText.length != 0) {
+        [self.viewModel fetchhotSearchDataWithIndex:0 keywords:searchText success:^{
+
+        } failure:^{
+
+        }];
+    }
+}
+- (void)dealloc{
+    [RCNotificationCenter removeObserver:self];
+}
+#pragma mark - UITextFieldDelegate
+- (void)textFieldDidBeginEditing:(UITextField *)textField{
+    [textField setBackground:[UIImage imageNamed:@"netsound_search"]];
+    [self.view addSubview:self.resultVC.view];
+
+
+
+}
+
+
+- (void)textFieldDidEndEditing:(UITextField *)textField{
+    [textField setBackground:[UIImage imageNamed:@"find_searchbar"]];
+    [self.resultVC.view removeFromSuperview];
 }
 #pragma mark - Table view data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -85,9 +140,9 @@ static NSString * const ID = @"searchCell";
 - (void)configureCell:(RCSearchViewCell *)cell atIndexPath:(NSIndexPath *)indexPath  texts:(NSArray *)texts
 {
     cell.tagView.preferredMaxLayoutWidth = SCREEN_WIDTH;
-    cell.tagView.padding    = UIEdgeInsetsMake(5, 5, 5, 5);
-    cell.tagView.insets    = 5;
-    cell.tagView.lineSpace = 5;
+    cell.tagView.padding    = UIEdgeInsetsMake(10, 10, 10, 10);
+    cell.tagView.insets    = 15;
+    cell.tagView.lineSpace = 10;
 
     [cell.tagView removeAllTags];
     cell.tagView.didClickTagAtIndex = ^(NSUInteger index){
@@ -134,18 +189,32 @@ static NSString * const ID = @"searchCell";
 {
     NSLog(@"Tapped me");
 }
--(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
-}
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    [self.searchBar setText:nil];
+    [self.searchBar resignFirstResponder];
+    /**
+     *  去除SectionheaderView的站粘性
+     */
+    if (scrollView == self.tableView)
+    {
+        CGFloat sectionHeaderHeight = 30; //sectionHeaderHeight
+        if (scrollView.contentOffset.y<=sectionHeaderHeight&&scrollView.contentOffset.y>=0) {
+            scrollView.contentInset = UIEdgeInsetsMake(-scrollView.contentOffset.y+70, 0, 0, 0);
+        } else if (scrollView.contentOffset.y>=sectionHeaderHeight) {
+            scrollView.contentInset = UIEdgeInsetsMake(-sectionHeaderHeight-20, 0, 0, 0);
+        }
 
+    }
+}
 #pragma mark - praive
 - (SKTag *)tagWithIndex:(NSUInteger)index title:(NSString *)title{
 
     SKTag *tag = [SKTag tagWithText:title];
-    tag.textColor = [UIColor whiteColor];
-    tag.fontSize = 12;
-    tag.padding = UIEdgeInsetsMake(5, 5, 5, 5);
-    tag.bgImg = [UIImage imageWithColor:[UIColor colorWithHexString:self.colorPool[index % self.colorPool.count]]];
-    tag.cornerRadius = 5;
+    tag.textColor = [UIColor grayColor];
+    tag.fontSize = 13;
+    tag.padding = UIEdgeInsetsMake(7, 7, 7, 7);
+    tag.bgImg = [UIImage imageNamed:@"sound_act"];
+    tag.cornerRadius = 10;
     return tag;
 }
 - (void)addTagWithTitle:(NSString *)title{
