@@ -52,21 +52,22 @@
                 [self.models addObjectsFromArray:all.album.list];
                 [self.models addObjectsFromArray:all.sound.list];
                 [self.models addObjectsFromArray:all.user.list];
+    
             }
                 break;
             case RCSearchViewModelDataTypeAlbum:
                 [self.models addObjectsFromArray:[RCSearchResultList objectArrayWithKeyValuesArray:json[@"list"]]];
+
                 break;
             case RCSearchViewModelDataTypeuser:
                 [self.models addObjectsFromArray:[RCSearchResultList objectArrayWithKeyValuesArray:json[@"list"]]];
 
+
                 break;
             case RCSearchViewModelDataTypeAudio:
                 [self.models addObjectsFromArray:[RCSearchResultList objectArrayWithKeyValuesArray:json[@"list"]]];
-
                 break;
                     }
-        NSLog(@"%@",self.models);
 
         if (success) {
             success();

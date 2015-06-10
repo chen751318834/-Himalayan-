@@ -11,9 +11,9 @@
 #import "RCSearchBar.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #import "RCBottomPlayerButton.h"
+#import "RCSubjectList.h"
 #import "RCConst.h"
 #import "RCSearchViewModel.h"
-
 #import "UIImage+RC.h"
 #import "SKTagView.h"
 #import "RCSearchResultViewController.h"
@@ -27,6 +27,7 @@ static NSString * const ID = @"searchCell";
 @property (nonatomic, strong) NSArray *colorPool;
 @property(nonatomic,strong) RCSearchResultViewController   *resultVC;
 @property(nonatomic,strong) RCSearchViewModel  *viewModel;
+@property(nonatomic,assign) int currentIndex;
 
 @end
 
@@ -43,8 +44,6 @@ static NSString * const ID = @"searchCell";
         RCSearchResultViewController * resultVC = [[RCSearchResultViewController alloc]init];
         resultVC.view.frame = CGRectMake(0, 0, self.view.bounds.size.width,self.view.bounds.size.height);
         [self addChildViewController:resultVC];
-
-        resultVC.view.backgroundColor = [UIColor redColor];
         self.resultVC = resultVC;
     }
     return _resultVC;
@@ -78,12 +77,13 @@ static NSString * const ID = @"searchCell";
     self.tableView.tableFooterView = [[UIView alloc]init];
     [self setUpSearchBar];
     [self.tableView registerNib:[UINib nibWithNibName:@"RCSearchViewCell" bundle:nil] forCellReuseIdentifier:ID];
+    [RCNotificationCenter addObserver:self selector:@selector(selectedDataType:) name:searchDataTypeNotification object:nil];
+    [RCNotificationCenter addObserver:self selector:@selector(keyBoardEnd) name:UIKeyboardDidHideNotification object:nil];
     self.colorPool = @[@"#7ecef4", @"#84ccc9", @"#88abda",@"#7dc1dd",@"#b6b8de"];
     for (int i = 0; i<20; i++) {
         NSString * text = [NSString stringWithFormat:@"hahah %d",i];
         [self.texts addObject:text];
-    }
-}
+    }}
 
 - (void)setUpSearchBar{
     UISearchBar * searchBar = [[UISearchBar alloc]init];
@@ -107,12 +107,15 @@ static NSString * const ID = @"searchCell";
 }
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
     if (searchText.length != 0) {
-        [self.viewModel fetchhotSearchDataWithIndex:0 keywords:searchText success:^{
-
+        [self.viewModel fetchhotSearchDataWithIndex:self.currentIndex keywords:searchText success:^{
+            self.resultVC.searchResult = self.viewModel.models;
+            [self.resultVC.tableView reloadData];
         } failure:^{
 
         }];
     }
+    NSLog(@"%d",self.currentIndex);
+
 }
 - (void)dealloc{
     [RCNotificationCenter removeObserver:self];
@@ -130,6 +133,7 @@ static NSString * const ID = @"searchCell";
 - (void)textFieldDidEndEditing:(UITextField *)textField{
     [textField setBackground:[UIImage imageNamed:@"find_searchbar"]];
     [self.resultVC.view removeFromSuperview];
+
 }
 #pragma mark - Table view data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -207,6 +211,23 @@ static NSString * const ID = @"searchCell";
     }
 }
 #pragma mark - praive
+- (void)keyBoardEnd{
+    self.viewModel.models = nil;
+    self.resultVC.searchResult = nil;
+    [self.resultVC.tableView reloadData];
+
+}
+- (void)selectedDataType:(NSNotification *)note{
+
+    int index = [note.userInfo[searchDataTypeNotificationName] intValue];
+    self.currentIndex = index;
+    [self .viewModel fetchhotSearchDataWithIndex:index keywords:self.searchBar.text success:^{
+        self.resultVC.searchResult = self.viewModel.models;
+        [self.resultVC.tableView reloadData];
+    } failure:^{
+
+    }];
+}
 - (SKTag *)tagWithIndex:(NSUInteger)index title:(NSString *)title{
 
     SKTag *tag = [SKTag tagWithText:title];
@@ -219,6 +240,7 @@ static NSString * const ID = @"searchCell";
 }
 - (void)addTagWithTitle:(NSString *)title{
        RCSearchViewCell * cell = [self.tableView dequeueReusableCellWithIdentifier:ID];
+
     [cell.tagView addTag:[self tagWithIndex:0 title:title]];
     [self.texts addObject:title];
     [self.tableView reloadData];

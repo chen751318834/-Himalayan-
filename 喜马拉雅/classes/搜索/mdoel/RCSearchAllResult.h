@@ -17,9 +17,9 @@
  "album": {},
  "user": {}
  */
-@property(nonatomic,copy) NSString  *all;
 @property(nonatomic,strong) RCSearchSoundResult  *sound;
 @property(nonatomic,strong) RCSearchAlbumResult  *album;
 @property(nonatomic,strong) RCSearchUserResult  *user;
+@property(nonatomic,copy) NSString  *scope;
 
 @end

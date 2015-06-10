@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface RCSearchResultViewController : UITableViewController
+@property(nonatomic,strong) NSArray  *searchResult;
 
 @end

@@ -9,7 +9,9 @@
 #import "RCSearchResultViewController.h"
 #import "RCSearchBar.h"
 #import "RCSegementControl.h"
+#import "RCConst.h"
 #import "RCSearchViewModel.h"
+#import "RCSearchResultList.h"
 @interface RCSearchResultViewController ()
 @property(nonatomic,weak) RCSearchBar   *searchBar;
 @property(nonatomic,assign) NSUInteger currentIndex;
@@ -46,13 +48,16 @@
     if (!cell) {
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];;
     }
+    RCSearchResultList * result = self.searchResult[indexPath.row];
+    cell.textLabel.text = result.title;
+
     return cell;
 
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
 
-    return 0;
+    return self.searchResult.count;
 }
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -62,7 +67,7 @@
 #pragma mark - 事件处理
 - (void)changedValue:(UISegmentedControl *)control{
     self.currentIndex = control.selectedSegmentIndex;
-
+    [RCNotificationCenter postNotificationName:searchDataTypeNotification object:nil userInfo:@{searchDataTypeNotificationName:@(self.currentIndex)}];
 
 }
 @end
