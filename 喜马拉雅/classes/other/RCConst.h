@@ -68,6 +68,7 @@ static NSString * deleteOneAudioOrAlbumNotificationName = @"deleteOneAudioOrAlbu
 
 static NSString * searchDataTypeNotification = @"searchDataTypeNotification";
 static NSString * searchDataTypeNotificationName = @"searchDataTypeNotificationName";
+static NSString * searchResultVCEndExitingNotification = @"searchResultVCEndExitingNotification";
 
 #define RCNotificationCenter  [NSNotificationCenter defaultCenter]
 

@@ -9,5 +9,6 @@
 #import "RCBaseViewController.h"
 
 @interface RCUserViewController : RCBaseViewController
+@property(nonatomic,strong) NSNumber  *ID;
 
 @end

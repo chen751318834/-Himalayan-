@@ -57,34 +57,25 @@ static NSString * const ID = @"searchCell";
     return _texts;
 }
 
-- (void)viewWillDisappear:(BOOL)animated{
-    [super viewWillDisappear:animated];
-    [self.searchBar resignFirstResponder];
-    [[RCBottomPlayerButton playingAudioButton] moveToTop];;
 
-}
-- (void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    [[RCBottomPlayerButton playingAudioButton] moveToBottom];;
-
-}
-- (void)viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
-
-}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.tableView.tableFooterView = [[UIView alloc]init];
     [self setUpSearchBar];
+    [self setUpNotificationCenter];
     [self.tableView registerNib:[UINib nibWithNibName:@"RCSearchViewCell" bundle:nil] forCellReuseIdentifier:ID];
-    [RCNotificationCenter addObserver:self selector:@selector(selectedDataType:) name:searchDataTypeNotification object:nil];
-    [RCNotificationCenter addObserver:self selector:@selector(keyBoardEnd) name:UIKeyboardDidHideNotification object:nil];
-    self.colorPool = @[@"#7ecef4", @"#84ccc9", @"#88abda",@"#7dc1dd",@"#b6b8de"];
+      self.colorPool = @[@"#7ecef4", @"#84ccc9", @"#88abda",@"#7dc1dd",@"#b6b8de"];
     for (int i = 0; i<20; i++) {
         NSString * text = [NSString stringWithFormat:@"hahah %d",i];
         [self.texts addObject:text];
     }}
+- (void)setUpNotificationCenter{
 
+    [RCNotificationCenter addObserver:self selector:@selector(end) name:searchResultVCEndExitingNotification object:nil];
+    [RCNotificationCenter addObserver:self selector:@selector(selectedDataType:) name:searchDataTypeNotification object:nil];
+    [RCNotificationCenter addObserver:self selector:@selector(keyBoardEnd) name:UIKeyboardDidHideNotification object:nil];
+
+}
 - (void)setUpSearchBar{
     UISearchBar * searchBar = [[UISearchBar alloc]init];
     searchBar.barStyle = UIBarStyleBlack;
@@ -216,6 +207,10 @@ static NSString * const ID = @"searchCell";
     self.resultVC.searchResult = nil;
     [self.resultVC.tableView reloadData];
 
+}
+- (void)end{
+    self.searchBar.text = nil;
+    [self.searchBar resignFirstResponder];
 }
 - (void)selectedDataType:(NSNotification *)note{
 

@@ -96,10 +96,11 @@
     }else if (self.resultDataType == RCSearchViewModelDataTypeuser){
 
         RCUserViewController * userVC = [[RCUserViewController alloc]init];
+        userVC.ID = result.ID;
         [self.navigationController pushViewController:userVC animated:YES];
 
     }else{
-        [self.view resignFirstResponder];
+        [RCNotificationCenter postNotificationName:searchResultVCEndExitingNotification object:nil];
         [[RCPlayerView playerView] showAnimationing:^{
             [RCNotificationCenter postNotificationName:sendNetWorkingNotification object:nil userInfo:@{netWorkingTrackIdNotificationName:result.ID}];
 
