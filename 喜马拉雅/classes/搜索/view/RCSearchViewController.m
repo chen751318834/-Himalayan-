@@ -9,7 +9,7 @@
 #import "RCSearchViewController.h"
 #import "RCSearchViewCell.h"
 #import "RCSearchBar.h"
-#import <ReactiveCocoa/ReactiveCocoa.h>
+#import "ReactiveCocoa.h"
 #import "RCBottomPlayerButton.h"
 #import "RCSubjectList.h"
 #import "RCConst.h"
@@ -109,12 +109,12 @@ static NSString * const ID = @"searchCell";
     if (searchText.length != 0) {
         [self.viewModel fetchhotSearchDataWithIndex:self.currentIndex keywords:searchText success:^{
             self.resultVC.searchResult = self.viewModel.models;
+            self.resultVC.resultDataType = self.viewModel.resultDataType;
             [self.resultVC.tableView reloadData];
         } failure:^{
 
         }];
     }
-    NSLog(@"%d",self.currentIndex);
 
 }
 - (void)dealloc{
@@ -223,6 +223,7 @@ static NSString * const ID = @"searchCell";
     self.currentIndex = index;
     [self .viewModel fetchhotSearchDataWithIndex:index keywords:self.searchBar.text success:^{
         self.resultVC.searchResult = self.viewModel.models;
+        self.resultVC.resultDataType = self.viewModel.resultDataType;
         [self.resultVC.tableView reloadData];
     } failure:^{
 

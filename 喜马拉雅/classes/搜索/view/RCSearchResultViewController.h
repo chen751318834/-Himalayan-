@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RCSearchViewModel.h"
 
 @interface RCSearchResultViewController : UITableViewController
 @property(nonatomic,strong) NSArray  *searchResult;
+@property(nonatomic,assign) RCSearchViewModelDataType resultDataType;
 
 @end

@@ -9,7 +9,7 @@
 #import "RCOneAlbumViewController.h"
 #import "RCAlbumViewModel.h"
 #import "RCAlbumViewCell.h"
-#import <ReactiveCocoa/ReactiveCocoa.h>
+#import "ReactiveCocoa.h"
 #import "RCConst.h"
 #import "RCAlbumTool.h"
 @interface RCOneAlbumViewController ()

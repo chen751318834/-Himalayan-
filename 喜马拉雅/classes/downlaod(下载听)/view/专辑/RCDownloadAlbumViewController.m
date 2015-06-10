@@ -11,9 +11,9 @@
 #import "RCDownloadTool.h"
 #import "RCDownloadAlbumViewCell.h"
 #import "RCTrackList.h"
-#include "DXAlertView.h"
+#import "DXAlertView.h"
 #import "UITableView+FDTemplateLayoutCell.h"
-#import <ReactiveCocoa/ReactiveCocoa.h>
+#import "ReactiveCocoa.h"
 #import "RCAlbumViewController.h"
 #import "RCNavigationController.h"
 #import "RCConst.h"

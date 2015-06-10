@@ -12,7 +12,7 @@
 #import "RCSegementControl.h"
 #import "RCPlayerView.h"
 #import "RCAlbumTool.h"
-#import <ReactiveCocoa/ReactiveCocoa.h>
+#import "ReactiveCocoa.h"
 #import "RCAlbumSectionHeaderView.h"
 #import "MJRefresh.h"
 #import "Toast+UIView.h"

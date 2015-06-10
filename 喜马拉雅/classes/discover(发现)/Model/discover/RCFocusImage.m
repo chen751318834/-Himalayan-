@@ -14,4 +14,5 @@
 
     return @{@"list":[RCList class]};
 }
+MJCodingImplementation
 @end

@@ -7,7 +7,7 @@
 //
 
 #import "RCCatrgory.h"
-
+#import "MJExtension.h"
 @implementation RCCatrgory
-
+MJCodingImplementation
 @end

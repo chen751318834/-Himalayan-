@@ -51,7 +51,6 @@
         params[@"tag_name"] = @"";
 
  }
-    NSLog(@"%@-----%@",self.category_name,self.tag_name);
     [RCNetWorkingTool get:@"http://mobile.ximalaya.com/m/explore_album_list" params:params success:^(id json) {
         [self.models removeAllObjects];
         NSArray * newAudios = [RCAlbum objectArrayWithKeyValuesArray:json[@"list"]];

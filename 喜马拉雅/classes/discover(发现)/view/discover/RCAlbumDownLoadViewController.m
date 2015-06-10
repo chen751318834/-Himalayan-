@@ -15,7 +15,7 @@
 #import "RCTitleButton.h"
 #import "RCBottomPlayerButton.h"
 #import "RCAlbumDownloadBottomToolBar.h"
-#import <ReactiveCocoa/ReactiveCocoa.h>
+#import "ReactiveCocoa.h"
 #import "UIBarButtonItem+MJ.h"
 #import "RCSegementControl.h"
 #import "RCAlbumViewModel.h"

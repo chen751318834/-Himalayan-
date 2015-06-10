@@ -11,7 +11,7 @@
 #import "Toast+UIView.h"
 #import "RCHotAudioViewCell.h"
 #import "RCPlayerView.h"
-#import <ReactiveCocoa/ReactiveCocoa.h>
+#import "ReactiveCocoa.h"
 #import "RCConst.h"
 #import "RCDownloadTool.h"
 #import "RCBottomPlayerButton.h"

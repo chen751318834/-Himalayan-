@@ -8,7 +8,7 @@
 
 #import "RCAboutAlbumViewController.h"
 #import "RCAlbumViewModel.h"
-#import <ReactiveCocoa/ReactiveCocoa.h>
+#import "ReactiveCocoa.h"
 #import "RCAlbumTool.h"
 #import "KVNProgress.h"
 #import "RCAlbumViewCell.h"

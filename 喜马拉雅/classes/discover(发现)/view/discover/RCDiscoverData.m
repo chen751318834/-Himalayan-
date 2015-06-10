@@ -7,7 +7,7 @@
 //
 
 #import "RCDiscoverData.h"
-
+#import "MJExtension.h"
 @implementation RCDiscoverData
-
+MJCodingImplementation
 @end

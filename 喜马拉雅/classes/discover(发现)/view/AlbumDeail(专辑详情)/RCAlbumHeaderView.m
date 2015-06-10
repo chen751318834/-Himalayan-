@@ -16,7 +16,7 @@
 #import "RCOneAlbumViewController.h"
 #import "RCNavigationController.h"
 #import "RCAlbumTool.h"
-#import <ReactiveCocoa/ReactiveCocoa.h>
+#import "ReactiveCocoa.h"
 #import "RCAlbumViewController.h"
 #import "RCAlbumDownLoadViewController.h"
 #import "RCAboutAlbumViewController.h"

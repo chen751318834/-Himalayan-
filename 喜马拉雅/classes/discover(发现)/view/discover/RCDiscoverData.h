@@ -20,7 +20,7 @@
  */
 @property(nonatomic,assign) int ret;
 @property(nonatomic,copy) NSString  *latest_xzone_post;
-@property(nonatomic,strong) RCTopCategory  *categories;
+@property(nonatomic,strong) RCCatrgory  *categories;
 @property(nonatomic,strong) RCFocusImage  *focusImages;
 @property(nonatomic,strong) RCLatestSpecial  *latest_special;
 @property(nonatomic,strong) RCLatestActivity  *latest_activity;

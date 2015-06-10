@@ -11,7 +11,7 @@
 #import "RCPlayerViewController.h"
 #import "RCPlayingListViewCell.h"
 #import "RCPlayerView.h"
-#import <ReactiveCocoa/ReactiveCocoa.h>
+#import "ReactiveCocoa.h"
 #import "RCConst.h"
 @interface RCPlayListViewController ()
 

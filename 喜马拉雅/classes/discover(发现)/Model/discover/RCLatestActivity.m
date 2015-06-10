@@ -7,7 +7,8 @@
 //
 
 #import "RCLatestActivity.h"
+#import "MJExtension.h"
 
 @implementation RCLatestActivity
-
+MJCodingImplementation
 @end

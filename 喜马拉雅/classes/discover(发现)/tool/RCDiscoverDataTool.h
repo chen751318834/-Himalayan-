@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "RCDiscoverData.h"
 @class RCCategryListParam,RCCategoryListResult,RCCategoryFocusImageParam,RCCategoryFocusImageResult;
 @interface RCDiscoverDataTool : NSObject
 /**
@@ -23,4 +24,11 @@
  *  @param failure 
  */
 + (void)categoryFocusImageWithParam:(RCCategoryFocusImageParam *)param success:(void (^)(RCCategoryFocusImageResult * result))success failure:(void (^)(NSError *error))failure;
+
++ (NSArray *)focusImages;
++ (NSArray *)recommendAlbums;
++ (RCDiscoverData *)discoverData;
++ (void)saveDiscoverData:(RCDiscoverData *)discoverData;
++ (void)saveFocusImages:(NSArray *)focusImages;
++ (void)saveRecommendAlbums:(NSArray *)recommendAlbums;
 @end

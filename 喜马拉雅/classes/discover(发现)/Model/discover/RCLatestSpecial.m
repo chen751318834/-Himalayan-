@@ -7,7 +7,8 @@
 //
 
 #import "RCLatestSpecial.h"
+#import "MJExtension.h"
 
 @implementation RCLatestSpecial
-
+MJCodingImplementation
 @end

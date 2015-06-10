@@ -9,7 +9,7 @@
 #import "RCCircleViewController.h"
 #import "RCCircleViewModel.h"
 #import "RCRecommendPostViewCell.h"
-#import <ReactiveCocoa/ReactiveCocoa.h>
+#import "ReactiveCocoa.h"
 #import "RCPostDeailViewController.h"
 #import "RCRecommendZoneViewCell.h"
 #import "RCCircleDeailViewController.h"

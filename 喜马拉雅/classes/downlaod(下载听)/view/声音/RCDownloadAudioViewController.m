@@ -11,9 +11,8 @@
 #import "UITableView+FDTemplateLayoutCell.h"
 #import "RCDownloadTool.h"
 #import "RCDownloadAudioViewCell.h"
-#import <ReactiveCocoa/ReactiveCocoa.h>
-
 #import "RCConst.h"
+#import "ReactiveCocoa.h"
 #import "RCPlayerView.h"
 static NSString * const ID = @"downloadedAudioCell";
 @interface RCDownloadAudioViewController ()

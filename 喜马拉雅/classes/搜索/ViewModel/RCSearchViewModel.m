@@ -44,6 +44,7 @@
             break;
 
     }
+    NSLog(@"%@",urlStr);
     [RCNetWorkingTool get:urlStr params:nil success:^(id json) {
         [self.models removeAllObjects];
         switch (dataType) {
@@ -52,22 +53,35 @@
                 [self.models addObjectsFromArray:all.album.list];
                 [self.models addObjectsFromArray:all.sound.list];
                 [self.models addObjectsFromArray:all.user.list];
-    
+                if ([all.scope isEqualToString: @"album"]) {
+
+                }else if ([all.scope isEqualToString: @"user"]){
+
+
+                }else if ([all.scope isEqualToString: @"sound"]){
+
+                }
+                self.resultDataType = RCSearchViewModelDataTypeAll;
+
+
+                NSLog(@"%@",all);
             }
                 break;
             case RCSearchViewModelDataTypeAlbum:
                 [self.models addObjectsFromArray:[RCSearchResultList objectArrayWithKeyValuesArray:json[@"list"]]];
+                self.resultDataType = RCSearchViewModelDataTypeAlbum;
 
                 break;
             case RCSearchViewModelDataTypeuser:
                 [self.models addObjectsFromArray:[RCSearchResultList objectArrayWithKeyValuesArray:json[@"list"]]];
-
-
+                self.resultDataType = RCSearchViewModelDataTypeuser;
                 break;
             case RCSearchViewModelDataTypeAudio:
                 [self.models addObjectsFromArray:[RCSearchResultList objectArrayWithKeyValuesArray:json[@"list"]]];
+                self.resultDataType = RCSearchViewModelDataTypeAudio;
                 break;
                     }
+        NSLog(@"%@",self.models);
 
         if (success) {
             success();

@@ -9,7 +9,10 @@
 #import "RCSearchResultViewController.h"
 #import "RCSearchBar.h"
 #import "RCSegementControl.h"
+#import "RCAlbumDeailViewController.h"
 #import "RCConst.h"
+#import "RCPlayerView.h"
+#import "RCUserViewController.h"
 #import "RCSearchViewModel.h"
 #import "RCSearchResultList.h"
 @interface RCSearchResultViewController ()
@@ -43,14 +46,34 @@
 }
 #pragma mark - UITableViewDelegate
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSString   *ID =@"" ;
+    NSString   *ID =@"resultCell" ;
     UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:ID];
     if (!cell) {
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];;
     }
     RCSearchResultList * result = self.searchResult[indexPath.row];
     cell.textLabel.text = result.title;
+    NSString * imageName = nil;
+    switch (self.resultDataType) {
+        case RCSearchViewModelDataTypeAll:
+//            imageName = @"checkmark_n";
+            break;
+        case RCSearchViewModelDataTypeAlbum:
+            imageName = @"scopeAlbum_icon";
 
+            break;
+        case RCSearchViewModelDataTypeuser:
+            imageName = @"find_hotUser_fans";
+
+            break;
+        case RCSearchViewModelDataTypeAudio:
+            imageName = @"albumInfoCell_tracks_mark";
+
+            break;
+        default:
+            break;
+    }
+    cell.imageView.image = [UIImage imageNamed:imageName];
     return cell;
 
 }
@@ -61,8 +84,31 @@
 }
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    RCSearchResultList * result = self.searchResult[indexPath.row];
+    if (self.resultDataType == RCSearchViewModelDataTypeAll) {
+
+    }else if (self.resultDataType == RCSearchViewModelDataTypeAlbum){
+        RCAlbumDeailViewController * albumVc = [[RCAlbumDeailViewController alloc]init];
+        albumVc.ID = result.ID;
+        [self.navigationController pushViewController:albumVc animated:YES];
+
+    }else if (self.resultDataType == RCSearchViewModelDataTypeuser){
+
+        RCUserViewController * userVC = [[RCUserViewController alloc]init];
+        [self.navigationController pushViewController:userVC animated:YES];
+
+    }else{
+        [self.view resignFirstResponder];
+        [[RCPlayerView playerView] showAnimationing:^{
+            [RCNotificationCenter postNotificationName:sendNetWorkingNotification object:nil userInfo:@{netWorkingTrackIdNotificationName:result.ID}];
+
+        } completion:^{
+
+        }];
+
+    }
+
 }
 #pragma mark - 事件处理
 - (void)changedValue:(UISegmentedControl *)control{

@@ -18,7 +18,7 @@
 #import "RCPlayerInfo.h"
 #import "RCPlayerTool.h"
 #import "RCPlayerView.h"
-#import <ReactiveCocoa/ReactiveCocoa.h>
+#import "ReactiveCocoa.h"
 #import "RCConst.h"
 #import "UIImageView+WebCache.h"
 #import "AFSoundManager.h"
@@ -112,15 +112,15 @@ static const NSUInteger sectionCount = 100;
     
     [self setUpHeaderView];
     [self setUpPageControl];
-    self.coverView.hidden = NO;
+//    self.coverView.hidden = NO;
     [self.viewModel fetchDiscoverDataWithSuccess:^{
         [self.scrollCollectionView reloadData];
         [self.tableView reloadData];
-        self.coverView.hidden = YES;
+//        self.coverView.hidden = YES;
         [self addTimer];
 
     } failure:^{
-        self.coverView.hidden = YES;
+//        self.coverView.hidden = YES;
 
     }];
 
@@ -154,29 +154,31 @@ static const NSUInteger sectionCount = 100;
     [[UIApplication sharedApplication].keyWindow addSubview:playerView];
     playerView.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height,[UIScreen mainScreen].bounds.size.width , [UIScreen mainScreen].bounds.size.height);
     self.playerView = playerView;
+    if ([RCPlayerTool playedAudios].count != 0) {
+        RCPlaylist * lastPlayInfo = [[RCPlayerTool playedAudios] firstObject];
+        UILabel * lastPlayLabel = [[UILabel alloc]init];
+        lastPlayLabel.backgroundColor= [UIColor orangeColor];
+        lastPlayLabel.font = [UIFont systemFontOfSize:12];
+        lastPlayLabel.textColor = [UIColor whiteColor];
+        lastPlayLabel.textAlignment = NSTextAlignmentCenter;
+        lastPlayLabel.text = [NSString stringWithFormat:@"上次播放 %@",lastPlayInfo.title];
+        [window addSubview:lastPlayLabel];
+        CGFloat labelW = [lastPlayLabel.text boundingRectWithSize:CGSizeMake(MAXFLOAT, 20) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:12]} context:nil].size.width +20;
+        [lastPlayLabel autoPinEdge:ALEdgeLeft toEdge:ALEdgeLeft ofView:window withOffset:(self.view.bounds.size.width - labelW)/2];
+        [lastPlayLabel autoPinEdge:ALEdgeBottom toEdge:ALEdgeTop ofView:playButton withOffset:4];
+        [lastPlayLabel autoSetDimension:ALDimensionWidth toSize:labelW];
+        [lastPlayLabel autoSetDimension:ALDimensionHeight toSize:20];
+        self.lastPlayLabel = lastPlayLabel;
+        lastPlayLabel.hidden = lastPlayInfo == nil;
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [UIView animateWithDuration:2 animations:^{
+                lastPlayLabel.alpha = 0;
+            }];
+        });
+        [playButton setImgSrc:lastPlayInfo.coverLarge];
 
-    RCPlaylist * lastPlayInfo = [[RCPlayerTool playedAudios] firstObject];
-    UILabel * lastPlayLabel = [[UILabel alloc]init];
-    lastPlayLabel.backgroundColor= [UIColor orangeColor];
-    lastPlayLabel.font = [UIFont systemFontOfSize:12];
-    lastPlayLabel.textColor = [UIColor whiteColor];
-    lastPlayLabel.textAlignment = NSTextAlignmentCenter;
-    lastPlayLabel.text = [NSString stringWithFormat:@"上次播放 %@",lastPlayInfo.title];
-    [window addSubview:lastPlayLabel];
-    CGFloat labelW = [lastPlayLabel.text boundingRectWithSize:CGSizeMake(MAXFLOAT, 20) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:12]} context:nil].size.width +20;
-    [lastPlayLabel autoPinEdge:ALEdgeLeft toEdge:ALEdgeLeft ofView:window withOffset:(self.view.bounds.size.width - labelW)/2];
-    [lastPlayLabel autoPinEdge:ALEdgeBottom toEdge:ALEdgeTop ofView:playButton withOffset:4];
-    [lastPlayLabel autoSetDimension:ALDimensionWidth toSize:labelW];
-    [lastPlayLabel autoSetDimension:ALDimensionHeight toSize:20];
-    self.lastPlayLabel = lastPlayLabel;
-    lastPlayLabel.hidden = lastPlayInfo == nil;
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [UIView animateWithDuration:2 animations:^{
-            lastPlayLabel.alpha = 0;
-        }];
-    });
-    [playButton setImgSrc:lastPlayInfo.coverLarge];
-}
+    }
+   }
 
 - (void)enterPlayerView:(UIButton *)button{
     [self.lastPlayLabel removeFromSuperview];

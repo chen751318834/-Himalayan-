@@ -22,7 +22,7 @@
         self.playerVC.view.backgroundColor = [UIColor redColor];
     }
     return _playerVC;
-}
+} 
 
 - (instancetype)initWithFrame:(CGRect)frame
 {

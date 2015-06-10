@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import "RCBaseViewModel.h"
-
 typedef enum {
     RCSearchViewModelDataTypeAll,
     RCSearchViewModelDataTypeAlbum,
@@ -19,5 +18,6 @@ typedef enum {
 @property(nonatomic,strong) NSMutableArray  *historySearchTexts;
 @property(nonatomic,strong) NSMutableArray  *hotSearchTexts;
 - ( void)fetchhotSearchDataWithIndex:(RCSearchViewModelDataType )dataType keywords:(NSString *)keywords success:(void (^)(void ))success failure:(void (^)(void ))failure;
+@property(nonatomic,assign) RCSearchViewModelDataType resultDataType;
 
 @end
