@@ -11,6 +11,7 @@
 #import "RCSearchAlbumResult.h"
 #import "RCAlbum.h"
 #import "RCTrackList.h"
+#import "RCUserDeialList.h"
 #import "RCSearchUserResult.h"
 #import "RCConst.h"
 #import "RCSearchAllResult.h"
@@ -162,6 +163,125 @@
             failure();
         }
     }];
+}
+- ( void)fetchNewUserOfFollowerWithSuccess:(void (^)(void ))success failure:(void (^)(void ))failure{
+    [RCNetWorkingTool get:[NSString stringWithFormat:@"http://mobile.ximalaya.com/mobile/others/following?device=android&pageSize=15&toUid=%@&pageId=1",self.ID] params:nil success:^(id json) {
+        NSArray * newAudios = [RCUserDeialList objectArrayWithKeyValuesArray:json[@"list"]];
+        [self.models removeAllObjects];
+        [self.models addObjectsFromArray:newAudios];
+        if (success) {
+            success();
+        }
+    } failure:^(NSError *error) {
+        if (failure) {
+            failure();
+            NSLog(@"%@",error);
+        }
+    }];
+}
+
+- ( void)fetchNewUserFansWithSuccess:(void (^)(void ))success failure:(void (^)(void ))failure {
+    [RCNetWorkingTool get:[NSString stringWithFormat:@"http://mobile.ximalaya.com/mobile/others/follower?device=android&pageSize=15&toUid=%@&pageId=1",self.ID] params:nil success:^(id json) {
+        NSArray * newAudios = [RCUserDeialList objectArrayWithKeyValuesArray:json[@"list"]];
+        [self.models removeAllObjects];
+
+        [self.models addObjectsFromArray:newAudios];
+        if (success) {
+            success();
+        }
+    } failure:^(NSError *error) {
+        if (failure) {
+            failure();
+            NSLog(@"%@",error);
+        }
+    }];
+}
+
+- ( void)fetchNewUserZanedWithSuccess:(void (^)(void ))success failure:(void (^)(void ))failure {
+    [RCNetWorkingTool get:[NSString stringWithFormat:@"http://mobile.ximalaya.com/mobile/others/favorite?device=android&pageSize=15&toUid=%@&pageId=1",self.ID] params:nil success:^(id json) {
+        NSArray * newAudios = [RCUserDeialList objectArrayWithKeyValuesArray:json[@"list"]];
+        [self.models removeAllObjects];
+
+        [self.models addObjectsFromArray:newAudios];
+        if (success) {
+            success();
+        }
+    } failure:^(NSError *error) {
+        if (failure) {
+            failure();
+            NSLog(@"%@",error);
+        }
+    }];
+}
+
+- ( void)fetchMoreUserOfFollowerWithSuccess:(void (^)(void ))success failure:(void (^)(void ))failure completion:(void (^)(void))completion{
+    self.currrentPage ++;
+    [RCNetWorkingTool get:[NSString stringWithFormat:@"http://mobile.ximalaya.com/mobile/others/following?device=android&pageSize=15&toUid=%@&pageId=%ld",self.ID,self.currrentPage] params:nil success:^(id json) {
+        NSArray * newAudios = [RCUserDeialList objectArrayWithKeyValuesArray:json[@"list"]];
+        NSNumber *  maxPageID = (NSNumber *)json[@"maxPageId"];
+        if (self.currrentPage  > [maxPageID integerValue]) {
+            if (completion) {
+                completion();
+            }
+            return ;
+        }
+        [self.models addObjectsFromArray:newAudios];
+        if (success) {
+            success();
+        }
+    } failure:^(NSError *error) {
+        if (failure) {
+            failure();
+        }
+    }];
+
+}
+
+- ( void)fetchMoreUserFansWithSuccess:(void (^)(void ))success failure:(void (^)(void ))failure completion:(void (^)(void))completion{
+    self.currrentPage ++;
+    [RCNetWorkingTool get:[NSString stringWithFormat:@"http://mobile.ximalaya.com/mobile/others/follower?device=android&pageSize=15&toUid=%@&pageId=%ld",self.ID,self.currrentPage] params:nil success:^(id json) {
+        NSArray * newAudios = [RCUserDeialList objectArrayWithKeyValuesArray:json[@"list"]];
+        NSNumber *  maxPageID = (NSNumber *)json[@"maxPageId"];
+        if (self.currrentPage  > [maxPageID integerValue]) {
+            if (completion) {
+                completion();
+            }
+            return ;
+        }
+        [self.models addObjectsFromArray:newAudios];
+        if (success) {
+            success();
+        }
+    } failure:^(NSError *error) {
+        if (failure) {
+            failure();
+        }
+    }];
+
+}
+
+- ( void)fetchMoreUserZanedWithSuccess:(void (^)(void ))success failure:(void (^)(void ))failure completion:(void (^)(void))completion{
+    self.currrentPage ++;
+    [RCNetWorkingTool get:[NSString stringWithFormat:@"http://mobile.ximalaya.com/mobile/others/favorite?device=android&pageSize=15&toUid=%@&pageId=%ld",self.ID,self.currrentPage] params:nil success:^(id json) {
+        NSArray * newAudios = [RCUserDeialList objectArrayWithKeyValuesArray:json[@"list"]];
+        NSNumber *  maxPageID = (NSNumber *)json[@"maxPageId"];
+        if (self.currrentPage  > [maxPageID integerValue]) {
+            if (completion) {
+                completion();
+            }
+            return ;
+        }
+        [self.models addObjectsFromArray:newAudios];
+        if (success) {
+            success();
+        }
+    } failure:^(NSError *error) {
+        if (failure) {
+            failure();
+        }
+    }];
+
+
 }
 
 @end

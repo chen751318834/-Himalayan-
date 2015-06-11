@@ -12,4 +12,6 @@
 @property(nonatomic,strong) RCSearchUserInfo  *userInfo;
 + (instancetype)headerView;
 - (void)shareWithTarget:(id)target action:(SEL)action;
+@property(nonatomic,strong) NSNumber  *ID;
+
 @end

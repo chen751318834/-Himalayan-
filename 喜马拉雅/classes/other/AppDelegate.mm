@@ -15,7 +15,8 @@
 #import "RCplayerStatus.h"
 #import "AFSoundManager.h"
 #import "UMSocialQQHandler.h"
-
+#import "UMSocialYiXinHandler.h"
+#import "UMSocialLineHandler.h"
 @interface AppDelegate ()
 
 @end
@@ -28,11 +29,12 @@
     self.window.backgroundColor = [UIColor whiteColor];
     self.window.rootViewController = [[RCTabBarViewController alloc]init];
     [self.window makeKeyAndVisible];
+    [UMSocialLineHandler openLineShare:UMSocialLineMessageTypeImage];
+
     [UMSocialData setAppKey:@"5579482367e58ee727000ae0"];
     [UMSocialWechatHandler setWXAppId:@"wxd930ea5d5a258f4f" appSecret:@"db426a9829e4b49a0dcac7b4162da6b6" url:@"http://www.umeng.com/social"];
     [UMSocialQQHandler setQQWithAppId:@"100424468" appKey:@"5579482367e58ee727000ae0" url:@"http://www.umeng.com/social"];
-
-
+[UMSocialYixinHandler setYixinAppKey:@"yx35664bdff4db42c2b7be1e29390c1a06" url:@"http://www.umeng.com/social"];
     return YES;
 }
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url

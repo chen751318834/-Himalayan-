@@ -52,6 +52,7 @@ static NSString * const ID = @"userCell";
     self.tableView.backgroundColor = RCGlobalBg;
     [self.tableView registerNib:[UINib nibWithNibName:@"RCSearchReslultUserViewCell" bundle:nil] forCellReuseIdentifier:ID];
     RCUserInfoHeaderView * headerView = [RCUserInfoHeaderView headerView];
+    headerView.ID = self.ID;
     [headerView shareWithTarget:self action:@selector(share)];
     self.tableView.tableHeaderView = headerView;
     self.headerView = headerView;
@@ -62,7 +63,7 @@ static NSString * const ID = @"userCell";
                                          appKey:@"5579482367e58ee727000ae0"
                                       shareText:[NSString stringWithFormat:@"我正在喜马拉雅上浏览%@的关于%@的专辑作品，欢迎来看哦...",self.viewModel.userInfo.nickname,self.viewModel.userInfo.personDescribe]
                                      shareImage:[UIImage imageNamed:@"icon.png"]
-                                shareToSnsNames:[NSArray arrayWithObjects:UMShareToSina,UMShareToTencent,UMShareToRenren,UMShareToWechatTimeline,UMShareToQQ,nil]
+                                shareToSnsNames:[NSArray arrayWithObjects:UMShareToSina,UMShareToTencent,UMShareToRenren,UMShareToWechatTimeline,UMShareToYXTimeline,UMShareToWhatsapp,UMShareToQQ,nil]
                                        delegate:self];
 }
 -(BOOL)isDirectShareInIconActionSheet
@@ -71,6 +72,8 @@ static NSString * const ID = @"userCell";
 }
 -(void)didFinishGetUMSocialDataInViewController:(UMSocialResponseEntity *)response
 {
+    self.navigationController.navigationBar.makeOpacity(0.3).animate(0.5);
+
     //根据`responseCode`得到发送结果,如果分享成功
     if(response.responseCode == UMSResponseCodeSuccess)
     {
@@ -78,6 +81,9 @@ static NSString * const ID = @"userCell";
         NSLog(@"share to sns name is %@",[[response.data allKeys] objectAtIndex:0]);
     }
 }
+
+
+
 -(void)didCloseUIViewController:(UMSViewControllerType)fromViewControllerType{
     [[RCBottomPlayerButton playingAudioButton]moveToTop];
 

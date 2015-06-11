@@ -23,7 +23,7 @@
                                 <constraint firstAttribute="height" constant="22" id="dH4-JK-PF3"/>
                                 <constraint firstAttribute="width" constant="22" id="tHX-zb-tIw"/>
                             </constraints>
-                            <state key="normal" image="btn_share_n">
+                            <state key="normal" image="cell_menu_share">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
@@ -118,6 +118,9 @@
                                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <connections>
+                                        <action selector="openCarePersonVC:" destination="b2h-9T-oeZ" eventType="touchUpInside" id="Mio-H1-EbZ"/>
+                                    </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fN3-La-jgH">
                                     <rect key="frame" x="194" y="0.0" width="195" height="39"/>
@@ -125,6 +128,9 @@
                                     <state key="normal" title="粉丝">
                                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     </state>
+                                    <connections>
+                                        <action selector="openFansVC:" destination="b2h-9T-oeZ" eventType="touchUpInside" id="Ujg-ZA-YCb"/>
+                                    </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GGG-7K-d99">
                                     <rect key="frame" x="389" y="0.0" width="194.5" height="40"/>
@@ -133,6 +139,9 @@
                                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <connections>
+                                        <action selector="openZanedVC:" destination="b2h-9T-oeZ" eventType="touchUpInside" id="WsR-fE-ocb"/>
+                                    </connections>
                                 </button>
                                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xtp-Jc-WR0">
                                     <rect key="frame" x="94" y="-14" width="68" height="3"/>
@@ -205,7 +214,7 @@
         </view>
     </objects>
     <resources>
-        <image name="btn_share_n" width="22" height="22"/>
+        <image name="cell_menu_share" width="33" height="33"/>
         <image name="find_hot_albumV" width="10" height="10"/>
         <image name="find_radio_focuse" width="58" height="23"/>
         <image name="navidrop_arrow_down_n" width="11" height="6"/>

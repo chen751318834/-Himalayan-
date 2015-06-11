@@ -39,4 +39,17 @@ typedef enum {
 - ( void)fetchUserAlbumsWithSuccess:(void (^)(void ))success failure:(void (^)(void ))failure;
 - ( void)fetchUserAudiosWithSuccess:(void (^)(void ))success failure:(void (^)(void ))failure completion:(void (^)(void))completion;
 
+- ( void)fetchNewUserOfFollowerWithSuccess:(void (^)(void ))success failure:(void (^)(void ))failure ;
+
+- ( void)fetchNewUserFansWithSuccess:(void (^)(void ))success failure:(void (^)(void ))failure ;
+
+- ( void)fetchNewUserZanedWithSuccess:(void (^)(void ))success failure:(void (^)(void ))failure ;
+
+- ( void)fetchMoreUserOfFollowerWithSuccess:(void (^)(void ))success failure:(void (^)(void ))failure completion:(void (^)(void))completion;
+
+- ( void)fetchMoreUserFansWithSuccess:(void (^)(void ))success failure:(void (^)(void ))failure completion:(void (^)(void))completion;
+
+- ( void)fetchMoreUserZanedWithSuccess:(void (^)(void ))success failure:(void (^)(void ))failure completion:(void (^)(void))completion;
+
+
 @end

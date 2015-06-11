@@ -7,8 +7,10 @@
 //
 
 #import "RCUserInfoHeaderView.h"
+#import "RCNavigationController.h"
 #import "UIImageView+WebCache.h"
 #import "UIImage+RC.h"
+#import "RCUserDeailViewController.h"
 #import "UIImageView+EXtension.h"
 #import "UIView+JHChainableAnimations.h"
 #import "JHKeyframeAnimation.h"
@@ -94,11 +96,25 @@
 
 
 }
+- (IBAction)openCarePersonVC:(id)sender {
+    RCUserDeailViewController * vc = [[RCUserDeailViewController alloc]init];
+    vc.ID = self.userInfo.uid;
+    [[RCNavigationController navigationController] pushViewController:vc animated:YES];
+}
+- (IBAction)openFansVC:(id)sender {
+    RCUserDeailViewController * vc = [[RCUserDeailViewController alloc]init];
+    vc.ID = self.userInfo.uid;
+    [[RCNavigationController navigationController] pushViewController:vc animated:YES];
+}
 - (IBAction)share:(id)sender {
 
+}
+- (IBAction)openZanedVC:(id)sender {
 }
 - (void)shareWithTarget:(id)target action:(SEL)action{
 
     [self.shareButton addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
 }
+
+
 @end
