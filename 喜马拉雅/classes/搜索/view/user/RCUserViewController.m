@@ -8,6 +8,8 @@
 
 #import "RCUserViewController.h"
 #import "UITableView+FDTemplateLayoutCell.h"
+#import "UMSocial.h"
+#import "RCBottomPlayerButton.h"
 #import "RCUserInfoHeaderView.h"
 #import "RCSearchViewModel.h"
 #import "UIView+JHChainableAnimations.h"
@@ -22,7 +24,7 @@
 #import "Toast+UIView.h"
 #import "UIImage+RC.h"
 static NSString * const ID = @"userCell";
-@interface RCUserViewController ()
+@interface RCUserViewController () <UMSocialUIDelegate>
 @property(nonatomic,strong) RCSearchViewModel  *viewModel;
 @property(nonatomic,weak) RCUserInfoHeaderView   *headerView;
 
@@ -50,9 +52,37 @@ static NSString * const ID = @"userCell";
     self.tableView.backgroundColor = RCGlobalBg;
     [self.tableView registerNib:[UINib nibWithNibName:@"RCSearchReslultUserViewCell" bundle:nil] forCellReuseIdentifier:ID];
     RCUserInfoHeaderView * headerView = [RCUserInfoHeaderView headerView];
+    [headerView shareWithTarget:self action:@selector(share)];
     self.tableView.tableHeaderView = headerView;
     self.headerView = headerView;
 }
+- (void)share{
+    [[RCBottomPlayerButton playingAudioButton]moveToBottom];
+    [UMSocialSnsService presentSnsIconSheetView:self
+                                         appKey:@"5579482367e58ee727000ae0"
+                                      shareText:[NSString stringWithFormat:@"我正在喜马拉雅上浏览%@的关于%@的专辑作品，欢迎来看哦...",self.viewModel.userInfo.nickname,self.viewModel.userInfo.personDescribe]
+                                     shareImage:[UIImage imageNamed:@"icon.png"]
+                                shareToSnsNames:[NSArray arrayWithObjects:UMShareToSina,UMShareToTencent,UMShareToRenren,UMShareToWechatTimeline,UMShareToQQ,nil]
+                                       delegate:self];
+}
+-(BOOL)isDirectShareInIconActionSheet
+{
+    return YES;
+}
+-(void)didFinishGetUMSocialDataInViewController:(UMSocialResponseEntity *)response
+{
+    //根据`responseCode`得到发送结果,如果分享成功
+    if(response.responseCode == UMSResponseCodeSuccess)
+    {
+        //得到分享到的微博平台名
+        NSLog(@"share to sns name is %@",[[response.data allKeys] objectAtIndex:0]);
+    }
+}
+-(void)didCloseUIViewController:(UMSViewControllerType)fromViewControllerType{
+    [[RCBottomPlayerButton playingAudioButton]moveToTop];
+
+}
+
 - (void)loadNewData{
     [self.viewModel fetchUserInfoWithSuccess:^{
         self.headerView.userInfo = self.viewModel.userInfo;

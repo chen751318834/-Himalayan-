@@ -25,6 +25,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentViewTopCon;
 @property(nonatomic,assign,getter=isOpen) BOOL open;
 @property (weak, nonatomic) IBOutlet UIImageView *arrow;
+@property (weak, nonatomic) IBOutlet UIButton *shareButton;
 
 @end
 @implementation RCUserInfoHeaderView
@@ -92,5 +93,12 @@
     [button setAttributedTitle:attrString forState:UIControlStateNormal];
 
 
+}
+- (IBAction)share:(id)sender {
+
+}
+- (void)shareWithTarget:(id)target action:(SEL)action{
+
+    [self.shareButton addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
 }
 @end

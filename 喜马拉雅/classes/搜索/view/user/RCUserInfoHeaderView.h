@@ -11,4 +11,5 @@
 @interface RCUserInfoHeaderView : UIView
 @property(nonatomic,strong) RCSearchUserInfo  *userInfo;
 + (instancetype)headerView;
+- (void)shareWithTarget:(id)target action:(SEL)action;
 @end

@@ -17,6 +17,19 @@
                         <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="usW-qO-vO8">
                             <rect key="frame" x="0.0" y="0.0" width="600" height="264"/>
                         </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5h9-xW-gZ7">
+                            <rect key="frame" x="560" y="96" width="22" height="22"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="22" id="dH4-JK-PF3"/>
+                                <constraint firstAttribute="width" constant="22" id="tHX-zb-tIw"/>
+                            </constraints>
+                            <state key="normal" image="btn_share_n">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="share:" destination="b2h-9T-oeZ" eventType="touchUpInside" id="6T0-aN-lO5"/>
+                            </connections>
+                        </button>
                         <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KHt-fq-4uB">
                             <rect key="frame" x="8" y="14" width="584" height="224"/>
                             <subviews>
@@ -78,6 +91,7 @@
                     </subviews>
                     <constraints>
                         <constraint firstItem="QD2-m0-wr8" firstAttribute="centerX" secondItem="KHt-fq-4uB" secondAttribute="centerX" id="7Xr-Uj-QYF"/>
+                        <constraint firstItem="5h9-xW-gZ7" firstAttribute="top" secondItem="gxg-yQ-B7D" secondAttribute="top" constant="96" id="C8a-8F-G6C"/>
                         <constraint firstItem="usW-qO-vO8" firstAttribute="top" secondItem="gxg-yQ-B7D" secondAttribute="top" id="DU8-ru-Kks"/>
                         <constraint firstItem="KHt-fq-4uB" firstAttribute="leading" secondItem="gxg-yQ-B7D" secondAttribute="leading" constant="8" id="DVh-1J-7u7"/>
                         <constraint firstItem="usW-qO-vO8" firstAttribute="leading" secondItem="gxg-yQ-B7D" secondAttribute="leading" id="JYL-jh-DTS"/>
@@ -88,6 +102,7 @@
                         <constraint firstAttribute="bottom" secondItem="usW-qO-vO8" secondAttribute="bottom" id="pO7-Fo-bcD"/>
                         <constraint firstItem="KHt-fq-4uB" firstAttribute="top" secondItem="gxg-yQ-B7D" secondAttribute="top" constant="14" id="qcc-HO-VyF"/>
                         <constraint firstAttribute="height" constant="264" id="sQb-da-A7U"/>
+                        <constraint firstAttribute="trailing" secondItem="5h9-xW-gZ7" secondAttribute="trailing" constant="18" id="zlm-xb-ybn"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PDK-Po-awP">
@@ -183,12 +198,14 @@
                 <outlet property="fansButton" destination="fN3-La-jgH" id="lf7-Kq-bbS"/>
                 <outlet property="largeIconView" destination="usW-qO-vO8" id="qE1-na-9X2"/>
                 <outlet property="namelabel" destination="8jE-SP-MSr" id="ngj-e3-KlO"/>
+                <outlet property="shareButton" destination="5h9-xW-gZ7" id="6tp-DC-DjT"/>
                 <outlet property="zanButton" destination="GGG-7K-d99" id="R3s-5l-OPX"/>
             </connections>
-            <point key="canvasLocation" x="569" y="155.5"/>
+            <point key="canvasLocation" x="421" y="128"/>
         </view>
     </objects>
     <resources>
+        <image name="btn_share_n" width="22" height="22"/>
         <image name="find_hot_albumV" width="10" height="10"/>
         <image name="find_radio_focuse" width="58" height="23"/>
         <image name="navidrop_arrow_down_n" width="11" height="6"/>
