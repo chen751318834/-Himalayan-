@@ -70,7 +70,6 @@ static NSString * const ID = @"searchCell";
         [self.texts addObject:text];
     }}
 - (void)setUpNotificationCenter{
-
     [RCNotificationCenter addObserver:self selector:@selector(end) name:searchResultVCEndExitingNotification object:nil];
     [RCNotificationCenter addObserver:self selector:@selector(selectedDataType:) name:searchDataTypeNotification object:nil];
     [RCNotificationCenter addObserver:self selector:@selector(keyBoardEnd) name:UIKeyboardDidHideNotification object:nil];
@@ -156,7 +155,7 @@ static NSString * const ID = @"searchCell";
     }else{
         cell.searchHistory = NO;
     }
-    [self configureCell:cell atIndexPath:indexPath texts:self.texts];
+        [self configureCell:cell atIndexPath:indexPath texts:self.texts];
 
     return cell;
 }

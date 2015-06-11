@@ -38,6 +38,7 @@
 @property(nonatomic,strong) NSNumber  *tracks;
 @property(nonatomic,strong) NSNumber  *categoryId;
 @property(nonatomic,strong) NSNumber  *createdAt;
+@property(nonatomic,copy) NSString  *createTime;
 
 @property(nonatomic,strong) NSNumber  *uid;
 @property(nonatomic,strong) NSNumber  *zoneId;
@@ -58,4 +59,18 @@
 @property(nonatomic,assign) BOOL isFavorite;
 @property(nonatomic,strong) NSNumber  *status;
 @property(nonatomic,assign,getter=isCollected) BOOL collected;
+@property(nonatomic,copy) NSString  *playUrl32;
+@property(nonatomic,copy) NSString  *playUrl64;
+@property(nonatomic,copy) NSString  *smallLogo;
+@property(nonatomic,copy) NSString  *coverMiddle;
+@property(nonatomic,copy) NSString  *albumTitle;
+@property(nonatomic,strong) NSNumber  *trackId;
+@property(nonatomic,strong) NSNumber  *duration;
+@property(nonatomic,strong) NSNumber  *processState;
+@property(nonatomic,strong) NSNumber  *userSource;
+@property(nonatomic,strong) NSNumber  *opType;
+@property(nonatomic,strong) NSNumber  *commentId;
+@property(nonatomic,strong) NSNumber  *likes;
+@property(nonatomic,strong) NSNumber  *comments;
+@property(nonatomic,strong) NSNumber  *downloadSize;
 @end

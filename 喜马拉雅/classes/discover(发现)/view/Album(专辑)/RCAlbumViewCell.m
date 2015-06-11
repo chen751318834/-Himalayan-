@@ -31,23 +31,36 @@
         self.updataTimelabel.text = [NSString stringWithFormat:@"最后更新 %@",album.updateTime];
     }else if ( album.lastUptrackAt){
         self.updataTimelabel.text = [NSString stringWithFormat:@"最后更新 %@",album.lastUptrackTime];
+    }else if (album.createdAt){
+        self.updataTimelabel.text = [NSString stringWithFormat:@"最后更新 %@",album.createTime];
+
     }
-    if (album.playsCounts) {
+    if ([album.playsCounts intValue] != 0) {
         [self setUpWithButton:self.playCountLabel count:[album.playsCounts intValue]
                         title:nil];
         self.playCountLabel.hidden = NO;
         self.playCountLabelW.constant = 60;
-    }else{
+    }else if ([album.playTimes intValue] != 0){
+        [self setUpWithButton:self.playCountLabel count:[album.playTimes intValue]
+                        title:nil];
+        self.playCountLabel.hidden = NO;
+        self.playCountLabelW.constant = 60;
+    }
+    else{
         self.playCountLabel.hidden = YES;
         self.playCountLabelW.constant = 0;
     }
-    if (album.tracksCounts) {
+    if ([album.tracksCounts intValue] != 0) {
         [self setUpWithButton:self.audioCountLabel count:[album.tracksCounts intValue]
                         title:nil];
         self.audioCountLabel.hidden = NO;
-    }else if (album.tracks){
+    }else if ([album.tracks intValue] != 0){
         self.audioCountLabel.hidden = NO;
         [self setUpWithButton:self.audioCountLabel count:[album.tracks intValue]
+                        title:nil];
+    }else if ([album.comments intValue ] != 0){
+        self.audioCountLabel.hidden = NO;
+        [self setUpWithButton:self.audioCountLabel count:[album.comments intValue]
                         title:nil];
     }else{
         self.audioCountLabel.hidden = YES;

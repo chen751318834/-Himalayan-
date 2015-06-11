@@ -10,6 +10,7 @@
 #import "RCSearchBar.h"
 #import "RCSegementControl.h"
 #import "RCAlbumDeailViewController.h"
+#import "RCNavigationController.h"
 #import "RCConst.h"
 #import "RCPlayerView.h"
 #import "RCUserViewController.h"
@@ -85,6 +86,8 @@
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [RCNotificationCenter postNotificationName:searchResultVCEndExitingNotification object:nil];
+
     RCSearchResultList * result = self.searchResult[indexPath.row];
     if (self.resultDataType == RCSearchViewModelDataTypeAll) {
 
@@ -94,13 +97,12 @@
         [self.navigationController pushViewController:albumVc animated:YES];
 
     }else if (self.resultDataType == RCSearchViewModelDataTypeuser){
-
         RCUserViewController * userVC = [[RCUserViewController alloc]init];
         userVC.ID = result.ID;
-        [self.navigationController pushViewController:userVC animated:YES];
+        self.viewModel.keyWord = result.title;
+        [[RCNavigationController navigationController] pushViewController:userVC animated:YES];
 
     }else{
-        [RCNotificationCenter postNotificationName:searchResultVCEndExitingNotification object:nil];
         [[RCPlayerView playerView] showAnimationing:^{
             [RCNotificationCenter postNotificationName:sendNetWorkingNotification object:nil userInfo:@{netWorkingTrackIdNotificationName:result.ID}];
 

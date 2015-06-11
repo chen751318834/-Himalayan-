@@ -70,6 +70,10 @@ static NSString * searchDataTypeNotification = @"searchDataTypeNotification";
 static NSString * searchDataTypeNotificationName = @"searchDataTypeNotificationName";
 static NSString * searchResultVCEndExitingNotification = @"searchResultVCEndExitingNotification";
 
+
+static NSString * searchUserInfoNotification = @"searchUserInfoNotification";
+static NSString * searchUserInfoNotificationName = @"searchUserInfoNotificationName";
+
 #define RCNotificationCenter  [NSNotificationCenter defaultCenter]
 
 #endif

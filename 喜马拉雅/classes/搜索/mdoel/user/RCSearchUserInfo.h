@@ -55,16 +55,18 @@
 @property(nonatomic,strong) NSNumber  *events;
 @property(nonatomic,strong) NSNumber  *favoriteAlbums;
 @property(nonatomic,strong) NSNumber  *messages;
+@property(nonatomic,copy) NSString  *nickname;
+
 @property(nonatomic,strong) NSNumber  *followers;
-@property(nonatomic,strong) NSNumber  *newEventCount;
-@property(nonatomic,strong) NSNumber  *newThirdRegisters;
+@property(nonatomic,strong) NSNumber  *ats;
+@property(nonatomic,strong) NSNumber  *evetCount;
+@property(nonatomic,strong) NSNumber  *thirdRegisters;
+@property(nonatomic,strong) NSNumber  *comments;
 @property(nonatomic,strong) NSNumber  *totalSpace;
 @property(nonatomic,strong) NSNumber  *usedSpace;
 @property(nonatomic,strong) NSNumber  *contents;
-@property(nonatomic,strong) NSNumber  *newAts;
 @property(nonatomic,strong) NSNumber  *favorites;
 @property(nonatomic,strong) NSNumber  *tracks;
-@property(nonatomic,strong) NSNumber  *newComments;
 @property(nonatomic,strong) NSNumber  *leters;
 @property(nonatomic,strong) NSNumber  *noReadFollowers;
 @property(nonatomic,strong) NSNumber  *albums;

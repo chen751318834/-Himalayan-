@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E26a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E33b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -177,7 +177,9 @@
                 <outlet property="iconView" destination="MaE-YF-TeL" id="zDS-Xm-yno"/>
                 <outlet property="playCountLabel" destination="Yp0-vt-Bqe" id="KAY-hM-KOz"/>
                 <outlet property="saveCountLabel" destination="THf-ov-o7k" id="2vh-Sq-1Y3"/>
+                <outlet property="saveCountLabelWidth" destination="bxe-3v-OgV" id="52H-Vp-Va0"/>
                 <outlet property="sayCountLabel" destination="Bnp-Ci-BQB" id="Q9F-oI-kf7"/>
+                <outlet property="sayCountLabelWidth" destination="IVI-kQ-f4H" id="IKw-xE-WHp"/>
                 <outlet property="soureLabel" destination="pNE-lc-mbY" id="ypn-Ob-4aY"/>
                 <outlet property="subTitleLabel" destination="1y3-it-gMa" id="ITb-AF-qcn"/>
                 <outlet property="titleLabel" destination="t23-JO-yE6" id="2rM-9e-jPv"/>

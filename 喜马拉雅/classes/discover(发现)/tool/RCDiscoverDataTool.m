@@ -78,12 +78,12 @@ static FMDatabase * _db;
 }
 + (void)saveFocusImages:(NSArray *)focusImages{
     for (RCList * list in [self focusImages]) {
-        [_db executeUpdateWithFormat:@"DELETE FROM t_focusImage WHERE trackId = %@;", list.trackId];
+        [_db executeUpdateWithFormat:@"DELETE FROM t_focusImage WHERE trackId = %@;", list.uid];
     }
     for (RCList * list in focusImages) {
         NSData * listData = [NSKeyedArchiver
                                     archivedDataWithRootObject:list];
-        [_db executeUpdateWithFormat:@"INSERT INTO t_focusImage(focusImage ,trackId) VALUES (%@ ,%@)",listData,list.trackId];
+        [_db executeUpdateWithFormat:@"INSERT INTO t_focusImage(focusImage ,trackId) VALUES (%@ ,%@)",listData,list.uid];
     }
 }
 + (void)saveRecommendAlbums:(NSArray *)recommendAlbums{

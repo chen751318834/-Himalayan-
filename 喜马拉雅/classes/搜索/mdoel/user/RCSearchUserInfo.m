@@ -7,7 +7,18 @@
 //
 
 #import "RCSearchUserInfo.h"
-
+#import "MJExtension.h"
 @implementation RCSearchUserInfo
+/**
+ *  /@property(nonatomic,strong) NSNumber  *newAts;
+ @property(nonatomic,strong) NSNumber  *newEvetCount;
+ @property(nonatomic,strong) NSNumber  *newThirdRegisters;
+ @property(nonatomic,strong) NSNumber  *newComments;
+ @property(nonatomic,strong) NSNumber  *totalSpace;
+ */
++ (NSDictionary *)replacedKeyFromPropertyName{
 
+    return @{@"evetCount":@"newEvetCount",@"thirdRegisters":@"newThirdRegisters",@"comments":@"newComments",@"ats":@"newAts"};
+}
 @end
+

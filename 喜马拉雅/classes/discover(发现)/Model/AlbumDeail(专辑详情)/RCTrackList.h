@@ -73,4 +73,18 @@
 @property(nonatomic,assign) CGFloat percentDone;
 @property(nonatomic,assign) long long totalBytesReadForFile;
 @property(nonatomic,assign) long long totalBytesExpectedToReadForFile;
+@property(nonatomic,copy) NSString  *playUrl64;
+
+@property(nonatomic,copy) NSString  *coverMiddle;
+@property(nonatomic,copy) NSString  *coverLarge;
+
+@property(nonatomic,strong) NSNumber  *categoryId;
+@property(nonatomic,strong) NSNumber  *commentId;
+
+@property(nonatomic,strong) NSNumber  *updatedAt;
+@property(nonatomic,copy) NSString  *updatedTime;
+
+@property(nonatomic,strong) NSNumber  *tracks;
+@property(nonatomic,strong) NSNumber  *playTimes;
+
 @end

@@ -9,13 +9,14 @@
 #import "RCSearchViewModel.h"
 #import "RCSearchSoundResult.h"
 #import "RCSearchAlbumResult.h"
-
+#import "RCAlbum.h"
+#import "RCTrackList.h"
 #import "RCSearchUserResult.h"
+#import "RCConst.h"
 #import "RCSearchAllResult.h"
 #import "MJExtension.h"
 #import "RCNetWorkingTool.h"
 #import "RCSearchResultList.h"
-#import "RCUserlAudioOrAlbumList.h"
 #import "RCUserAudio.h"
 @implementation RCSearchViewModel
 -  (NSMutableArray *)userAlbums{
@@ -110,24 +111,26 @@
 
 
 - ( void)fetchUserInfoWithSuccess:(void (^)(void ))success failure:(void (^)(void ))failure{
-    [RCNetWorkingTool get:[NSString stringWithFormat:@"http://mobile.ximalaya.com/mobile/others/ca/track/%@/1/30",self.ID] params:nil success:^(id json) {
+
+
+    [RCNetWorkingTool get:[NSString stringWithFormat:@"http://mobile.ximalaya.com/mobile/others/ca/homePage?device=android&toUid=%@",self.ID] params:nil success:^(id json) {
         RCSearchUserInfo * userInfo = [RCSearchUserInfo objectWithKeyValues:json];
         self.userInfo = userInfo;
+        [RCNotificationCenter postNotificationName:searchUserInfoNotification object:nil userInfo:@{searchUserInfoNotificationName:userInfo}];
         if (success) {
             success();
         }
+
     } failure:^(NSError *error) {
         if (failure) {
             failure();
             NSLog(@"%@",error);
         }
     }];
-
-
 }
 - ( void)fetchUserAlbumsWithSuccess:(void (^)(void ))success failure:(void (^)(void ))failure{
             [RCNetWorkingTool get:[NSString stringWithFormat:@"http://mobile.ximalaya.com/mobile/others/ca/track/%@/1/30",self.ID] params:nil success:^(id json) {
-            NSArray * newAudios = [RCUserlAudioOrAlbumList objectArrayWithKeyValuesArray:json[@"list"]];
+            NSArray * newAudios = [RCAlbum objectArrayWithKeyValuesArray:json[@"list"]];
             [self.userAlbums addObjectsFromArray:newAudios];
             if (success) {
                 success();
@@ -142,7 +145,7 @@
 - ( void)fetchUserAudiosWithSuccess:(void (^)(void ))success failure:(void (^)(void ))failure completion:(void (^)(void))completion{
 
     [RCNetWorkingTool get:[NSString stringWithFormat:@"http://mobile.ximalaya.com/mobile/others/ca/album/%@/1/2",self.ID] params:nil success:^(id json) {
-        NSArray * newAudios = [RCUserlAudioOrAlbumList objectArrayWithKeyValuesArray:json[@"list"]];
+        NSArray * newAudios = [RCTrackList objectArrayWithKeyValuesArray:json[@"list"]];
         NSNumber *  maxPageID = (NSNumber *)json[@"maxPageId"];
         if (self.currrentPage  > [maxPageID integerValue]) {
             if (completion) {

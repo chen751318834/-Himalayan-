@@ -191,10 +191,8 @@
 		4B4F460F1B14113D00284DAB /* RCAlbumDeailViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B4F460D1B14113D00284DAB /* RCAlbumDeailViewCell.xib */; };
 		4B4F46131B141BA200284DAB /* RCAlbumSectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B4F46111B141BA200284DAB /* RCAlbumSectionHeaderView.m */; };
 		4B4F46141B141BA200284DAB /* RCAlbumSectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B4F46121B141BA200284DAB /* RCAlbumSectionHeaderView.xib */; };
-		4B4F461A1B143FCF00284DAB /* UIImageView+EXtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B4F46191B143FCF00284DAB /* UIImageView+EXtension.m */; };
 		4B4F461D1B145AB800284DAB /* RCOneAlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B4F461C1B145AB800284DAB /* RCOneAlbumViewController.m */; };
 		4B4F46201B14914500284DAB /* RCAlbumDownLoadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B4F461F1B14914500284DAB /* RCAlbumDownLoadViewController.m */; };
-		4B5189901B27FCC000B40A6A /* RCUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B51898F1B27FCC000B40A6A /* RCUserViewController.m */; };
 		4B7A33691B17FCE20042E0EF /* RCCollectViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B7A33681B17FCE20042E0EF /* RCCollectViewModel.m */; };
 		4B7A33761B17FE980042E0EF /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B7A336C1B17FE980042E0EF /* FMDatabase.m */; };
 		4B7A33771B17FE980042E0EF /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B7A336E1B17FE980042E0EF /* FMDatabaseAdditions.m */; };
@@ -321,6 +319,13 @@
 		4B9510121B1F338600D5DBDD /* ARSegmentPageHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B95100E1B1F338600D5DBDD /* ARSegmentPageHeader.m */; };
 		4B9510131B1F338600D5DBDD /* ARSegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B9510101B1F338600D5DBDD /* ARSegmentView.m */; };
 		4B9510171B1F386200D5DBDD /* UINavigationController+FDFullscreenPopGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B9510161B1F386200D5DBDD /* UINavigationController+FDFullscreenPopGesture.m */; };
+		4BA787F11B292570007A8477 /* RCUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BA787F01B292570007A8477 /* RCUserViewController.m */; };
+		4BA787FE1B2932E4007A8477 /* RCUserInfoHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BA787FD1B2932E4007A8477 /* RCUserInfoHeaderView.m */; };
+		4BA788001B29330D007A8477 /* RCUserInfoHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BA787FF1B29330D007A8477 /* RCUserInfoHeaderView.xib */; };
+		4BA7880A1B297225007A8477 /* JHKeyframeAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BA788051B297225007A8477 /* JHKeyframeAnimation.m */; };
+		4BA7880B1B297225007A8477 /* NSBKeyframeAnimationFunctions.c in Sources */ = {isa = PBXBuildFile; fileRef = 4BA788061B297225007A8477 /* NSBKeyframeAnimationFunctions.c */; };
+		4BA7880C1B297225007A8477 /* UIView+JHChainableAnimations.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BA788091B297225007A8477 /* UIView+JHChainableAnimations.m */; };
+		4BA788121B297BED007A8477 /* UIImageView+EXtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BA788111B297BED007A8477 /* UIImageView+EXtension.m */; };
 		4BA88D1E1B25301D0047A567 /* RCDownloadAlbumViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BA88D1C1B25301D0047A567 /* RCDownloadAlbumViewCell.m */; };
 		4BA88D1F1B25301D0047A567 /* RCDownloadAlbumViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BA88D1D1B25301D0047A567 /* RCDownloadAlbumViewCell.xib */; };
 		4BA88D281B2571910047A567 /* LDProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BA88D251B2571910047A567 /* LDProgressView.m */; };
@@ -357,8 +362,6 @@
 		4BBAC2FB1B1ED4B1006ED9A1 /* RCPlayerDeialViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BBAC2F91B1ED4B1006ED9A1 /* RCPlayerDeialViewCell.m */; };
 		4BBAC2FC1B1ED4B1006ED9A1 /* RCPlayerDeialViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BBAC2FA1B1ED4B1006ED9A1 /* RCPlayerDeialViewCell.xib */; };
 		4BBB64CA1B283C8900E2F038 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BBB64C91B283C8900E2F038 /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		4BBB64CE1B284CF700E2F038 /* RCSearchReslultUserViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BBB64CC1B284CF700E2F038 /* RCSearchReslultUserViewCell.m */; };
-		4BBB64CF1B284CF700E2F038 /* RCSearchReslultUserViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BBB64CD1B284CF700E2F038 /* RCSearchReslultUserViewCell.xib */; };
 		4BBB64D31B284EBD00E2F038 /* RCSearchUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BBB64D21B284EBD00E2F038 /* RCSearchUserInfo.m */; };
 		4BBB64D61B284FB800E2F038 /* RCUserAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BBB64D51B284FB800E2F038 /* RCUserAlbum.m */; };
 		4BBB64D91B28504500E2F038 /* RCUserAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BBB64D81B28504500E2F038 /* RCUserAudio.m */; };
@@ -831,14 +834,10 @@
 		4B4F46101B141BA200284DAB /* RCAlbumSectionHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCAlbumSectionHeaderView.h; sourceTree = "<group>"; };
 		4B4F46111B141BA200284DAB /* RCAlbumSectionHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCAlbumSectionHeaderView.m; sourceTree = "<group>"; };
 		4B4F46121B141BA200284DAB /* RCAlbumSectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RCAlbumSectionHeaderView.xib; sourceTree = "<group>"; };
-		4B4F46181B143FCF00284DAB /* UIImageView+EXtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+EXtension.h"; sourceTree = "<group>"; };
-		4B4F46191B143FCF00284DAB /* UIImageView+EXtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+EXtension.m"; sourceTree = "<group>"; };
 		4B4F461B1B145AB800284DAB /* RCOneAlbumViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCOneAlbumViewController.h; sourceTree = "<group>"; };
 		4B4F461C1B145AB800284DAB /* RCOneAlbumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCOneAlbumViewController.m; sourceTree = "<group>"; };
 		4B4F461E1B14914500284DAB /* RCAlbumDownLoadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCAlbumDownLoadViewController.h; path = ../../discover/RCAlbumDownLoadViewController.h; sourceTree = "<group>"; };
 		4B4F461F1B14914500284DAB /* RCAlbumDownLoadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCAlbumDownLoadViewController.m; path = ../../discover/RCAlbumDownLoadViewController.m; sourceTree = "<group>"; };
-		4B51898E1B27FCC000B40A6A /* RCUserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCUserViewController.h; sourceTree = "<group>"; };
-		4B51898F1B27FCC000B40A6A /* RCUserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCUserViewController.m; sourceTree = "<group>"; };
 		4B7A33671B17FCE20042E0EF /* RCCollectViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCCollectViewModel.h; sourceTree = "<group>"; };
 		4B7A33681B17FCE20042E0EF /* RCCollectViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCCollectViewModel.m; sourceTree = "<group>"; };
 		4B7A336B1B17FE980042E0EF /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
@@ -1077,6 +1076,21 @@
 		4B9510101B1F338600D5DBDD /* ARSegmentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARSegmentView.m; sourceTree = "<group>"; };
 		4B9510151B1F386200D5DBDD /* UINavigationController+FDFullscreenPopGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+FDFullscreenPopGesture.h"; sourceTree = "<group>"; };
 		4B9510161B1F386200D5DBDD /* UINavigationController+FDFullscreenPopGesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+FDFullscreenPopGesture.m"; sourceTree = "<group>"; };
+		4BA787EF1B292570007A8477 /* RCUserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCUserViewController.h; sourceTree = "<group>"; };
+		4BA787F01B292570007A8477 /* RCUserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCUserViewController.m; sourceTree = "<group>"; };
+		4BA787FC1B2932E4007A8477 /* RCUserInfoHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCUserInfoHeaderView.h; sourceTree = "<group>"; };
+		4BA787FD1B2932E4007A8477 /* RCUserInfoHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCUserInfoHeaderView.m; sourceTree = "<group>"; };
+		4BA787FF1B29330D007A8477 /* RCUserInfoHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RCUserInfoHeaderView.xib; sourceTree = "<group>"; };
+		4BA788021B297225007A8477 /* JHChainableAnimations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHChainableAnimations.h; sourceTree = "<group>"; };
+		4BA788031B297225007A8477 /* JHChainableBlocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHChainableBlocks.h; sourceTree = "<group>"; };
+		4BA788041B297225007A8477 /* JHKeyframeAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHKeyframeAnimation.h; sourceTree = "<group>"; };
+		4BA788051B297225007A8477 /* JHKeyframeAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHKeyframeAnimation.m; sourceTree = "<group>"; };
+		4BA788061B297225007A8477 /* NSBKeyframeAnimationFunctions.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = NSBKeyframeAnimationFunctions.c; sourceTree = "<group>"; };
+		4BA788071B297225007A8477 /* NSBKeyframeAnimationFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSBKeyframeAnimationFunctions.h; sourceTree = "<group>"; };
+		4BA788081B297225007A8477 /* UIView+JHChainableAnimations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+JHChainableAnimations.h"; sourceTree = "<group>"; };
+		4BA788091B297225007A8477 /* UIView+JHChainableAnimations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+JHChainableAnimations.m"; sourceTree = "<group>"; };
+		4BA788101B297BED007A8477 /* UIImageView+EXtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+EXtension.h"; sourceTree = "<group>"; };
+		4BA788111B297BED007A8477 /* UIImageView+EXtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+EXtension.m"; sourceTree = "<group>"; };
 		4BA88D1B1B25301D0047A567 /* RCDownloadAlbumViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCDownloadAlbumViewCell.h; sourceTree = "<group>"; };
 		4BA88D1C1B25301D0047A567 /* RCDownloadAlbumViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCDownloadAlbumViewCell.m; sourceTree = "<group>"; };
 		4BA88D1D1B25301D0047A567 /* RCDownloadAlbumViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RCDownloadAlbumViewCell.xib; sourceTree = "<group>"; };
@@ -1144,9 +1158,6 @@
 		4BBAC2FA1B1ED4B1006ED9A1 /* RCPlayerDeialViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RCPlayerDeialViewCell.xib; sourceTree = "<group>"; };
 		4BBB64C81B283C8900E2F038 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		4BBB64C91B283C8900E2F038 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
-		4BBB64CB1B284CF700E2F038 /* RCSearchReslultUserViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCSearchReslultUserViewCell.h; sourceTree = "<group>"; };
-		4BBB64CC1B284CF700E2F038 /* RCSearchReslultUserViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCSearchReslultUserViewCell.m; sourceTree = "<group>"; };
-		4BBB64CD1B284CF700E2F038 /* RCSearchReslultUserViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RCSearchReslultUserViewCell.xib; sourceTree = "<group>"; };
 		4BBB64D11B284EBD00E2F038 /* RCSearchUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCSearchUserInfo.h; sourceTree = "<group>"; };
 		4BBB64D21B284EBD00E2F038 /* RCSearchUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCSearchUserInfo.m; sourceTree = "<group>"; };
 		4BBB64D41B284FB800E2F038 /* RCUserAlbum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCUserAlbum.h; sourceTree = "<group>"; };
@@ -1985,6 +1996,8 @@
 		4B1D81421B0C935D00B7C9DC /* category */ = {
 			isa = PBXGroup;
 			children = (
+				4BA788101B297BED007A8477 /* UIImageView+EXtension.h */,
+				4BA788111B297BED007A8477 /* UIImageView+EXtension.m */,
 				4B89C2EA1B26F6A50092507C /* HexColor.h */,
 				4B89C2EB1B26F6A50092507C /* HexColor.m */,
 				4B9510051B1F2DD600D5DBDD /* UIImage+ImageEffects.h */,
@@ -1992,8 +2005,6 @@
 				4B116C591B195430007792F4 /* UITableView+FDTemplateLayoutCell.h */,
 				4B116C5A1B195430007792F4 /* UITableView+FDTemplateLayoutCell.m */,
 				4B7A337D1B1807780042E0EF /* RCSingleInstance.h */,
-				4B4F46181B143FCF00284DAB /* UIImageView+EXtension.h */,
-				4B4F46191B143FCF00284DAB /* UIImageView+EXtension.m */,
 				4BF9A3331B12CC02003FD44E /* Foundation+Log.m */,
 				4B912E031B0ED039007B64DD /* NSDate+RC.h */,
 				4B912E041B0ED039007B64DD /* NSDate+RC.m */,
@@ -2010,6 +2021,7 @@
 		4B1D81441B0C935D00B7C9DC /* lib */ = {
 			isa = PBXGroup;
 			children = (
+				4BA788011B297225007A8477 /* JHChainableAnimations */,
 				4BBB64C71B283C8900E2F038 /* Reachability */,
 				4B019B231B282673002D46FE /* ReactiveCocoa */,
 				4B89C2B51B26E4AA0092507C /* Masonry */,
@@ -2592,6 +2604,33 @@
 			path = FDFullscreenPopGesture;
 			sourceTree = "<group>";
 		};
+		4BA787EE1B292570007A8477 /* user */ = {
+			isa = PBXGroup;
+			children = (
+				4BA787EF1B292570007A8477 /* RCUserViewController.h */,
+				4BA787F01B292570007A8477 /* RCUserViewController.m */,
+				4BA787FC1B2932E4007A8477 /* RCUserInfoHeaderView.h */,
+				4BA787FD1B2932E4007A8477 /* RCUserInfoHeaderView.m */,
+				4BA787FF1B29330D007A8477 /* RCUserInfoHeaderView.xib */,
+			);
+			path = user;
+			sourceTree = "<group>";
+		};
+		4BA788011B297225007A8477 /* JHChainableAnimations */ = {
+			isa = PBXGroup;
+			children = (
+				4BA788021B297225007A8477 /* JHChainableAnimations.h */,
+				4BA788031B297225007A8477 /* JHChainableBlocks.h */,
+				4BA788041B297225007A8477 /* JHKeyframeAnimation.h */,
+				4BA788051B297225007A8477 /* JHKeyframeAnimation.m */,
+				4BA788061B297225007A8477 /* NSBKeyframeAnimationFunctions.c */,
+				4BA788071B297225007A8477 /* NSBKeyframeAnimationFunctions.h */,
+				4BA788081B297225007A8477 /* UIView+JHChainableAnimations.h */,
+				4BA788091B297225007A8477 /* UIView+JHChainableAnimations.m */,
+			);
+			path = JHChainableAnimations;
+			sourceTree = "<group>";
+		};
 		4BA88D231B2571910047A567 /* LDProgressView */ = {
 			isa = PBXGroup;
 			children = (
@@ -2644,6 +2683,7 @@
 		4BAAB9471B26A1F100E8220F /* view */ = {
 			isa = PBXGroup;
 			children = (
+				4BA787EE1B292570007A8477 /* user */,
 				4B89C2E01B26EBEE0092507C /* RCSearchViewController.h */,
 				4B89C2E11B26EBEE0092507C /* RCSearchViewController.m */,
 				4B89C2E51B26F5870092507C /* RCSearchViewCell.h */,
@@ -2651,11 +2691,6 @@
 				4B89C2E71B26F5870092507C /* RCSearchViewCell.xib */,
 				4B89C2F31B2711E30092507C /* RCSearchResultViewController.h */,
 				4B89C2F41B2711E30092507C /* RCSearchResultViewController.m */,
-				4B51898E1B27FCC000B40A6A /* RCUserViewController.h */,
-				4B51898F1B27FCC000B40A6A /* RCUserViewController.m */,
-				4BBB64CB1B284CF700E2F038 /* RCSearchReslultUserViewCell.h */,
-				4BBB64CC1B284CF700E2F038 /* RCSearchReslultUserViewCell.m */,
-				4BBB64CD1B284CF700E2F038 /* RCSearchReslultUserViewCell.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -3211,10 +3246,10 @@
 				4B4F46141B141BA200284DAB /* RCAlbumSectionHeaderView.xib in Resources */,
 				4B8B00111B2056C6009B0017 /* WifiMan_Sign_4@2x.png in Resources */,
 				4B8B00071B2056C6009B0017 /* FeWifiManHub.xib in Resources */,
+				4BA788001B29330D007A8477 /* RCUserInfoHeaderView.xib in Resources */,
 				4BBAC2FC1B1ED4B1006ED9A1 /* RCPlayerDeialViewCell.xib in Resources */,
 				4B84F45E1B240FCA00395351 /* RCDownloadingViewCell.xib in Resources */,
 				4B1D81471B0C935D00B7C9DC /* Info.plist in Resources */,
-				4BBB64CF1B284CF700E2F038 /* RCSearchReslultUserViewCell.xib in Resources */,
 				4B8B00131B2056C6009B0017 /* wifimanhub_grayscale@2x.png in Resources */,
 				4B116C691B198754007792F4 /* RCBottomPlayerButton.xib in Resources */,
 				4B8B000F1B2056C6009B0017 /* WifiMan_Sign_2@2x.png in Resources */,
@@ -3323,7 +3358,6 @@
 				4B1D822B1B0C977400B7C9DC /* AFURLResponseSerialization.m in Sources */,
 				4B9211171B1057E40004DB2A /* RCPostDeailViewController.m in Sources */,
 				4B116D0B1B19D96A007792F4 /* AFAudioRouter.m in Sources */,
-				4B5189901B27FCC000B40A6A /* RCUserViewController.m in Sources */,
 				4B1D81E51B0C970B00B7C9DC /* RCRecommendAlbumViewCell.m in Sources */,
 				4BF787C51B0DB8F20002704A /* RCAnchorList.m in Sources */,
 				4B019C051B282674002D46FE /* RACErrorSignal.m in Sources */,
@@ -3347,6 +3381,8 @@
 				4B93F5821B11AD4700BFBF6A /* UIView+FDCollapsibleConstraints.m in Sources */,
 				4B92111B1B105E970004DB2A /* RCComment.m in Sources */,
 				4B89C2F51B2711E30092507C /* RCSearchResultViewController.m in Sources */,
+				4BA787F11B292570007A8477 /* RCUserViewController.m in Sources */,
+				4BA7880B1B297225007A8477 /* NSBKeyframeAnimationFunctions.c in Sources */,
 				4BA88D281B2571910047A567 /* LDProgressView.m in Sources */,
 				4B019C191B282674002D46FE /* RACSignalSequence.m in Sources */,
 				4B7A33781B17FE980042E0EF /* FMDatabasePool.m in Sources */,
@@ -3438,6 +3474,7 @@
 				4B019C061B282674002D46FE /* RACEvent.m in Sources */,
 				4B1D81611B0C949300B7C9DC /* RCDiscoverDataTool.m in Sources */,
 				4B912E201B0EF8B6007B64DD /* RCCircleViewModel.m in Sources */,
+				4BA7880C1B297225007A8477 /* UIView+JHChainableAnimations.m in Sources */,
 				4BB20B1D1B22DF0500C5B508 /* DMPagerNavigationBar.m in Sources */,
 				4B019C121B282674002D46FE /* RACScheduler.m in Sources */,
 				4B019BEB1B282674002D46FE /* NSObject+RACKVOWrapper.m in Sources */,
@@ -3462,6 +3499,7 @@
 				4B912DED1B0EBEB4007B64DD /* RCSubject.m in Sources */,
 				4B1D82801B0C982900B7C9DC /* UIImageView+HighlightedWebCache.m in Sources */,
 				4B89C2F21B2704FF0092507C /* RCSearchTool.m in Sources */,
+				4BA787FE1B2932E4007A8477 /* RCUserInfoHeaderView.m in Sources */,
 				4BC647C61B1734B200661DB0 /* NTSlidingViewController.m in Sources */,
 				4B019BE71B282674002D46FE /* NSInvocation+RACTypeParsing.m in Sources */,
 				4B8BFFF91B2056C6009B0017 /* Feasd.m in Sources */,
@@ -3517,6 +3555,7 @@
 				4B84F45D1B240FCA00395351 /* RCDownloadingViewCell.m in Sources */,
 				4B019C231B282674002D46FE /* RACTupleSequence.m in Sources */,
 				4B1D81C31B0C967300B7C9DC /* RCCateroryListViewController.m in Sources */,
+				4BA788121B297BED007A8477 /* UIImageView+EXtension.m in Sources */,
 				4B912E3A1B0EFA4F007B64DD /* RCRecommendedPost.m in Sources */,
 				4B7A337A1B17FE980042E0EF /* FMResultSet.m in Sources */,
 				4B7A33691B17FCE20042E0EF /* RCCollectViewModel.m in Sources */,
@@ -3552,6 +3591,7 @@
 				4BF787C81B0DB9770002704A /* RCOneAnchorList.m in Sources */,
 				4B019BE21B282674002D46FE /* NSData+RACSupport.m in Sources */,
 				4BBAC2491B1EA3D7006ED9A1 /* RCPlayerCommnet.m in Sources */,
+				4BA7880A1B297225007A8477 /* JHKeyframeAnimation.m in Sources */,
 				4BB20BCE1B230AD600C5B508 /* RCDownloadAlbumViewController.m in Sources */,
 				4B89C2D91B26E4AA0092507C /* MASViewConstraint.m in Sources */,
 				4BC647A41B17084600661DB0 /* RCAboutAlbum.m in Sources */,
@@ -3614,7 +3654,6 @@
 				4B8B00021B2056C6009B0017 /* FeThreeDotGlow.m in Sources */,
 				4B1D81941B0C958D00B7C9DC /* RCCategoryList.m in Sources */,
 				4BBAC25C1B1EC795006ED9A1 /* RCCommnetTextView.m in Sources */,
-				4BBB64CE1B284CF700E2F038 /* RCSearchReslultUserViewCell.m in Sources */,
 				4B8BFFBF1B1FFCD6009B0017 /* RCplayerStatus.m in Sources */,
 				4B89C2D81B26E4AA0092507C /* MASViewAttribute.m in Sources */,
 				4BF787CC1B0DBA600002704A /* RCCategoryFocusImageViewCell.m in Sources */,
@@ -3632,7 +3671,6 @@
 				4B019C201B282674002D46FE /* RACTargetQueueScheduler.m in Sources */,
 				4BF9A3321B12C3DD003FD44E /* RCGroupEmoticon.m in Sources */,
 				4B019BF51B282674002D46FE /* NSUserDefaults+RACSupport.m in Sources */,
-				4B4F461A1B143FCF00284DAB /* UIImageView+EXtension.m in Sources */,
 				4BDE7D351B130F1700073E12 /* RCSegementControl.m in Sources */,
 				4BF563911B219B610012619B /* RCPlayerTool.m in Sources */,
 				4B1D82251B0C977400B7C9DC /* AFHTTPRequestOperationManager.m in Sources */,

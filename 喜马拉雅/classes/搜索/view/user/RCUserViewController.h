@@ -10,5 +10,6 @@
 
 @interface RCUserViewController : RCBaseViewController
 @property(nonatomic,strong) NSNumber  *ID;
+@property(nonatomic,copy) NSString  *keyWord;
 
 @end
