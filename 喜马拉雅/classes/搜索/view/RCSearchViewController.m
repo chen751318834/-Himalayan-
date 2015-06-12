@@ -178,6 +178,7 @@ static NSString * const ID = @"searchCell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     RCSearchViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID forIndexPath:indexPath];
+    [cell clearSearchHistoryWithTarget:self action:@selector(clearSearchHistory)];
     if (indexPath.row == 0) {
         cell.searchHistory = YES;
         [self configureCell:cell atIndexPath:indexPath texts:self.historySearchTexts];
@@ -238,6 +239,12 @@ static NSString * const ID = @"searchCell";
     }
 }
 #pragma mark - praive
+- (void)clearSearchHistory{
+    [self.historySearchTexts removeAllObjects];
+    [RCSearchTool removeAllSearchHistory];
+    [self.tableView reloadData];
+
+}
 - (void)reloadSearchHistoryData:(NSNotification *)note{
     RCSearchResultList * list = note.userInfo[reloadSearchHistoryNotificationName];
     [self.historySearchTexts addObject:list.title];

@@ -26,5 +26,8 @@
 
     }
 }
+- (void)clearSearchHistoryWithTarget:(id)target action:(SEL)action{
 
+    [self.button addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
+ }
 @end

@@ -11,5 +11,5 @@
 @interface RCSearchViewCell : UITableViewCell
 @property(nonatomic,weak) IBOutlet SKTagView   *tagView;
 @property(nonatomic,assign,getter=isSearchHistory) BOOL searchHistory;
-
+- (void)clearSearchHistoryWithTarget:(id)target action:(SEL)action;
 @end
