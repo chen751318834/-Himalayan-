@@ -322,7 +322,6 @@
 		4B9510111B1F338600D5DBDD /* ARSegmentPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B95100B1B1F338600D5DBDD /* ARSegmentPageController.m */; };
 		4B9510121B1F338600D5DBDD /* ARSegmentPageHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B95100E1B1F338600D5DBDD /* ARSegmentPageHeader.m */; };
 		4B9510131B1F338600D5DBDD /* ARSegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B9510101B1F338600D5DBDD /* ARSegmentView.m */; };
-		4B9510171B1F386200D5DBDD /* UINavigationController+FDFullscreenPopGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B9510161B1F386200D5DBDD /* UINavigationController+FDFullscreenPopGesture.m */; };
 		4BA787F11B292570007A8477 /* RCUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BA787F01B292570007A8477 /* RCUserViewController.m */; };
 		4BA787FE1B2932E4007A8477 /* RCUserInfoHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BA787FD1B2932E4007A8477 /* RCUserInfoHeaderView.m */; };
 		4BA788001B29330D007A8477 /* RCUserInfoHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BA787FF1B29330D007A8477 /* RCUserInfoHeaderView.xib */; };
@@ -398,6 +397,8 @@
 		4BBB64D61B284FB800E2F038 /* RCUserAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BBB64D51B284FB800E2F038 /* RCUserAlbum.m */; };
 		4BBB64D91B28504500E2F038 /* RCUserAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BBB64D81B28504500E2F038 /* RCUserAudio.m */; };
 		4BBB64DC1B2850DE00E2F038 /* RCUserlAudioOrAlbumList.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BBB64DB1B2850DE00E2F038 /* RCUserlAudioOrAlbumList.m */; };
+		4BC26C491B2A7373009B84B9 /* UINavigationController+FDFullscreenPopGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC26C481B2A7373009B84B9 /* UINavigationController+FDFullscreenPopGesture.m */; };
+		4BC26C4C1B2A7610009B84B9 /* RCUserZanedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC26C4B1B2A7610009B84B9 /* RCUserZanedViewController.m */; };
 		4BC647931B1701EC00661DB0 /* RCAlbumDownloadBottomToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC6478A1B1701EC00661DB0 /* RCAlbumDownloadBottomToolBar.m */; };
 		4BC647941B1701EC00661DB0 /* RCAlbumDownloadBottomToolBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BC6478B1B1701EC00661DB0 /* RCAlbumDownloadBottomToolBar.xib */; };
 		4BC647951B1701EC00661DB0 /* RCAlbumDownLoadSectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC6478D1B1701EC00661DB0 /* RCAlbumDownLoadSectionHeaderView.m */; };
@@ -1113,8 +1114,6 @@
 		4B95100E1B1F338600D5DBDD /* ARSegmentPageHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARSegmentPageHeader.m; sourceTree = "<group>"; };
 		4B95100F1B1F338600D5DBDD /* ARSegmentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARSegmentView.h; sourceTree = "<group>"; };
 		4B9510101B1F338600D5DBDD /* ARSegmentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARSegmentView.m; sourceTree = "<group>"; };
-		4B9510151B1F386200D5DBDD /* UINavigationController+FDFullscreenPopGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+FDFullscreenPopGesture.h"; sourceTree = "<group>"; };
-		4B9510161B1F386200D5DBDD /* UINavigationController+FDFullscreenPopGesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+FDFullscreenPopGesture.m"; sourceTree = "<group>"; };
 		4BA787EF1B292570007A8477 /* RCUserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCUserViewController.h; sourceTree = "<group>"; };
 		4BA787F01B292570007A8477 /* RCUserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCUserViewController.m; sourceTree = "<group>"; };
 		4BA787FC1B2932E4007A8477 /* RCUserInfoHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCUserInfoHeaderView.h; sourceTree = "<group>"; };
@@ -1256,6 +1255,10 @@
 		4BBB64D81B28504500E2F038 /* RCUserAudio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCUserAudio.m; sourceTree = "<group>"; };
 		4BBB64DA1B2850DE00E2F038 /* RCUserlAudioOrAlbumList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCUserlAudioOrAlbumList.h; sourceTree = "<group>"; };
 		4BBB64DB1B2850DE00E2F038 /* RCUserlAudioOrAlbumList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCUserlAudioOrAlbumList.m; sourceTree = "<group>"; };
+		4BC26C471B2A7373009B84B9 /* UINavigationController+FDFullscreenPopGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+FDFullscreenPopGesture.h"; sourceTree = "<group>"; };
+		4BC26C481B2A7373009B84B9 /* UINavigationController+FDFullscreenPopGesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+FDFullscreenPopGesture.m"; sourceTree = "<group>"; };
+		4BC26C4A1B2A7610009B84B9 /* RCUserZanedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCUserZanedViewController.h; sourceTree = "<group>"; };
+		4BC26C4B1B2A7610009B84B9 /* RCUserZanedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCUserZanedViewController.m; sourceTree = "<group>"; };
 		4BC647891B1701EC00661DB0 /* RCAlbumDownloadBottomToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCAlbumDownloadBottomToolBar.h; sourceTree = "<group>"; };
 		4BC6478A1B1701EC00661DB0 /* RCAlbumDownloadBottomToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCAlbumDownloadBottomToolBar.m; sourceTree = "<group>"; };
 		4BC6478B1B1701EC00661DB0 /* RCAlbumDownloadBottomToolBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RCAlbumDownloadBottomToolBar.xib; sourceTree = "<group>"; };
@@ -2128,6 +2131,7 @@
 		4B1D81441B0C935D00B7C9DC /* lib */ = {
 			isa = PBXGroup;
 			children = (
+				4BC26C461B2A7373009B84B9 /* FDFullscreenPopGesture */,
 				4BA7883E1B298556007A8477 /* UMSocial_Sdk_4.2.3 */,
 				4BA788011B297225007A8477 /* JHChainableAnimations */,
 				4BBB64C71B283C8900E2F038 /* Reachability */,
@@ -2141,7 +2145,6 @@
 				4BB20B181B22DF0500C5B508 /* DMPagerViewController */,
 				4B7D70071B213AC700B0EA51 /* Novocaine */,
 				4B8BFFC91B2056C6009B0017 /* FeSpinner */,
-				4B9510141B1F386200D5DBDD /* FDFullscreenPopGesture */,
 				4B9510081B1F338600D5DBDD /* ARSegmentPageController */,
 				4B950FFC1B1EECA000D5DBDD /* TLTagsContol */,
 				4BBAC2DE1B1ED3C8006ED9A1 /* MJExtension */,
@@ -2703,15 +2706,6 @@
 			path = ARSegmentPageController;
 			sourceTree = "<group>";
 		};
-		4B9510141B1F386200D5DBDD /* FDFullscreenPopGesture */ = {
-			isa = PBXGroup;
-			children = (
-				4B9510151B1F386200D5DBDD /* UINavigationController+FDFullscreenPopGesture.h */,
-				4B9510161B1F386200D5DBDD /* UINavigationController+FDFullscreenPopGesture.m */,
-			);
-			path = FDFullscreenPopGesture;
-			sourceTree = "<group>";
-		};
 		4BA787EE1B292570007A8477 /* user */ = {
 			isa = PBXGroup;
 			children = (
@@ -2725,6 +2719,8 @@
 				4B5329091B299E48003DA20E /* RCUserDeailViewCell.h */,
 				4B53290A1B299E48003DA20E /* RCUserDeailViewCell.m */,
 				4B53290B1B299E48003DA20E /* RCUserDeailViewCell.xib */,
+				4BC26C4A1B2A7610009B84B9 /* RCUserZanedViewController.h */,
+				4BC26C4B1B2A7610009B84B9 /* RCUserZanedViewController.m */,
 			);
 			path = user;
 			sourceTree = "<group>";
@@ -3084,6 +3080,15 @@
 				4B53290F1B299F87003DA20E /* RCUserDeialList.m */,
 			);
 			path = user;
+			sourceTree = "<group>";
+		};
+		4BC26C461B2A7373009B84B9 /* FDFullscreenPopGesture */ = {
+			isa = PBXGroup;
+			children = (
+				4BC26C471B2A7373009B84B9 /* UINavigationController+FDFullscreenPopGesture.h */,
+				4BC26C481B2A7373009B84B9 /* UINavigationController+FDFullscreenPopGesture.m */,
+			);
+			path = FDFullscreenPopGesture;
 			sourceTree = "<group>";
 		};
 		4BC647881B1701EC00661DB0 /* 批量下载 */ = {
@@ -3681,6 +3686,7 @@
 				4B1D82A91B0C9E7800B7C9DC /* RCTabBarViewController.m in Sources */,
 				4B84F4561B2408B600395351 /* AFDownloadRequestOperation.m in Sources */,
 				4BDE7D201B12F98800073E12 /* RCAlbum.m in Sources */,
+				4BC26C491B2A7373009B84B9 /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
 				4B912DFE1B0EC430007B64DD /* RCSubjectSectionHeaderView.m in Sources */,
 				4B019BF21B282674002D46FE /* NSString+RACSequenceAdditions.m in Sources */,
 				4BF787D21B0DBCBA0002704A /* RCBaseViewController.m in Sources */,
@@ -3709,7 +3715,6 @@
 				4B1D822C1B0C977400B7C9DC /* AFURLSessionManager.m in Sources */,
 				4BBAC2F31B1ED3C8006ED9A1 /* MJType.m in Sources */,
 				4B019C291B282674002D46FE /* UIBarButtonItem+RACCommandSupport.m in Sources */,
-				4B9510171B1F386200D5DBDD /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
 				4B89C2EC1B26F6A50092507C /* HexColor.m in Sources */,
 				4B8B00191B207145009B0017 /* RCAudioTool.m in Sources */,
 				4B1D827D1B0C982900B7C9DC /* UIButton+WebCache.m in Sources */,
@@ -3891,6 +3896,7 @@
 				4BB20BCB1B230AC200C5B508 /* RCDownloadingAudioViewController.m in Sources */,
 				4B9210F81B10241F0004DB2A /* RCRecommendPostViewCell.m in Sources */,
 				4BAAF0A41B244168009D2874 /* RCDownloadAudioViewCell.m in Sources */,
+				4BC26C4C1B2A7610009B84B9 /* RCUserZanedViewController.m in Sources */,
 				4B9510111B1F338600D5DBDD /* ARSegmentPageController.m in Sources */,
 				4BF9A1401B12B447003FD44E /* RCTextPart.m in Sources */,
 				4B019C161B282674002D46FE /* RACSignal+Operations.m in Sources */,

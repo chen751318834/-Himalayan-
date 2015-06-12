@@ -13,6 +13,7 @@
 #import "RCUserDeailViewController.h"
 #import "UIImageView+EXtension.h"
 #import "UIView+JHChainableAnimations.h"
+#import "RCUserZanedViewController.h"
 #import "JHKeyframeAnimation.h"
 @interface RCUserInfoHeaderView ()
 @property (weak, nonatomic) IBOutlet UIImageView *largeIconView;
@@ -42,22 +43,22 @@
 }
 - (void)tapLargeiconView{
     if (self.isOpen) {
-        self.contentView.moveY(60).animate(0.5);
         self.arrow.rotate(180).animate(0.5);
-        self.avataIconVIew.makeOpacity(1).rotate(180).animate(0.5);
+        self.avataIconVIew.rotate(180).makeOpacity(1).animate(0.5);
         self.largeIconView.userInteractionEnabled = NO;
+        self.contentView.moveY(60).animate(0.5);
+        self.desclabel.text = self.userInfo.personDescribe;
         self.contentView.animationCompletion = JHAnimationCompletion(){
-            self.desclabel.text = self.userInfo.personDescribe;
-            self.largeIconView.userInteractionEnabled = YES;
+        self.largeIconView.userInteractionEnabled = YES;
         };
     }else{
+        self.arrow.rotate(180).animate(0.5);
+        self.avataIconVIew.rotate(180).makeOpacity(0).animate(0.5);
         self.largeIconView.userInteractionEnabled = NO;
         self.contentView.moveY(-60).animate(0.5);
-        self.arrow.rotate(180).animate(0.5);
-        self.avataIconVIew.makeOpacity(0).rotate(180).animate(0.5);
+        self.desclabel.text = self.userInfo.personalSignature;
         self.contentView.animationCompletion = JHAnimationCompletion(){
-            self.desclabel.text = self.userInfo.personalSignature;
-            self.largeIconView.userInteractionEnabled = YES;
+        self.largeIconView.userInteractionEnabled = YES;
 
         };
     }
@@ -75,7 +76,7 @@
     self.desclabel.text = userInfo.personDescribe;
     [self setUpButton:self.fansButton count:[userInfo.followers intValue]   title:[NSString stringWithFormat:@"%@\n粉丝",userInfo.followers]];
     [self setUpButton:self.zanButton count:[userInfo.tracks intValue]   title:[NSString stringWithFormat:@"%@\n赞过的",userInfo.tracks]];
-    [self setUpButton:self.carePersonButton count:[userInfo.favorites intValue]   title:[NSString stringWithFormat:@"%@\n关注的人",userInfo.favorites]];
+    [self setUpButton:self.carePersonButton count:[userInfo.followings intValue]   title:[NSString stringWithFormat:@"%@\n关注的人",userInfo.followings]];
 
   }
 - (void)setUpButton:(UIButton *)button  count:(int )count  title:(NSString *)title{
@@ -98,23 +99,29 @@
 }
 - (IBAction)openCarePersonVC:(id)sender {
     RCUserDeailViewController * vc = [[RCUserDeailViewController alloc]init];
+    vc.fansVC = NO;
     vc.ID = self.userInfo.uid;
     [[RCNavigationController navigationController] pushViewController:vc animated:YES];
 }
 - (IBAction)openFansVC:(id)sender {
     RCUserDeailViewController * vc = [[RCUserDeailViewController alloc]init];
     vc.ID = self.userInfo.uid;
+    vc.fansVC = YES;
     [[RCNavigationController navigationController] pushViewController:vc animated:YES];
 }
-- (IBAction)share:(id)sender {
 
-}
 - (IBAction)openZanedVC:(id)sender {
+    RCUserZanedViewController * vc = [[RCUserZanedViewController alloc]init];
+    vc.ID = self.userInfo.uid;
+    vc.title = @"赞过的";
+    [[RCNavigationController navigationController] pushViewController:vc animated:YES];
 }
 - (void)shareWithTarget:(id)target action:(SEL)action{
 
     [self.shareButton addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
 }
+- (IBAction)share:(id)sender {
 
+}
 
 @end

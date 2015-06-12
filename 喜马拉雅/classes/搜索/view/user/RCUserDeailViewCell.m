@@ -26,12 +26,12 @@
     }];
     self.namelabel.text = list.nickname;
     self.desclabel.text = list.personDescribe;
-    [self setUpWithlabel:self.audioCountLabel count:    [list.followedTime intValue]title:@"声音"];
-    [self setUpWithlabel:self.fansCountLabel count:    [list.followers intValue] title:@"粉丝"];
+    [self setUpWithlabel:self.audioCountLabel count:[list.tracks intValue] title:@"声音"];
+    [self setUpWithlabel:self.fansCountLabel count: [list.followers intValue] title:@"粉丝"];
 }
 - (void)setUpWithlabel:(UILabel *)label count:(int)count title:(NSString *)title {
     if (count ==0) {
-        label.text = title;
+        label.text = [NSString stringWithFormat:@"%@ 0",title];
     }else{
 
         //小于1000

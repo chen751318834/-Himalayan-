@@ -199,7 +199,7 @@
 
 - ( void)fetchNewUserZanedWithSuccess:(void (^)(void ))success failure:(void (^)(void ))failure {
     [RCNetWorkingTool get:[NSString stringWithFormat:@"http://mobile.ximalaya.com/mobile/others/favorite?device=android&pageSize=15&toUid=%@&pageId=1",self.ID] params:nil success:^(id json) {
-        NSArray * newAudios = [RCUserDeialList objectArrayWithKeyValuesArray:json[@"list"]];
+        NSArray * newAudios = [RCTrackList objectArrayWithKeyValuesArray:json[@"list"]];
         [self.models removeAllObjects];
 
         [self.models addObjectsFromArray:newAudios];
@@ -263,7 +263,7 @@
 - ( void)fetchMoreUserZanedWithSuccess:(void (^)(void ))success failure:(void (^)(void ))failure completion:(void (^)(void))completion{
     self.currrentPage ++;
     [RCNetWorkingTool get:[NSString stringWithFormat:@"http://mobile.ximalaya.com/mobile/others/favorite?device=android&pageSize=15&toUid=%@&pageId=%ld",self.ID,self.currrentPage] params:nil success:^(id json) {
-        NSArray * newAudios = [RCUserDeialList objectArrayWithKeyValuesArray:json[@"list"]];
+        NSArray * newAudios = [RCTrackList objectArrayWithKeyValuesArray:json[@"list"]];
         NSNumber *  maxPageID = (NSNumber *)json[@"maxPageId"];
         if (self.currrentPage  > [maxPageID integerValue]) {
             if (completion) {

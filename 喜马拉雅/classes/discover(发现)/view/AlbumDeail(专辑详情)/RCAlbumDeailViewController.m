@@ -21,6 +21,8 @@
 #import "RCDiscoverViewController.h"
 #import "RCAlbumViewController.h"
 #import "RCDownloadTool.h"
+#import "UINavigationController+FDFullscreenPopGesture.h"
+
 #import "RCConst.h"
 #import "RCAlbumDeailViewCell.h"
 #import "RCPlayerAlbumViewController.h"
@@ -57,18 +59,18 @@
     return [super initWithCollectionViewLayout:layout];
 }
 
-- (void)viewWillAppear:(BOOL)animated{
-    [self.navigationController setNavigationBarHidden:YES animated:NO];
-    [super viewWillAppear:animated];
-}
-- (void)viewWillDisappear:(BOOL)animated{
-    [self.navigationController setNavigationBarHidden:NO animated:YES];
-    [super viewWillDisappear:animated];
-}
+//- (void)viewWillAppear:(BOOL)animated{
+//    [self.navigationController setNavigationBarHidden:YES animated:NO];
+//    [super viewWillAppear:animated];
+//}
+//- (void)viewWillDisappear:(BOOL)animated{
+//    [self.navigationController setNavigationBarHidden:NO animated:YES];
+//    [super viewWillDisappear:animated];
+//}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    self.fd_prefersNavigationBarHidden = YES;
     self.collectionView.frame = [UIScreen mainScreen].bounds;
     [self.viewModel fetchNewAlbumDeailDataWithSuccess:^{
         [self.collectionView reloadData];

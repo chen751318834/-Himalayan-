@@ -153,6 +153,7 @@ static const NSUInteger sectionCount = 100;
     RCPlayerView * playerView = [[RCPlayerView alloc]init];
     [[UIApplication sharedApplication].keyWindow addSubview:playerView];
     playerView.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height,[UIScreen mainScreen].bounds.size.width , [UIScreen mainScreen].bounds.size.height);
+    playerView.hidden = YES;
     self.playerView = playerView;
     if ([RCPlayerTool playedAudios].count != 0) {
         RCPlaylist * lastPlayInfo = [[RCPlayerTool playedAudios] firstObject];

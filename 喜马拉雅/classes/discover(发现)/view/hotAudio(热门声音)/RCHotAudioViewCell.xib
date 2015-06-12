@@ -65,7 +65,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bnp-Ci-BQB">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bnp-Ci-BQB">
                                 <rect key="frame" x="156" y="74" width="40" height="11"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="IVI-kQ-f4H"/>
@@ -109,7 +109,7 @@
                                     <constraint firstAttribute="height" constant="20" id="4qY-00-syf"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="THf-ov-o7k">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="THf-ov-o7k">
                                 <rect key="frame" x="116" y="74" width="40" height="11"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="bxe-3v-OgV"/>
@@ -176,6 +176,7 @@
                 <outlet property="downloadButton" destination="Ge0-08-zSc" id="Bhl-CG-Vnx"/>
                 <outlet property="iconView" destination="MaE-YF-TeL" id="zDS-Xm-yno"/>
                 <outlet property="playCountLabel" destination="Yp0-vt-Bqe" id="KAY-hM-KOz"/>
+                <outlet property="playCountLabelWidth" destination="k2p-yj-b5J" id="ESa-pt-xBi"/>
                 <outlet property="saveCountLabel" destination="THf-ov-o7k" id="2vh-Sq-1Y3"/>
                 <outlet property="saveCountLabelWidth" destination="bxe-3v-OgV" id="52H-Vp-Va0"/>
                 <outlet property="sayCountLabel" destination="Bnp-Ci-BQB" id="Q9F-oI-kf7"/>

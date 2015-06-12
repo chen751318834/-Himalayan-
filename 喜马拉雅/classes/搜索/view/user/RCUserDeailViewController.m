@@ -8,7 +8,6 @@
 
 #import "RCUserDeailViewController.h"
 #import "RCSearchViewModel.h"
-
 #import "RCUserDeailViewCell.h"
 #import "UITableView+FDTemplateLayoutCell.h"
 static NSString * const ID = @"userDeailCell";
@@ -28,18 +27,57 @@ static NSString * const ID = @"userDeailCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.tableView registerNib:[UINib nibWithNibName:@"RCUserDeailViewCell" bundle:nil] forCellReuseIdentifier:ID];
+    self.tableView.gifFooter.hidden = NO;
+    if (self.isFansVC) {
+          self.title = @"粉丝";
+    }else{
+        self.title = @"关注的人";
+
+    }
 }
 - (void)loadNewData{
-    [self.viewModel fetchNewUserOfFollowerWithSuccess:^{
-        [self.tableView reloadData];
-        [self.tableView.gifHeader endRefreshing];
-    } failure:^{
+    if (self.isFansVC) {
+        [self.viewModel fetchNewUserFansWithSuccess:^{
+            [self.tableView reloadData];
+            [self.tableView.gifHeader endRefreshing];
+        } failure:^{
 
-    }];
+        }];
+    }else{
+
+        [self.viewModel fetchNewUserOfFollowerWithSuccess:^{
+            [self.tableView reloadData];
+            [self.tableView.gifHeader endRefreshing];
+        } failure:^{
+            
+        }];
+    }
+
 
 }
 
 - (void)loadMoreData{
+    if (self.isFansVC) {
+        [self.viewModel fetchMoreUserFansWithSuccess:^{
+            [self.tableView reloadData];
+            [self.tableView.gifFooter endRefreshing];
+        } failure:^{
+
+        } completion:^{
+            [self.tableView removeFooter];
+
+        }];
+    }else{
+
+        [self.viewModel fetchMoreUserOfFollowerWithSuccess:^{
+            [self.tableView reloadData];
+            [self.tableView.gifFooter endRefreshing];
+        } failure:^{
+
+        } completion:^{
+            [self.tableView removeFooter];
+        }];
+    }
 
 }
 #pragma mark - UITableViewDelegate

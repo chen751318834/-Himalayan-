@@ -10,5 +10,6 @@
 
 @interface RCUserDeailViewController : RCBaseViewController
 @property(nonatomic,strong) NSNumber  *ID;
+@property(nonatomic,assign,getter=isFansVC) BOOL fansVC;
 
 @end
