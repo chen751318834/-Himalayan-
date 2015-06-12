@@ -15,31 +15,30 @@
 #import "RCConst.h"
 #import "RCSearchViewModel.h"
 #import "UIImage+RC.h"
+#import "RCSearchResultDeailViewController.h"
 #import "RCSearchTool.h"
 #import "SKTagView.h"
+#import "UITableView+FDTemplateLayoutCell.h"
 #import "RCSearchResultViewController.h"
 #import "HexColor.h"
 #define SCREEN_WIDTH    ([UIScreen mainScreen].bounds.size.width)
 
 static NSString * const ID = @"searchCell";
-@interface RCSearchViewController () <UISearchBarDelegate>
+@interface RCSearchViewController () <UISearchBarDelegate,UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic,weak) UISearchBar   *searchBar;
-@property(nonatomic,strong) NSMutableArray  *texts;
 @property (nonatomic, strong) NSArray *colorPool;
 @property(nonatomic,strong) RCSearchResultViewController   *resultVC;
+@property(nonatomic,strong) RCSearchResultDeailViewController   *resultDeailVC;
+@property(nonatomic,weak) UITableView   *tableView;
+
 @property(nonatomic,strong) RCSearchViewModel  *viewModel;
 @property(nonatomic,assign) int currentIndex;
 @property(nonatomic,strong) NSMutableArray  *historySearchTexts;
-@property(nonatomic,strong) NSMutableArray  *hotSearchTexts;
 @end
 
 @implementation RCSearchViewController
--  (NSMutableArray *)hotSearchTexts{
-    if (!_hotSearchTexts) {
-        self.hotSearchTexts = [NSMutableArray array];
-    }
-    return _hotSearchTexts;
-}
+#pragma mark - 懒加载
+
 -  (NSMutableArray *)historySearchTexts{
     if (!_historySearchTexts) {
         self.historySearchTexts = [NSMutableArray array];
@@ -53,47 +52,62 @@ static NSString * const ID = @"searchCell";
     }
     return _viewModel;
 }
+-  (RCSearchResultDeailViewController *)resultDeailVC{
+    if (!_resultDeailVC) {
+        RCSearchResultDeailViewController * resultDeailVC = [[RCSearchResultDeailViewController alloc]init];
+        resultDeailVC.view.frame = CGRectMake(0, 64, self.view.bounds.size.width,self.view.bounds.size.height- 64);
+        [self addChildViewController:resultDeailVC];
+        self.resultDeailVC = resultDeailVC;
+    }
+    return _resultDeailVC;
+}
+
 -  (RCSearchResultViewController *)resultVC{
     if (!_resultVC) {
         RCSearchResultViewController * resultVC = [[RCSearchResultViewController alloc]init];
-        resultVC.view.frame = CGRectMake(0, 0, self.view.bounds.size.width,self.view.bounds.size.height);
+        resultVC.view.frame = CGRectMake(0, 64, self.view.bounds.size.width,self.view.bounds.size.height -64);
         [self addChildViewController:resultVC];
         self.resultVC = resultVC;
     }
     return _resultVC;
 }
 
--  (NSMutableArray *)texts{
-    if (!_texts) {
-         self.texts = [NSMutableArray array];
 
-    }
-    return _texts;
-}
-- (instancetype)init
-{
-    self = [super init];
-    if (self) {
-        for (RCSearchResultList * list in [RCSearchTool searchHistorys]) {
-            [self.historySearchTexts addObject:list.title];
-            }
-        for (int i = 0; i<10; i++) {
-            NSString * text = [NSString stringWithFormat:@"hahah %d",i];
-            [self.texts addObject:text];
-        }
-
-
-    }
-    return self;
-}
+#pragma mark - life
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setUpTableView];
+    self.tableView.contentInset = RCGlobalTableViewUIEdgeInsets;
+        [self loadData];
 
+    [self.tableView registerNib:[UINib nibWithNibName:@"RCSearchViewCell" bundle:nil] forCellReuseIdentifier:ID];
     self.tableView.tableFooterView = [[UIView alloc]init];
     [self setUpSearchBar];
     [self setUpNotificationCenter];
-    [self.tableView registerNib:[UINib nibWithNibName:@"RCSearchViewCell" bundle:nil] forCellReuseIdentifier:ID];
+    self.view.backgroundColor = RCGlobalBg;
+
+
+}
+-(void)setUpTableView{
+    UITableView * tableView = [[UITableView alloc]init];
+    [self.view insertSubview:tableView atIndex:0];
+    tableView.delegate = self;
+    tableView.dataSource = self;
+    self.tableView = tableView;
+    [tableView autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
+
+}
+-(void)loadData{
+
+   for (RCSearchResultList * list in [RCSearchTool searchHistorys]) {
+       [self.historySearchTexts addObject:list.title];
+   }
+   [self.viewModel fetchHotSearchWithSuccess:^{
+       [self.tableView reloadData];
+   } failure:^{
+       
+   }];
 
 }
 - (void)setUpNotificationCenter{
@@ -114,6 +128,7 @@ static NSString * const ID = @"searchCell";
     self.searchBar = searchBar;
 
 }
+#pragma mark - UISearchBarDelegate
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar{
 
     [self.view addSubview:self.resultVC.view];
@@ -135,46 +150,20 @@ static NSString * const ID = @"searchCell";
     }
 
 }
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
+    [self.resultDeailVC.view removeFromSuperview];
+}
 - (void)dealloc{
     [RCNotificationCenter removeObserver:self];
 }
-#pragma mark - UITextFieldDelegate
-- (void)textFieldDidBeginEditing:(UITextField *)textField{
-    [textField setBackground:[UIImage imageNamed:@"netsound_search"]];
-    [self.view addSubview:self.resultVC.view];
 
-
-
-}
-
-
-- (void)textFieldDidEndEditing:(UITextField *)textField{
-    [textField setBackground:[UIImage imageNamed:@"find_searchbar"]];
-    [self.resultVC.view removeFromSuperview];
-
-}
 #pragma mark - Table view data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return 2;
 }
 
-- (void)configureCell:(RCSearchViewCell *)cell atIndexPath:(NSIndexPath *)indexPath  texts:(NSArray *)texts
-{
-    cell.tagView.preferredMaxLayoutWidth = SCREEN_WIDTH;
-    cell.tagView.padding    = UIEdgeInsetsMake(10, 10, 10, 10);
-    cell.tagView.insets    = 15;
-    cell.tagView.lineSpace = 10;
 
-    [cell.tagView removeAllTags];
-    cell.tagView.didClickTagAtIndex = ^(NSUInteger index){
-     };
-    //Add Tags
-    [texts enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop)
-     {
-         [cell.tagView addTag:[self tagWithIndex:idx title:obj]];
-     }];
-}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     RCSearchViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID forIndexPath:indexPath];
@@ -182,11 +171,10 @@ static NSString * const ID = @"searchCell";
     if (indexPath.row == 0) {
         cell.searchHistory = YES;
         [self configureCell:cell atIndexPath:indexPath texts:self.historySearchTexts];
-
-    }else{
+    }
+    else{
         cell.searchHistory = NO;
-        [self configureCell:cell atIndexPath:indexPath texts:self.texts];
-
+        [self configureCell:cell atIndexPath:indexPath texts:self.viewModel.hotSearchTexts];
     }
 
     return cell;
@@ -195,20 +183,15 @@ static NSString * const ID = @"searchCell";
 #pragma mark - Table view delegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    RCSearchViewCell *cell = nil;
-    if (!cell)
-    {
-        cell = [tableView dequeueReusableCellWithIdentifier:ID];
-    }
+    RCSearchViewCell * cell = [tableView dequeueReusableCellWithIdentifier:ID];
+
     if (indexPath.row == 0) {
         [self configureCell:cell atIndexPath:indexPath texts:self.historySearchTexts];
-
-    }else{
-        [self configureCell:cell atIndexPath:indexPath texts:self.texts];
-
-
+        return [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height + 1;
     }
+        [self configureCell:cell atIndexPath:indexPath texts:self.viewModel.hotSearchTexts];
     return [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height + 1;
+
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -224,21 +207,41 @@ static NSString * const ID = @"searchCell";
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
     [self.searchBar setText:nil];
     [self.searchBar resignFirstResponder];
-    /**
-     *  去除SectionheaderView的站粘性
-     */
-    if (scrollView == self.tableView)
-    {
-        CGFloat sectionHeaderHeight = 30; //sectionHeaderHeight
-        if (scrollView.contentOffset.y<=sectionHeaderHeight&&scrollView.contentOffset.y>=0) {
-            scrollView.contentInset = UIEdgeInsetsMake(-scrollView.contentOffset.y+70, 0, 0, 0);
-        } else if (scrollView.contentOffset.y>=sectionHeaderHeight) {
-            scrollView.contentInset = UIEdgeInsetsMake(-sectionHeaderHeight-20, 0, 0, 0);
-        }
-
-    }
+//    /**
+//     *  去除SectionheaderView的站粘性
+//     */
+//    if (scrollView == self.tableView)
+//    {
+//        CGFloat sectionHeaderHeight = 30; //sectionHeaderHeight
+//        if (scrollView.contentOffset.y<=sectionHeaderHeight&&scrollView.contentOffset.y>=0) {
+//            scrollView.contentInset = UIEdgeInsetsMake(-scrollView.contentOffset.y+70, 0, 0, 0);
+//        } else if (scrollView.contentOffset.y>=sectionHeaderHeight) {
+//            scrollView.contentInset = UIEdgeInsetsMake(-sectionHeaderHeight-20, 0, 0, 0);
+//        }
+//
+//    }
 }
-#pragma mark - praive
+#pragma mark - private
+- (void)configureCell:(RCSearchViewCell *)cell atIndexPath:(NSIndexPath *)indexPath  texts:(NSArray *)texts
+{
+    cell.tagView.preferredMaxLayoutWidth = SCREEN_WIDTH;
+    cell.tagView.padding    = UIEdgeInsetsMake(10, 10, 10, 10);
+    cell.tagView.insets    = 15;
+    cell.tagView.lineSpace = 10;
+    [cell.tagView removeAllTags];
+    cell.tagView.didClickTagAtIndex = ^(NSUInteger index){
+        NSString * text = texts[index];
+        [self.view addSubview:self.resultDeailVC.view];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [RCNotificationCenter postNotificationName:sendSearchConditionNotification object:nil userInfo:@{sendSearchConditionNotificationName:text}];
+
+        });
+    };
+    [texts enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop)
+     {
+         [cell.tagView addTag:[self tagWithIndex:idx title:obj]];
+     }];
+}
 - (void)clearSearchHistory{
     [self.historySearchTexts removeAllObjects];
     [RCSearchTool removeAllSearchHistory];
@@ -247,7 +250,7 @@ static NSString * const ID = @"searchCell";
 }
 - (void)reloadSearchHistoryData:(NSNotification *)note{
     RCSearchResultList * list = note.userInfo[reloadSearchHistoryNotificationName];
-    [self.historySearchTexts addObject:list.title];
+    [self.historySearchTexts insertObject:list.title atIndex:0];
     [self.tableView reloadData];
 }
 - (void)keyBoardEnd{
@@ -284,9 +287,7 @@ static NSString * const ID = @"searchCell";
 }
 - (void)addTagWithTitle:(NSString *)title{
        RCSearchViewCell * cell = [self.tableView dequeueReusableCellWithIdentifier:ID];
-
     [cell.tagView addTag:[self tagWithIndex:0 title:title]];
-    [self.texts addObject:title];
     [self.tableView reloadData];
 
 }

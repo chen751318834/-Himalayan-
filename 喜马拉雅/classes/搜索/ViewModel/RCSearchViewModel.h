@@ -22,8 +22,16 @@ typedef enum {
  *  搜索
  *
  */
+
+/**
+*  热门搜索
+
+*/
+- (void)fetchHotSearchWithSuccess:(void (^)(void))success failure:(void (^)(void))failure;
 - ( void)fetchhotSearchDataWithIndex:(RCSearchViewModelDataType )dataType keywords:(NSString *)keywords success:(void (^)(void ))success failure:(void (^)(void ))failure;
 @property(nonatomic,assign) RCSearchViewModelDataType resultDataType;
+@property(nonatomic,strong) NSMutableArray  *hotSearchTexts;
+
 /**
  * 用户
  *

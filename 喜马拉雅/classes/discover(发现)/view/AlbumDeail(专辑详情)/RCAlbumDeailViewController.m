@@ -23,7 +23,6 @@
 #import "RCAlbumViewController.h"
 #import "RCDownloadTool.h"
 #import "UINavigationController+FDFullscreenPopGesture.h"
-
 #import "RCConst.h"
 #import "RCAlbumDeailViewCell.h"
 #import "RCPlayerAlbumViewController.h"
@@ -87,7 +86,6 @@
     [self.collectionView registerNib:[UINib nibWithNibName:@"RCAlbumHeaderView" bundle:nil]
           forSupplementaryViewOfKind:CSStickyHeaderParallaxHeader
                  withReuseIdentifier:@"header"];
-    [self.collectionView registerNib:[UINib nibWithNibName:@"CSCell" bundle:nil] forCellWithReuseIdentifier:@"cell"];
     self.collectionView.backgroundColor = [UIColor whiteColor];
     [self.collectionView registerNib:[UINib nibWithNibName:@"RCAlbumDeailViewCell" bundle:nil] forCellWithReuseIdentifier:@"AlbumDeailCell"];
 

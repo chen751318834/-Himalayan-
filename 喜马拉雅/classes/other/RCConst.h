@@ -77,6 +77,11 @@ static NSString * searchUserInfoNotificationName = @"searchUserInfoNotificationN
 
 static NSString * reloadSearchHistoryNotification = @"reloadSearchHistoryNotification";
 static NSString * reloadSearchHistoryNotificationName = @"reloadSearchHistoryNotificationName";
+
+
+static NSString * sendSearchConditionNotification = @"sendSearchConditionNotification";
+static NSString * sendSearchConditionNotificationName = @"sendSearchConditionNotificationName";
+
 #define RCNotificationCenter  [NSNotificationCenter defaultCenter]
 
 #endif

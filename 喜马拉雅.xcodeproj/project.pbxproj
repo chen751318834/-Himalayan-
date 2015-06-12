@@ -399,6 +399,33 @@
 		4BBB64DC1B2850DE00E2F038 /* RCUserlAudioOrAlbumList.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BBB64DB1B2850DE00E2F038 /* RCUserlAudioOrAlbumList.m */; };
 		4BC26C491B2A7373009B84B9 /* UINavigationController+FDFullscreenPopGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC26C481B2A7373009B84B9 /* UINavigationController+FDFullscreenPopGesture.m */; };
 		4BC26C4C1B2A7610009B84B9 /* RCUserZanedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC26C4B1B2A7610009B84B9 /* RCUserZanedViewController.m */; };
+		4BC26C4F1B2AB58E009B84B9 /* RCSearchResultDeailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC26C4E1B2AB58E009B84B9 /* RCSearchResultDeailViewController.m */; };
+		4BC26C761B2ABD0E009B84B9 /* RCconditionAll.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC26C691B2ABD0E009B84B9 /* RCconditionAll.m */; };
+		4BC26C771B2ABD0E009B84B9 /* RCconditionOfAllAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC26C6B1B2ABD0E009B84B9 /* RCconditionOfAllAlbum.m */; };
+		4BC26C781B2ABD0E009B84B9 /* RCconditionOfAllAlbumDoc.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC26C6D1B2ABD0E009B84B9 /* RCconditionOfAllAlbumDoc.m */; };
+		4BC26C791B2ABD0E009B84B9 /* RCconditionOfAllTrack.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC26C6F1B2ABD0E009B84B9 /* RCconditionOfAllTrack.m */; };
+		4BC26C7A1B2ABD0E009B84B9 /* RCconditionOfAllTrackDoc.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC26C711B2ABD0E009B84B9 /* RCconditionOfAllTrackDoc.m */; };
+		4BC26C7B1B2ABD0E009B84B9 /* RCconditionOfAllUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC26C731B2ABD0E009B84B9 /* RCconditionOfAllUser.m */; };
+		4BC26C7C1B2ABD0E009B84B9 /* RCconditionOfAllUserDoc.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC26C751B2ABD0E009B84B9 /* RCconditionOfAllUserDoc.m */; };
+		4BC26C7F1B2ABD32009B84B9 /* RCConditionAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC26C7E1B2ABD32009B84B9 /* RCConditionAlbum.m */; };
+		4BC26C851B2ABD71009B84B9 /* RCConditionResponseHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC26C841B2ABD71009B84B9 /* RCConditionResponseHeader.m */; };
+		4BC26C8B1B2ABD90009B84B9 /* RCConditionResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC26C8A1B2ABD90009B84B9 /* RCConditionResponse.m */; };
+		4BC26C8E1B2ABDA0009B84B9 /* RCConditionHighlighting.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC26C8D1B2ABDA0009B84B9 /* RCConditionHighlighting.m */; };
+		4BC26C911B2ABE6C009B84B9 /* RCConditionResponseHeaderParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC26C901B2ABE6C009B84B9 /* RCConditionResponseHeaderParam.m */; };
+		4BC26C941B2ABEF4009B84B9 /* RCConditionResponseDoc.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC26C931B2ABEF4009B84B9 /* RCConditionResponseDoc.m */; };
+		4BC26C971B2ABFD6009B84B9 /* RCSearchConditionViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC26C961B2ABFD6009B84B9 /* RCSearchConditionViewModel.m */; };
+		4BC26C9A1B2AC0E9009B84B9 /* RCAllConditionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC26C991B2AC0E9009B84B9 /* RCAllConditionViewController.m */; };
+		4BC26C9D1B2AC105009B84B9 /* RCAlbumConditionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC26C9C1B2AC105009B84B9 /* RCAlbumConditionViewController.m */; };
+		4BC26CA01B2AC112009B84B9 /* RCUserConditionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC26C9F1B2AC112009B84B9 /* RCUserConditionViewController.m */; };
+		4BC26CA31B2AC11E009B84B9 /* RCVoiceConditionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC26CA21B2AC11E009B84B9 /* RCVoiceConditionViewController.m */; };
+		4BC26CAA1B2ACECD009B84B9 /* RCAllConditionAlbumViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC26CA81B2ACECD009B84B9 /* RCAllConditionAlbumViewCell.m */; };
+		4BC26CAB1B2ACECD009B84B9 /* RCAllConditionAlbumViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BC26CA91B2ACECD009B84B9 /* RCAllConditionAlbumViewCell.xib */; };
+		4BC26CAF1B2ACEDC009B84B9 /* RCAllConditionUserViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC26CAD1B2ACEDC009B84B9 /* RCAllConditionUserViewCell.m */; };
+		4BC26CB01B2ACEDC009B84B9 /* RCAllConditionUserViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BC26CAE1B2ACEDC009B84B9 /* RCAllConditionUserViewCell.xib */; };
+		4BC26CB41B2ACEEA009B84B9 /* RCAllConditionTrackViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC26CB21B2ACEEA009B84B9 /* RCAllConditionTrackViewCell.m */; };
+		4BC26CB51B2ACEEA009B84B9 /* RCAllConditionTrackViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BC26CB31B2ACEEA009B84B9 /* RCAllConditionTrackViewCell.xib */; };
+		4BC26CB81B2AD667009B84B9 /* RCAllConditionSectionheaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC26CB71B2AD667009B84B9 /* RCAllConditionSectionheaderView.m */; };
+		4BC26CBA1B2AD670009B84B9 /* RCAllConditionSectionheaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BC26CB91B2AD670009B84B9 /* RCAllConditionSectionheaderView.xib */; };
 		4BC647931B1701EC00661DB0 /* RCAlbumDownloadBottomToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC6478A1B1701EC00661DB0 /* RCAlbumDownloadBottomToolBar.m */; };
 		4BC647941B1701EC00661DB0 /* RCAlbumDownloadBottomToolBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BC6478B1B1701EC00661DB0 /* RCAlbumDownloadBottomToolBar.xib */; };
 		4BC647951B1701EC00661DB0 /* RCAlbumDownLoadSectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC6478D1B1701EC00661DB0 /* RCAlbumDownLoadSectionHeaderView.m */; };
@@ -1259,6 +1286,56 @@
 		4BC26C481B2A7373009B84B9 /* UINavigationController+FDFullscreenPopGesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+FDFullscreenPopGesture.m"; sourceTree = "<group>"; };
 		4BC26C4A1B2A7610009B84B9 /* RCUserZanedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCUserZanedViewController.h; sourceTree = "<group>"; };
 		4BC26C4B1B2A7610009B84B9 /* RCUserZanedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCUserZanedViewController.m; sourceTree = "<group>"; };
+		4BC26C4D1B2AB58E009B84B9 /* RCSearchResultDeailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCSearchResultDeailViewController.h; path = ../user/RCSearchResultDeailViewController.h; sourceTree = "<group>"; };
+		4BC26C4E1B2AB58E009B84B9 /* RCSearchResultDeailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCSearchResultDeailViewController.m; path = ../user/RCSearchResultDeailViewController.m; sourceTree = "<group>"; };
+		4BC26C681B2ABD0E009B84B9 /* RCconditionAll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCconditionAll.h; sourceTree = "<group>"; };
+		4BC26C691B2ABD0E009B84B9 /* RCconditionAll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCconditionAll.m; sourceTree = "<group>"; };
+		4BC26C6A1B2ABD0E009B84B9 /* RCconditionOfAllAlbum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCconditionOfAllAlbum.h; sourceTree = "<group>"; };
+		4BC26C6B1B2ABD0E009B84B9 /* RCconditionOfAllAlbum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCconditionOfAllAlbum.m; sourceTree = "<group>"; };
+		4BC26C6C1B2ABD0E009B84B9 /* RCconditionOfAllAlbumDoc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCconditionOfAllAlbumDoc.h; sourceTree = "<group>"; };
+		4BC26C6D1B2ABD0E009B84B9 /* RCconditionOfAllAlbumDoc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCconditionOfAllAlbumDoc.m; sourceTree = "<group>"; };
+		4BC26C6E1B2ABD0E009B84B9 /* RCconditionOfAllTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCconditionOfAllTrack.h; sourceTree = "<group>"; };
+		4BC26C6F1B2ABD0E009B84B9 /* RCconditionOfAllTrack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCconditionOfAllTrack.m; sourceTree = "<group>"; };
+		4BC26C701B2ABD0E009B84B9 /* RCconditionOfAllTrackDoc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCconditionOfAllTrackDoc.h; sourceTree = "<group>"; };
+		4BC26C711B2ABD0E009B84B9 /* RCconditionOfAllTrackDoc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCconditionOfAllTrackDoc.m; sourceTree = "<group>"; };
+		4BC26C721B2ABD0E009B84B9 /* RCconditionOfAllUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCconditionOfAllUser.h; sourceTree = "<group>"; };
+		4BC26C731B2ABD0E009B84B9 /* RCconditionOfAllUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCconditionOfAllUser.m; sourceTree = "<group>"; };
+		4BC26C741B2ABD0E009B84B9 /* RCconditionOfAllUserDoc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCconditionOfAllUserDoc.h; sourceTree = "<group>"; };
+		4BC26C751B2ABD0E009B84B9 /* RCconditionOfAllUserDoc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCconditionOfAllUserDoc.m; sourceTree = "<group>"; };
+		4BC26C7D1B2ABD32009B84B9 /* RCConditionAlbum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCConditionAlbum.h; sourceTree = "<group>"; };
+		4BC26C7E1B2ABD32009B84B9 /* RCConditionAlbum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCConditionAlbum.m; sourceTree = "<group>"; };
+		4BC26C831B2ABD71009B84B9 /* RCConditionResponseHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCConditionResponseHeader.h; sourceTree = "<group>"; };
+		4BC26C841B2ABD71009B84B9 /* RCConditionResponseHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCConditionResponseHeader.m; sourceTree = "<group>"; };
+		4BC26C891B2ABD90009B84B9 /* RCConditionResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCConditionResponse.h; sourceTree = "<group>"; };
+		4BC26C8A1B2ABD90009B84B9 /* RCConditionResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCConditionResponse.m; sourceTree = "<group>"; };
+		4BC26C8C1B2ABDA0009B84B9 /* RCConditionHighlighting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCConditionHighlighting.h; sourceTree = "<group>"; };
+		4BC26C8D1B2ABDA0009B84B9 /* RCConditionHighlighting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCConditionHighlighting.m; sourceTree = "<group>"; };
+		4BC26C8F1B2ABE6C009B84B9 /* RCConditionResponseHeaderParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCConditionResponseHeaderParam.h; sourceTree = "<group>"; };
+		4BC26C901B2ABE6C009B84B9 /* RCConditionResponseHeaderParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCConditionResponseHeaderParam.m; sourceTree = "<group>"; };
+		4BC26C921B2ABEF4009B84B9 /* RCConditionResponseDoc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCConditionResponseDoc.h; sourceTree = "<group>"; };
+		4BC26C931B2ABEF4009B84B9 /* RCConditionResponseDoc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCConditionResponseDoc.m; sourceTree = "<group>"; };
+		4BC26C951B2ABFD6009B84B9 /* RCSearchConditionViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCSearchConditionViewModel.h; sourceTree = "<group>"; };
+		4BC26C961B2ABFD6009B84B9 /* RCSearchConditionViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCSearchConditionViewModel.m; sourceTree = "<group>"; };
+		4BC26C981B2AC0E9009B84B9 /* RCAllConditionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCAllConditionViewController.h; sourceTree = "<group>"; };
+		4BC26C991B2AC0E9009B84B9 /* RCAllConditionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCAllConditionViewController.m; sourceTree = "<group>"; };
+		4BC26C9B1B2AC105009B84B9 /* RCAlbumConditionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCAlbumConditionViewController.h; sourceTree = "<group>"; };
+		4BC26C9C1B2AC105009B84B9 /* RCAlbumConditionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCAlbumConditionViewController.m; sourceTree = "<group>"; };
+		4BC26C9E1B2AC112009B84B9 /* RCUserConditionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCUserConditionViewController.h; sourceTree = "<group>"; };
+		4BC26C9F1B2AC112009B84B9 /* RCUserConditionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCUserConditionViewController.m; sourceTree = "<group>"; };
+		4BC26CA11B2AC11E009B84B9 /* RCVoiceConditionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCVoiceConditionViewController.h; sourceTree = "<group>"; };
+		4BC26CA21B2AC11E009B84B9 /* RCVoiceConditionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCVoiceConditionViewController.m; sourceTree = "<group>"; };
+		4BC26CA71B2ACECD009B84B9 /* RCAllConditionAlbumViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCAllConditionAlbumViewCell.h; sourceTree = "<group>"; };
+		4BC26CA81B2ACECD009B84B9 /* RCAllConditionAlbumViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCAllConditionAlbumViewCell.m; sourceTree = "<group>"; };
+		4BC26CA91B2ACECD009B84B9 /* RCAllConditionAlbumViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RCAllConditionAlbumViewCell.xib; sourceTree = "<group>"; };
+		4BC26CAC1B2ACEDC009B84B9 /* RCAllConditionUserViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCAllConditionUserViewCell.h; sourceTree = "<group>"; };
+		4BC26CAD1B2ACEDC009B84B9 /* RCAllConditionUserViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCAllConditionUserViewCell.m; sourceTree = "<group>"; };
+		4BC26CAE1B2ACEDC009B84B9 /* RCAllConditionUserViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RCAllConditionUserViewCell.xib; sourceTree = "<group>"; };
+		4BC26CB11B2ACEEA009B84B9 /* RCAllConditionTrackViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCAllConditionTrackViewCell.h; sourceTree = "<group>"; };
+		4BC26CB21B2ACEEA009B84B9 /* RCAllConditionTrackViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCAllConditionTrackViewCell.m; sourceTree = "<group>"; };
+		4BC26CB31B2ACEEA009B84B9 /* RCAllConditionTrackViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RCAllConditionTrackViewCell.xib; sourceTree = "<group>"; };
+		4BC26CB61B2AD667009B84B9 /* RCAllConditionSectionheaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCAllConditionSectionheaderView.h; sourceTree = "<group>"; };
+		4BC26CB71B2AD667009B84B9 /* RCAllConditionSectionheaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCAllConditionSectionheaderView.m; sourceTree = "<group>"; };
+		4BC26CB91B2AD670009B84B9 /* RCAllConditionSectionheaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RCAllConditionSectionheaderView.xib; sourceTree = "<group>"; };
 		4BC647891B1701EC00661DB0 /* RCAlbumDownloadBottomToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCAlbumDownloadBottomToolBar.h; sourceTree = "<group>"; };
 		4BC6478A1B1701EC00661DB0 /* RCAlbumDownloadBottomToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCAlbumDownloadBottomToolBar.m; sourceTree = "<group>"; };
 		4BC6478B1B1701EC00661DB0 /* RCAlbumDownloadBottomToolBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RCAlbumDownloadBottomToolBar.xib; sourceTree = "<group>"; };
@@ -2888,6 +2965,7 @@
 		4BAAB9451B26A1F100E8220F /* mdoel */ = {
 			isa = PBXGroup;
 			children = (
+				4BC26C501B2AB76B009B84B9 /* conditionResult */,
 				4BBB64D01B284E8B00E2F038 /* user */,
 				4B89C2F91B2725820092507C /* RCSearchResultList.h */,
 				4B89C2FA1B2725820092507C /* RCSearchResultList.m */,
@@ -2915,6 +2993,7 @@
 		4BAAB9471B26A1F100E8220F /* view */ = {
 			isa = PBXGroup;
 			children = (
+				4BC26C511B2AB77F009B84B9 /* conditionResult */,
 				4BA787EE1B292570007A8477 /* user */,
 				4B89C2E01B26EBEE0092507C /* RCSearchViewController.h */,
 				4B89C2E11B26EBEE0092507C /* RCSearchViewController.m */,
@@ -2930,6 +3009,8 @@
 		4BAAB9481B26A1F100E8220F /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				4BC26C951B2ABFD6009B84B9 /* RCSearchConditionViewModel.h */,
+				4BC26C961B2ABFD6009B84B9 /* RCSearchConditionViewModel.m */,
 				4B89C2ED1B27048F0092507C /* RCSearchViewModel.h */,
 				4B89C2EE1B27048F0092507C /* RCSearchViewModel.m */,
 			);
@@ -3089,6 +3170,76 @@
 				4BC26C481B2A7373009B84B9 /* UINavigationController+FDFullscreenPopGesture.m */,
 			);
 			path = FDFullscreenPopGesture;
+			sourceTree = "<group>";
+		};
+		4BC26C501B2AB76B009B84B9 /* conditionResult */ = {
+			isa = PBXGroup;
+			children = (
+				4BC26C671B2ABD0E009B84B9 /* all */,
+				4BC26C7D1B2ABD32009B84B9 /* RCConditionAlbum.h */,
+				4BC26C7E1B2ABD32009B84B9 /* RCConditionAlbum.m */,
+				4BC26C831B2ABD71009B84B9 /* RCConditionResponseHeader.h */,
+				4BC26C841B2ABD71009B84B9 /* RCConditionResponseHeader.m */,
+				4BC26C891B2ABD90009B84B9 /* RCConditionResponse.h */,
+				4BC26C8A1B2ABD90009B84B9 /* RCConditionResponse.m */,
+				4BC26C921B2ABEF4009B84B9 /* RCConditionResponseDoc.h */,
+				4BC26C931B2ABEF4009B84B9 /* RCConditionResponseDoc.m */,
+				4BC26C8C1B2ABDA0009B84B9 /* RCConditionHighlighting.h */,
+				4BC26C8D1B2ABDA0009B84B9 /* RCConditionHighlighting.m */,
+				4BC26C8F1B2ABE6C009B84B9 /* RCConditionResponseHeaderParam.h */,
+				4BC26C901B2ABE6C009B84B9 /* RCConditionResponseHeaderParam.m */,
+			);
+			path = conditionResult;
+			sourceTree = "<group>";
+		};
+		4BC26C511B2AB77F009B84B9 /* conditionResult */ = {
+			isa = PBXGroup;
+			children = (
+				4BC26C4D1B2AB58E009B84B9 /* RCSearchResultDeailViewController.h */,
+				4BC26C4E1B2AB58E009B84B9 /* RCSearchResultDeailViewController.m */,
+				4BC26C981B2AC0E9009B84B9 /* RCAllConditionViewController.h */,
+				4BC26C991B2AC0E9009B84B9 /* RCAllConditionViewController.m */,
+				4BC26C9B1B2AC105009B84B9 /* RCAlbumConditionViewController.h */,
+				4BC26C9C1B2AC105009B84B9 /* RCAlbumConditionViewController.m */,
+				4BC26C9E1B2AC112009B84B9 /* RCUserConditionViewController.h */,
+				4BC26C9F1B2AC112009B84B9 /* RCUserConditionViewController.m */,
+				4BC26CA11B2AC11E009B84B9 /* RCVoiceConditionViewController.h */,
+				4BC26CA21B2AC11E009B84B9 /* RCVoiceConditionViewController.m */,
+				4BC26CA71B2ACECD009B84B9 /* RCAllConditionAlbumViewCell.h */,
+				4BC26CA81B2ACECD009B84B9 /* RCAllConditionAlbumViewCell.m */,
+				4BC26CA91B2ACECD009B84B9 /* RCAllConditionAlbumViewCell.xib */,
+				4BC26CAC1B2ACEDC009B84B9 /* RCAllConditionUserViewCell.h */,
+				4BC26CAD1B2ACEDC009B84B9 /* RCAllConditionUserViewCell.m */,
+				4BC26CAE1B2ACEDC009B84B9 /* RCAllConditionUserViewCell.xib */,
+				4BC26CB11B2ACEEA009B84B9 /* RCAllConditionTrackViewCell.h */,
+				4BC26CB21B2ACEEA009B84B9 /* RCAllConditionTrackViewCell.m */,
+				4BC26CB31B2ACEEA009B84B9 /* RCAllConditionTrackViewCell.xib */,
+				4BC26CB61B2AD667009B84B9 /* RCAllConditionSectionheaderView.h */,
+				4BC26CB71B2AD667009B84B9 /* RCAllConditionSectionheaderView.m */,
+				4BC26CB91B2AD670009B84B9 /* RCAllConditionSectionheaderView.xib */,
+			);
+			path = conditionResult;
+			sourceTree = "<group>";
+		};
+		4BC26C671B2ABD0E009B84B9 /* all */ = {
+			isa = PBXGroup;
+			children = (
+				4BC26C681B2ABD0E009B84B9 /* RCconditionAll.h */,
+				4BC26C691B2ABD0E009B84B9 /* RCconditionAll.m */,
+				4BC26C6A1B2ABD0E009B84B9 /* RCconditionOfAllAlbum.h */,
+				4BC26C6B1B2ABD0E009B84B9 /* RCconditionOfAllAlbum.m */,
+				4BC26C6C1B2ABD0E009B84B9 /* RCconditionOfAllAlbumDoc.h */,
+				4BC26C6D1B2ABD0E009B84B9 /* RCconditionOfAllAlbumDoc.m */,
+				4BC26C6E1B2ABD0E009B84B9 /* RCconditionOfAllTrack.h */,
+				4BC26C6F1B2ABD0E009B84B9 /* RCconditionOfAllTrack.m */,
+				4BC26C701B2ABD0E009B84B9 /* RCconditionOfAllTrackDoc.h */,
+				4BC26C711B2ABD0E009B84B9 /* RCconditionOfAllTrackDoc.m */,
+				4BC26C721B2ABD0E009B84B9 /* RCconditionOfAllUser.h */,
+				4BC26C731B2ABD0E009B84B9 /* RCconditionOfAllUser.m */,
+				4BC26C741B2ABD0E009B84B9 /* RCconditionOfAllUserDoc.h */,
+				4BC26C751B2ABD0E009B84B9 /* RCconditionOfAllUserDoc.m */,
+			);
+			path = all;
 			sourceTree = "<group>";
 		};
 		4BC647881B1701EC00661DB0 /* 批量下载 */ = {
@@ -3499,6 +3650,7 @@
 				4BA788001B29330D007A8477 /* RCUserInfoHeaderView.xib in Resources */,
 				4BA7887F1B298750007A8477 /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
 				4BBAC2FC1B1ED4B1006ED9A1 /* RCPlayerDeialViewCell.xib in Resources */,
+				4BC26CB01B2ACEDC009B84B9 /* RCAllConditionUserViewCell.xib in Resources */,
 				4B84F45E1B240FCA00395351 /* RCDownloadingViewCell.xib in Resources */,
 				4BA788631B298556007A8477 /* UMSocialSDKResourcesNew.bundle in Resources */,
 				4B1D81471B0C935D00B7C9DC /* Info.plist in Resources */,
@@ -3508,6 +3660,7 @@
 				4B8B000F1B2056C6009B0017 /* WifiMan_Sign_2@2x.png in Resources */,
 				4B8B00101B2056C6009B0017 /* WifiMan_Sign_3@2x.png in Resources */,
 				4BA788601B298556007A8477 /* UMSLoginViewController.xib in Resources */,
+				4BC26CB51B2ACEEA009B84B9 /* RCAllConditionTrackViewCell.xib in Resources */,
 				4BA788621B298556007A8477 /* UMSShareListController.xib in Resources */,
 				4B1D81C51B0C967300B7C9DC /* RCDiscover2IMGViewCell.xib in Resources */,
 				4B0138D31B1074FA003422EC /* RCBuildingOnwerViewCell.xib in Resources */,
@@ -3520,6 +3673,7 @@
 				4BAAF0A51B244168009D2874 /* RCDownloadAudioViewCell.xib in Resources */,
 				4BA788591B298556007A8477 /* UMSocialLocalizable.strings in Resources */,
 				4B9210FB1B10241F0004DB2A /* RCRecommendZoneViewCell.xib in Resources */,
+				4BC26CAB1B2ACECD009B84B9 /* RCAllConditionAlbumViewCell.xib in Resources */,
 				4BC647961B1701EC00661DB0 /* RCAlbumDownLoadSectionHeaderView.xib in Resources */,
 				4B912E181B0EEB73007B64DD /* RCHotActivityViewCell.xib in Resources */,
 				4BAAF0A91B247AFB009D2874 /* 复联2到底有多2.mp3 in Resources */,
@@ -3542,6 +3696,7 @@
 				4B9211291B106A6A0004DB2A /* RCCommentViewCell.xib in Resources */,
 				4B8B000E1B2056C6009B0017 /* WifiMan_Sign_1@2x.png in Resources */,
 				4B53290D1B299E48003DA20E /* RCUserDeailViewCell.xib in Resources */,
+				4BC26CBA1B2AD670009B84B9 /* RCAllConditionSectionheaderView.xib in Resources */,
 				4BF7881F1B0DCFBC0002704A /* RCSectionheaderView.xib in Resources */,
 				4B912E021B0EC443007B64DD /* RCSubjectSectionHeaderView.xib in Resources */,
 				4B1D82851B0C998200B7C9DC /* Category.plist in Resources */,
@@ -3584,6 +3739,7 @@
 				4B89C2DA1B26E4AA0092507C /* NSArray+MASAdditions.m in Sources */,
 				4B1D827E1B0C982900B7C9DC /* UIImage+GIF.m in Sources */,
 				4B019BF71B282674002D46FE /* RACBacktrace.m in Sources */,
+				4BC26C911B2ABE6C009B84B9 /* RCConditionResponseHeaderParam.m in Sources */,
 				4B019BED1B282674002D46FE /* NSObject+RACPropertySubscribing.m in Sources */,
 				4B1D82A01B0C9E3300B7C9DC /* RCTabBar.m in Sources */,
 				4BF788101B0DBD970002704A /* UIView+MJExtension.m in Sources */,
@@ -3608,6 +3764,7 @@
 				4B019BFB1B282674002D46FE /* RACCommand.m in Sources */,
 				4B019C131B282674002D46FE /* RACScopedDisposable.m in Sources */,
 				4B1D816E1B0C94D100B7C9DC /* RCCategoryListViewModel.m in Sources */,
+				4BC26C971B2ABFD6009B84B9 /* RCSearchConditionViewModel.m in Sources */,
 				4B1D827F1B0C982900B7C9DC /* UIImage+MultiFormat.m in Sources */,
 				4BBAC2F61B1ED3C8006ED9A1 /* NSObject+MJProperty.m in Sources */,
 				4BF788061B0DBD970002704A /* MJRefreshComponent.m in Sources */,
@@ -3641,6 +3798,7 @@
 				4BBAC2501B1EA51A006ED9A1 /* RCPlayerAlbum.m in Sources */,
 				4B912E131B0EEA7B007B64DD /* RCHotActivityViewController.m in Sources */,
 				4B93F5821B11AD4700BFBF6A /* UIView+FDCollapsibleConstraints.m in Sources */,
+				4BC26C8B1B2ABD90009B84B9 /* RCConditionResponse.m in Sources */,
 				4B92111B1B105E970004DB2A /* RCComment.m in Sources */,
 				4B89C2F51B2711E30092507C /* RCSearchResultViewController.m in Sources */,
 				4BA787F11B292570007A8477 /* RCUserViewController.m in Sources */,
@@ -3685,13 +3843,16 @@
 				4B1D827C1B0C982900B7C9DC /* SDWebImagePrefetcher.m in Sources */,
 				4B1D82A91B0C9E7800B7C9DC /* RCTabBarViewController.m in Sources */,
 				4B84F4561B2408B600395351 /* AFDownloadRequestOperation.m in Sources */,
+				4BC26CAF1B2ACEDC009B84B9 /* RCAllConditionUserViewCell.m in Sources */,
 				4BDE7D201B12F98800073E12 /* RCAlbum.m in Sources */,
 				4BC26C491B2A7373009B84B9 /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
+				4BC26C761B2ABD0E009B84B9 /* RCconditionAll.m in Sources */,
 				4B912DFE1B0EC430007B64DD /* RCSubjectSectionHeaderView.m in Sources */,
 				4B019BF21B282674002D46FE /* NSString+RACSequenceAdditions.m in Sources */,
 				4BF787D21B0DBCBA0002704A /* RCBaseViewController.m in Sources */,
 				4B019C1D1B282674002D46FE /* RACSubscriber.m in Sources */,
 				4B1D81CF1B0C96B100B7C9DC /* RCFocusImageViewCell.m in Sources */,
+				4BC26C8E1B2ABDA0009B84B9 /* RCConditionHighlighting.m in Sources */,
 				4B1D82901B0C9C9200B7C9DC /* UIImage+KVNEmpty.m in Sources */,
 				4B019BEF1B282674002D46FE /* NSOrderedSet+RACSequenceAdditions.m in Sources */,
 				4BBAC2FB1B1ED4B1006ED9A1 /* RCPlayerDeialViewCell.m in Sources */,
@@ -3714,12 +3875,14 @@
 				4B1D81C61B0C967300B7C9DC /* RCDiscoverData.m in Sources */,
 				4B1D822C1B0C977400B7C9DC /* AFURLSessionManager.m in Sources */,
 				4BBAC2F31B1ED3C8006ED9A1 /* MJType.m in Sources */,
+				4BC26C4F1B2AB58E009B84B9 /* RCSearchResultDeailViewController.m in Sources */,
 				4B019C291B282674002D46FE /* UIBarButtonItem+RACCommandSupport.m in Sources */,
 				4B89C2EC1B26F6A50092507C /* HexColor.m in Sources */,
 				4B8B00191B207145009B0017 /* RCAudioTool.m in Sources */,
 				4B1D827D1B0C982900B7C9DC /* UIButton+WebCache.m in Sources */,
 				4B1D81DB1B0C96E400B7C9DC /* RCNetWorkingTool.m in Sources */,
 				4B4F460E1B14113D00284DAB /* RCAlbumDeailViewCell.m in Sources */,
+				4BC26C771B2ABD0E009B84B9 /* RCconditionOfAllAlbum.m in Sources */,
 				4B7D70101B213AC700B0EA51 /* AudioFileReader.mm in Sources */,
 				4B019C1B1B282674002D46FE /* RACStringSequence.m in Sources */,
 				4B116C671B19874C007792F4 /* RCBottomPlayerButton.m in Sources */,
@@ -3729,6 +3892,7 @@
 				4B019C331B282674002D46FE /* UISlider+RACSignalSupport.m in Sources */,
 				4BBAC2F51B1ED3C8006ED9A1 /* NSObject+MJKeyValue.m in Sources */,
 				4B019BFF1B282674002D46FE /* RACDisposable.m in Sources */,
+				4BC26C7C1B2ABD0E009B84B9 /* RCconditionOfAllUserDoc.m in Sources */,
 				4B1D81F51B0C973800B7C9DC /* UIView+Extension.m in Sources */,
 				4B8B00031B2056C6009B0017 /* FeVietNamBar.m in Sources */,
 				4BAAB94F1B26AC7300E8220F /* UICollectionView+ARDynamicHeightLayoutCell.m in Sources */,
@@ -3754,6 +3918,7 @@
 				4B9510121B1F338600D5DBDD /* ARSegmentPageHeader.m in Sources */,
 				4B8BFFFF1B2056C6009B0017 /* FeRollingLoader.m in Sources */,
 				4B1D82771B0C982900B7C9DC /* SDWebImageCompat.m in Sources */,
+				4BC26CB41B2ACEEA009B84B9 /* RCAllConditionTrackViewCell.m in Sources */,
 				4B8B000A1B2056C6009B0017 /* FXBlurView.m in Sources */,
 				4B0138D21B1074FA003422EC /* RCBuildingOnwerViewCell.m in Sources */,
 				4BED251B1B1B034400B8B843 /* RCPlayerViewController.m in Sources */,
@@ -3762,12 +3927,14 @@
 				4B912DED1B0EBEB4007B64DD /* RCSubject.m in Sources */,
 				4B1D82801B0C982900B7C9DC /* UIImageView+HighlightedWebCache.m in Sources */,
 				4B89C2F21B2704FF0092507C /* RCSearchTool.m in Sources */,
+				4BC26C7B1B2ABD0E009B84B9 /* RCconditionOfAllUser.m in Sources */,
 				4BA787FE1B2932E4007A8477 /* RCUserInfoHeaderView.m in Sources */,
 				4BC647C61B1734B200661DB0 /* NTSlidingViewController.m in Sources */,
 				4B019BE71B282674002D46FE /* NSInvocation+RACTypeParsing.m in Sources */,
 				4B8BFFF91B2056C6009B0017 /* Feasd.m in Sources */,
 				4B1D81811B0C952000B7C9DC /* RCMeViewController.m in Sources */,
 				4BEB3B4D1B228C07006C62F0 /* RCPlayHistoryViewCell.m in Sources */,
+				4BC26C781B2ABD0E009B84B9 /* RCconditionOfAllAlbumDoc.m in Sources */,
 				4B1D81DE1B0C96F200B7C9DC /* RCPlayListViewCell.m in Sources */,
 				4BF7883A1B0DEE310002704A /* RCHotAudioViewCell.m in Sources */,
 				4BC6479B1B17023300661DB0 /* RCAboutAlbumViewController.m in Sources */,
@@ -3781,13 +3948,16 @@
 				4B9211241B105EFC0004DB2A /* RCOneParentComment.m in Sources */,
 				4BC647951B1701EC00661DB0 /* RCAlbumDownLoadSectionHeaderView.m in Sources */,
 				4BBAC2F21B1ED3C8006ED9A1 /* MJProperty.m in Sources */,
+				4BC26C941B2ABEF4009B84B9 /* RCConditionResponseDoc.m in Sources */,
 				4BF563881B2184270012619B /* RCPlayingListViewCell.m in Sources */,
 				4B019C151B282674002D46FE /* RACSerialDisposable.m in Sources */,
+				4BC26C9A1B2AC0E9009B84B9 /* RCAllConditionViewController.m in Sources */,
 				4B912DF61B0EC090007B64DD /* RCSubjectViewController.m in Sources */,
 				4B89C2DE1B26E4AA0092507C /* SKTagButton.m in Sources */,
 				4B019C381B282674002D46FE /* UITextField+RACSignalSupport.m in Sources */,
 				4BDE7D5C1B13335B00073E12 /* RCAlbumHeaderView.m in Sources */,
 				4B89C2DD1B26E4AA0092507C /* SKTag.m in Sources */,
+				4BC26C7F1B2ABD32009B84B9 /* RCConditionAlbum.m in Sources */,
 				4BBB64D91B28504500E2F038 /* RCUserAudio.m in Sources */,
 				4B7A338A1B18327A0042E0EF /* DXAlertView.m in Sources */,
 				4B1D822A1B0C977400B7C9DC /* AFURLRequestSerialization.m in Sources */,
@@ -3823,7 +3993,9 @@
 				4B7A337A1B17FE980042E0EF /* FMResultSet.m in Sources */,
 				4B7A33691B17FCE20042E0EF /* RCCollectViewModel.m in Sources */,
 				4B1D81C91B0C967300B7C9DC /* RCDiscoverViewController.m in Sources */,
+				4BC26CA01B2AC112009B84B9 /* RCUserConditionViewController.m in Sources */,
 				4B89C2D71B26E4AA0092507C /* MASLayoutConstraint.m in Sources */,
+				4BC26CAA1B2ACECD009B84B9 /* RCAllConditionAlbumViewCell.m in Sources */,
 				4BF7880D1B0DBD970002704A /* MJRefreshLegendHeader.m in Sources */,
 				4B019C041B282674002D46FE /* RACEmptySignal.m in Sources */,
 				4B1D81D71B0C96C400B7C9DC /* RCLatestSpecial.m in Sources */,
@@ -3842,6 +4014,7 @@
 				4B89C2E31B26EBEE0092507C /* RCSearchViewController.m in Sources */,
 				4BF9A12A1B12AD3B003FD44E /* RCStatusTextView.m in Sources */,
 				4BF9A13D1B12B42B003FD44E /* HWEmotionTool.m in Sources */,
+				4BC26C791B2ABD0E009B84B9 /* RCconditionOfAllTrack.m in Sources */,
 				4B1D82821B0C982900B7C9DC /* UIView+WebCacheOperation.m in Sources */,
 				4BF7880B1B0DBD970002704A /* MJRefreshHeader.m in Sources */,
 				4B912E051B0ED039007B64DD /* NSDate+RC.m in Sources */,
@@ -3865,6 +4038,7 @@
 				4BDE7D621B135AB100073E12 /* RCAlbumTrack.m in Sources */,
 				4B116C771B198FFF007792F4 /* RCPlayerHeaderView.mm in Sources */,
 				4B1D82AC1B0C9F7B00B7C9DC /* UIBarButtonItem+MJ.m in Sources */,
+				4BC26C7A1B2ABD0E009B84B9 /* RCconditionOfAllTrackDoc.m in Sources */,
 				4B019C1A1B282674002D46FE /* RACStream.m in Sources */,
 				4BF7882F1B0DD4B50002704A /* RCHotAudioVIewModel.m in Sources */,
 				4B89C2EF1B27048F0092507C /* RCSearchViewModel.m in Sources */,
@@ -3907,6 +4081,7 @@
 				4B1D81461B0C935D00B7C9DC /* AppDelegate.mm in Sources */,
 				4B8BFFFD1B2056C6009B0017 /* FeLoadingIcon.m in Sources */,
 				4B9210FE1B10254B0004DB2A /* RCZonePost.m in Sources */,
+				4BC26C851B2ABD71009B84B9 /* RCConditionResponseHeader.m in Sources */,
 				4B019BF91B282674002D46FE /* RACBlockTrampoline.m in Sources */,
 				4B84F46F1B24348A00395351 /* EAColourfulProgressView.m in Sources */,
 				4B019C341B282674002D46FE /* UIStepper+RACSignalSupport.m in Sources */,
@@ -3920,6 +4095,7 @@
 				4BBAC25C1B1EC795006ED9A1 /* RCCommnetTextView.m in Sources */,
 				4B8BFFBF1B1FFCD6009B0017 /* RCplayerStatus.m in Sources */,
 				4B89C2D81B26E4AA0092507C /* MASViewAttribute.m in Sources */,
+				4BC26C9D1B2AC105009B84B9 /* RCAlbumConditionViewController.m in Sources */,
 				4B5329101B299F87003DA20E /* RCUserDeialList.m in Sources */,
 				4BF787CC1B0DBA600002704A /* RCCategoryFocusImageViewCell.m in Sources */,
 				4B1D829D1B0C9E2700B7C9DC /* RCSearchBar.m in Sources */,
@@ -3934,6 +4110,7 @@
 				4BF9A1431B12B485003FD44E /* HWEmotion.m in Sources */,
 				4B8B00061B2056C6009B0017 /* FeWifiManHub.m in Sources */,
 				4B5329081B299E2B003DA20E /* RCUserDeailViewController.m in Sources */,
+				4BC26CA31B2AC11E009B84B9 /* RCVoiceConditionViewController.m in Sources */,
 				4B019C201B282674002D46FE /* RACTargetQueueScheduler.m in Sources */,
 				4BF9A3321B12C3DD003FD44E /* RCGroupEmoticon.m in Sources */,
 				4B019BF51B282674002D46FE /* NSUserDefaults+RACSupport.m in Sources */,
@@ -3956,6 +4133,7 @@
 				4B116C8C1B19D455007792F4 /* RCPlayerVIewModel.m in Sources */,
 				4B1D819D1B0C95B300B7C9DC /* RCCategryListParam.m in Sources */,
 				4BDE7D571B132F8B00073E12 /* RCAlbumDeailViewController.m in Sources */,
+				4BC26CB81B2AD667009B84B9 /* RCAllConditionSectionheaderView.m in Sources */,
 				4B7D70111B213AC700B0EA51 /* AudioFileWriter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

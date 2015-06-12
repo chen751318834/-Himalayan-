@@ -32,7 +32,29 @@
     }
     return _userAudios;
 }
+-  (NSMutableArray *)hotSearchTexts{
+    if (!_hotSearchTexts) {
+        self.hotSearchTexts = [NSMutableArray array];
+    }
+    return _hotSearchTexts;
+}
+- (void)fetchHotSearchWithSuccess:(void (^)(void))success failure:(void (^)(void))failure{
 
+    [RCNetWorkingTool get:[NSString stringWithFormat:@"http://mobile.ximalaya.com/m/hot_search_keys"] params:nil success:^(id json) {
+        NSArray * hotTexts = json[@"keys"];
+        [self.hotSearchTexts addObjectsFromArray:hotTexts];
+        if (success) {
+            success();
+        }
+
+    } failure:^(NSError *error) {
+        if (failure) {
+            failure();
+            NSLog(@"%@",error);
+        }
+    }];
+
+}
 - (void)fetchhotSearchDataWithIndex:(RCSearchViewModelDataType)dataType keywords:(NSString *)keywords success:(void (^)(void))success failure:(void (^)(void))failure{
     NSString * urlStr = nil;
 

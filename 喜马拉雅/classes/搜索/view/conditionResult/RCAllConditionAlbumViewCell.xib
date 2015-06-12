@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E33b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="89" id="v72-9E-Yjd" customClass="RCAllConditionAlbumViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="89"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="v72-9E-Yjd" id="i4E-Ag-hxd">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ovq-xA-qZj">
+                        <rect key="frame" x="0.0" y="8" width="320" height="80"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NKl-pF-Vty">
+                                <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="wbd-g0-lbK"/>
+                                    <constraint firstAttribute="width" constant="80" id="wnO-3q-ZTz"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sound_album" translatesAutoresizingMaskIntoConstraints="NO" id="krN-X1-maS">
+                                <rect key="frame" x="88" y="10" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="4Hh-tk-sYm"/>
+                                    <constraint firstAttribute="width" constant="20" id="Sao-dd-vhh"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="标题" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VTT-QQ-TYs">
+                                <rect key="frame" x="110" y="5" width="202" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="v9F-Yw-RgL"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="更新时间" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RI2-Dw-454">
+                                <rect key="frame" x="88" y="66" width="44" height="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F2Y-gM-roG">
+                                <rect key="frame" x="266" y="51" width="46" height="19"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="46" id="Mo2-16-A9z"/>
+                                    <constraint firstAttribute="height" constant="19" id="UXr-fW-BpT"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <state key="normal" image="find_album_unfav_n">
+                                    <color key="titleColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="disabled" image="find_album_fav_n"/>
+                                <state key="selected" image="find_album_fav_n"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cw5-xV-BsE">
+                                <rect key="frame" x="158" y="51" width="38" height="14"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="38" id="Pmx-oK-5xU"/>
+                                    <constraint firstAttribute="height" constant="14" id="ja8-lg-MTj"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
+                                <state key="normal" title="数" image="albumInfoCell_tracks_mark">
+                                    <color key="titleColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fy2-cZ-xnh">
+                                <rect key="frame" x="88" y="51" width="70" height="14"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="Cyx-5m-wLl"/>
+                                    <constraint firstAttribute="height" constant="14" id="cnI-W6-MSl"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="播放数" image="sound_playtimes">
+                                    <color key="titleColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="RI2-Dw-454" firstAttribute="leading" secondItem="NKl-pF-Vty" secondAttribute="trailing" constant="8" id="43d-vj-09c"/>
+                            <constraint firstItem="NKl-pF-Vty" firstAttribute="leading" secondItem="Ovq-xA-qZj" secondAttribute="leading" id="4EG-5T-UQF"/>
+                            <constraint firstItem="VTT-QQ-TYs" firstAttribute="centerY" secondItem="krN-X1-maS" secondAttribute="centerY" id="6q1-Oq-wdN"/>
+                            <constraint firstItem="cw5-xV-BsE" firstAttribute="leading" secondItem="Fy2-cZ-xnh" secondAttribute="trailing" id="7EF-vm-hNl"/>
+                            <constraint firstAttribute="bottom" secondItem="RI2-Dw-454" secondAttribute="bottom" id="Ddu-f9-LkW"/>
+                            <constraint firstItem="Fy2-cZ-xnh" firstAttribute="leading" secondItem="RI2-Dw-454" secondAttribute="leading" id="GJp-Dk-pDc"/>
+                            <constraint firstAttribute="centerY" secondItem="F2Y-gM-roG" secondAttribute="centerY" constant="-20" id="MOm-Hm-1tf"/>
+                            <constraint firstItem="Fy2-cZ-xnh" firstAttribute="centerY" secondItem="cw5-xV-BsE" secondAttribute="centerY" constant="0.5" id="O7n-kY-caJ"/>
+                            <constraint firstItem="NKl-pF-Vty" firstAttribute="top" secondItem="Ovq-xA-qZj" secondAttribute="top" id="Us8-Fj-2c5"/>
+                            <constraint firstAttribute="trailing" secondItem="F2Y-gM-roG" secondAttribute="trailing" constant="8" id="biI-fG-aPa"/>
+                            <constraint firstAttribute="trailing" secondItem="VTT-QQ-TYs" secondAttribute="trailing" constant="8" id="hTs-k7-e3D"/>
+                            <constraint firstItem="VTT-QQ-TYs" firstAttribute="leading" secondItem="krN-X1-maS" secondAttribute="trailing" constant="2" id="lAC-SY-9I4"/>
+                            <constraint firstItem="RI2-Dw-454" firstAttribute="top" secondItem="Fy2-cZ-xnh" secondAttribute="bottom" constant="1" id="lhS-qP-Hdu"/>
+                            <constraint firstItem="krN-X1-maS" firstAttribute="leading" secondItem="NKl-pF-Vty" secondAttribute="trailing" constant="8" id="nmm-KL-KjT"/>
+                            <constraint firstItem="krN-X1-maS" firstAttribute="top" secondItem="Ovq-xA-qZj" secondAttribute="top" constant="10" id="owC-Sa-slD"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" red="0.92156862750000001" green="0.96078431369999995" blue="1" alpha="0.96999999999999997" colorSpace="calibratedRGB"/>
+                <constraints>
+                    <constraint firstAttribute="trailingMargin" secondItem="Ovq-xA-qZj" secondAttribute="trailing" constant="-8" id="1DU-eY-UBS"/>
+                    <constraint firstItem="Ovq-xA-qZj" firstAttribute="leading" secondItem="i4E-Ag-hxd" secondAttribute="leadingMargin" constant="-8" id="2cv-AW-Gf1"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="Ovq-xA-qZj" secondAttribute="bottom" constant="-8" id="WRl-f3-ODm"/>
+                    <constraint firstItem="Ovq-xA-qZj" firstAttribute="top" secondItem="i4E-Ag-hxd" secondAttribute="topMargin" id="bdL-Ma-y2W"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.5" alpha="0.20000000000000001" colorSpace="calibratedWhite"/>
+            <connections>
+                <outlet property="audioCountLabel" destination="cw5-xV-BsE" id="uaA-OR-m0p"/>
+                <outlet property="iconView" destination="NKl-pF-Vty" id="kHL-aL-oBw"/>
+                <outlet property="playCountLabel" destination="Fy2-cZ-xnh" id="NQ2-ky-tgc"/>
+                <outlet property="playCountLabelW" destination="Cyx-5m-wLl" id="NAq-eO-2tM"/>
+                <outlet property="titlelabel" destination="VTT-QQ-TYs" id="kmi-3q-Yo3"/>
+                <outlet property="updataTimelabel" destination="RI2-Dw-454" id="CBy-Id-Qcz"/>
+            </connections>
+            <point key="canvasLocation" x="353" y="188.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="albumInfoCell_tracks_mark" width="13" height="13"/>
+        <image name="find_album_fav_n" width="58" height="23"/>
+        <image name="find_album_unfav_n" width="58" height="23"/>
+        <image name="sound_album" width="22" height="21"/>
+        <image name="sound_playtimes" width="6" height="8"/>
+    </resources>
+</document>

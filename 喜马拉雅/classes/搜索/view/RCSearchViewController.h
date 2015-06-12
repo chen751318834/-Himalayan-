@@ -7,6 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-@interface RCSearchViewController : UITableViewController
+@interface RCSearchViewController : UIViewController
 
 @end
