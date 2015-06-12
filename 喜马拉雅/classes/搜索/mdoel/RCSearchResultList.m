@@ -9,11 +9,15 @@
 #import "RCSearchResultList.h"
 #import "MJExtension.h"
 @implementation RCSearchResultList
+MJCodingImplementation
 + (NSDictionary *)replacedKeyFromPropertyName{
 
     return @{@"ID":@"id"};
 }
 - (NSString *)description{
     return [NSString stringWithFormat:@"--%@---%@",_text,_title];
+}
+- (BOOL)isEqual:(RCSearchResultList *)other{
+    return [self.title isEqualToString:other.title] && [self.ID isEqualToNumber:other.ID];;
 }
 @end

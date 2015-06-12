@@ -10,6 +10,7 @@
 #import "CSStickyHeaderFlowLayout.h"
 #import "RCAlbumViewModel.h"
 #import "RCSegementControl.h"
+#import "RCHotAudioViewCell.h"
 #import "RCPlayerView.h"
 #import "RCAlbumTool.h"
 #import "ReactiveCocoa.h"

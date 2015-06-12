@@ -74,6 +74,9 @@ static NSString * searchResultVCEndExitingNotification = @"searchResultVCEndExit
 static NSString * searchUserInfoNotification = @"searchUserInfoNotification";
 static NSString * searchUserInfoNotificationName = @"searchUserInfoNotificationName";
 
+
+static NSString * reloadSearchHistoryNotification = @"reloadSearchHistoryNotification";
+static NSString * reloadSearchHistoryNotificationName = @"reloadSearchHistoryNotificationName";
 #define RCNotificationCenter  [NSNotificationCenter defaultCenter]
 
 #endif

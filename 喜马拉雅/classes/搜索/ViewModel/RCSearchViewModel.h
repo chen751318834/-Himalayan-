@@ -16,8 +16,7 @@ typedef enum {
     RCSearchViewModelDataTypeAudio,
 }RCSearchViewModelDataType;
 @interface RCSearchViewModel : RCBaseViewModel
-@property(nonatomic,strong) NSMutableArray  *historySearchTexts;
-@property(nonatomic,strong) NSMutableArray  *hotSearchTexts;
+
 
 /**
  *  搜索

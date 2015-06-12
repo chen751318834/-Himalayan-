@@ -15,6 +15,7 @@
 #import "RCConst.h"
 #import "RCSearchViewModel.h"
 #import "UIImage+RC.h"
+#import "RCSearchTool.h"
 #import "SKTagView.h"
 #import "RCSearchResultViewController.h"
 #import "HexColor.h"
@@ -28,10 +29,23 @@ static NSString * const ID = @"searchCell";
 @property(nonatomic,strong) RCSearchResultViewController   *resultVC;
 @property(nonatomic,strong) RCSearchViewModel  *viewModel;
 @property(nonatomic,assign) int currentIndex;
-
+@property(nonatomic,strong) NSMutableArray  *historySearchTexts;
+@property(nonatomic,strong) NSMutableArray  *hotSearchTexts;
 @end
 
 @implementation RCSearchViewController
+-  (NSMutableArray *)hotSearchTexts{
+    if (!_hotSearchTexts) {
+        self.hotSearchTexts = [NSMutableArray array];
+    }
+    return _hotSearchTexts;
+}
+-  (NSMutableArray *)historySearchTexts{
+    if (!_historySearchTexts) {
+        self.historySearchTexts = [NSMutableArray array];
+    }
+    return _historySearchTexts;
+}
 -  (RCSearchViewModel *)viewModel{
     if (!_viewModel) {
         self.viewModel = [[RCSearchViewModel alloc]init];
@@ -56,23 +70,37 @@ static NSString * const ID = @"searchCell";
     }
     return _texts;
 }
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        for (RCSearchResultList * list in [RCSearchTool searchHistorys]) {
+            [self.historySearchTexts addObject:list.title];
+            }
+        for (int i = 0; i<10; i++) {
+            NSString * text = [NSString stringWithFormat:@"hahah %d",i];
+            [self.texts addObject:text];
+        }
 
+
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
     self.tableView.tableFooterView = [[UIView alloc]init];
     [self setUpSearchBar];
     [self setUpNotificationCenter];
     [self.tableView registerNib:[UINib nibWithNibName:@"RCSearchViewCell" bundle:nil] forCellReuseIdentifier:ID];
-      self.colorPool = @[@"#7ecef4", @"#84ccc9", @"#88abda",@"#7dc1dd",@"#b6b8de"];
-    for (int i = 0; i<20; i++) {
-        NSString * text = [NSString stringWithFormat:@"hahah %d",i];
-        [self.texts addObject:text];
-    }}
+
+}
 - (void)setUpNotificationCenter{
     [RCNotificationCenter addObserver:self selector:@selector(end) name:searchResultVCEndExitingNotification object:nil];
     [RCNotificationCenter addObserver:self selector:@selector(selectedDataType:) name:searchDataTypeNotification object:nil];
     [RCNotificationCenter addObserver:self selector:@selector(keyBoardEnd) name:UIKeyboardDidHideNotification object:nil];
+    [RCNotificationCenter addObserver:self selector:@selector(reloadSearchHistoryData:) name:reloadSearchHistoryNotification object:nil];
 
 }
 - (void)setUpSearchBar{
@@ -152,10 +180,13 @@ static NSString * const ID = @"searchCell";
     RCSearchViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID forIndexPath:indexPath];
     if (indexPath.row == 0) {
         cell.searchHistory = YES;
+        [self configureCell:cell atIndexPath:indexPath texts:self.historySearchTexts];
+
     }else{
         cell.searchHistory = NO;
-    }
         [self configureCell:cell atIndexPath:indexPath texts:self.texts];
+
+    }
 
     return cell;
 }
@@ -168,8 +199,14 @@ static NSString * const ID = @"searchCell";
     {
         cell = [tableView dequeueReusableCellWithIdentifier:ID];
     }
+    if (indexPath.row == 0) {
+        [self configureCell:cell atIndexPath:indexPath texts:self.historySearchTexts];
 
-    [self configureCell:cell atIndexPath:indexPath texts:self.texts];
+    }else{
+        [self configureCell:cell atIndexPath:indexPath texts:self.texts];
+
+
+    }
     return [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height + 1;
 }
 
@@ -201,6 +238,11 @@ static NSString * const ID = @"searchCell";
     }
 }
 #pragma mark - praive
+- (void)reloadSearchHistoryData:(NSNotification *)note{
+    RCSearchResultList * list = note.userInfo[reloadSearchHistoryNotificationName];
+    [self.historySearchTexts addObject:list.title];
+    [self.tableView reloadData];
+}
 - (void)keyBoardEnd{
     self.viewModel.models = nil;
     self.resultVC.searchResult = nil;

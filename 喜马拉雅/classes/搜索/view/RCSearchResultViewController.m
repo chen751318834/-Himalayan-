@@ -14,6 +14,7 @@
 #import "RCConst.h"
 #import "RCPlayerView.h"
 #import "RCUserViewController.h"
+#import "RCSearchTool.h"
 #import "RCSearchViewModel.h"
 #import "RCSearchResultList.h"
 @interface RCSearchResultViewController ()
@@ -89,6 +90,8 @@
     [RCNotificationCenter postNotificationName:searchResultVCEndExitingNotification object:nil];
 
     RCSearchResultList * result = self.searchResult[indexPath.row];
+    [RCNotificationCenter postNotificationName:reloadSearchHistoryNotification object:nil userInfo:@{reloadSearchHistoryNotificationName:result}];
+    [RCSearchTool saveSearchHistory:result];
     if (self.resultDataType == RCSearchViewModelDataTypeAll) {
 
     }else if (self.resultDataType == RCSearchViewModelDataTypeAlbum){

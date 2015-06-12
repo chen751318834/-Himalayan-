@@ -32,18 +32,7 @@
     }
     return _userAudios;
 }
--  (NSMutableArray *)hotSearchTexts{
-    if (!_hotSearchTexts) {
-        self.hotSearchTexts = [NSMutableArray array];
-    }
-    return _hotSearchTexts;
-}
--  (NSMutableArray *)historySearchTexts{
-    if (!_historySearchTexts) {
-        self.historySearchTexts = [NSMutableArray array];
-    }
-    return _historySearchTexts;
-}
+
 - (void)fetchhotSearchDataWithIndex:(RCSearchViewModelDataType)dataType keywords:(NSString *)keywords success:(void (^)(void))success failure:(void (^)(void))failure{
     NSString * urlStr = nil;
 

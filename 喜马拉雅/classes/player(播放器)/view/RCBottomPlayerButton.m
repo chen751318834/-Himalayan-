@@ -77,7 +77,6 @@
     NSMutableArray * childViews = [[UIApplication sharedApplication].keyWindow valueForKeyPath:@"subviews"];
     for (id childView in childViews) {
         if ([childView isKindOfClass:[RCBottomPlayerButton class]]) {
-            NSLog(@"%@",childView);
             return childView;
         }
     }

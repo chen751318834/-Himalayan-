@@ -7,13 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "RCSearchResultList.h"
 @interface RCSearchTool : NSObject
-//+ (void)saveDownloadAudio:(RCTrackList *)downloadAudio;
-//+ (void)removeDownloadAudio:(RCTrackList *)downloadAudio;
-//+ (void)removeAllDownloadAudio;
-//+ (NSArray *)downloadAudiosWithPage:(NSUInteger )page;
-//+ (NSArray *)downloadAudios;
-//+ (NSUInteger)downloadAudioCount;
-//+ (BOOL)isDownloadAudio:(RCTrackList *)downloadAudio;
++ (void)saveSearchHistory:(RCSearchResultList *)searchHistory;
++ (void)removeAllSearchHistory;
++ (NSArray *)searchHistorys;
 @end
