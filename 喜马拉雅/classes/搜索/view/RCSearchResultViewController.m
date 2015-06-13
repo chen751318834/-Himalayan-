@@ -102,7 +102,6 @@
     }else if (self.resultDataType == RCSearchViewModelDataTypeuser){
         RCUserViewController * userVC = [[RCUserViewController alloc]init];
         userVC.ID = result.ID;
-        self.viewModel.keyWord = result.title;
         [[RCNavigationController navigationController] pushViewController:userVC animated:YES];
 
     }else{

@@ -12,11 +12,11 @@
 #import "RCUserConditionViewController.h"
 #import "RCVoiceConditionViewController.h"
 #import "RCConst.h"
-
 @interface RCSearchResultDeailViewController ()
 @property(nonatomic,assign) NSUInteger currentIndex;
 
 @property(nonatomic,strong)  RCAllConditionViewController * allVC;
+@property(nonatomic,strong) RCAlbumConditionViewController  *alumVC;
 @end
 
 @implementation RCSearchResultDeailViewController
@@ -25,6 +25,7 @@
     RCAllConditionViewController * allVC = [[RCAllConditionViewController alloc]init];
     self.allVC = allVC;
     RCAlbumConditionViewController * albumVC = [[RCAlbumConditionViewController alloc]init];
+    self.alumVC = albumVC;
     RCUserConditionViewController * userVC = [[RCUserConditionViewController alloc]init];
     RCVoiceConditionViewController * voiceVC = [[RCVoiceConditionViewController alloc]init];
     self = [super initWithControllers:allVC,albumVC,userVC,voiceVC, nil];
@@ -35,12 +36,33 @@
     }
     return self;
 }
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+  
     [RCNotificationCenter addObserver:self selector:@selector(changeData:) name:sendSelectedIndexNotification object:nil];
-
 }
+- (void)didSelectedSegmentIndex:(NSUInteger)index{
+    NSLog(@"%@",self.condition);
+    switch (index) {
 
+        case 1:
+            [RCNotificationCenter postNotificationName:loadAlbumDataNotification object:nil userInfo:@{loadDataOfConditionNotificationName:self.condition}];
+
+            break;
+        case 2:
+            [RCNotificationCenter postNotificationName:LoadUserDataNotification object:nil userInfo:@{loadDataOfConditionNotificationName:self.condition}];
+
+            break;
+        case 3:
+            [RCNotificationCenter postNotificationName:loadVoiceDataNotification object:nil userInfo:@{loadDataOfConditionNotificationName:self.condition}];
+
+            break;
+
+        default:
+            break;
+    }
+}
 - (void)changeData:(NSNotification *)note{
     self.selectedIndex = [note.userInfo[sendSelectedIndexNotificationName] unsignedIntegerValue]+1;
     NSString * condition = note.userInfo[sendConditionNotificationName];

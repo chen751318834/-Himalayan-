@@ -62,6 +62,7 @@ typedef enum {
  *  找人
  *
  */
+
 - ( void)fetchNewUserWithDataType:(userDataType)dataType condition:(NSString *)condition success:(void (^)(void ))success failure:(void (^)(void ))failure;
 - ( void)fetchMoreUserWithDataType:(userDataType)dataType condition:(NSString *)condition success:(void (^)(void ))success failure:(void (^)(void ))failure completion:(void (^)(void))completion;
 /**

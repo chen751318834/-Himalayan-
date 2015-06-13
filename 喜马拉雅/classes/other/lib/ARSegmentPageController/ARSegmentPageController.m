@@ -293,7 +293,7 @@ const void* _ARSEGMENTPAGE_CURRNTPAGE_SCROLLVIEWOFFSET = &_ARSEGMENTPAGE_CURRNTP
     }else{
         [scrollView setContentOffset:CGPointMake(0, -self.headerHeightConstraint.constant-self.segmentHeight)];
     }
-
+    [self didSelectedSegmentIndex:sender.selectedSegmentIndex];
 }
 
 #pragma mark - manage memory methods
@@ -311,6 +311,5 @@ const void* _ARSEGMENTPAGE_CURRNTPAGE_SCROLLVIEWOFFSET = &_ARSEGMENTPAGE_CURRNTP
     self.segmentView.segmentControl.selectedSegmentIndex = selectedIndex;
     [self segmentControlDidChangedValue:self.segmentView.segmentControl];
 }
-
 
 @end

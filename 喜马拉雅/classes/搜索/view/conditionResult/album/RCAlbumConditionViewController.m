@@ -32,22 +32,20 @@ static NSString * const ID = @"cell";
     [self .tableView registerNib:[UINib nibWithNibName:@"RCAlbumConditionViewCell" bundle:nil] forCellReuseIdentifier:ID];
     self.tableView.gifFooter.hidden = NO;
     [RCNotificationCenter addObserver:self selector:@selector(loadNewData:) name:loadAlbumDataNotification object:nil];
-//    [self.viewModel fetchNewAlbumWithDataType:0 condition:self.condition  success:^{
-//        [self.tableView reloadData];
-//    } failure:^{
-//
-//    }];
 
 }
 - (void)loadNewData:(NSNotification *)note{
-    [self.viewModel.responseDocs removeAllObjects];
-    [self.tableView reloadData];
-    NSLog(@"%@",note.userInfo[loadDataOfConditionNotificationName]);
     self.condition = note.userInfo[loadDataOfConditionNotificationName];
+    [KVNProgress showWithStatus:@"正在加载..."];
     [self.viewModel fetchNewAlbumWithDataType:0 condition:note.userInfo[loadDataOfConditionNotificationName]  success:^{
         [self.tableView reloadData];
+        [self.tableView.gifFooter setHidden:NO];
+        [KVNProgress dismiss];
     } failure:^{
-
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [KVNProgress dismiss];
+            [KVNProgress showErrorWithStatus:@"加载出错了，请稍后再试..."];
+        });
     }];
 }
 - (void)loadMoreData{
@@ -69,7 +67,6 @@ static NSString * const ID = @"cell";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-
     return self.viewModel.responseDocs.count;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{

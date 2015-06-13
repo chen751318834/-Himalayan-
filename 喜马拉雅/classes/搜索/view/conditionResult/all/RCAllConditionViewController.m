@@ -13,6 +13,7 @@
 #import "RCConditionResponseDoc.h"
 #import "UITableView+FDTemplateLayoutCell.h"
 #import "RCAllConditionSectionheaderView.h"
+#import "RCUserViewController.h"
 #import "RCAlbumDeailViewController.h"
 #import "RCAllConditionUserViewCell.h"
 #import "RCAllConditionAlbumViewCell.h"
@@ -157,7 +158,10 @@ static NSString * const trackID = @"trackID";
         albumDeailVC.ID = doc.ID;
         [self.navigationController pushViewController:albumDeailVC animated:YES];
     }else if (indexPath.section == 1){
-
+        RCConditionResponseDoc * doc = self.viewModel.users[indexPath.row];
+        RCUserViewController * userVC = [[RCUserViewController alloc]init];
+        userVC.ID = doc.uid;
+        [self.navigationController  pushViewController:userVC animated:YES];
 
     }else{
         RCConditionResponseDoc * doc = self.viewModel.tracks[indexPath.row];

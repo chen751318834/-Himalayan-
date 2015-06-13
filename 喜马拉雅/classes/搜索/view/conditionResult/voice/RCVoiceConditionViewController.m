@@ -31,15 +31,23 @@ static NSString * const ID = @"cell";
     [super viewDidLoad];
     [self.tableView removeHeader];
     [self.tableView registerNib:[UINib nibWithNibName:@"RCVoiceConditionViewCell" bundle:nil] forCellReuseIdentifier:ID];
+
     [RCNotificationCenter addObserver:self selector:@selector(loadNewData:) name:loadVoiceDataNotification object:nil];
 }
 - (void)loadNewData:(NSNotification *)note{
+    [KVNProgress showWithStatus:@"正在加载..."];
     self.condition = note.userInfo[loadDataOfConditionNotificationName];
     [self.viewModel fetchNewVoiceWithDataType:0 condition:note.userInfo[loadDataOfConditionNotificationName] success:^{
         [self.tableView reloadData];
+        [KVNProgress dismiss];
+        [self.tableView.gifFooter setHidden:NO];
     } failure:^{
-
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [KVNProgress dismiss];
+            [KVNProgress showErrorWithStatus:@"加载出错了，请稍后再试..."];
+        });
     }];
+
 
 
 }

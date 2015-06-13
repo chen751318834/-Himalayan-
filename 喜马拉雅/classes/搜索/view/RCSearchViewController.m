@@ -133,7 +133,7 @@ static NSString * const ID = @"searchCell";
 }
 #pragma mark - UISearchBarDelegate
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar{
-
+    [self.resultDeailVC.view removeFromSuperview];
     [self.view addSubview:self.resultVC.view];
 }
 
@@ -227,7 +227,7 @@ static NSString * const ID = @"searchCell";
     [self.searchBar resignFirstResponder];
     [self.resultVC.view removeFromSuperview];
     [self.resultDeailVC.view removeFromSuperview];
-
+    self.searchBar.text = nil;
 }
 - (void)configureCell:(RCSearchViewCell *)cell atIndexPath:(NSIndexPath *)indexPath  texts:(NSArray *)texts
 {
@@ -240,6 +240,7 @@ static NSString * const ID = @"searchCell";
         NSString * text = texts[index];
         [self.view addSubview:self.resultDeailVC.view];
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            self.resultDeailVC.condition = text;
             [RCNotificationCenter postNotificationName:sendSearchConditionNotification object:nil userInfo:@{sendSearchConditionNotificationName:text}];
 
         });

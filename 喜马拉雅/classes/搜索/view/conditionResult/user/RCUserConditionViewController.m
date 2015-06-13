@@ -8,6 +8,7 @@
 
 #import "RCUserConditionViewController.h"
 #import "RCConst.h"
+#import "RCUserViewController.h"
 #import "UITableView+FDTemplateLayoutCell.h"
 #import "RCUserConditionViewCell.h"
 #import "RCSearchConditionViewModel.h"
@@ -30,17 +31,24 @@ static NSString * const ID = @"cell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.tableView removeHeader];
-    self.tableView.gifFooter.hidden = NO;
         [self.tableView registerNib:[UINib nibWithNibName:@"RCUserConditionViewCell" bundle:nil] forCellReuseIdentifier:ID];
     [RCNotificationCenter addObserver:self selector:@selector(loadNewData:) name:LoadUserDataNotification object:nil];
 }
 - (void)loadNewData:(NSNotification *)note{
+    [KVNProgress showWithStatus:@"正在加载..."];
+
     self.condition = note.userInfo[loadDataOfConditionNotificationName];
     [self.viewModel fetchNewUserWithDataType:0 condition:note.userInfo[loadDataOfConditionNotificationName] success:^{
         [self.tableView reloadData];
+        [self.tableView.gifFooter setHidden:NO];
+        [KVNProgress dismiss];
     } failure:^{
-
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [KVNProgress dismiss];
+            [KVNProgress showErrorWithStatus:@"加载出错了，请稍后再试..."];
+        });
     }];
+
 
 }
 - (void)loadMoreData{
@@ -73,11 +81,7 @@ static NSString * const ID = @"cell";
 
     }];
 }
-#pragma mark - UITableViewDelegate
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    
-}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     return 25;
 }
@@ -92,6 +96,14 @@ static NSString * const ID = @"cell";
     self.courrentIndex = segmentControl.selectedSegmentIndex;
 
     return segmentControl;
+}
+#pragma mark - UITableViewDelegate
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [super tableView:tableView didSelectRowAtIndexPath:indexPath];
+    RCConditionResponseDoc * doc = self.viewModel.responseUserDocs[indexPath.row];
+    RCUserViewController * userVC = [[RCUserViewController alloc]init];
+    userVC.ID = doc.uid;
+    [self.navigationController  pushViewController:userVC animated:YES];
 }
 - (void)valueChanged:(UISegmentedControl *)control{
     [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:NO];

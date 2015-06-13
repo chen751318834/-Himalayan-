@@ -40,7 +40,7 @@ typedef enum {
 @property(nonatomic,strong) NSMutableArray  *userAlbums;
 @property(nonatomic,strong) NSMutableArray  *userAudios;
 @property(nonatomic,strong) RCSearchUserInfo  *userInfo;
-@property(nonatomic,copy) NSString  *keyWord;
+//@property(nonatomic,copy) NSString  *keyWord;
 - ( void)fetchUserInfoWithSuccess:(void (^)(void ))success failure:(void (^)(void ))failure;
 
 - ( void)fetchUserAlbumsWithSuccess:(void (^)(void ))success failure:(void (^)(void ))failure;

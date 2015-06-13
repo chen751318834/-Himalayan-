@@ -104,9 +104,6 @@
     return newImage;
 }
 + (instancetype)circleImage:(UIImage *)image borderWidth:(CGFloat)borderWidth borderColor:(UIColor *)borderColor{
-
-
-
     // 2.开启上下文
     CGFloat imageW = image.size.width + 2 * borderWidth;
     CGFloat imageH = image.size.height + 2 * borderWidth;
