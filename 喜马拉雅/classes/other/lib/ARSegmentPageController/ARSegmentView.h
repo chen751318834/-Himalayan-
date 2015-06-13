@@ -10,6 +10,6 @@
 
 @interface ARSegmentView : UIToolbar
 
-@property (nonatomic, strong,readonly) UISegmentedControl *segmentControl;
+@property (nonatomic, strong) UISegmentedControl *segmentControl;
 
 @end

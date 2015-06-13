@@ -16,6 +16,6 @@
  */
 @property(nonatomic,strong) NSNumber  *numFound;
 @property(nonatomic,strong) NSNumber  *start;
-@property(nonatomic,strong) RCConditionResponseDoc  *docs;
+@property(nonatomic,strong) NSArray  *docs;
 
 @end

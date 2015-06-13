@@ -13,7 +13,7 @@
 + (NSDictionary *)replacedKeyFromPropertyName{
     return @{@"ID":@"id"};
 }
-- (NSString *)created_at{
+- (NSString *)createdTime{
     // _created_at == Fri May 09 16:30:34 +0800 2014
 
     NSDate * date = [NSDate dateWithNumber:_created_at];

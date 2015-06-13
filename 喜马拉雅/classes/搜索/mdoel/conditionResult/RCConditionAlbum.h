@@ -18,6 +18,6 @@
  "highlighting": {}
  */
 @property(nonatomic,strong) RCConditionResponseHeader  *responseHeader;
-@property(nonatomic,strong) RCConditionResponse  *RCConditionAlbumHighlighting;
+@property(nonatomic,strong) RCConditionResponse  *response;
 @property(nonatomic,strong) RCConditionHighlighting  *highlighting;
 @end

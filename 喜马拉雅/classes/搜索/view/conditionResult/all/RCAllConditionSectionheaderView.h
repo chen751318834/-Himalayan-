@@ -10,4 +10,8 @@
 
 @interface RCAllConditionSectionheaderView : UIView
 +(instancetype)sectionHeaderView;
+@property (weak, nonatomic) IBOutlet UIButton *changeDataButton;
+@property (weak, nonatomic) IBOutlet UIButton *dataTypeButton;
+@property (weak, nonatomic) IBOutlet UIButton *resultCountButton;
+
 @end

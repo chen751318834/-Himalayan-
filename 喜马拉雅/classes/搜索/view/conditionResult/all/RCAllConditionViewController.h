@@ -1,5 +1,5 @@
 //
-//  RCAlbumConditionViewController.h
+//  RCAllConditionViewController.h
 //  喜马拉雅
 //
 //  Created by Raychen on 15/6/12.
@@ -8,6 +8,6 @@
 
 #import "RCBaseViewController.h"
 #import "ARSegmentPageController.h"
-@interface RCAlbumConditionViewController : RCBaseViewController <ARSegmentControllerDelegate>
+@interface RCAllConditionViewController : RCBaseViewController <ARSegmentControllerDelegate>
 
 @end

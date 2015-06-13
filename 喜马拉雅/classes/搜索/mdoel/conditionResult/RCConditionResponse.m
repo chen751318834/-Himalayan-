@@ -7,7 +7,10 @@
 //
 
 #import "RCConditionResponse.h"
-
+#import "MJExtension.h"
+#import "RCConditionResponseDoc.h"
 @implementation RCConditionResponse
-
++ (NSDictionary *)objectClassInArray{
+    return @{@"docs":[RCConditionResponseDoc class]};
+}
 @end

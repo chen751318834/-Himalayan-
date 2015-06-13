@@ -9,6 +9,7 @@
 #import "RCSearchViewController.h"
 #import "RCSearchViewCell.h"
 #import "RCSearchBar.h"
+#import "UIBarButtonItem+MJ.h"
 #import "ReactiveCocoa.h"
 #import "RCBottomPlayerButton.h"
 #import "RCSubjectList.h"
@@ -78,16 +79,13 @@ static NSString * const ID = @"searchCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setUpTableView];
-    self.tableView.contentInset = RCGlobalTableViewUIEdgeInsets;
-        [self loadData];
-
-    [self.tableView registerNib:[UINib nibWithNibName:@"RCSearchViewCell" bundle:nil] forCellReuseIdentifier:ID];
-    self.tableView.tableFooterView = [[UIView alloc]init];
     [self setUpSearchBar];
     [self setUpNotificationCenter];
-    self.view.backgroundColor = RCGlobalBg;
-
-
+    [self setUpNav];
+    [self loadData];
+}
+- (void)setUpNav{
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"退出" style:UIBarButtonItemStyleDone target:self action:@selector(exit)];
 }
 -(void)setUpTableView{
     UITableView * tableView = [[UITableView alloc]init];
@@ -95,6 +93,11 @@ static NSString * const ID = @"searchCell";
     tableView.delegate = self;
     tableView.dataSource = self;
     self.tableView = tableView;
+    self.tableView.contentInset = RCGlobalTableViewUIEdgeInsets;
+    [self.tableView registerNib:[UINib nibWithNibName:@"RCSearchViewCell" bundle:nil] forCellReuseIdentifier:ID];
+    self.tableView.tableFooterView = [[UIView alloc]init];
+
+    self.view.backgroundColor = RCGlobalBg;
     [tableView autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
 
 }
@@ -121,9 +124,9 @@ static NSString * const ID = @"searchCell";
     UISearchBar * searchBar = [[UISearchBar alloc]init];
     searchBar.barStyle = UIBarStyleBlack;
     searchBar.delegate = self;
-    searchBar.placeholder = @"搜索声音、专辑、人                                      ";
+    searchBar.placeholder = @"搜索声音、专辑、人 ";
     [searchBar setBackgroundImage:[UIImage imageNamed:@"sound_act"]];
-    searchBar.frame = CGRectMake(10, 40, self.view.bounds.size.width - 40, 29);
+    searchBar.frame = CGRectMake(10, 40, self.view.bounds.size.width - 80, 29);
     self.navigationItem.titleView = searchBar;
     self.searchBar = searchBar;
 
@@ -150,9 +153,7 @@ static NSString * const ID = @"searchCell";
     }
 
 }
-- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
-    [self.resultDeailVC.view removeFromSuperview];
-}
+
 - (void)dealloc{
     [RCNotificationCenter removeObserver:self];
 }
@@ -222,6 +223,12 @@ static NSString * const ID = @"searchCell";
 //    }
 }
 #pragma mark - private
+- (void)exit{
+    [self.searchBar resignFirstResponder];
+    [self.resultVC.view removeFromSuperview];
+    [self.resultDeailVC.view removeFromSuperview];
+
+}
 - (void)configureCell:(RCSearchViewCell *)cell atIndexPath:(NSIndexPath *)indexPath  texts:(NSArray *)texts
 {
     cell.tagView.preferredMaxLayoutWidth = SCREEN_WIDTH;

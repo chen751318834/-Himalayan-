@@ -24,7 +24,7 @@
     UINavigationBar *  navBar = [UINavigationBar appearance];
     [navBar setBackgroundImage:[UIImage imageNamed:@"navigationbar_bg_64"] forBarMetrics:UIBarMetricsDefault];
     UIBarButtonItem * item  = [UIBarButtonItem appearance];
-    [item setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:13],NSForegroundColorAttributeName:[UIColor grayColor]} forState:UIControlStateNormal];
+    [item setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:13],NSForegroundColorAttributeName:[UIColor orangeColor]} forState:UIControlStateNormal];
 
 }
 - (void)viewDidLoad {

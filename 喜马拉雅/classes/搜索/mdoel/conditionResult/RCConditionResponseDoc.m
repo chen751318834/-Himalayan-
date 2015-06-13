@@ -7,7 +7,7 @@
 //
 
 #import "RCConditionResponseDoc.h"
-
+#import "NSDate+RC.h"
 @implementation RCConditionResponseDoc
 
 @end

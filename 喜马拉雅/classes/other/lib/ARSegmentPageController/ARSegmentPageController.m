@@ -306,5 +306,11 @@ const void* _ARSEGMENTPAGE_CURRNTPAGE_SCROLLVIEWOFFSET = &_ARSEGMENTPAGE_CURRNTP
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
+- (void)setSelectedIndex:(NSUInteger)selectedIndex{
+    _selectedIndex = selectedIndex;
+    self.segmentView.segmentControl.selectedSegmentIndex = selectedIndex;
+    [self segmentControlDidChangedValue:self.segmentView.segmentControl];
+}
+
 
 @end

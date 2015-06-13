@@ -81,6 +81,16 @@ static NSString * reloadSearchHistoryNotificationName = @"reloadSearchHistoryNot
 
 static NSString * sendSearchConditionNotification = @"sendSearchConditionNotification";
 static NSString * sendSearchConditionNotificationName = @"sendSearchConditionNotificationName";
+static NSString * sendSelectedIndexNotification = @"sendSelectedIndexNotification";
+static NSString * sendSelectedIndexNotificationName = @"sendSelectedIndexNotificationName";
+static NSString * sendConditionNotificationName = @"sendConditionNotificationName";
+
+static NSString * loadAlbumDataNotification = @"loadAlbumDataNotification";
+
+static NSString * LoadUserDataNotification = @"LoadUserDataNotification";
+
+static NSString * loadVoiceDataNotification = @"loadVoiceDataNotification";
+static NSString * loadDataOfConditionNotificationName = @"loadDataOfConditionNotificationName";
 
 #define RCNotificationCenter  [NSNotificationCenter defaultCenter]
 

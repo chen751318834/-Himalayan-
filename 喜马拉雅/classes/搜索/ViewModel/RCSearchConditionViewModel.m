@@ -17,10 +17,18 @@
 #import "RCNetWorkingTool.h"
 #import "MJExtension.h"
 #import "NSURLConnection+RACSupport.h"
+
+#import "RCConditionAlbum.h"
+#import "RCConditionUser.h"
+#import "RCConditionVoice.h"
+#import "RCConditionResponse.h"
+#import "RCConditionResponseDoc.h"
 @interface RCSearchConditionViewModel ()
 
 @end
 @implementation RCSearchConditionViewModel
+#pragma mark -  找所有
+
 -  (NSMutableArray *)albums{
     if (!_albums) {
          self.albums = [NSMutableArray array];
@@ -42,10 +50,7 @@
     }
     return _tracks;
 }
-/**
- *  所有
- *
- */
+
 - ( void)fetchNewAllWithCondition:(NSString *)condition success:(void (^)(void ))success failure:(void (^)(void ))failure{
     NSMutableDictionary * params = [NSMutableDictionary dictionary];
     params[@"device"] = @"android";
@@ -61,7 +66,9 @@
         [self.tracks addObjectsFromArray:all.track.docs];
         [self.albums addObjectsFromArray:all.album.docs];
         [self.users addObjectsFromArray:all.user.docs];
-        NSLog(@"%d----%d-----%d",self.tracks.count,self.albums.count,self.users.count);
+        self.track = all.track;
+        self.album = all.album;
+        self.user = all.user;
         if (success) {
             success();
         }
@@ -102,117 +109,253 @@
     }];
 
 }
-///**
-// *  找专辑
-// *
-// */
-//- ( void)fetchNewAlbumWithSuccess:(void (^)(void ))success failure:(void (^)(void ))failure{
-//    [RCNetWorkingTool get:[NSString stringWithFormat:@"http://mobile.ximalaya.com/mobile/others/following?device=android&pageSize=15&toUid=%@&pageId=1",self.ID] params:nil success:^(id json) {
-//        NSArray * newAudios = [RCUserDeialList objectArrayWithKeyValuesArray:json[@"list"]];
-//        [self.models removeAllObjects];
-//        [self.models addObjectsFromArray:newAudios];
-//        if (success) {
-//            success();
-//        }
-//    } failure:^(NSError *error) {
-//        if (failure) {
-//            failure();
-//            NSLog(@"%@",error);
-//        }
-//
-//}
-//- ( void)fetchMoreAlbumWithSuccess:(void (^)(void ))success failure:(void (^)(void ))failure completion:(void (^)(void))completion{
-//    self.currrentPage ++;
-//    [RCNetWorkingTool get:[NSString stringWithFormat:@"http://mobile.ximalaya.com/mobile/others/following?device=android&pageSize=15&toUid=%@&pageId=%ld",self.ID,self.currrentPage] params:nil success:^(id json) {
-//        NSArray * newAudios = [RCUserDeialList objectArrayWithKeyValuesArray:json[@"list"]];
-//        NSNumber *  maxPageID = (NSNumber *)json[@"maxPageId"];
-//        if (self.currrentPage  > [maxPageID integerValue]) {
-//            if (completion) {
-//                completion();
-//            }
-//            return ;
-//        }
-//        [self.models addObjectsFromArray:newAudios];
-//        if (success) {
-//            success();
-//        }
-//    } failure:^(NSError *error) {
-//        if (failure) {
-//            failure();
-//        }
-//    }];
-//
-//}
-//
-///**
-// *  找人
-// *
-// */
-//- ( void)fetchNewUserWithSuccess:(void (^)(void ))success failure:(void (^)(void ))failure{
-//    [RCNetWorkingTool get:[NSString stringWithFormat:@"http://mobile.ximalaya.com/mobile/others/following?device=android&pageSize=15&toUid=%@&pageId=1",self.ID] params:nil success:^(id json) {
-//        NSArray * newAudios = [RCUserDeialList objectArrayWithKeyValuesArray:json[@"list"]];
-//        [self.models removeAllObjects];
-//        [self.models addObjectsFromArray:newAudios];
-//        if (success) {
-//            success();
-//        }
-//    } failure:^(NSError *error) {
-//        if (failure) {
-//            failure();
-//            NSLog(@"%@",error);
-//        }
-//}
-//- ( void)fetchMoreUserWithSuccess:(void (^)(void ))success failure:(void (^)(void ))failure completion:(void (^)(void))completion{
-//    self.currrentPage ++;
-//    [RCNetWorkingTool get:[NSString stringWithFormat:@"http://mobile.ximalaya.com/mobile/others/following?device=android&pageSize=15&toUid=%@&pageId=%ld",self.ID,self.currrentPage] params:nil success:^(id json) {
-//        NSArray * newAudios = [RCUserDeialList objectArrayWithKeyValuesArray:json[@"list"]];
-//        NSNumber *  maxPageID = (NSNumber *)json[@"maxPageId"];
-//        if (self.currrentPage  > [maxPageID integerValue]) {
-//            if (completion) {
-//                completion();
-//            }
-//            return ;
-//        }
-//        [self.models addObjectsFromArray:newAudios];
-//        if (success) {
-//            success();
-//        }
-//    } failure:^(NSError *error) {
-//        if (failure) {
-//            failure();
-//        }
-//    }];
-//
-//}
-///**
-// *  找声音
-// *
-// */
-//- ( void)fetchNewVoiceWithSuccess:(void (^)(void ))success failure:(void (^)(void ))failure{
-//
-//}
-//- ( void)fetchMoreVoiceAllWithSuccess:(void (^)(void ))success failure:(void (^)(void ))failure completion:(void (^)(void))completion{
-//    self.currrentPage ++;
-//    [RCNetWorkingTool get:[NSString stringWithFormat:@"http://mobile.ximalaya.com/mobile/others/following?device=android&pageSize=15&toUid=%@&pageId=%ld",self.ID,self.currrentPage] params:nil success:^(id json) {
-//        NSArray * newAudios = [RCUserDeialList objectArrayWithKeyValuesArray:json[@"list"]];
-//        NSNumber *  maxPageID = (NSNumber *)json[@"maxPageId"];
-//        if (self.currrentPage  > [maxPageID integerValue]) {
-//            if (completion) {
-//                completion();
-//            }
-//            return ;
-//        }
-//        [self.models addObjectsFromArray:newAudios];
-//        if (success) {
-//            success();
-//        }
-//    } failure:^(NSError *error) {
-//        if (failure) {
-//            failure();
-//        }
-//    }];
-//
-//
-//}
-////
+
+#pragma mark -  找专辑
+-  (NSMutableArray *)responseDocs{
+    if (!_responseDocs) {
+        self.responseDocs = [NSMutableArray array];
+    }
+    return _responseDocs;
+}
+- ( void)fetchNewAlbumWithDataType:(albumDataType)dataType condition:(NSString *)condition success:(void (^)(void ))success failure:(void (^)(void ))failure{
+    NSMutableDictionary * params = [NSMutableDictionary dictionary];
+    params[@"device"] = @"android";
+    params[@"condition"] =condition;
+    params[@"page"] = @1;
+    params[@"per_page"] = @20;
+    params[@"scope"] = @"album";
+    switch (dataType) {
+        case albumDataTypeInvolve:
+
+            break;
+        case albumDataTypeRecent:
+            params[@"sort"] = @"recent";
+
+            break;
+        case albumDataTypePaly:
+            params[@"sort"] = @"play";
+
+            break;
+
+        default:
+            break;
+    }
+    [RCNetWorkingTool get:[NSString stringWithFormat:@"http://mobile.ximalaya.com/s/mobile/search"] params:params success:^(id json) {
+        RCConditionAlbum * album = [RCConditionAlbum objectWithKeyValues:json];
+        [self.responseDocs removeAllObjects];
+        [self.responseDocs addObjectsFromArray:album.response.docs];
+        if (success){
+            success();
+        }
+    } failure:^(NSError *error) {
+        if (failure) {
+            failure();
+        }
+    }];
+    
+
+}
+- ( void)fetchMoreAlbumWithDataType:(albumDataType)dataType condition:(NSString *)condition success:(void (^)(void ))success failure:(void (^)(void ))failure completion:(void (^)(void))completion{
+    self.currrentPage ++;
+
+    NSMutableDictionary * params = [NSMutableDictionary dictionary];
+    params[@"device"] = @"android";
+    params[@"condition"] =condition;
+    params[@"page"] = @(self.currrentPage);
+    params[@"per_page"] = @20;
+    params[@"scope"] = @"album";
+    switch (dataType) {
+        case albumDataTypeInvolve:
+            break;
+        case albumDataTypeRecent:
+            params[@"sort"] = @"recent";
+
+            break;
+        case albumDataTypePaly:
+            params[@"sort"] = @"play";
+
+            break;
+
+        default:
+            break;
+    }
+    [RCNetWorkingTool get:[NSString stringWithFormat:@"http://mobile.ximalaya.com/s/mobile/search"] params:params success:^(id json) {
+        RCConditionAlbum * album = [RCConditionAlbum objectWithKeyValues:json];
+        [self.responseDocs addObjectsFromArray:album.response.docs];
+        if (success){
+            success();
+        }
+    } failure:^(NSError *error) {
+        if (failure) {
+            failure();
+        }
+    }];
+    
+
+
+}
+
+#pragma mark -    找人
+-  (NSMutableArray *)responseUserDocs{
+    if (!_responseUserDocs) {
+        self.responseUserDocs = [NSMutableArray array];
+    }
+    return _responseUserDocs;
+}
+- ( void)fetchNewUserWithDataType:(userDataType)dataType condition:(NSString *)condition success:(void (^)(void ))success failure:(void (^)(void ))failure{
+
+    NSMutableDictionary * params = [NSMutableDictionary dictionary];
+    params[@"device"] = @"android";
+    params[@"condition"] =condition;
+    params[@"page"] = @1;
+    params[@"per_page"] = @20;
+    params[@"scope"] = @"user";
+    switch (dataType) {
+        case albumDataTypeInvolve:
+
+            break;
+        case albumDataTypeRecent:
+            params[@"sort"] = @"fans";
+
+            break;
+        case albumDataTypePaly:
+            params[@"sort"] = @"voice";
+
+            break;
+
+        default:
+            break;
+    }
+    [RCNetWorkingTool get:[NSString stringWithFormat:@"http://mobile.ximalaya.com/s/mobile/search"] params:params success:^(id json) {
+        RCConditionUser * all = [RCConditionUser objectWithKeyValues:json];
+        [self.responseUserDocs removeAllObjects];
+        [self.responseUserDocs addObjectsFromArray:all.response.docs];
+        if (success){
+            success();
+        }
+    } failure:^(NSError *error) {
+        if (failure) {
+            failure();
+        }
+    }];
+
+}
+- ( void)fetchMoreUserWithDataType:(userDataType)dataType condition:(NSString *)condition success:(void (^)(void ))success failure:(void (^)(void ))failure completion:(void (^)(void))completion{
+    self.currrentPage ++;
+    NSMutableDictionary * params = [NSMutableDictionary dictionary];
+    params[@"device"] = @"android";
+    params[@"condition"] =condition;
+    params[@"page"] = @(self.currrentPage);
+    params[@"per_page"] = @20;
+    params[@"scope"] = @"user";
+    switch (dataType) {
+        case albumDataTypeInvolve:
+            break;
+        case albumDataTypeRecent:
+            params[@"sort"] = @"recent";
+
+            break;
+        case albumDataTypePaly:
+            params[@"sort"] = @"play";
+
+            break;
+
+        default:
+            break;
+    }
+    [RCNetWorkingTool get:[NSString stringWithFormat:@"http://mobile.ximalaya.com/s/mobile/search"] params:params success:^(id json) {
+        RCConditionUser * all = [RCConditionUser objectWithKeyValues:json];
+        [self.responseUserDocs addObjectsFromArray:all.response.docs];
+        if (success) {
+            success();
+        }
+    } failure:^(NSError *error) {
+        if (failure) {
+            failure();
+        }
+    }];
+
+}
+
+#pragma mark -   找声音
+- (NSMutableArray *)responseVoiceDocs{
+    if (!_responseVoiceDocs) {
+        self.responseVoiceDocs = [NSMutableArray array];
+    }
+    return _responseVoiceDocs;
+}
+- ( void)fetchNewVoiceWithDataType:(voiceDataType)dataType condition:(NSString *)condition success:(void (^)(void ))success failure:(void (^)(void ))failure{
+
+    NSMutableDictionary * params = [NSMutableDictionary dictionary];
+    params[@"device"] = @"android";
+    params[@"condition"] =condition;
+    params[@"page"] = @1;
+    params[@"per_page"] = @20;
+    params[@"scope"] = @"voice";
+    switch (dataType) {
+        case albumDataTypeInvolve:
+
+            break;
+        case albumDataTypeRecent:
+            params[@"sort"] = @"recent";
+
+            break;
+        case albumDataTypePaly:
+            params[@"sort"] = @"play";
+
+            break;
+
+        default:
+            break;
+    }
+    [RCNetWorkingTool get:[NSString stringWithFormat:@"http://mobile.ximalaya.com/s/mobile/search"] params:params success:^(id json) {
+        RCConditionVoice * all = [RCConditionVoice objectWithKeyValues:json];
+        [self.responseVoiceDocs removeAllObjects];
+        [self.responseVoiceDocs addObjectsFromArray:all.response.docs];
+        if (success){
+            success();
+        }
+    } failure:^(NSError *error) {
+        if (failure) {
+            failure();
+        }
+    }];
+
+}
+- ( void)fetchMoreVoiceWithDataType:(voiceDataType)dataType condition:(NSString *)condition success:(void (^)(void ))success failure:(void (^)(void ))failure completion:(void (^)(void))completion{
+    self.currrentPage ++;
+    NSMutableDictionary * params = [NSMutableDictionary dictionary];
+    params[@"device"] = @"android";
+    params[@"condition"] =condition;
+    params[@"page"] = @(self.currrentPage);
+    params[@"per_page"] = @20;
+    params[@"scope"] = @"voice";
+    switch (dataType) {
+        case albumDataTypeInvolve:
+            break;
+        case albumDataTypeRecent:
+            params[@"sort"] = @"recent";
+
+            break;
+        case albumDataTypePaly:
+            params[@"sort"] = @"play";
+            break;
+        default:
+            break;
+    }
+    [RCNetWorkingTool get:[NSString stringWithFormat:@"http://mobile.ximalaya.com/s/mobile/search"] params:params success:^(id json) {
+        RCConditionVoice * all = [RCConditionVoice objectWithKeyValues:json];
+        [self.responseVoiceDocs addObjectsFromArray:all.response.docs];
+        if (success) {
+            success();
+        }
+    } failure:^(NSError *error) {
+        if (failure) {
+            failure();
+        }
+    }];
+
+}
+
+
 @end

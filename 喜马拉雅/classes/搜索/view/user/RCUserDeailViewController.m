@@ -95,6 +95,7 @@ static NSString * const ID = @"userDeailCell";
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
 
     return [tableView fd_heightForCellWithIdentifier:ID cacheByIndexPath:indexPath configuration:^(RCUserDeailViewCell * cell) {
+        cell.list = self.viewModel.models[indexPath.row];
 
     }];
 }

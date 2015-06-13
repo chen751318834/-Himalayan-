@@ -27,7 +27,7 @@
     }];
     [self setUpWithlabel:self.audioCountLabel count:[doc.tracks_counts intValue] title:@"声音"];
     [self setUpWithlabel:self.fansCountLabel count: [doc.followers_counts intValue] title:@"粉丝"];
-
+    self.desclabel.text = doc.personDescribe;
 
 }
 - (void)setUpWithlabel:(UILabel *)label count:(int)count title:(NSString *)title {
