@@ -13,11 +13,11 @@
 #import "UIBarButtonItem+MJ.h"
 static NSString * const ID = @"userInfoCell";
 @interface RCUserInfoViewController ()
-@property(nonatomic,strong) NSMutableArray <RCSearchUserInfo *>  *userInfos;
+@property(nonatomic,strong) NSMutableArray  *userInfos;
 @end
 
 @implementation RCUserInfoViewController
-- (NSMutableArray<RCSearchUserInfo *> *)userInfos{
+- (NSMutableArray *)userInfos{
     if (!_userInfos) {
          self.userInfos = [NSMutableArray array];
 
@@ -46,7 +46,7 @@ static NSString * const ID = @"userInfoCell";
     return self.userInfos.count;
 }
 
-- (CGFloat)tableView:(nonnull UITableView *)tableView heightForRowAtIndexPath:(nonnull NSIndexPath *)indexPath{
+- (CGFloat)tableView:( UITableView *)tableView heightForRowAtIndexPath:( NSIndexPath *)indexPath{
 
     return [tableView fd_heightForCellWithIdentifier:ID cacheByIndexPath:indexPath configuration:^(RCUserInfoViewCell * cell) {
         cell.userInfo = self.userInfos[indexPath.row];

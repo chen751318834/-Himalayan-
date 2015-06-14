@@ -10,6 +10,7 @@
 #import "RCConst.h"
 #import "RCSearchBar.h"
 #import "RCMeSettingSectionData.h"
+#import "UINavigationController+FDFullscreenPopGesture.h"
 #import "RCMeHeaderView.h"
 #import "RCMeSettingItem.h"
 static NSString * const ID = @"meSettingCell";
@@ -27,16 +28,16 @@ static NSString * const ID = @"meSettingCell";
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.fd_prefersNavigationBarHidden = YES;
     [self setUpHeaderView];
     self.tableView.backgroundColor = RCGlobalBg;
-    self.title = @"我";
 //    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:ID];
 }
 - (void)setUpHeaderView{
   
     RCMeHeaderView * headerView  = [RCMeHeaderView headerView];
     self.tableView.tableHeaderView = headerView;
-
+    self.tableView.contentInset = UIEdgeInsetsMake(-20, 0, 0, 0);
 }
 #pragma mark - UITableViewDelegate
 - (UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull  NSIndexPath *)indexPath{

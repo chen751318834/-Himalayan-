@@ -60,23 +60,21 @@
     [[RCNavigationController navigationController] presentViewController:imageVC animated:YES completion:nil];
 
 }
-- (void)imagePickerController:(nonnull UIImagePickerController *)picker didFinishPickingMediaWithInfo:(nonnull NSDictionary<NSString *,id> *)info{
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
     [picker dismissViewControllerAnimated:YES completion:nil];
-//
-//    self.avataIconVIew.image = [UIImage circleImage:info[UIImagePickerControllerOriginalImage] borderWidth:0 borderColor:nil];
-
 
 }
 
-- (void)imagePickerControllerDidCancel:(nonnull UIImagePickerController *)picker{
-
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
     [picker dismissViewControllerAnimated:YES completion:nil];
+
 }
+
 - (IBAction)record:(id)sender {
     RCRecordingInstructionsViewController * userRecordVC = [[RCRecordingInstructionsViewController alloc]init];
-    RCRecordingViewController * recordVC = [[RCRecordingViewController alloc]init];
-    BOOL usedInstruction = [[[NSUserDefaults standardUserDefaults] valueForKey:@"usedInstructions"] boolValue];
-//    if (usedInstruction) {
+//    RCRecordingViewController * recordVC = [[RCRecordingViewController alloc]init];
+//    BOOL usedInstruction = [[[NSUserDefaults standardUserDefaults] valueForKey:@"usedInstructions"] boolValue];
+////    if (usedInstruction) {
 //        [[RCNavigationController navigationController] pushViewController:recordVC animated:YES];
 //    }else{
         [[RCNavigationController navigationController] pushViewController:userRecordVC animated:YES];

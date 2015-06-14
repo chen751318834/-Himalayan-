@@ -7,16 +7,17 @@
 //
 
 #import "RCRecordingViewController.h"
-
 @interface RCRecordingViewController ()
-
 @end
 
 @implementation RCRecordingViewController
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"录音";
-    self.view.backgroundColor = [UIColor whiteColor];
+    
+
+
 }
 
 @end
