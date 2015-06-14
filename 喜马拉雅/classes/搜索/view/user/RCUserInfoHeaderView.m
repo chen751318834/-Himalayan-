@@ -12,6 +12,7 @@
 #import "UIImage+RC.h"
 #import "RCUserDeailViewController.h"
 #import "UIImageView+EXtension.h"
+#import "RCUserInfoViewController.h"
 #import "UIView+JHChainableAnimations.h"
 #import "RCUserZanedViewController.h"
 #import "JHKeyframeAnimation.h"
@@ -36,10 +37,20 @@
     return [[[NSBundle mainBundle]loadNibNamed:@"RCUserInfoHeaderView" owner:nil options:nil]lastObject];
 }
 - (void)awakeFromNib{
-
     [super awakeFromNib];
+    UITapGestureRecognizer * iconTap =[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapSmallIconView)];
+    [self.avataIconVIew addGestureRecognizer:iconTap];
+
     UITapGestureRecognizer * tap =[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapLargeiconView)];
     [self.largeIconView addGestureRecognizer:tap];
+}
+- (void)tapSmallIconView{
+    RCUserInfoViewController * userInfoVC = [[RCUserInfoViewController alloc]init];
+    RCNavigationController * nav = [[RCNavigationController alloc]initWithRootViewController:userInfoVC];
+    userInfoVC.userInfo = self.userInfo;
+    [[RCNavigationController navigationController] presentViewController:nav animated:YES completion:nil];
+//    self.largeIconView.userInteractionEnabled = YES;
+
 }
 - (void)tapLargeiconView{
     if (self.isOpen) {
@@ -123,5 +134,12 @@
 - (IBAction)share:(id)sender {
 
 }
-
+//-(UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event
+//{
+//    UIView *view = [super hitTest:point withEvent:event];
+//    if (view == self) {
+//        return nil;
+//    }
+//    return view;
+//}
 @end

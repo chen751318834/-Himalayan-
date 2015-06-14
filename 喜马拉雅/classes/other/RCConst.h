@@ -91,6 +91,7 @@ static NSString * LoadUserDataNotification = @"LoadUserDataNotification";
 
 static NSString * loadVoiceDataNotification = @"loadVoiceDataNotification";
 static NSString * loadDataOfConditionNotificationName = @"loadDataOfConditionNotificationName";
+static NSString * addSearchResultVCNotification = @"addSearchResultVCNotification";
 
 #define RCNotificationCenter  [NSNotificationCenter defaultCenter]
 

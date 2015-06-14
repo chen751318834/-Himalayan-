@@ -7,6 +7,7 @@
 //
 
 #import "RCHotAnthorViewController.h"
+#import "RCUserViewController.h"
 #import "RCHotAnchorVIewModel.h"
 #import "MJRefresh.h"
 #import "RCAnthorViewCell.h"
@@ -25,6 +26,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"最火主播";
+    self.tableView.allowsSelection = NO;
     self.tableView.separatorStyle = UITableViewCellSelectionStyleNone;
     self.contents = self.viewModel.models;
 }
@@ -62,7 +64,7 @@
 
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    
+
+
 }
 @end

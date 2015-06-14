@@ -8,6 +8,8 @@
 
 #import "RCAnthorViewCell.h"
 #import "UIImageView+WebCache.h"
+#import "RCNavigationController.h"
+#import "RCUserViewController.h"
 #import "RCOneAnchorList.h"
 @interface RCAnthorViewCell ()
 @property (weak, nonatomic) IBOutlet UIButton *titleButton;
@@ -28,12 +30,42 @@
 + (instancetype)cellWithTableView:(UITableView *)tableview{
     return [[[NSBundle mainBundle]loadNibNamed:@"RCAnthorViewCell" owner:nil options:nil]firstObject];
 }
+- (void)awakeFromNib{
+    [super awakeFromNib];
+    UITapGestureRecognizer * icon1Tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapIcon1View)];
+        UITapGestureRecognizer * icon2Tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapIcon2View)];
+        UITapGestureRecognizer * icon3Tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapIcon3View)];
+    [self.iocn1View addGestureRecognizer:icon1Tap];
+    [self.iocn2View addGestureRecognizer:icon2Tap];
+    [self.iocn3View addGestureRecognizer:icon3Tap];
+}
+- (void)tapIcon1View{
+    NSArray * lists = self.anthorList.list;
+    RCOneAnchorList * list1 = lists[0];
+    RCUserViewController * userVC = [[RCUserViewController alloc]init];
+    userVC.ID = list1.uid;
+    [[RCNavigationController navigationController] pushViewController:userVC animated:YES];
+}
+- (void)tapIcon2View{
+    NSArray * lists = self.anthorList.list;
+    RCOneAnchorList * list1 = lists[1];
+    RCUserViewController * userVC = [[RCUserViewController alloc]init];
+    userVC.ID = list1.uid;
+    [[RCNavigationController navigationController] pushViewController:userVC animated:YES];
+}
+- (void)tapIcon3View{
+    NSArray * lists = self.anthorList.list;
+    RCOneAnchorList * list1 = lists[2];
+    RCUserViewController * userVC = [[RCUserViewController alloc]init];
+    userVC.ID = list1.uid;
+    [[RCNavigationController navigationController] pushViewController:userVC animated:YES];
+}
 - (void)setAnthorList:(RCAnchorList *)anthorList{
     _anthorList = anthorList;
     NSArray * lists = anthorList.list;
-    [self.titleButton setTitle:anthorList.title forState:UIControlStateNormal];
 
     RCOneAnchorList * list1 = lists[0];
+    [self.titleButton setTitle:anthorList.title forState:UIControlStateNormal];
     self.title1Label.text = list1.nickname;
     [self.iocn1View sd_setImageWithURL:[NSURL URLWithString:list1.smallLogo] placeholderImage:[UIImage imageNamed:@"find_albumcell_cover_bg"]];
 

@@ -65,7 +65,11 @@
 
             break;
         case RCSearchViewModelDataTypeuser:
+        {
             imageName = @"find_hotUser_fans";
+
+
+        }
 
             break;
         case RCSearchViewModelDataTypeAudio:
@@ -88,11 +92,12 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     [RCNotificationCenter postNotificationName:searchResultVCEndExitingNotification object:nil];
-
     RCSearchResultList * result = self.searchResult[indexPath.row];
     [RCNotificationCenter postNotificationName:reloadSearchHistoryNotification object:nil userInfo:@{reloadSearchHistoryNotificationName:result}];
     [RCSearchTool saveSearchHistory:result];
     if (self.resultDataType == RCSearchViewModelDataTypeAll) {
+
+
 
     }else if (self.resultDataType == RCSearchViewModelDataTypeAlbum){
         RCAlbumDeailViewController * albumVc = [[RCAlbumDeailViewController alloc]init];
@@ -103,14 +108,12 @@
         RCUserViewController * userVC = [[RCUserViewController alloc]init];
         userVC.ID = result.ID;
         [[RCNavigationController navigationController] pushViewController:userVC animated:YES];
-
+        [RCNotificationCenter postNotificationName:addSearchResultVCNotification object:nil];
+        [RCNotificationCenter postNotificationName:sendSearchConditionNotification object:nil userInfo:@{sendSearchConditionNotificationName:result.title}];
     }else{
         [[RCPlayerView playerView] showAnimationing:^{
             [RCNotificationCenter postNotificationName:sendNetWorkingNotification object:nil userInfo:@{netWorkingTrackIdNotificationName:result.ID}];
-
-        } completion:^{
-
-        }];
+        } completion:nil];
 
     }
 

@@ -81,11 +81,19 @@ static NSString * const ID = @"searchCell";
     [self setUpTableView];
     [self setUpSearchBar];
     [self setUpNotificationCenter];
-    [self setUpNav];
     [self loadData];
 }
 - (void)setUpNav{
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"退出" style:UIBarButtonItemStyleDone target:self action:@selector(exit)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"取消" style:UIBarButtonItemStyleDone target:self action:@selector(cancle)];
+
+
+}
+-(void)cancle{
+    [self.resultDeailVC.view removeFromSuperview];
+    [self.resultVC.view removeFromSuperview];
+    self.searchBar.text = nil;
+    self.navigationItem.rightBarButtonItem = nil;
+    [self.searchBar resignFirstResponder];
 }
 -(void)setUpTableView{
     UITableView * tableView = [[UITableView alloc]init];
@@ -115,6 +123,8 @@ static NSString * const ID = @"searchCell";
 }
 - (void)setUpNotificationCenter{
     [RCNotificationCenter addObserver:self selector:@selector(end) name:searchResultVCEndExitingNotification object:nil];
+    [RCNotificationCenter addObserver:self selector:@selector(addSearchReusltVC) name:addSearchResultVCNotification object:nil];
+
     [RCNotificationCenter addObserver:self selector:@selector(selectedDataType:) name:searchDataTypeNotification object:nil];
     [RCNotificationCenter addObserver:self selector:@selector(keyBoardEnd) name:UIKeyboardDidHideNotification object:nil];
     [RCNotificationCenter addObserver:self selector:@selector(reloadSearchHistoryData:) name:reloadSearchHistoryNotification object:nil];
@@ -131,15 +141,17 @@ static NSString * const ID = @"searchCell";
     self.searchBar = searchBar;
 
 }
+
 #pragma mark - UISearchBarDelegate
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar{
     [self.resultDeailVC.view removeFromSuperview];
     [self.view addSubview:self.resultVC.view];
+    [self setUpNav];
 }
 
 - (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar{
     [self.resultVC.view removeFromSuperview];
-
+    self.navigationItem.rightBarButtonItem = nil;
 }
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
     if (searchText.length != 0) {
@@ -151,6 +163,10 @@ static NSString * const ID = @"searchCell";
 
         }];
     }
+
+}
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
+    [self exit];
 
 }
 
@@ -223,6 +239,11 @@ static NSString * const ID = @"searchCell";
 //    }
 }
 #pragma mark - private
+- (void)addSearchReusltVC{
+    [self setUpNav];
+    [self.view addSubview:self.resultDeailVC.view];
+
+}
 - (void)exit{
     [self.searchBar resignFirstResponder];
     [self.resultVC.view removeFromSuperview];
@@ -238,6 +259,7 @@ static NSString * const ID = @"searchCell";
     [cell.tagView removeAllTags];
     cell.tagView.didClickTagAtIndex = ^(NSUInteger index){
         NSString * text = texts[index];
+        [self setUpNav];
         [self.view addSubview:self.resultDeailVC.view];
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             self.resultDeailVC.condition = text;

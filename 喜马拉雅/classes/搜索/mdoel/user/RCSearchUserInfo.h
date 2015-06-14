@@ -75,6 +75,8 @@
 @property(nonatomic,copy) NSString  *location;
 @property(nonatomic,copy) NSString  *backgroundLogo;
 @property(nonatomic,copy) NSString  *mobileSmallLogo;
+@property(nonatomic,copy) NSString  *mobileLargeLogo;
+
 @property(nonatomic,copy) NSString  *personalSignature;
 @property(nonatomic,copy) NSString  *personDescribe;
 @property(nonatomic,copy) NSString  *ptitle;
