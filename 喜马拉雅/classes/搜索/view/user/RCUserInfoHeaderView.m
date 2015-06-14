@@ -42,7 +42,7 @@
     [self.avataIconVIew addGestureRecognizer:iconTap];
 
     UITapGestureRecognizer * tap =[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapLargeiconView)];
-    [self.largeIconView addGestureRecognizer:tap];
+    [self.contentView addGestureRecognizer:tap];
 }
 - (void)tapSmallIconView{
     RCUserInfoViewController * userInfoVC = [[RCUserInfoViewController alloc]init];

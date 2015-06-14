@@ -18,7 +18,7 @@
 @property (nonatomic, assign) CGFloat segmentMiniTopInset;
 @property (nonatomic, assign, readonly) CGFloat segmentToInset;
 @property(nonatomic,assign) NSUInteger selectedIndex;
-- (void)didSelectedSegmentIndex:(NSUInteger)index;
+- (void)didSelectedSegmentIndex:(NSUInteger)index; //此方法必须重载
 @property (nonatomic, weak, readonly) UIViewController<ARSegmentControllerDelegate> *currentDisplayController;
 
 @property (nonatomic, strong, readonly) UIView<ARSegmentPageControllerHeaderProtocol> *headerView;

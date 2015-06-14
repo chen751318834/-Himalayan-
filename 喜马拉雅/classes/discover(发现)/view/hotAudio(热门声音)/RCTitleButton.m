@@ -8,6 +8,7 @@
 
 #import "RCTitleButton.h"
 #import "UIView+Extension.h"
+#import "UIView+JHChainableAnimations.h"
 static const NSUInteger RCMargin = 5;
 @implementation RCTitleButton
 
@@ -16,8 +17,7 @@ static const NSUInteger RCMargin = 5;
     if ([super initWithFrame:frame]) {
         [self setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         self.titleLabel.font = [UIFont boldSystemFontOfSize:17];
-        [self setImage:[UIImage imageNamed:@"navigationbar_arrow_down"] forState:UIControlStateNormal];
-        [self setImage:[UIImage imageNamed:@"navigationbar_arrow_up"] forState:UIControlStateSelected];
+
     }
     
     return self;
@@ -31,6 +31,7 @@ static const NSUInteger RCMargin = 5;
 }
 - (void)layoutSubviews{
     [super layoutSubviews];
+
     self.titleLabel.x = self.imageView.x;
     self.imageView.x = CGRectGetMaxX(self.titleLabel.frame) + RCMargin;
 }
@@ -49,9 +50,6 @@ static const NSUInteger RCMargin = 5;
     // 只要修改了图片，就让按钮重新计算自己的尺寸
     [self sizeToFit];
 }
-- (void)setArrowUp:(BOOL)arrowUp{
-    _arrowUp = arrowUp;
-    self.selected = arrowUp;
 
-}
+
 @end

@@ -8,6 +8,7 @@
 
 #import "RCAnthorViewCell.h"
 #import "UIImageView+WebCache.h"
+#import "RCmoreHotAnthorViewController.h"
 #import "RCNavigationController.h"
 #import "RCUserViewController.h"
 #import "RCOneAnchorList.h"
@@ -78,5 +79,9 @@
     RCOneAnchorList * list3 = lists[2];
     self.title3Label.text = list1.nickname;
     [self.iocn3View sd_setImageWithURL:[NSURL URLWithString:list3.smallLogo] placeholderImage:[UIImage imageNamed:@"find_albumcell_cover_bg"]];
+}
+- (IBAction)titleButtonDidClicked:(UIButton *)sender {
+    RCmoreHotAnthorViewController * vc = [[RCmoreHotAnthorViewController alloc]init];
+    [[RCNavigationController navigationController] pushViewController:vc animated:YES];
 }
 @end

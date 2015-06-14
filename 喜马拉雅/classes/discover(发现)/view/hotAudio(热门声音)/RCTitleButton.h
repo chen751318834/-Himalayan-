@@ -9,9 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface RCTitleButton : UIButton
-/**
- *  箭头向上
- */
-@property (nonatomic, assign,getter=isArrowUp)BOOL arrowUp;
+
 
 @end
