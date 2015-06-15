@@ -7,7 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+@class RCRecordingInstructionsViewController;
 
+@protocol RCRecordingInstructionsViewControllerDelegate <NSObject>
+
+@required
+- (void)didScrollToEnd:(RCRecordingInstructionsViewController *)recordingInstructionsViewController;
+
+@end
 @interface RCRecordingInstructionsViewController : UIViewController
+@property(nonatomic,weak) id<RCRecordingInstructionsViewControllerDelegate>   delegate;
 
 @end

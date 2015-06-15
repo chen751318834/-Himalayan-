@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8121.17" systemVersion="14E33b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E33b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8101.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -24,46 +23,27 @@
                             <rect key="frame" x="8" y="0.0" width="584" height="200"/>
                             <subviews>
                                 <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wXf-re-q8g">
-                                    <rect key="frame" x="262" y="35" width="60" height="60"/>
+                                    <rect key="frame" x="262" y="40" width="60" height="60"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="60" id="E0H-WI-mom"/>
                                         <constraint firstAttribute="height" constant="60" id="nYm-ia-EEE"/>
                                     </constraints>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Raychen" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UUE-VH-xVc">
-                                    <rect key="frame" x="259" y="111" width="66" height="20.5"/>
+                                    <rect key="frame" x="258" y="116" width="67" height="20.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <color key="textColor" red="0.92156862750000001" green="0.96078431369999995" blue="1" alpha="0.96999999999999997" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="find_hot_albumV" translatesAutoresizingMaskIntoConstraints="NO" id="maW-Hz-JYE">
-                                    <rect key="frame" x="333" y="116" width="10" height="10"/>
+                                    <rect key="frame" x="333" y="121" width="10" height="10"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="10" id="jDP-yK-a0T"/>
                                         <constraint firstAttribute="height" constant="10" id="utQ-7m-A0t"/>
                                     </constraints>
                                 </imageView>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F1g-4B-jJu">
-                                    <rect key="frame" x="8" y="35" width="23" height="23"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" constant="23" id="0Ws-qR-jfd"/>
-                                        <constraint firstAttribute="height" constant="23" id="wmN-BH-ZYh"/>
-                                    </constraints>
-                                    <state key="normal" image="find_setting_h"/>
-                                    <state key="highlighted" image="find_setting_h"/>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="91D-Gw-nvw">
-                                    <rect key="frame" x="554" y="36" width="22" height="22"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="22" id="BPw-qM-YAJ"/>
-                                        <constraint firstAttribute="width" constant="22" id="fO2-Ve-Igx"/>
-                                    </constraints>
-                                    <state key="normal" image="cell_menu_share">
-                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                    </state>
-                                </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="这家伙很懒，什么也没留下" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3KP-xI-2gt">
-                                    <rect key="frame" x="8" y="139.5" width="568" height="20.5"/>
+                                    <rect key="frame" x="8" y="144" width="568" height="16"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                     <color key="textColor" red="0.92156862750000001" green="0.96078431369999995" blue="1" alpha="0.96999999999999997" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
@@ -72,19 +52,14 @@
                             <constraints>
                                 <constraint firstAttribute="height" constant="200" id="0gd-6G-8f3"/>
                                 <constraint firstItem="3KP-xI-2gt" firstAttribute="top" secondItem="UUE-VH-xVc" secondAttribute="bottom" constant="8" id="2hz-BF-TEW"/>
-                                <constraint firstItem="wXf-re-q8g" firstAttribute="top" secondItem="F1g-4B-jJu" secondAttribute="top" id="Gel-fF-B2F"/>
                                 <constraint firstItem="UUE-VH-xVc" firstAttribute="top" secondItem="wXf-re-q8g" secondAttribute="bottom" constant="16" id="HNa-kH-LKM"/>
-                                <constraint firstAttribute="trailing" secondItem="91D-Gw-nvw" secondAttribute="trailing" constant="8" id="HuE-jN-Ppv"/>
                                 <constraint firstItem="UUE-VH-xVc" firstAttribute="centerX" secondItem="wXf-re-q8g" secondAttribute="centerX" id="Hvb-tu-7TV"/>
                                 <constraint firstItem="maW-Hz-JYE" firstAttribute="centerY" secondItem="UUE-VH-xVc" secondAttribute="centerY" id="Nod-qW-sH0"/>
                                 <constraint firstItem="maW-Hz-JYE" firstAttribute="leading" secondItem="UUE-VH-xVc" secondAttribute="trailing" constant="8" id="Xfa-1e-a56"/>
                                 <constraint firstAttribute="trailing" secondItem="3KP-xI-2gt" secondAttribute="trailing" constant="8" id="bqf-SD-lpC"/>
-                                <constraint firstItem="91D-Gw-nvw" firstAttribute="centerY" secondItem="F1g-4B-jJu" secondAttribute="centerY" id="fFB-Bs-sqM"/>
                                 <constraint firstItem="wXf-re-q8g" firstAttribute="centerX" secondItem="70S-Lb-pCn" secondAttribute="centerX" id="kAk-K3-7a6"/>
                                 <constraint firstItem="3KP-xI-2gt" firstAttribute="leading" secondItem="70S-Lb-pCn" secondAttribute="leading" constant="8" id="pss-pD-aGV"/>
-                                <constraint firstItem="F1g-4B-jJu" firstAttribute="top" secondItem="70S-Lb-pCn" secondAttribute="top" constant="35" id="u2u-uc-Tmn"/>
                                 <constraint firstAttribute="bottom" secondItem="3KP-xI-2gt" secondAttribute="bottom" constant="40" id="uOb-mC-Xhu"/>
-                                <constraint firstItem="F1g-4B-jJu" firstAttribute="leading" secondItem="70S-Lb-pCn" secondAttribute="leading" constant="8" id="xQO-bL-5zy"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tlG-0v-kQI" userLabel="底部的view">
@@ -220,8 +195,6 @@
         <image name="bg_albumView_header" width="320" height="320"/>
         <image name="btn_record_h" width="260" height="42"/>
         <image name="btn_record_n" width="260" height="42"/>
-        <image name="cell_menu_share" width="33" height="33"/>
         <image name="find_hot_albumV" width="10" height="10"/>
-        <image name="find_setting_h" width="23" height="23"/>
     </resources>
 </document>

@@ -18,10 +18,16 @@
 
 @implementation RCRecordingInstructionsViewController
 
+
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [[RCBottomPlayerButton playingAudioButton] moveToTop];
+
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     [[RCBottomPlayerButton playingAudioButton] moveToBottom];
-    self.fd_prefersNavigationBarHidden = YES;
+//    self.fd_prefersNavigationBarHidden = YES;
     self.view.backgroundColor = [UIColor whiteColor];
     //UIScrollView
 
@@ -53,6 +59,8 @@
   [UIView animateWithDuration:0.25 animations:^{
       self.pageControl.currentPage = curentPage;
   }];
-
+    if (scrollView.contentOffset.x >= scrollView.bounds.size.width *5) {
+        [self.delegate didScrollToEnd:self];
+    }
 }
 @end

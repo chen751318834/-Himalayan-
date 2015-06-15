@@ -28,8 +28,8 @@ static NSString * const ID = @"meSettingCell";
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.fd_prefersNavigationBarHidden = YES;
     [self setUpHeaderView];
+    self.navigationItem.title = @"我";
     self.tableView.backgroundColor = RCGlobalBg;
 //    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:ID];
 }

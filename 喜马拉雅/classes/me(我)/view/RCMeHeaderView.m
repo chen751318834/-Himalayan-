@@ -71,15 +71,15 @@
 }
 
 - (IBAction)record:(id)sender {
-    RCRecordingInstructionsViewController * userRecordVC = [[RCRecordingInstructionsViewController alloc]init];
-//    RCRecordingViewController * recordVC = [[RCRecordingViewController alloc]init];
+//    RCRecordingInstructionsViewController * userRecordVC = [[RCRecordingInstructionsViewController alloc]init];
+    RCRecordingViewController * recordVC = [[RCRecordingViewController alloc]init];
 //    BOOL usedInstruction = [[[NSUserDefaults standardUserDefaults] valueForKey:@"usedInstructions"] boolValue];
-////    if (usedInstruction) {
-//        [[RCNavigationController navigationController] pushViewController:recordVC animated:YES];
+//    if (usedInstruction) {
+        [[RCNavigationController navigationController] pushViewController:recordVC animated:YES];
 //    }else{
-        [[RCNavigationController navigationController] pushViewController:userRecordVC animated:YES];
-
-//    }
+//        [[RCNavigationController navigationController] pushViewController:userRecordVC animated:YES];
+//
+////    }
 }
 
 

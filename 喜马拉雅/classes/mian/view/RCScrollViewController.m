@@ -22,12 +22,16 @@
     self.scrollView = scrollView;
     [self.view addSubview:scrollView];
     scrollView.frame = self.view.bounds;
-    scrollView.contentSize = CGSizeMake(self.view.bounds.size.width*self.viewControllers.count, 0);
     for (int i = 0; i<self.viewControllers.count; i++) {
         UIViewController * viewController = self.viewControllers[i];
         viewController.view.frame = CGRectMake(self.view.bounds.size.width*i, 0, self.view.bounds.size.width, self.view.bounds.size.height - 94);
         [scrollView addSubview:viewController.view];
     }
+   self.scrollView.contentSize = CGSizeMake(self.view.bounds.size.width*self.viewControllers.count, 0);
+}
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+
 
 }
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
